@@ -33,20 +33,50 @@ function greeting() {
 export function Home() {
   const { state, dispatch } = useApp()
   const [agent, setAgent] = useState(null)
+  const [agentError, setAgentError] = useState(false) // 生产防御：分析失败不白屏，降级展示
+  const [agentErrorMessage, setAgentErrorMessage] = useState('')
+  const [retryTick, setRetryTick] = useState(0)
   const [showWhy, setShowWhy] = useState(false)
   const [showEvidence, setShowEvidence] = useState(false) // V1.6.1：查看我的推理证据
   const [showEvidenceWhy, setShowEvidenceWhy] = useState(false) // R3 Phase 2.5：查看证据推荐依据
   const [caseLib, setCaseLib] = useState(null) // 案例库按需加载
   const hi = greeting()
 
-  // runAgent 依赖全量课程数据（curriculum 2MB+），异步加载：首屏先出问候，分析后台完成
+  // V1.6.1：洞察状态（行为变化驱动刷新）——必须置于所有条件 return 之前，
+  // 且下方对应的 useEffect 也必须在最顶层调用，保证任意渲染路径 Hook 数量一致
+  const insight = agent?.insight
+  const insightAccepted = !!state.insightState && !!insight && state.insightState.key === insight.key
+  const insightDone = insightAccepted && state.insightState?.done === true
+
+  // runAgent 依赖全量课程数据（curriculum 2MB+），异步加载：首屏先出问候，分析后台完成。
+  // 任何失败（chunk 加载 / runAgent 抛错）都降级为可用首页，绝不白屏。
   useEffect(() => {
     let alive = true
-    import('../agent/localAgentEngine').then((m) => {
-      if (alive) setAgent(m.runAgent(state))
-    })
+    import('../agent/localAgentEngine')
+      .then((m) => {
+        if (!alive) return
+        let result
+        try {
+          result = m.runAgent(state)
+        } catch (e) {
+          console.error('[Agent] runAgent 失败（已降级）', e)
+          if (alive) {
+            setAgentErrorMessage(String(e?.message || e))
+            setAgentError(true)
+          }
+          return
+        }
+        if (alive) setAgent(result)
+      })
+      .catch((e) => {
+        console.error('[Agent] 模块加载失败（已降级）', e)
+        if (alive) {
+          setAgentErrorMessage(String(e?.message || e))
+          setAgentError(true)
+        }
+      })
     return () => { alive = false }
-  }, [state])
+  }, [state, retryTick])
 
   // 案例库按需加载：仅当展开「推理证据」时拉取（避免首包带 cases.js 142KB）
   useEffect(() => {
@@ -57,6 +87,47 @@ export function Home() {
     })
     return () => { alive = false }
   }, [showEvidence, caseLib])
+
+  // V1.6.1：洞察持久化——行为显著变化时把新洞察写入状态；无变化保留原洞察
+  // （放在所有条件 return 之前，Hook 规则要求任意渲染路径调用数量一致）
+  useEffect(() => {
+    if (!insight) return
+    const stored = state.insightState
+    const sameKey = stored?.key === insight.key
+    const sameSnap = !!stored?.snapshot && !shouldRefreshInsight(stored.snapshot, insight.snapshot)
+    if (!sameKey || !sameSnap) {
+      const { snapshot, ...content } = insight
+      dispatch({ type: 'SYNC_INSIGHT', key: insight.key, caseId: insight.caseId, snapshot, content })
+    }
+  }, [insight?.key, insight?.snapshot, state.insightState?.key, state.insightState?.snapshot])
+
+  // 分析失败降级：完整功能入口仍在，仅 Agent 板块暂时不可用，绝不白屏
+  if (agentError) {
+    return (
+      <div>
+        <section className="hero card-ink" style={{ background: 'linear-gradient(150deg,#1c1a17,#2a2620)' }}>
+          <div className="hero-orb" />
+          <div className="spread" style={{ position: 'relative' }}>
+            <span className="eyebrow" style={{ color: 'var(--amber)', letterSpacing: 3, fontSize: 12 }}>XUANXUE LAB</span>
+            <span className="pill" style={{ background: 'rgba(217,164,65,0.18)', color: 'var(--amber)' }}>⏳ 分析暂不可用</span>
+          </div>
+          <h1 className="display" style={{ fontSize: 32, marginTop: 14 }}>
+            {hi.emoji} {hi.text}。
+          </h1>
+          <p style={{ color: '#e8ddc8', fontSize: 16, lineHeight: 1.7, marginTop: 8, maxWidth: 560 }}>
+            学习分析暂时没能跑起来，但下面所有功能都能正常使用。点「重试分析」再试一次。
+          </p>
+          {agentErrorMessage && (
+            <p className="tiny" style={{ color: '#e0a08a', marginTop: 10, maxWidth: 640 }}>诊断信息：{agentErrorMessage}</p>
+          )}
+          <button className="btn btn-primary mt-16" onClick={() => { setAgentError(false); setRetryTick((t) => t + 1) }}>
+            重试分析 ↻
+          </button>
+        </section>
+        <HomeQuickLinks />
+      </div>
+    )
+  }
 
   // 等待 agent 计算完成时，先渲染轻量首屏（问候 + 每日谜题 + 快速入口）
   if (!agent) {
@@ -93,22 +164,7 @@ export function Home() {
 
   const action = agent.nextAction
 
-  // V1.6.1：洞察状态（行为变化驱动刷新，不再按日期去重）
-  const insight = agent.insight
-  const insightAccepted = !!state.insightState && !!insight && state.insightState.key === insight.key
-  const insightDone = insightAccepted && state.insightState?.done === true
-
-  // V1.6.1：洞察持久化——行为显著变化时把新洞察写入状态；无变化保留原洞察
-  useEffect(() => {
-    if (!insight) return
-    const stored = state.insightState
-    const sameKey = stored?.key === insight.key
-    const sameSnap = !!stored?.snapshot && !shouldRefreshInsight(stored.snapshot, insight.snapshot)
-    if (!sameKey || !sameSnap) {
-      const { snapshot, ...content } = insight
-      dispatch({ type: 'SYNC_INSIGHT', key: insight.key, caseId: insight.caseId, snapshot, content })
-    }
-  }, [insight?.key, insight?.snapshot, state.insightState?.key, state.insightState?.snapshot])
+  // V1.6.1：洞察状态（行为变化驱动刷新，不再按日期去重）——定义已上移置组件顶层，此处复用
 
   function actionTarget() {
     switch (action.type) {

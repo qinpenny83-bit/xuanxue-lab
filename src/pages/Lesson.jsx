@@ -88,19 +88,14 @@ export function LessonRunner({ lessonId }) {
   const booted = useRef(false)
 
   const lesson = getLesson(lessonId)
-
-  if (!lesson) {
-    return <EmptyState title="找不到这节课" desc="它可能已被移除。" action={<button className="btn" onClick={() => navigate('/lesson')}>返回课堂</button>} />
-  }
-
-  const nodeId = lesson.nodeId
+  const nodeId = lesson?.nodeId
   const progress = nodeId ? state.lessonProgress?.[nodeId] : null
   const attemptId = progress?.currentAttemptId || null
   // 题目位置唯一事实源：进度记录（刷新/退出后从 localStorage 恢复）
-  const idx = Math.min(progress?.currentQuestionIndex || 0, lesson.steps.length)
-  const node = getCurriculumNode(lesson.nodeId) || getNode(lesson.nodeId)
+  const idx = Math.min(progress?.currentQuestionIndex || 0, lesson?.steps.length || 0)
+  const node = (lesson && (getCurriculumNode(lesson.nodeId) || getNode(lesson.nodeId))) || null
 
-  // 进入课程时的定位（只执行一次）：
+  // 进入课程时的定位（只执行一次）——Hook 必须置于所有条件 return 之前：
   //   completed     → 已完成状态页（不再重放第一题）
   //   in_progress   → 恢复上次进度（跳过已完成题，从第一个未完成题继续）
   //   not_started   → 开启新 attempt（从 Q1 开始）
@@ -133,6 +128,10 @@ export function LessonRunner({ lessonId }) {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
+
+  if (!lesson) {
+    return <EmptyState title="找不到这节课" desc="它可能已被移除。" action={<button className="btn" onClick={() => navigate('/lesson')}>返回课堂</button>} />
+  }
 
   function startNewAttempt() {
     dispatch({
