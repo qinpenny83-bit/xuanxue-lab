@@ -1,0 +1,233 @@
+// ============================================================
+// 知识库：13 个知识点。UI 只消费此数据，实现「数据 / UI 分离」。
+// 每个节点都带 前提、概念、生活化解释、例子、常见误解、关联训练。
+// ============================================================
+
+export const KNOWLEDGE_NODES = [
+  {
+    id: 'yin-yang',
+    title: '阴阳',
+    category: 'bazi',
+    level: 1,
+    prerequisite: null,
+    emoji: '☯',
+    concept: '阴阳是一套描述「相对、互补、互相转化」的二分视角，而不是善恶或好坏。',
+    simpleExplanation:
+      '阴与阳总是成对出现：动与静、热与寒、白天与黑夜。没有绝对的阳，也没有绝对的阴，它们互相依存、可以转化。',
+    example:
+      '同一个人，白天专注工作（偏阳），晚上安静休息（偏阴）。不是「工作好、休息坏」，而是两种状态在切换。',
+    commonMistakes: [
+      '把「阴」等同于坏、弱、消极，把「阳」等同于好、强、积极。',
+      '认为一个人要么属阴要么属阳，忽略了状态会随时间转化。',
+    ],
+    relatedKnowledge: ['five-elements', 'heavenly-stems', 'bagua'],
+    challengeIds: ['case-004'],
+    experimentIds: ['exp-005'],
+  },
+  {
+    id: 'five-elements',
+    title: '五行',
+    category: 'bazi',
+    level: 1,
+    prerequisite: 'yin-yang',
+    emoji: '🌳',
+    concept: '五行（木火土金水）不是五种「物质元素」，而是五种「关系类别与运动状态」。',
+    simpleExplanation:
+      '五行真正的核心不是「几个」，而是它们之间的生与克。木生火、火生土、土生金、金生水、水生木；木克土、土克水、水克火、火克金、金克木。',
+    example:
+      '同样是「木」很多，如果整体结构里木被金克、或木得不到水来生，它的「作用」就不同。所以不能只看数量。',
+    commonMistakes: [
+      '把五行理解成字面上的五种物质。',
+      '「我五行缺 X」就直接等于「我缺少某种命运/性格」，忽略了整体结构。',
+    ],
+    relatedKnowledge: ['generating-restraining', 'heavenly-stems', 'earthly-branches'],
+    challengeIds: ['case-003', 'case-002'],
+    experimentIds: ['exp-001', 'exp-002'],
+  },
+  {
+    id: 'heavenly-stems',
+    title: '天干',
+    category: 'bazi',
+    level: 1,
+    prerequisite: 'yin-yang',
+    emoji: '甲乙',
+    concept: '天干是甲乙丙丁戊己庚辛壬癸十个符号，每个都带阴阳与五行属性，用于纪年、月、日、时。',
+    simpleExplanation:
+      '甲=阳木、乙=阴木、丙=阳火、丁=阴火、戊=阳土、己=阴土、庚=阳金、辛=阴金、壬=阳水、癸=阴水。',
+    example: '「甲」和「乙」都属木，但甲更偏「生发、主动」，乙更偏「柔韧、迂回」。',
+    commonMistakes: ['背不住天干的五行归属就直接推理。', '忽略干有阴阳之分，只看五行。'],
+    relatedKnowledge: ['five-elements', 'earthly-branches', 'day-master'],
+    challengeIds: ['case-001'],
+    experimentIds: ['exp-003'],
+  },
+  {
+    id: 'earthly-branches',
+    title: '地支',
+    category: 'bazi',
+    level: 1,
+    prerequisite: 'yin-yang',
+    emoji: '子丑',
+    concept: '地支是子丑寅卯辰巳午未申酉戌亥十二个符号，对应时辰、生肖、月令，也带五行属性。',
+    simpleExplanation:
+      '一天 12 个时辰用十二地支表示；一年 12 个月也用十二地支（寅月为正月）。它们在八字里是「位置」，不是简单的动物标签。',
+    example: '午夜 23 点—1 点是子时（子）；一年里立春之后是寅月……地支首先是一个「时间坐标」。',
+    commonMistakes: ['把地支只当作「生肖/属相」。', '不知道地支在一天和一年里各代表什么。'],
+    relatedKnowledge: ['heavenly-stems', 'five-elements', 'luck-cycle'],
+    challengeIds: ['case-005'],
+    experimentIds: ['exp-005'],
+  },
+  {
+    id: 'generating-restraining',
+    title: '生克',
+    category: 'bazi',
+    level: 2,
+    prerequisite: 'five-elements',
+    emoji: '🔄',
+    concept: '生与克是五行之间的两种基本关系：生是促进，克是约束，都不是「好」或「坏」。',
+    simpleExplanation:
+      '木生火、火生土、土生金、金生水、水生木（相生循环）；木克土、土克水、水克火、火克金、金克木（相克循环）。',
+    example:
+      '水能让木生长（水生木），但如果水太多也会把木泡烂。所以判断时不只看「有没有生克」，还要看强弱配比。',
+    commonMistakes: ['把「克」当成凶、把「生」当成吉。', '只记住单向，忽略循环。'],
+    relatedKnowledge: ['five-elements', 'ten-gods', 'strength'],
+    challengeIds: ['case-003'],
+    experimentIds: ['exp-002'],
+  },
+  {
+    id: 'ten-gods',
+    title: '十神',
+    category: 'bazi',
+    level: 2,
+    prerequisite: 'heavenly-stems',
+    emoji: '🔟',
+    concept: '十神是以「日主」为参照，用生克关系 + 阴阳相同/不同，划分出的十种「关系标签」。',
+    simpleExplanation:
+      '同我=比肩/劫财；生我=正印/偏印；我生=食神/伤官；克我=正官/七杀；我克=正财/偏财。阴阳相同与不同再各分一组。',
+    example: '日主是甲（阳木）。己（阴土）是「我克、阴阳不同」，所以己对甲而言是正财。',
+    commonMistakes: ['把十神当成品行标签（如「七杀=凶」）。', '记不住参照点是日主。'],
+    relatedKnowledge: ['day-master', 'generating-restraining', 'strength'],
+    challengeIds: ['case-001', 'case-006'],
+    experimentIds: ['exp-003'],
+  },
+  {
+    id: 'day-master',
+    title: '日主',
+    category: 'bazi',
+    level: 2,
+    prerequisite: 'heavenly-stems',
+    emoji: '🎯',
+    concept: '日主是日柱的天干，代表分析中的「我」，是所有十神与旺衰判断的参照点。',
+    simpleExplanation: '排好四柱后，先看日柱天干是谁，再以它为原点去看其他七个字的生克关系。',
+    example: '日柱是「甲寅」，日主就是「甲」；其余的年、月、时柱都围绕「甲」来定关系。',
+    commonMistakes: ['不知道谁是日主就开始下结论。', '把年柱干支当成「我」。'],
+    relatedKnowledge: ['ten-gods', 'strength', 'heavenly-stems'],
+    challengeIds: ['case-001'],
+    experimentIds: ['exp-004'],
+  },
+  {
+    id: 'strength',
+    title: '旺衰',
+    category: 'bazi',
+    level: 3,
+    prerequisite: 'generating-restraining',
+    emoji: '⚖️',
+    concept: '旺衰是判断日主强弱的综合过程，要看「得令、得地、得势」，而不是数五行个数。',
+    simpleExplanation:
+      '得令：日主五行在月令是否当旺；得地：地支是否有根；得势：其他干支是否生扶日主。三者合起来才有意义。',
+    example: '一个八字里木很多，但如果月令正值秋季金旺，木未必「旺」。数量 ≠ 旺衰。',
+    commonMistakes: [
+      '用五行数量直接代替旺衰。',
+      '只看得令不看整体，或只看一个字就定强弱。',
+    ],
+    relatedKnowledge: ['generating-restraining', 'day-master', 'ten-gods'],
+    challengeIds: ['case-003'],
+    experimentIds: ['exp-004'],
+  },
+  {
+    id: 'luck-cycle',
+    title: '大运',
+    category: 'bazi',
+    level: 2,
+    prerequisite: 'earthly-branches',
+    emoji: '🗓',
+    concept: '大运是传统命理里「十年一步」的人生阶段划分，用干支表示一段时间的整体背景。',
+    simpleExplanation:
+      '传统观点认为，命局是「底色」，大运是「阶段背景」；底色相同，不同阶段背景会带来不同倾向。',
+    example: '同一命局，在「木旺的十年」和「金旺的十年」，传统上会给出不同的重点描述。',
+    commonMistakes: ['把大运当成「某年一定发生某事」的预言。', '忽略大运是「背景」而非「结果」。'],
+    relatedKnowledge: ['annual-cycle', 'earthly-branches'],
+    challengeIds: ['case-004'],
+    experimentIds: ['exp-005'],
+  },
+  {
+    id: 'annual-cycle',
+    title: '流年',
+    category: 'bazi',
+    level: 2,
+    prerequisite: 'luck-cycle',
+    emoji: '📅',
+    concept: '流年就是每一年的干支，传统上把它与命局、大运放在一起做「叠加」观察。',
+    simpleExplanation: '流年是一层更细的「年度背景」，通常先看大运背景，再看流年。',
+    example: '犯太岁只是说某流年地支与生肖地支的一种关系，传统上被当作需要留意的信号，并不能推出具体事件。',
+    commonMistakes: ['把「犯太岁」直接等同于「今年一定倒霉」。', '脱离大运和命局单看流年。'],
+    relatedKnowledge: ['luck-cycle', 'earthly-branches'],
+    challengeIds: ['case-006'],
+    experimentIds: ['exp-003'],
+  },
+  {
+    id: 'bagua',
+    title: '八卦',
+    category: 'iching',
+    level: 1,
+    prerequisite: 'yin-yang',
+    emoji: '☰',
+    concept: '八卦是由阴爻、阳爻三画组成的八个基本符号（乾兑离震巽坎艮坤），代表八类事物与状态。',
+    simpleExplanation:
+      '乾为天、兑为泽、离为火、震为雷、巽为风、坎为水、艮为山、坤为地。它们是分类，不是吉凶。',
+    example: '「坎」是水，也常象征「险、陷」——但它同时是「流动、适应」的意象，怎么读取决于语境。',
+    commonMistakes: ['把某个卦固定理解为吉或凶。', '把卦名和八卦符号混淆。'],
+    relatedKnowledge: ['hexagrams', 'divination'],
+    challengeIds: ['case-002'],
+    experimentIds: ['exp-002'],
+  },
+  {
+    id: 'hexagrams',
+    title: '六十四卦',
+    category: 'iching',
+    level: 2,
+    prerequisite: 'bagua',
+    emoji: '䷀',
+    concept: '六十四卦由上下两卦相叠而成，每卦六爻，是《周易》的基本单元。',
+    simpleExplanation: '上卦在外、下卦在内；结合卦名、爻位、动爻去理解一个「变化中的情境」。',
+    example: '上乾下坤是「否」，上坤下乾是「泰」——同样的两组卦，位置一换含义就变。',
+    commonMistakes: ['只看卦名背书，不看上下卦怎么组合。', '忽略动爻和变卦。'],
+    relatedKnowledge: ['bagua', 'divination'],
+    challengeIds: ['case-005'],
+    experimentIds: ['exp-001'],
+  },
+  {
+    id: 'divination',
+    title: '起卦',
+    category: 'iching',
+    level: 2,
+    prerequisite: 'bagua',
+    emoji: '🎲',
+    concept: '起卦是用一套明确的规则（时间、数字、铜钱）确定当前所指的卦象，关键是过程可重复、可解释。',
+    simpleExplanation:
+      '起卦只是「生成一个可观察的符号框架」；真正的价值在于拿这个框架去结构化地思考问题，而不是「得出神谕」。',
+    example: '用三个数字起卦，上卦、下卦、动爻都由数字规则确定；换个数字就换一个卦，规则透明。',
+    commonMistakes: ['把起卦结果当成「神给的答案」。', '只关心卦名，不关心动爻与变卦。'],
+    relatedKnowledge: ['bagua', 'hexagrams'],
+    challengeIds: ['case-006'],
+    experimentIds: ['exp-003'],
+  },
+]
+
+export const KNOWLEDGE_BY_ID = KNOWLEDGE_NODES.reduce((acc, n) => {
+  acc[n.id] = n
+  return acc
+}, {})
+
+export function getNode(id) {
+  return KNOWLEDGE_BY_ID[id] || null
+}

@@ -1,0 +1,235 @@
+// ============================================================
+// 奇门遁甲学院案例（CASES_QIMEN_1，case-qm-01 ~ case-qm-03）
+// 主题：事业盘例 / 寻物盘例 / 出行盘例
+// ============================================================
+
+export const CASES_QIMEN_1 = [
+  {
+    id: 'case-qm-01',
+    title: '「开门落宫」与跳槽',
+    difficulty: 2,
+    level: 2,
+    levelName: '基础',
+    category: 'qimen',
+    blindTest: false,
+    subject: '一位想换工作的人',
+    minutes: 7,
+    relatedNodes: ['qm-b1', 'qm-a1', 'qm-j2'],
+    trainingTag: 'info',
+    infoSufficiency: 'insufficient',
+    mode: 'guided',
+    situation: [
+      '他排了一局奇门盘，看到「开门」落在离宫，网上资料说开门主事业、离宫属火。',
+      '朋友说：开门得位，事业有发展，可以放心跳槽。',
+      '另一位懂奇门的人说：光看开门落宫不够，还要看用神、时令与格局，现在信息太少。',
+    ],
+    chartLabel: '盘面线索与争议',
+    chart: [
+      { key: '盘面线索', value: '开门落离宫（火），网上说法「开门主事业」' },
+      { key: '争议', value: '能否仅凭这一条判断跳槽时机' },
+    ],
+    challenges: [
+      {
+        type: 'choice',
+        dimension: 'rule',
+        prompt: '关于「开门落离宫」，最接近奇门体系内处理方式的是？',
+        options: [
+          { text: '开门是事业类用神之一，但落宫只是起点，还要看旺衰、格局与其他用神关系', points: 3, feedback: '对，落宫只是结构入口。' },
+          { text: '开门落离宫就是事业好', points: 0, errorType: 'E01', feedback: '把单一符号直接翻译成结论。' },
+          { text: '开门在哪不重要', points: 0, errorType: 'E01', feedback: '又从一端跳到另一端。' },
+        ],
+      },
+      {
+        type: 'choice',
+        dimension: 'reasoning',
+        prompt: '朋友「可以放心跳槽」的说法，问题出在哪？',
+        options: [
+          { text: '把单一符号直接翻译成现实行动建议，跳过了旺衰、格局与现实证据', points: 3, feedback: '对，盘面结论不能替代现实决策。' },
+          { text: '没有问题，奇门就是看开门', points: 0, errorType: 'E01', feedback: '把用神之一当成全部。' },
+          { text: '朋友不懂奇门，所以不能信', points: 0, errorType: 'E03', feedback: '归因于「不懂」而不是检查推理。' },
+        ],
+      },
+      {
+        type: 'analysis',
+        dimension: 'evidence',
+        prompt: '要判断跳槽时机，需要补充什么？',
+        keywords: ['用神', '时令', '旺衰', '格局', '门迫', '空亡', 'Offer', '面试', '现实'],
+        placeholder: '例如：求测用神（日干/年命）落宫如何、开门旺衰、当前时令是否生助、现实中的 Offer 进展……',
+      },
+      {
+        type: 'conclusion',
+        dimension: 'boundary',
+        prompt: '仅凭「开门落离宫」能否给出跳槽建议？',
+        options: [
+          { text: '不能，单点信息不足以支撑行动建议；需要完整盘面与现实证据，目前无法判断是否适合跳槽', points: 3, feedback: '对，单点线索撑不起行动建议。' },
+          { text: '能，开门好就可以跳', points: 0, errorType: 'E01', feedback: '盘面结论直接替代现实决策。' },
+          { text: '能，但需要再排一局确认', points: 0, errorType: 'E03', feedback: '重复起局不是补证据的方法。' },
+        ],
+      },
+      {
+        type: 'confidence',
+        dimension: 'over',
+        prompt: '你对「盘面需合看、现实需合参」的信心是多少？',
+      },
+    ],
+    reveal: {
+      realBackground: '奇门中开门通常被归为事业相关用神，但判断需要组合：落宫旺衰、格局（门迫、伏吟等）、时令、用神关系，以及现实信息。单看开门落宫是典型的简化。',
+      expectedReasoning: '正确路径：先确认盘面完整信息（用神、旺衰、格局）→ 结合时令 → 叠加现实证据（Offer、岗位匹配）→ 得出带不确定性的结论。',
+      otherMayHold: '不同奇门流派（转盘、飞盘；时家、日家）起局与取用有差异，对「开门」的权重也不尽相同，但没有流派主张单看一个门落宫下结论。',
+      takeaway: '开门只是入口，不是结论——盘要合看，事要合参。',
+    },
+    commonMistakes: ['单看一个门落宫下结论（E01）。', '把网络口诀当成完整方法（E03）。', '用盘面结论直接替代现实决策（E01）。'],
+  },
+  {
+    id: 'case-qm-02',
+    title: '丢了的证件，往哪个方向找？',
+    difficulty: 3,
+    level: 3,
+    levelName: '推理',
+    category: 'qimen',
+    blindTest: false,
+    subject: '一位丢了身份证的人',
+    minutes: 8,
+    relatedNodes: ['qm-j4', 'qm-a4', 'qm-s3'],
+    trainingTag: 'mislead',
+    infoSufficiency: 'insufficient',
+    mode: 'guided',
+    situation: [
+      '他身份证丢了，按时间起了一局奇门。',
+      '盘上「值符」落坎宫，有人告诉他：坎为北，往北找；另有人说看伤门、杜门与失物类神，不一定在北方。',
+      '他昨天去过南边的商场和北边的地铁站，两个方向都有线索。',
+    ],
+    chartLabel: '失物方向的两层线索',
+    chart: [
+      { key: '说法 A', value: '值符落坎宫 → 往北找' },
+      { key: '说法 B', value: '要看失物类神与门星组合，不能只看值符方位' },
+    ],
+    challenges: [
+      {
+        type: 'choice',
+        dimension: 'reasoning',
+        prompt: '关于失物方向判断，最合理的说法是？',
+        options: [
+          { text: '方位是多重线索之一，要结合类神、门星、空亡与他的实际动线综合判断', points: 3, feedback: '对，多线索交叉才可靠。' },
+          { text: '值符落哪就往哪找，不会错', points: 0, errorType: 'E01', feedback: '单一符号定方位是典型简化。' },
+          { text: '奇门不能找东西', points: 0, errorType: 'E06', feedback: '用全盘否定代替具体分析。' },
+        ],
+      },
+      {
+        type: 'choice',
+        dimension: 'info',
+        prompt: '两个方向都有现实线索，最合理的处理是？',
+        options: [
+          { text: '把盘面线索（类神、门星）与动线记录（南商场/北地铁）交叉比对，而不是只信一个方位', points: 3, feedback: '对，盘面与动线互为校验。' },
+          { text: '信值符，只去北边找', points: 0, errorType: 'E01', feedback: '用单一盘面符号覆盖现实证据。' },
+          { text: '两个方向都去，总能找到', points: 0, errorType: 'E03', feedback: '地毯式搜索是行为方案，不等于盘面判断。' },
+        ],
+      },
+      {
+        type: 'analysis',
+        dimension: 'evidence',
+        prompt: '要提高找失物的成功率，你需要什么信息？',
+        keywords: ['动线', '时间', '类神', '门星', '空亡', '最后使用地点', '问过的人'],
+        placeholder: '例如：身份证最后一次使用的地点、当天动线时间线、盘面失物类神与空亡情况……',
+      },
+      {
+        type: 'conclusion',
+        dimension: 'boundary',
+        prompt: '关于「往哪个方向找」，最负责任的结论是？',
+        options: [
+          { text: '结合动线记录与盘面多重线索给出方向优先级，并承认不确定性；信息不足时，无法判断唯一的方位', points: 3, feedback: '对，给出带优先级的方案而不是唯一答案。' },
+          { text: '盘说北就只找北，其余不用管', points: 0, errorType: 'E01', feedback: '单一符号决定搜索方案。' },
+          { text: '直接补办，不用找', points: 0, errorType: 'E01', feedback: '跳过盘面与动线证据直接放弃。' },
+        ],
+      },
+      {
+        type: 'confidence',
+        dimension: 'over',
+        prompt: '你对「盘面与动线交叉比对」的信心是多少？',
+      },
+    ],
+    reveal: {
+      realBackground: '奇门寻物在传统上会综合值符、类神（失物对应六亲或门星）、方位、空亡等线索，而不是单一值符定方位；且要结合失主动线与最后使用地点。',
+      expectedReasoning: '正确路径：记录动线时间线 → 读取盘面多重线索（类神、门、星、空亡）→ 与动线交叉 → 给出带优先级的搜索方案，并保留不确定性。',
+      otherMayHold: '不同流派对失物类神的取用不同（有的以日干、有的以六亲、有的以宫位），方位结论可能不同；因此不存在单一「必中」方位。',
+      takeaway: '找失物靠的是线索交叉：盘面是一层，动线是一层。',
+    },
+    commonMistakes: ['单看值符定方位（E01）。', '把盘面结论当成搜索唯一依据（E01）。', '忽略现实动线证据（E07）。'],
+  },
+  {
+    id: 'case-qm-03',
+    title: '出差选日子：两局两说',
+    difficulty: 4,
+    level: 4,
+    levelName: '综合',
+    category: 'qimen',
+    blindTest: false,
+    subject: '一位要出差的人',
+    minutes: 9,
+    relatedNodes: ['qm-h2', 'qm-a3', 'qm-j5'],
+    trainingTag: 'conflict',
+    infoSufficiency: 'insufficient',
+    mode: 'guided',
+    situation: [
+      '他下周要出差谈一个重要的合作，想看看哪天出发比较合适。',
+      '他请两位师傅各起一局：甲师傅用转盘奇门，说周三「开门」方位有利；乙师傅用飞盘奇门，说周三那局「星门伏吟」，建议改周五。',
+      '合作方只给了周三和周五两个选项。',
+    ],
+    chartLabel: '两套起局体系，两种建议',
+    chart: [
+      { key: '甲师傅（转盘）', value: '周三开门方位有利 → 建议周三' },
+      { key: '乙师傅（飞盘）', value: '周三伏吟，建议周五' },
+    ],
+    challenges: [
+      {
+        type: 'choice',
+        dimension: 'reasoning',
+        prompt: '两位师傅结论不同的根本原因是？',
+        options: [
+          { text: '转盘与飞盘是两套起局与排布体系，同一时间盘的取象可能不同，结论差异源于体系差异', points: 3, feedback: '对，起局规则不同，盘面取象就不同。' },
+          { text: '有一方水平不够', points: 0, errorType: 'E06', feedback: '把体系差异归因于水平。' },
+          { text: '有一方在迎合合作方', points: 0, errorType: 'E06', feedback: '归因于动机是没有证据的。' },
+        ],
+      },
+      {
+        type: 'choice',
+        dimension: 'rule',
+        prompt: '面对「伏吟」的说法，最合理的态度是？',
+        options: [
+          { text: '把「伏吟」当作该派观点中的一种结构标记，了解其在该派里的含义与权重，再与其他证据并列', points: 3, feedback: '对，先识别它是哪派的结构语言。' },
+          { text: '伏吟就是出行不顺的意思', points: 0, errorType: 'E01', feedback: '把结构标记直接翻译成事件。' },
+          { text: '伏吟太专业，不用管', points: 0, errorType: 'E03', feedback: '回避术语不等于处理了信息。' },
+        ],
+      },
+      {
+        type: 'analysis',
+        dimension: 'evidence',
+        prompt: '在两日之间做选择，你需要什么信息？',
+        keywords: ['合作方时间', '航班', '会议安排', '流派依据', '盘面细节', '现实优先级', '决策权重'],
+        placeholder: '例如：合作的现实约束（对方只有这两天）、航班时段、两位师傅各自的完整盘面依据……',
+      },
+      {
+        type: 'conclusion',
+        dimension: 'boundary',
+        prompt: '关于出差日期，最负责任的结论是？',
+        options: [
+          { text: '以现实约束为主，流派说法作为参考；两派冲突且无法互相证伪时，承认无法判断哪一天「更优」，按合作需要决定', points: 3, feedback: '对，现实约束是决策主轴。' },
+          { text: '听甲师傅的，转盘更流行', points: 0, errorType: 'E03', feedback: '流行不是证据。' },
+          { text: '听乙师傅的，伏吟要避开', points: 0, errorType: 'E03', feedback: '单派术语直接定决策。' },
+        ],
+      },
+      {
+        type: 'confidence',
+        dimension: 'over',
+        prompt: '你对「现实约束优先、流派说法作参考」的信心是多少？',
+      },
+    ],
+    reveal: {
+      realBackground: '转盘与飞盘是奇门的两套排布体系，起局规则不同，同一时间的盘面与取象可能有差异；「伏吟」在飞盘传统里被用作结构标记，但其权重与应验说法因流派而异。',
+      expectedReasoning: '正确路径：识别两套体系 → 记录各自依据 → 以现实约束（合作方时间、航班）为主要决策变量 → 流派结论降级为参考 → 承认无法判断并决策。',
+      otherMayHold: '奇门内部流派分歧（转盘/飞盘、时家/日家、置闰/拆补）在起局环节就有差异；不同流派对「伏吟」吉凶的判断也不统一。',
+      takeaway: '体系不同，结论不同；决策时先看现实约束，再看盘面参考。',
+    },
+    commonMistakes: ['把流派起局差异归因于水平（E06）。', '以「更流行」作为选择依据（E03）。', '让盘面结论凌驾于现实约束（E01）。'],
+  },
+]

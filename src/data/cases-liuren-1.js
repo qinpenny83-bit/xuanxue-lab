@@ -1,0 +1,235 @@
+// ============================================================
+// 大六壬学院案例（CASES_LIUREN_1，case-lr-01 ~ case-lr-03）
+// 主题：求财课例 / 感情课例 / 失物课例
+// ============================================================
+
+export const CASES_LIUREN_1 = [
+  {
+    id: 'case-lr-01',
+    title: '「财星乘驿马」就是求财顺利吗？',
+    difficulty: 1,
+    level: 1,
+    levelName: '入门',
+    category: 'liuren',
+    blindTest: false,
+    subject: '一位想了解求财课的人',
+    minutes: 6,
+    relatedNodes: ['lr-c1', 'lr-s3', 'lr-j2'],
+    trainingTag: 'mislead',
+    infoSufficiency: 'insufficient',
+    mode: 'guided',
+    situation: [
+      '他自学六壬，排了一课，看到「财爻」乘驿马，网上说这是「财动」之象。',
+      '他高兴地对朋友说：这课显示我求财会顺利。',
+      '朋友提醒他：六壬断课要看课传整体、类神旺衰与三传走向，单看财星乘驿马远远不够。',
+    ],
+    chartLabel: '单点线索 vs 完整断法',
+    chart: [
+      { key: '单点线索', value: '财爻乘驿马 → 网络说法「财动」' },
+      { key: '完整断法', value: '课传整体、类神旺衰、三传、年命加临' },
+    ],
+    challenges: [
+      {
+        type: 'choice',
+        dimension: 'rule',
+        prompt: '关于「财爻乘驿马」，最接近六壬体系内处理方式的是？',
+        options: [
+          { text: '它只是求财判断的线索之一，还要看三传走向、类神旺衰与课体吉凶', points: 3, feedback: '对，单点要放进整体结构。' },
+          { text: '财爻乘驿马就是财运要来', points: 0, errorType: 'E01', feedback: '单点取象直接断财。' },
+          { text: '驿马主奔波，所以财会跑掉', points: 0, errorType: 'E01', feedback: '换了种取象，还是单点定论。' },
+        ],
+      },
+      {
+        type: 'choice',
+        dimension: 'reasoning',
+        prompt: '朋友「单看远远不够」的说法，依据是？',
+        options: [
+          { text: '六壬以课传为整体，单点取象容易以偏概全，这是体系的共识', points: 3, feedback: '对，课传整体是六壬断课的地基。' },
+          { text: '没有依据，朋友在泼冷水', points: 0, errorType: 'E03', feedback: '先检查说法，再判断动机。' },
+          { text: '朋友只是想显得自己更懂', points: 0, errorType: 'E06', feedback: '归因于动机回避了内容本身。' },
+        ],
+      },
+      {
+        type: 'analysis',
+        dimension: 'evidence',
+        prompt: '要判断这课求财如何，你需要什么信息？',
+        keywords: ['三传', '课体', '类神旺衰', '年命', '月将', '求测背景', '现状'],
+        placeholder: '例如：三传走向如何、财爻在课传中是否受生扶、求测人年命加临情况、当前求财的实际背景……',
+      },
+      {
+        type: 'conclusion',
+        dimension: 'boundary',
+        prompt: '仅凭「财爻乘驿马」能否判断求财顺利？',
+        options: [
+          { text: '不能，需要课传整体与现实背景；信息不足时，目前无法判断求财前景', points: 3, feedback: '对，单点线索不能成断。' },
+          { text: '能，财动就是会来财', points: 0, errorType: 'E01', feedback: '把「财动」当成了因果结论。' },
+          { text: '能，驿马动说明很快来财', points: 0, errorType: 'E01', feedback: '又一次单点取象定结论。' },
+        ],
+      },
+      {
+        type: 'confidence',
+        dimension: 'over',
+        prompt: '你对「六壬断课是读整体、不是摘单点」的信心是多少？',
+      },
+    ],
+    reveal: {
+      realBackground: '六壬断课以课传整体为框架：三传、课体、类神旺衰、年命加临缺一不可。「财爻乘驿马」只是类神取象中的一个点，单点不能成断。',
+      expectedReasoning: '正确路径：把财爻乘驿马当作线索 → 放入三传与课体结构 → 看类神旺衰与生扶 → 结合求测背景 → 得出带条件的结论。',
+      otherMayHold: '不同六壬流派（课经派、类神派等）对「财动」的解读侧重不同，有的重驿马奔波之象，有的重财爻旺衰；但都以课传整体为前提。',
+      takeaway: '六壬断课是读整体，不是摘单点。',
+    },
+    commonMistakes: ['单点取象直接断财（E01）。', '把网络口诀当完整断法（E03）。', '忽略课传整体结构（E01）。'],
+  },
+  {
+    id: 'case-lr-02',
+    title: '「天后」入课，感情就一定好？',
+    difficulty: 2,
+    level: 2,
+    levelName: '基础',
+    category: 'liuren',
+    blindTest: false,
+    subject: '一位问感情的人',
+    minutes: 7,
+    relatedNodes: ['lr-s4', 'lr-j3', 'lr-c4'],
+    trainingTag: 'info',
+    infoSufficiency: 'sufficient',
+    mode: 'guided',
+    situation: [
+      '她问感情，排了一课，课里出现「天后」乘某神。',
+      '网上说：天后主妇人之象、主感情，她看到后松了口气。',
+      '但细看课传，三传有退连茹，且天后所乘之神休囚，两种信息指向不同方向。',
+    ],
+    chartLabel: '类神主题与课传走向',
+    chart: [
+      { key: '天后（类神）', value: '传统上与妇人/感情相关（象征说法）' },
+      { key: '课传信息', value: '三传退连茹、所乘之神休囚 → 结构偏弱' },
+    ],
+    challenges: [
+      {
+        type: 'choice',
+        dimension: 'rule',
+        prompt: '「天后」在六壬里的定位是？',
+        options: [
+          { text: '天后是十二天将之一，传统上常与妇人、感情相关，但只是类神取象，不能单独定性感情', points: 3, feedback: '对，类神给主题，不给结果。' },
+          { text: '天后出现就是感情好的意思', points: 0, errorType: 'E01', feedback: '把类神直接翻译成感情结论。' },
+          { text: '天后是神，能直接决定结果', points: 0, errorType: 'E06', feedback: '把天将当作结果裁判。' },
+        ],
+      },
+      {
+        type: 'choice',
+        dimension: 'reasoning',
+        prompt: '课传「退连茹 + 类神休囚」与传统「天后主感情」冲突时，正确的处理是？',
+        options: [
+          { text: '把两套信息都纳入：类神给主题，课传结构给走向，结合现实情况综合判断', points: 3, feedback: '对，主题与走向要合读。' },
+          { text: '信天后，感情稳了', points: 0, errorType: 'E01', feedback: '只看类神忽略结构。' },
+          { text: '信三传，感情要散', points: 0, errorType: 'E01', feedback: '只看结构忽略主题。' },
+        ],
+      },
+      {
+        type: 'analysis',
+        dimension: 'evidence',
+        prompt: '要综合判断这段感情，你需要什么信息？',
+        keywords: ['三传走向', '类神旺衰', '年命', '现实关系', '相处状态', '双方情况', '课体'],
+        placeholder: '例如：当前感情的真实状态、双方相处细节、课中类神与年命的加临关系……',
+      },
+      {
+        type: 'conclusion',
+        dimension: 'boundary',
+        prompt: '这课的感情结论，最合理的表述是？',
+        options: [
+          { text: '类神主题与课传走向需要合看，并叠加现实关系证据；仅凭天后或仅凭三传都无法定论', points: 3, feedback: '对，两套信息合读才是完整断法。' },
+          { text: '天后入课，感情稳好', points: 0, errorType: 'E01', feedback: '单点类神定结论。' },
+          { text: '无法判断，所以别信六壬', points: 0, errorType: 'E06', feedback: '「无法判断」是指信息不足，不是否定体系；本课信息其实够用于结构化分析。' },
+        ],
+      },
+      {
+        type: 'confidence',
+        dimension: 'over',
+        prompt: '你对「类神给主题、课传给走向」的信心是多少？',
+      },
+    ],
+    reveal: {
+      realBackground: '天后是六壬十二天将之一，传统上常与妇人、感情相关；但类神只决定「主题」，课传结构（三传、课体、旺衰）决定「走向」，两者要合看，并结合现实。',
+      expectedReasoning: '正确路径：先定类神主题（感情）→ 读课传结构（退连茹、休囚）→ 判断结构与主题的关系 → 叠加现实关系证据 → 综合表述。',
+      otherMayHold: '不同流派对天后的取象侧重不同（有的重妇人，有的重阴私、恩泽），且对「休囚」的权重判断有差异。',
+      takeaway: '类神给主题，课传给走向——两个都要读。',
+    },
+    commonMistakes: ['单看类神定性感情（E01）。', '单看三传忽略类神主题（E01）。', '把天将当作人格或结果裁判（E06）。'],
+  },
+  {
+    id: 'case-lr-03',
+    title: '丢的钥匙，到底在家还是在外？',
+    difficulty: 3,
+    level: 3,
+    levelName: '推理',
+    category: 'liuren',
+    blindTest: false,
+    subject: '一位丢了钥匙的人',
+    minutes: 8,
+    relatedNodes: ['lr-j4', 'lr-p2', 'lr-c5'],
+    trainingTag: 'multi',
+    infoSufficiency: 'insufficient',
+    mode: 'guided',
+    situation: [
+      '他钥匙不见了，回忆最后一次使用是在家里，但也可能掉在公司。',
+      '排课后，有经验的课友说：看「类神」与「三传」，若类神入内传，东西多在家；若在外传，多在外面。',
+      '他的盘里类神落在比较中间的位置，课友说「可内可外」，他也拿不准。',
+    ],
+    chartLabel: '课友说法与实际盘面',
+    chart: [
+      { key: '课友说法', value: '类神入内传多在家，在外传多在外' },
+      { key: '实际盘面', value: '类神位置居中，「可内可外」' },
+    ],
+    challenges: [
+      {
+        type: 'choice',
+        dimension: 'reasoning',
+        prompt: '面对「可内可外」的盘面，最合理的处理是？',
+        options: [
+          { text: '把盘面线索与动线记忆交叉：最后一次使用地点、回家后的活动路线，缩小搜索范围', points: 3, feedback: '对，盘面给范围，动线给精度。' },
+          { text: '盘面没定论就是这课不准', points: 0, errorType: 'E03', feedback: '把「模糊区间」当成「盘不准」。' },
+          { text: '再排一课，排到有结论为止', points: 0, errorType: 'E01', feedback: '重复起课不是补证据的方法。' },
+        ],
+      },
+      {
+        type: 'choice',
+        dimension: 'rule',
+        prompt: '关于失物类神的位置，哪种说法最接近传统处理？',
+        options: [
+          { text: '类神位置是线索之一，还要看生旺、空亡与三传走向，并结合现实动线', points: 3, feedback: '对，位置只是多维线索之一。' },
+          { text: '类神在哪东西就在哪', points: 0, errorType: 'E01', feedback: '单一符号定位置。' },
+          { text: '类神居中就说明东西找不回', points: 0, errorType: 'E03', feedback: '把模糊区间放大成坏结论。' },
+        ],
+      },
+      {
+        type: 'analysis',
+        dimension: 'evidence',
+        prompt: '要缩小范围，你需要什么信息？',
+        keywords: ['动线', '最后使用', '类神', '三传', '空亡', '问过的人', '搜索过的地方'],
+        placeholder: '例如：钥匙最后一次使用后的完整动线、家里搜索过哪些位置、公司座位附近的情况……',
+      },
+      {
+        type: 'conclusion',
+        dimension: 'boundary',
+        prompt: '关于钥匙在哪，最负责任的结论是？',
+        options: [
+          { text: '盘面线索只给出「可内可外」的模糊区间，应结合动线搜索；信息不足时，无法判断具体位置', points: 3, feedback: '对，模糊区间要配合动线收敛。' },
+          { text: '在家，盘面不用再看了', points: 0, errorType: 'E01', feedback: '跳过盘面直接拍结论。' },
+          { text: '在公司，昨天去过', points: 0, errorType: 'E01', feedback: '用单条动线覆盖全部证据。' },
+        ],
+      },
+      {
+        type: 'confidence',
+        dimension: 'over',
+        prompt: '你对「课给范围、动线给精度」的信心是多少？',
+      },
+    ],
+    reveal: {
+      realBackground: '六壬寻物传统上看类神（失物对应六亲或天将）、三传内外与旺衰空亡；类神位置模糊时，课传只给出范围，最终要结合失主动线缩小范围。',
+      expectedReasoning: '正确路径：记录动线 → 读取类神与三传（内外、旺衰、空亡）→ 得到模糊区间 → 与动线交叉 → 给出搜索优先级，承认无法精确定位。',
+      otherMayHold: '不同流派对失物类神的取用不同（有的以日干所克为财类、有的以六亲对应），位置结论可能不同；空亡、旬空的看法也有差异。',
+      takeaway: '课给范围，动线给精度——两者合起来才是搜索方案。',
+    },
+    commonMistakes: ['类神位置模糊就断定课不准（E03）。', '单看位置忽略旺衰空亡（E01）。', '忽略动线证据（E07）。'],
+  },
+]

@@ -1,0 +1,313 @@
+// ============================================================
+// 六爻案例（CASES_LIUYAO_1，case-ly-01 ~ case-ly-04）
+// 主题：世应 / 六亲 / 动变 / 综合
+// 关联课程节点来自易经学院（yp-* 爻位、hc-* 变化、dv-* 起卦）
+// 与术数思想史（hs-qh-najia 纳甲）。
+// ============================================================
+
+export const CASES_LIUYAO_1 = [
+  {
+    id: 'case-ly-01',
+    title: '「世爻」在哪，人就在哪？',
+    difficulty: 1,
+    level: 1,
+    levelName: '入门',
+    category: 'liuyao',
+    blindTest: false,
+    subject: '一位学六爻的新手',
+    minutes: 6,
+    relatedNodes: ['yp-six', 'yp-ying', 'yp-dewei'],
+    trainingTag: 'structure',
+    infoSufficiency: 'sufficient',
+    mode: 'guided',
+    situation: [
+      '他起了一卦，找「世爻」和「应爻」的位置。',
+      '书上说：世爻代表求测者自己，应爻代表对方或所测之事。',
+      '他问：那世爻落在官鬼，是不是就说明我「很凶」？',
+    ],
+    chartLabel: '世应：坐标，不是结论',
+    chart: [
+      { key: '世爻', value: '求测者自身的定位点' },
+      { key: '应爻', value: '对方/所测之事的定位点' },
+    ],
+    challenges: [
+      {
+        type: 'choice',
+        dimension: 'rule',
+        prompt: '「世爻落官鬼」的正确读法是？',
+        options: [
+          { text: '世爻是定位点，官鬼是六亲属性；组合要结合旺衰、动变与日月来判断，不代表「人很凶」', points: 3, feedback: '对，坐标与属性要分开读。' },
+          { text: '世爻在官鬼，说明我凶', points: 0, errorType: 'E01', feedback: '把定位点直接翻译成人格。' },
+          { text: '世爻在官鬼，说明我倒霉', points: 0, errorType: 'E01', feedback: '同样是把定位点当结论。' },
+        ],
+      },
+      {
+        type: 'choice',
+        dimension: 'reasoning',
+        prompt: '世应二爻的核心作用是？',
+        options: [
+          { text: '给求测者与被测对象提供定位，是后续六亲、动变分析的参照系', points: 3, feedback: '对，坐标系的作用。' },
+          { text: '世应决定吉凶', points: 0, errorType: 'E01', feedback: '坐标不决定吉凶。' },
+          { text: '世应只是装饰', points: 0, errorType: 'E03', feedback: '没有坐标系，六亲分析无从谈起。' },
+        ],
+      },
+      {
+        type: 'analysis',
+        dimension: 'evidence',
+        prompt: '要读懂世爻，你需要什么信息？',
+        keywords: ['六亲', '旺衰', '日月', '动变', '持世', '空破', '应爻', '问题背景'],
+        placeholder: '例如：世爻的六亲属性、旺衰状态、是否被日月作用、是否临空破……',
+      },
+      {
+        type: 'conclusion',
+        dimension: 'boundary',
+        prompt: '关于「世爻」的作用，最合理的结论是？',
+        options: [
+          { text: '世爻是分析起点而非结论：定位自己后，还要读六亲、旺衰、动变与日月，才能形成判断', points: 3, feedback: '对，起点之后还有很长的路。' },
+          { text: '世爻落在哪，命运就在哪', points: 0, errorType: 'E01', feedback: '把坐标当成了命运判决。' },
+          { text: '无法判断，世爻太复杂', points: 0, errorType: 'E03', feedback: '世爻是基础结构，不复杂到无法判断——只是需要按步骤读。' },
+        ],
+      },
+      {
+        type: 'confidence',
+        dimension: 'over',
+        prompt: '你对「世应是坐标系，不是结论」的信心是多少？',
+      },
+    ],
+    reveal: {
+      realBackground: '六爻中世爻定位求测者、应爻定位对方或所测之事；世应只是坐标系，吉凶要靠六亲、旺衰、日月动变的组合判断。',
+      expectedReasoning: '正确路径：先定位世应 → 标出六亲与旺衰 → 看日月作用与动变 → 组合成判断，不把定位点当结论。',
+      otherMayHold: '不同六爻流派对世应取用有细节差异（如测他人事时是否换世爻），但「世应是坐标系」是共同基础。',
+      takeaway: '世爻是坐标，不是结论。',
+    },
+    commonMistakes: ['把世爻落宫直接当吉凶（E01）。', '跳过六亲旺衰只看世应（E01）。', '把六爻结构当心理标签（E06）。'],
+  },
+  {
+    id: 'case-ly-02',
+    title: '卦里没有「财爻」，就是没钱？',
+    difficulty: 2,
+    level: 2,
+    levelName: '基础',
+    category: 'liuyao',
+    blindTest: false,
+    subject: '一位问财运的人',
+    minutes: 7,
+    relatedNodes: ['hs-qh-najia', 'yp-sheng', 'yp-bi'],
+    trainingTag: 'mislead',
+    infoSufficiency: 'sufficient',
+    mode: 'guided',
+    situation: [
+      '他问财运，起了一卦，发现卦里没装出「财爻」（妻财）。',
+      '网上说：卦中无财，求财不利。',
+      '他又看到另一说法：无财可以「伏藏」于他宫，也可看日月临财，不能直接说没财。',
+    ],
+    chartLabel: '表面六亲与完整取用',
+    chart: [
+      { key: '表面信息', value: '本卦六亲中无「妻财」' },
+      { key: '完整分析', value: '伏神取用、日月临财、变卦中财、旺衰空破' },
+    ],
+    challenges: [
+      {
+        type: 'choice',
+        dimension: 'rule',
+        prompt: '卦中无财爻，最接近六爻体系内处理方式的是？',
+        options: [
+          { text: '先找伏神（本宫首卦对应爻），再看日月是否临财、变卦是否有财，综合判断', points: 3, feedback: '对，取用流程的第一步不是下结论。' },
+          { text: '无财就是没钱，不用再看', points: 0, errorType: 'E01', feedback: '表面信息直接当结论。' },
+          { text: '无财说明这卦不能问财', points: 0, errorType: 'E03', feedback: '无财恰恰是取用流程的起点。' },
+        ],
+      },
+      {
+        type: 'choice',
+        dimension: 'reasoning',
+        prompt: '「日月临财」在传统里的作用是？',
+        options: [
+          { text: '日月是外部力量，若临财爻，可作为财的补充线索；属于完整判断的一部分', points: 3, feedback: '对，日月是外部力量的重要来源。' },
+          { text: '日月临财就是马上发财', points: 0, errorType: 'E01', feedback: '把线索直接翻译成结果。' },
+          { text: '日月只是背景，不影响判断', points: 0, errorType: 'E01', feedback: '忽略了日月在体系中的地位。' },
+        ],
+      },
+      {
+        type: 'analysis',
+        dimension: 'evidence',
+        prompt: '要判断求财前景，你需要什么信息？',
+        keywords: ['伏神', '日月', '旺衰', '空破', '动爻', '变卦', '世爻', '财爻'],
+        placeholder: '例如：伏神是否出伏、日月是否临财、财爻旺衰与空破情况、世爻与财爻的关系……',
+      },
+      {
+        type: 'conclusion',
+        dimension: 'boundary',
+        prompt: '关于「卦中无财」，最负责任的结论是？',
+        options: [
+          { text: '无财只是表面信息：需查伏神、日月与变卦；若这些都无财且世爻衰弱，才能说财星线索偏弱', points: 3, feedback: '对，走完取用流程再下结论。' },
+          { text: '无财就是求财无望', points: 0, errorType: 'E01', feedback: '把表面信息当结论。' },
+          { text: '无法判断，这卦信息不够', points: 0, errorType: 'E03', feedback: '六爻有明确的取财步骤（伏神/日月/变卦），先走完步骤再谈信息是否足够。' },
+        ],
+      },
+      {
+        type: 'confidence',
+        dimension: 'over',
+        prompt: '你对「卦中无财先查伏神」的信心是多少？',
+      },
+    ],
+    reveal: {
+      realBackground: '六爻问财，本卦无财爻时传统上取伏神（本宫首卦之财爻），并参看日月、变卦与旺衰空破；「无财」不是终点，而是取用流程的起点。',
+      expectedReasoning: '正确路径：确认本卦六亲 → 无财则查伏神 → 看日月是否临财 → 看变卦与动爻 → 综合旺衰空破 → 判断财星线索强弱。',
+      otherMayHold: '不同流派对伏神取用（本宫首卦的哪一爻为财）规则一致度较高，但对「无财伏藏」的应验权重有差异。',
+      takeaway: '卦中无财，先查伏神——表面信息不是全部。',
+    },
+    commonMistakes: ['见无财就断求财不利（E01）。', '跳过伏神与日月（E01）。', '把表面六亲当作完整信息（E03）。'],
+  },
+  {
+    id: 'case-ly-03',
+    title: '两个动爻相冲，怎么读？',
+    difficulty: 3,
+    level: 3,
+    levelName: '推理',
+    category: 'liuyao',
+    blindTest: false,
+    subject: '一位读到动变章的人',
+    minutes: 8,
+    relatedNodes: ['hc-change', 'hc-benbian', 'dv-coin'],
+    trainingTag: 'change',
+    infoSufficiency: 'insufficient',
+    mode: 'guided',
+    situation: [
+      '他起卦时得到两个动爻，恰好一爻化进、一爻化退，且两动爻相冲。',
+      '书上说「动必有因」，网上有人说：相冲主事情反复，要小心。',
+      '又有人说：要看冲的是世爻还是用神，不能一概而论。',
+    ],
+    chartLabel: '动爻的进退与相冲',
+    chart: [
+      { key: '动爻 A', value: '化进神（力量增长之象）' },
+      { key: '动爻 B', value: '化退神（力量衰减之象），与 A 相冲' },
+    ],
+    challenges: [
+      {
+        type: 'choice',
+        dimension: 'reasoning',
+        prompt: '两个动爻「一进一退且相冲」，最合理的读法是？',
+        options: [
+          { text: '先把每个动爻的进退、冲的对象（世/用神）与旺衰拆开读，再组合成整体判断', points: 3, feedback: '对，逐层拆解再组合。' },
+          { text: '动爻相冲就是事情要黄', points: 0, errorType: 'E01', feedback: '见冲即断，跳过所有结构。' },
+          { text: '有两个动爻就是大凶', points: 0, errorType: 'E01', feedback: '动爻数量不是吉凶依据。' },
+        ],
+      },
+      {
+        type: 'choice',
+        dimension: 'rule',
+        prompt: '「冲的是谁」为什么重要？',
+        options: [
+          { text: '冲世爻与冲用神含义不同：前者多指向求测者自身，后者多指向所测之事，读法不同', points: 3, feedback: '对，冲击对象决定读法方向。' },
+          { text: '不重要，冲就是冲', points: 0, errorType: 'E01', feedback: '省略了最关键的对象信息。' },
+          { text: '冲用神就一定失败', points: 0, errorType: 'E01', feedback: '又要看旺衰与日月，不能直接定失败。' },
+        ],
+      },
+      {
+        type: 'analysis',
+        dimension: 'evidence',
+        prompt: '要解读这两个动爻，你需要什么信息？',
+        keywords: ['冲的对象', '世爻', '用神', '旺衰', '日月', '化进化退', '空破', '问题背景'],
+        placeholder: '例如：冲的是世爻还是用神、两个动爻本身的旺衰与日月作用、求测的具体问题……',
+      },
+      {
+        type: 'conclusion',
+        dimension: 'boundary',
+        prompt: '关于动爻相冲，最负责任的结论是？',
+        options: [
+          { text: '相冲是「反复、冲突」类结构标记，具体含义要看冲击对象与旺衰；信息不足时，无法判断事件走向', points: 3, feedback: '对，结构标记不等于事件结论。' },
+          { text: '相冲就是反复，事情难成', points: 0, errorType: 'E01', feedback: '把结构标记直接翻译成事件。' },
+          { text: '相冲是好事，代表变化', points: 0, errorType: 'E01', feedback: '又从一端跳到另一端。' },
+        ],
+      },
+      {
+        type: 'confidence',
+        dimension: 'over',
+        prompt: '你对「动爻要拆开读：进退、冲击、旺衰」的信心是多少？',
+      },
+    ],
+    reveal: {
+      realBackground: '六爻中动爻化进化退、相冲相合都是结构标记：「冲」多表反复、冲突、被冲开，具体要看冲击世爻还是用神、被冲者旺衰、日月作用，不能单看「有冲」定吉凶。',
+      expectedReasoning: '正确路径：分别读两个动爻的进退 → 确认冲的对象（世/用神）→ 看旺衰与日月 → 组合成整体判断，并保留不确定性。',
+      otherMayHold: '不同流派对「冲」的读法侧重不同（有的重冲开、有的重冲动），对化进化退的权重也有差异。',
+      takeaway: '动爻要拆开读：进退、冲击、旺衰，一层层来。',
+    },
+    commonMistakes: ['见冲即断反复失败（E01）。', '忽略冲击对象（E01）。', '把动爻数量当吉凶（E01）。'],
+  },
+  {
+    id: 'case-ly-04',
+    title: '一卦测三事，怎么读？',
+    difficulty: 5,
+    level: 4,
+    levelName: '综合',
+    category: 'liuyao',
+    blindTest: false,
+    subject: '一位同时问多件事的人',
+    minutes: 10,
+    relatedNodes: ['yp-ying', 'hc-change', 'dv-meaning'],
+    trainingTag: 'synthesis',
+    infoSufficiency: 'insufficient',
+    mode: 'guided',
+    situation: [
+      '他一卦问了三件事：工作、感情、父母健康。',
+      '卦象里用神复杂：官鬼动、妻财伏、父母爻临日建。',
+      '朋友说一卦一测是原则，三件事混在一起很难读；他又舍不得重新摇卦。',
+    ],
+    chartLabel: '一卦一测原则 vs 多事杂问',
+    chart: [
+      { key: '原则', value: '传统强调一卦一测，一事一断' },
+      { key: '他的卦', value: '官鬼动 / 妻财伏 / 父母临日建，三事混杂' },
+    ],
+    challenges: [
+      {
+        type: 'choice',
+        dimension: 'reasoning',
+        prompt: '关于「一卦测三事」，最合理的处理是？',
+        options: [
+          { text: '承认原则：一卦多问会稀释用神取用与应验判断；建议分事重摇，或只取与卦象最贴的一件事解读', points: 3, feedback: '对，聚焦才能保持判断清晰。' },
+          { text: '一卦可以测所有事，卦是万能的', points: 0, errorType: 'E01', feedback: '把体系当作万能工具。' },
+          { text: '已经摇了就硬读，三件事都断', points: 0, errorType: 'E01', feedback: '混读三类用神会互相污染。' },
+        ],
+      },
+      {
+        type: 'choice',
+        dimension: 'info',
+        prompt: '卦象里三类用神并存，说明什么？',
+        options: [
+          { text: '三类信息互相干扰，任一事的用神都缺乏纯净的取用环境，结论可靠性下降', points: 3, feedback: '对，用神环境被稀释了。' },
+          { text: '说明三件事都要发生', points: 0, errorType: 'E01', feedback: '用神并存不等于事件应验。' },
+          { text: '说明这卦很厉害', points: 0, errorType: 'E03', feedback: '信息多不等于结论强。' },
+        ],
+      },
+      {
+        type: 'analysis',
+        dimension: 'evidence',
+        prompt: '如果要尽量利用这一卦，你会怎么做？',
+        keywords: ['主问之事', '用神', '世爻', '动爻', '日月', '优先顺序', '重摇', '问题聚焦'],
+        placeholder: '例如：先确定这卦最贴的是哪件事、以哪个用神为主、其余信息是否要放弃、是否重新起卦……',
+      },
+      {
+        type: 'conclusion',
+        dimension: 'boundary',
+        prompt: '关于这卦的处理，最负责任的结论是？',
+        options: [
+          { text: '尊重一卦一测原则：明确这卦主要回应哪件事，其余搁置或重摇；混读三事会导致无法判断任一事的走向', points: 3, feedback: '对，聚焦主问是保护判断清晰度。' },
+          { text: '三件事都读，各取所需', points: 0, errorType: 'E01', feedback: '混读导致判断失真。' },
+          { text: '这卦作废，六爻没用了', points: 0, errorType: 'E06', feedback: '从一次不当使用否定体系。' },
+        ],
+      },
+      {
+        type: 'confidence',
+        dimension: 'over',
+        prompt: '你对「一卦一测是保护判断清晰度的纪律」的信心是多少？',
+      },
+    ],
+    reveal: {
+      realBackground: '六爻传统强调「一卦一测」：一事一问、用神明确，才能保持取用与应验判断的清晰。多事杂问时，用神互相干扰，传统上建议重新起卦或只取主问之事。',
+      expectedReasoning: '正确路径：确认主问 → 明确主用神 → 其余信息标记为干扰并搁置 → 若无法聚焦，重新起卦 → 不硬读混合信息。',
+      otherMayHold: '有的流派允许一卦多断（如卦象信息丰富时），但对使用者的取用能力要求很高；多数传统主张一卦一测。',
+      takeaway: '一卦一测，是保护判断清晰度的纪律，不是限制。',
+    },
+    commonMistakes: ['一卦多问硬读（E01）。', '混读三类用神互相污染（E01）。', '因一次失败否定体系（E06）。'],
+  },
+]
