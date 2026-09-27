@@ -1,9 +1,9 @@
 // ============================================================
-// R6 · 增量扩展验收：风水 + 思想史 + 奇门 + 六壬 + 太乙 + 民俗文化馆 + 神秘文化
+// R6 · 增量扩展验收：风水 + 思想史 + 奇门 + 六壬 + 太乙 + 民俗文化馆 + 神秘文化 + 相学
 //
 // 验收点：
-//   A. 新学院注册进 COLLEGES（10 学院），章节/节点数量正确
-//   B. 192 个新节点字段齐全（25 字段 Schema）
+//   A. 新学院注册进 COLLEGES（11 学院），章节/节点数量正确
+//   B. 203 个新节点字段齐全（25 字段 Schema）
 //   C. 内容质量：无禁词（深扫全部字符串）、选项结构合法、
 //      level 0-6 章内非递减
 //   D. 引用完整性：validateCurriculum 零错误
@@ -21,8 +21,8 @@ import { initialState } from '../src/lib/storage'
 
 const FORBIDDEN = ['命中注定', '算命', '大师预测', '精准预测', '科学验证', '必吉', '转运', '开运', '包你', '一定灵', '保证', '绝对', '必定', '百分之百']
 
-// R6 全部新增学院（7 个）
-const NEW_COLLEGES = ['fengshui', 'shushu-history', 'qimen', 'liuren', 'taiyi', 'folk', 'mystic']
+// R6 全部新增学院（8 个）
+const NEW_COLLEGES = ['fengshui', 'shushu-history', 'qimen', 'liuren', 'taiyi', 'folk', 'mystic', 'xiangxue']
 
 const REQUIRED_FIELDS = [
   'id', 'title', 'college', 'chapter', 'level', 'prerequisite', 'emoji',
@@ -44,10 +44,10 @@ function deepStrings(obj, out = []) {
 }
 
 describe('R6 · 新增学院注册与结构', () => {
-  it('COLLEGES 已包含 10 个学院（新增风水/思想史/奇门/六壬/太乙/民俗/神秘）', () => {
+  it('COLLEGES 已包含 11 个学院（新增风水/思想史/奇门/六壬/太乙/民俗/神秘/相学）', () => {
     const ids = COLLEGES.map((c) => c.id)
     for (const cid of NEW_COLLEGES) expect(ids).toContain(cid)
-    expect(ids).toEqual(['bazi', 'iching', 'methodology', 'fengshui', 'shushu-history', 'qimen', 'liuren', 'taiyi', 'folk', 'mystic'])
+    expect(ids).toEqual(['bazi', 'iching', 'methodology', 'fengshui', 'shushu-history', 'qimen', 'liuren', 'taiyi', 'folk', 'mystic', 'xiangxue'])
   })
 
   it('风水学院：5 章 36 节点，fs- 前缀', () => {
@@ -116,16 +116,29 @@ describe('R6 · 新增学院注册与结构', () => {
     }
   })
 
-  it('新节点全部进入 CURRICULUM_NODES 统一索引（192 节点）', () => {
+  it('相学观察实验室：4 章 11 节点，xiang- 前缀', () => {
+    const xx = COLLEGES.find((c) => c.id === 'xiangxue')
+    expect(xx).toBeTruthy()
+    expect(xx.chapters.length).toBe(4)
+    expect(xx.chapters.map((ch) => ch.id)).toEqual(['xiang-basic', 'xiang-face', 'xiang-palm', 'xiang-boundary'])
+    expect(xx.chapters.map((ch) => ch.nodes.length)).toEqual([3, 3, 3, 2])
+    expect(xx.chapters.reduce((a, ch) => a + ch.nodes.length, 0)).toBe(11)
+    for (const n of xx.chapters.flatMap((ch) => ch.nodes)) {
+      expect(n.id.startsWith('xiang-')).toBe(true)
+      expect(n.college).toBe('xiangxue')
+    }
+  })
+
+  it('新节点全部进入 CURRICULUM_NODES 统一索引（203 节点）', () => {
     const newNodes = CURRICULUM_NODES.filter((n) => NEW_COLLEGES.includes(n.college))
-    expect(newNodes.length).toBe(192)
+    expect(newNodes.length).toBe(203)
   })
 })
 
 describe('R6 · 新增节点 schema 完整性与内容质量', () => {
   const newNodes = CURRICULUM_NODES.filter((n) => NEW_COLLEGES.includes(n.college))
 
-  it('192 个新节点 26 字段齐全', () => {
+  it('203 个新节点 26 字段齐全', () => {
     for (const n of newNodes) {
       for (const f of REQUIRED_FIELDS) {
         expect(n[f] !== undefined, `${n.id} 缺字段 ${f}`).toBe(true)
@@ -205,7 +218,7 @@ describe('R6 · 引用完整性与学习系统接入', () => {
     }
   })
 
-  it('learningMap 包含 7 个新学院且掌握画像可推导', () => {
+  it('learningMap 包含 8 个新学院且掌握画像可推导', () => {
     const map = learningMap(initialState)
     const ids = map.map((c) => c.id)
     for (const cid of NEW_COLLEGES) expect(ids, `learningMap 缺 ${cid}`).toContain(cid)
@@ -216,6 +229,7 @@ describe('R6 · 引用完整性与学习系统接入', () => {
     expect(map.find((c) => c.id === 'taiyi').chapters.length).toBe(4)
     expect(map.find((c) => c.id === 'folk').chapters.length).toBe(5)
     expect(map.find((c) => c.id === 'mystic').chapters.length).toBe(4)
+    expect(map.find((c) => c.id === 'xiangxue').chapters.length).toBe(4)
   })
 
   it('新节点 prerequisite 链完整：每章首节点可解锁（无缺失前置）', () => {

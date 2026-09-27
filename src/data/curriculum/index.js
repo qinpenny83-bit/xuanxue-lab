@@ -36,6 +36,7 @@ import { LIUREN_COLLEGE } from './liuren'
 import { TAIYI_COLLEGE } from './taiyi'
 import { FOLK_COLLEGE } from './folk'
 import { MYSTIC_COLLEGE } from './mystic'
+import { XIANG_COLLEGE } from './xiangxue'
 
 // 学院定义（顺序即学习顺序）
 export const COLLEGES = [
@@ -49,6 +50,7 @@ export const COLLEGES = [
   TAIYI_COLLEGE,
   FOLK_COLLEGE,
   MYSTIC_COLLEGE,
+  XIANG_COLLEGE,
 ]
 
 // 综合研究院：面向高阶段（L4-L6），由综合案例 + 研究问题组成，不是一门课

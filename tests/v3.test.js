@@ -34,8 +34,8 @@ const daysAgo = (d) => new Date(Date.now() - d * 86400000).toISOString()
 
 // ── 1. 课程目录 ──────────────────────────────────────────
 describe('V3 课程目录', () => {
-  it('十个学院齐全（八字/易经/方法论/风水/思想史/奇门/六壬/太乙/民俗/神秘），八字学院为第一主线', () => {
-    expect(COLLEGES.map((c) => c.id)).toEqual(['bazi', 'iching', 'methodology', 'fengshui', 'shushu-history', 'qimen', 'liuren', 'taiyi', 'folk', 'mystic'])
+  it('十一个学院齐全（八字/易经/方法论/风水/思想史/奇门/六壬/太乙/民俗/神秘/相学），八字学院为第一主线', () => {
+    expect(COLLEGES.map((c) => c.id)).toEqual(['bazi', 'iching', 'methodology', 'fengshui', 'shushu-history', 'qimen', 'liuren', 'taiyi', 'folk', 'mystic', 'xiangxue'])
     expect(COLLEGES[0].chapters.length).toBeGreaterThanOrEqual(7)
   })
 
