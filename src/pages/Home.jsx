@@ -22,12 +22,8 @@ const UNKNOWN_REASON_LABEL = {
 }
 
 function greeting() {
-  const h = new Date().getHours()
-  if (h < 5) return { text: '夜深了', emoji: '🌙' }
-  if (h < 11) return { text: '早上好', emoji: '🌤' }
-  if (h < 14) return { text: '中午好', emoji: '☀️' }
-  if (h < 18) return { text: '下午好', emoji: '🌇' }
-  return { text: '晚上好', emoji: '🌙' }
+  // 固定称呼「道友好」，不随时间变化（实验室氛围，非时间问候）
+  return { text: '道友好', emoji: '👋' }
 }
 
 export function Home() {
@@ -111,10 +107,10 @@ export function Home() {
             <span className="eyebrow" style={{ color: 'var(--amber)', letterSpacing: 3, fontSize: 12 }}>XUANXUE LAB</span>
             <span className="pill" style={{ background: 'rgba(217,164,65,0.18)', color: 'var(--amber)' }}>⏳ 分析暂不可用</span>
           </div>
-          <h1 className="display" style={{ fontSize: 32, marginTop: 14 }}>
+          <h1 className="display" style={{ fontSize: 26, marginTop: 6 }}>
             {hi.emoji} {hi.text}。
           </h1>
-          <p style={{ color: '#e8ddc8', fontSize: 16, lineHeight: 1.7, marginTop: 8, maxWidth: 560 }}>
+          <p style={{ color: '#e8ddc8', fontSize: 14, lineHeight: 1.6, marginTop: 6, maxWidth: 560 }}>
             学习分析暂时没能跑起来，但下面所有功能都能正常使用。点「重试分析」再试一次。
           </p>
           {agentErrorMessage && (
@@ -139,10 +135,10 @@ export function Home() {
             <span className="eyebrow" style={{ color: 'var(--amber)', letterSpacing: 3, fontSize: 12 }}>XUANXUE LAB</span>
             <span className="pill" style={{ background: 'rgba(217,164,65,0.18)', color: 'var(--amber)' }}>⏳ 分析中</span>
           </div>
-          <h1 className="display" style={{ fontSize: 32, marginTop: 14 }}>
+          <h1 className="display" style={{ fontSize: 26, marginTop: 6 }}>
             {hi.emoji} {hi.text}。
           </h1>
-          <p style={{ color: '#e8ddc8', fontSize: 16, lineHeight: 1.7, marginTop: 8, maxWidth: 560 }}>
+          <p style={{ color: '#e8ddc8', fontSize: 14, lineHeight: 1.6, marginTop: 6, maxWidth: 560 }}>
             正在读取你的学习记录，为你安排今天最重要的一件事…
           </p>
         </section>
@@ -214,17 +210,17 @@ export function Home() {
           <span className="eyebrow" style={{ color: 'var(--amber)', letterSpacing: 3, fontSize: 12 }}>XUANXUE LAB</span>
           <span className="pill" style={{ background: 'rgba(217,164,65,0.18)', color: 'var(--amber)' }}>{ls.emoji} {ls.label}期</span>
         </div>
-        <h1 className="display" style={{ fontSize: 32, marginTop: 14 }}>
+        <h1 className="display" style={{ fontSize: 26, marginTop: 6 }}>
           {hi.emoji} {hi.text}。
         </h1>
 
-        <p style={{ color: '#e8ddc8', fontSize: 16, lineHeight: 1.7, marginTop: 8, maxWidth: 560 }}>
+        <p style={{ color: '#e8ddc8', fontSize: 14, lineHeight: 1.6, marginTop: 6, maxWidth: 560 }}>
           {memory.hasMemory ? (
             <>{memory.opener || `我记得你之前容易「${memory.title}」。今天这一课，我会特别盯着这一点。`}</>
           ) : authoredIntro(ls, masteredTitles)}
         </p>
 
-        <div className="row mt-16" style={{ gap: 8, flexWrap: 'wrap', position: 'relative' }}>
+        <div className="row mt-10" style={{ gap: 8, flexWrap: 'wrap', position: 'relative' }}>
           {masteredTitles.length > 0 && (
             <span className="pill" style={{ background: 'rgba(255,255,255,0.09)', color: '#d8cdb6' }}>✓ 已掌握：{masteredTitles.join('、')}</span>
           )}

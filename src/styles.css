@@ -76,7 +76,7 @@ p { margin: 0; }
 .brand-name { font-family: var(--font-display); font-size: 17px; font-weight: 700; letter-spacing: 0.5px; }
 .brand-name small { display: block; font-family: var(--font-body); font-size: 10px; color: var(--text-3); font-weight: 400; letter-spacing: 0; }
 
-.nav { display: flex; gap: 2px; margin-left: 4px; overflow-x: auto; scrollbar-width: none; }
+.nav { display: flex; gap: 2px; margin-left: 4px; flex: 1; min-width: 0; overflow-x: auto; scrollbar-width: none; }
 .nav::-webkit-scrollbar { display: none; }
 .nav-item {
   padding: 7px 13px; border-radius: 999px; font-size: 14px; color: var(--text-2);
@@ -162,9 +162,9 @@ p { margin: 0; }
 .ring-center { position: absolute; inset: 0; display: grid; place-items: center; }
 
 /* ---------- 首页 ---------- */
-.hero { position: relative; overflow: hidden; padding: 40px 32px; border-radius: 24px; margin-bottom: 24px; }
+.hero { position: relative; overflow: hidden; padding: 26px 24px; border-radius: 24px; margin-bottom: 18px; }
 .hero .eyebrow { color: var(--amber); font-weight: 700; letter-spacing: 3px; font-size: 12px; text-transform: uppercase; }
-.hero h1 { font-size: 40px; margin: 10px 0 6px; }
+.hero h1 { font-size: 30px; margin: 6px 0 6px; }
 .hero .tagline { color: #cbbfa9; font-size: 17px; }
 .hero-orb { position: absolute; right: -30px; top: -40px; width: 240px; height: 240px; border-radius: 50%; background: radial-gradient(circle, rgba(217,164,65,0.4), transparent 70%); pointer-events: none; }
 
@@ -586,15 +586,20 @@ p { margin: 0; }
 
 /* ---------- 响应式 ---------- */
 @media (max-width: 760px) {
-  .header { padding: 10px 14px; }
+  .header { flex-wrap: wrap; gap: 4px 12px; padding: 8px 12px; }
   .brand-name small { display: none; }
+  .nav { order: 3; flex: 1 1 100%; min-width: 0; margin-left: 0; padding: 4px 0 2px; }
+  .nav-item { padding: 6px 11px; }
+  .streak-chip { display: none; }
+  .main { padding: 16px 14px 64px; }
+  .hero { padding: 18px 16px; margin-bottom: 14px; }
+  .hero h1 { font-size: 26px; }
   .entry-grid { grid-template-columns: repeat(2, 1fr); }
   .exp-grid, .dict-grid, .achievement-grid { grid-template-columns: 1fr 1fr; }
   .stat-grid { grid-template-columns: repeat(3, 1fr); }
   .pillars { grid-template-columns: repeat(2, 1fr); }
   .evidence-grid { grid-template-columns: 1fr; }
   .page-title { font-size: 24px; }
-  .hero h1 { font-size: 30px; }
   .hex-index-grid { grid-template-columns: repeat(2, 1fr); }
   .trad-compare { grid-template-columns: 1fr; }
   .archive-head { flex-direction: column; align-items: flex-start; }
