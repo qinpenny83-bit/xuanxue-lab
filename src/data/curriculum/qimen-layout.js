@@ -41,20 +41,20 @@ export const QIMEN_LAYOUT_CHAPTER = {
         reveal: '传统规则：冬至后阳遁顺布，夏至后阴遁逆布。',
       },
       apply: {
-        prompt: '阳遁一局从坎一宫起布戊。若为阴遁一局，起布方向是？',
+        prompt: '排盘实操：阳遁一局从坎一宫起布戊。若为阴遁一局，起布方向是？',
         options: [
           { text: '从坎一宫起但逆布（方向相反）', correct: true, feedback: '对，阴遁逆布，起宫仍在局数宫但方向相反。' },
-          { text: '从离九宫起顺布', correct: false, errorType: 'E10', feedback: '阴遁九局才从九宫起；阴遁一局仍从一宫起但逆布。' },
-          { text: '从坎一宫起顺布', correct: false, errorType: 'E09', feedback: '阴遁逆布，不是顺布。' },
+          { text: '从离九宫起顺布', correct: false, errorType: 'E10', feedback: '阴遁九局才从九宫起；阴遁一局仍从一宫起但逆布，规则记串了。' },
+          { text: '从坎一宫起顺布', correct: false, errorType: 'E10', feedback: '阴遁逆布、阳遁顺布，把顺逆配属记反了。' },
         ],
         explain: '局数管「从哪宫起」，阴阳遁管「朝哪个方向布」。',
       },
       counter: {
-        prompt: '「阴遁=阴气重=不好」——哪个反例最说明问题？',
+        prompt: '师兄弟争论：「阴遁是不是阴气重、不大好？」按本章，正确的是？',
         options: [
           { text: '阴阳遁只是排布方向的分野，不是吉凶标签', correct: true, feedback: '对，方向机制与吉凶是两回事。' },
-          { text: '阴字开头的都不好', correct: false, errorType: 'E01', feedback: '从字面单变量推断。' },
-          { text: '传统都认为阴遁差', correct: false, errorType: 'E06', feedback: '把简化说法当成传统定论。' },
+          { text: '「阴遁」带个阴字，所以不好', correct: false, errorType: 'E10', feedback: '把「阴遁」的阴阳方向参数当成了吉凶标签，术语混用。' },
+          { text: '阴遁只在阴雨天用，晴天都用阳遁', correct: false, errorType: 'E04', feedback: '阴阳遁按节气时间分界，用天气替代节气，丢掉了时间维度。' },
         ],
         explain: '阳遁阴遁是排盘的第一参数，与吉凶无关。',
       },
@@ -92,20 +92,20 @@ export const QIMEN_LAYOUT_CHAPTER = {
         reveal: '阳遁 N 局从 N 宫起布戊，三局即震三宫。',
       },
       apply: {
-        prompt: '「局数决定什么」的正确说法是？',
+        prompt: '师父考校：「局数在排盘里到底决定什么？」按本章，正确的是？',
         options: [
           { text: '决定戊的起布宫位，是排盘的第一参数', correct: true, feedback: '对，局数是排盘的起点参数。' },
-          { text: '决定盘面吉凶大小', correct: false, errorType: 'E01', feedback: '局数只是位置参数，不是吉凶等级。' },
-          { text: '决定用神怎么取', correct: false, errorType: 'E10', feedback: '用神取用看问题类型，不看局数。' },
+          { text: '决定盘面吉凶大小', correct: false, errorType: 'E10', feedback: '把「局数」当成吉凶等级，概念串位了，它只是位置参数。' },
+          { text: '决定用神怎么取', correct: false, errorType: 'E10', feedback: '用神取用看问题类型，不看局数，把两个参数混了。' },
         ],
         explain: '局数管「从哪里开始布」，是空间参数而非吉凶参数。',
       },
       counter: {
-        prompt: '「九局比一局高一个档次」——哪个反例最说明问题？',
+        prompt: '师兄弟争论：「九局是不是比一局高一个档次？」按本章，正确的是？',
         options: [
           { text: '局数只是起宫索引，九局一局没有高下之分', correct: true, feedback: '对，局数不是等级。' },
-          { text: '九是最大数字，所以九局最好', correct: false, errorType: 'E01', feedback: '用数字大小当吉凶依据。' },
-          { text: '数字大的局盘更高级', correct: false, errorType: 'E01', feedback: '同上，数字与盘面质量无关。' },
+          { text: '九是最大数字，所以九局最好', correct: false, errorType: 'E10', feedback: '把洛书数字大小当成吉凶等级，概念串位了。' },
+          { text: '数字大的局盘更高级', correct: false, errorType: 'E09', feedback: '只背「九大」的结论，不去推局数只是起宫规则，就会想当然。' },
         ],
         explain: '一至九局是并列的九种排布起点。',
       },
@@ -143,20 +143,20 @@ export const QIMEN_LAYOUT_CHAPTER = {
         reveal: '一个节气约十五天，分上、中、下三元，每元约五天。',
       },
       apply: {
-        prompt: '置闰法与拆补法的核心区别在于？',
+        prompt: '师父授课：置闰法与拆补法两派起局，核心区别在于？',
         options: [
           { text: '处理节气与干支衔接时机的方式不同', correct: true, feedback: '对，两派是传统约定的差异，不是对错。' },
-          { text: '一个用阳遁一个用阴遁', correct: false, errorType: 'E10', feedback: '置闰/拆补针对的是定局衔接，不是阴阳遁。' },
-          { text: '一个排八门一个排九门', correct: false, errorType: 'E10', feedback: '八门九门不是置闰/拆补的分野。' },
+          { text: '一个用阳遁一个用阴遁', correct: false, errorType: 'E09', feedback: '只记「置闰/拆补是两种流派」的结论，不去推它们针对的是节气定局衔接，才会把阴阳遁扯进来。' },
+          { text: '一个按节气一个按干支', correct: false, errorType: 'E04', feedback: '两派都以节气与干支为时间依据，区别只在衔接时机；说成两类来源就把时间依据割裂了。' },
         ],
         explain: '置闰与拆补是两种起局传统，用哪套要讲明，不能混用。',
       },
       counter: {
-        prompt: '「置闰派比拆补派更准」——哪个反例最说明问题？',
+        prompt: '师兄弟争论：「置闰派比拆补派更准。」按本章，正确的是？',
         options: [
-          { text: '两派是历史形成的不同约定，没有可检验的高下之分', correct: true, feedback: '对，流派差异不是精度差异。' },
-          { text: '置闰更古老所以更准', correct: false, errorType: 'E07', feedback: '古老不等于更接近「正确」。' },
-          { text: '拆补更简单所以更准', correct: false, errorType: 'E07', feedback: '简单也不等于正确。' },
+          { text: '两派是历史形成的不同约定，没有高下之分', correct: true, feedback: '对，流派差异不是精度差异。' },
+          { text: '置闰更古老，所以更接近古人原意', correct: false, errorType: 'E09', feedback: '只背「古老=正源」的结论，不去推两派都是节气干支的衔接约定，就会想当然。' },
+          { text: '换局时机早晚无所谓，差几天不影响', correct: false, errorType: 'E04', feedback: '置闰与拆补的分歧恰恰在换局时机的处理，忽略时间衔接就丢了两派的分歧点。' },
         ],
         explain: '置闰/拆补是两套并行传统，学习者应了解差异而非判定高下。',
       },
@@ -194,20 +194,20 @@ export const QIMEN_LAYOUT_CHAPTER = {
         reveal: '甲子遁戊、甲戌遁己、甲申遁庚、甲午遁辛、甲辰遁壬、甲寅遁癸。',
       },
       apply: {
-        prompt: '甲午旬，甲遁于辛。辛落震三宫，那么值符星（转盘传统）是？',
+        prompt: '排盘实操：甲午旬，甲遁于辛，辛落震三宫。师父问：值符星（转盘传统）应是？',
         options: [
           { text: '震三宫的原宫星', correct: true, feedback: '对，旬首落宫的原宫星即值符星。' },
-          { text: '离九宫的原宫星', correct: false, errorType: 'E10', feedback: '值符看旬首落宫，不是看固定宫位。' },
-          { text: '天英星（离宫星）', correct: false, errorType: 'E10', feedback: '天英是离宫星；应看震宫原宫星。' },
+          { text: '离九宫的原宫星', correct: false, errorType: 'E10', feedback: '值符看旬首落宫，不是看固定宫位，规则记串了。' },
+          { text: '天英星（离宫星）', correct: false, errorType: 'E10', feedback: '天英是离宫星；应看震宫原宫星，宫星对应别混淆。' },
         ],
         explain: '旬首→落宫→值符星，三步定位是转盘传统的排盘路径。',
       },
       counter: {
-        prompt: '「甲隐于六仪，说明甲被淘汰了」——哪个反例最说明问题？',
+        prompt: '师兄弟争论：「甲隐于六仪，是不是说明甲被淘汰了？」按本章，正确的是？',
         options: [
           { text: '甲以「遁」的方式统领本旬，隐而不现恰是关键机制', correct: true, feedback: '对，遁是设计而非淘汰。' },
-          { text: '甲没有资格上盘', correct: false, errorType: 'E03', feedback: '忽略「遁」的结构性角色。' },
-          { text: '甲只是运气不好', correct: false, errorType: 'E06', feedback: '用拟人化解释替代结构理解。' },
+          { text: '甲被排除在盘外，没有位置', correct: false, errorType: 'E10', feedback: '把「遁」误读成「排除」，忘了甲隐于六仪统领一旬的规则。' },
+          { text: '甲运数不佳，所以藏起来', correct: false, errorType: 'E09', feedback: '把结构机制想成「运数」，没按六甲旬首的对应规则推。' },
         ],
         explain: '「遁甲」正是这门学问得名之处：甲隐于六仪，统领一旬。',
       },
@@ -245,19 +245,19 @@ export const QIMEN_LAYOUT_CHAPTER = {
         reveal: '甲戌旬十日用完子丑寅卯辰巳午未后，剩申酉两支未出现，故空申酉。',
       },
       apply: {
-        prompt: '用神落空亡宫，传统读法的常见语气是？',
+        prompt: '师父授课：用神落空亡宫，传统读法的常见语气是？',
         options: [
           { text: '事情暂未落实、虚而不实，看后续出空填实', correct: true, feedback: '对，空亡读「状态」而非「判决」。' },
-          { text: '彻底落空，无需再看', correct: false, errorType: 'E01', feedback: '把空亡读成永久结论。' },
-          { text: '空亡宫无信息，跳过', correct: false, errorType: 'E03', feedback: '空亡本身就是要读的信息。' },
+          { text: '彻底落空，无需再看', correct: false, errorType: 'E10', feedback: '把「空」读成「无」，忘了空亡可出空填实。' },
+          { text: '空亡宫无信息，跳过', correct: false, errorType: 'E04', feedback: '空亡本身就是要读的时间状态，跳过等于丢信息。' },
         ],
         explain: '空亡是「暂空」的状态描述，时间维度上会变化。',
       },
       counter: {
-        prompt: '「空亡=这件事成不了」——哪个反例最说明问题？',
+        prompt: '师兄弟争论：「空亡=这件事成不了？」按本章，正确的是？',
         options: [
           { text: '传统认为出空、填实之后事情可能落实', correct: true, feedback: '对，空亡有时间窗口，不是终审。' },
-          { text: '空就是没有', correct: false, errorType: 'E01', feedback: '把「空」字面化为「没有」。' },
+          { text: '空就是没有', correct: false, errorType: 'E10', feedback: '把「空」字面化为「没有」，忘了空亡是旬内未出现的地支。' },
           { text: '空亡永远不变', correct: false, errorType: 'E04', feedback: '忽略时间维度的变化。' },
         ],
         explain: '空亡读「时机」，出空填实是传统读法的重要补充。',
@@ -296,16 +296,16 @@ export const QIMEN_LAYOUT_CHAPTER = {
         reveal: '传统查法：申子辰马在寅、寅午戌马在申、巳酉丑马在亥、亥卯未马在巳。',
       },
       apply: {
-        prompt: '驿马在奇门读盘中的角色是？',
+        prompt: '师父授课：驿马在奇门读盘中的角色是？',
         options: [
           { text: '动象参考，用于出行、变动类问题的辅助读盘', correct: true, feedback: '对，驿马是附加参考符号。' },
-          { text: '四盘主体符号，参与排布', correct: false, errorType: 'E10', feedback: '驿马不是四盘符号，不参与排布。' },
+          { text: '四盘主体符号，参与排布', correct: false, errorType: 'E10', feedback: '驿马不是四盘符号，不参与排布，规则记串了。' },
           { text: '决定整个盘面的吉凶', correct: false, errorType: 'E01', feedback: '驿马只是动象参考，不是总开关。' },
         ],
         explain: '驿马提供「动」的参考，落宫与组合决定读法。',
       },
       counter: {
-        prompt: '「驿马临用神宫就等于要出门」——哪个反例最说明问题？',
+        prompt: '师兄弟争论：「驿马临用神宫，是不是就等于要出门？」按本章，正确的是？',
         options: [
           { text: '驿马只是动象参考，结合组合才谈得上「动」的具体含义', correct: true, feedback: '对，单一符号不构成结论。' },
           { text: '马在宫上，不动不行', correct: false, errorType: 'E01', feedback: '用单符号直接下结论。' },

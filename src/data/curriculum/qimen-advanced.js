@@ -41,7 +41,7 @@ export const QIMEN_ADVANCED_CHAPTER = {
         reveal: '综合读盘的核心是「以用神为中心做主次取舍」，不是堆更多口诀。',
       },
       apply: {
-        prompt: '问事业时，值符宫、开门、日干宫三者的关系应如何组织？',
+        prompt: '师父授课：问事业时，值符宫、开门、日干宫三者的关系应如何组织？',
         options: [
           { text: '值符为大势、开门为事体、日干为自身，三处并读', correct: true, feedback: '对，三处各有分工，合起来是完整框架。' },
           { text: '只读开门一处', correct: false, errorType: 'E03', feedback: '漏掉大势与自身两个维度。' },
@@ -50,11 +50,11 @@ export const QIMEN_ADVANCED_CHAPTER = {
         explain: '综合读盘把多个维度按问题排序，形成有层次的框架。',
       },
       counter: {
-        prompt: '「读的宫越多，判断越全面」——哪个反例最说明问题？',
+        prompt: '师兄弟争论：「读的宫越多，判断是不是就越全面？」按本章，正确的是？',
         options: [
           { text: '信息过载会淹没主线，主次取舍比数量重要', correct: true, feedback: '对，全面不等于全量。' },
           { text: '九个宫都读才算专业', correct: false, errorType: 'E03', feedback: '全盘铺开恰恰失去重点。' },
-          { text: '信息越多越准', correct: false, errorType: 'E01', feedback: '数量与质量不是一回事。' },
+          { text: '信息越多越准', correct: false, errorType: 'E06', feedback: '把「信息多」当「更准」，是过度解释信息量。' },
         ],
         explain: '综合读盘的质量在取舍，不在信息数量。',
       },
@@ -92,20 +92,20 @@ export const QIMEN_ADVANCED_CHAPTER = {
         reveal: '转盘与飞盘的核心差异在排布方式（转动 vs 飞布），与阴阳遁、空亡无关。',
       },
       apply: {
-        prompt: '置闰派与拆补派的主要分歧点是？',
+        prompt: '师父授课：置闰派与拆补派的主要分歧点是？',
         options: [
           { text: '节气与干支衔接时的换局时机处理', correct: true, feedback: '对，两派是两种衔接约定。' },
-          { text: '一个看八门一个看九星', correct: false, errorType: 'E10', feedback: '置闰/拆补针对定局，不针对门星取舍。' },
-          { text: '一个用于阳宅一个用于阴宅', correct: false, errorType: 'E10', feedback: '置闰/拆补与宅第无关。' },
+          { text: '一个看八门一个看九星', correct: false, errorType: 'E10', feedback: '置闰/拆补针对定局，不针对门星取舍，概念记串了。' },
+          { text: '一个用于阳宅一个用于阴宅', correct: false, errorType: 'E10', feedback: '置闰/拆补与宅第无关，用途配错了。' },
         ],
         explain: '置闰与拆补是「何时换局」的两种传统，混用规则会排出错盘。',
       },
       counter: {
-        prompt: '「飞盘派比转盘派更接近古人原意」——哪个反例最说明问题？',
+        prompt: '师兄弟争论：「飞盘派比转盘派更接近古人原意。」按本章，正确的是？',
         options: [
           { text: '两派各有传承与文献，原意之争无法检验', correct: true, feedback: '对，流派之争是传统差异，不是考古定论。' },
-          { text: '飞盘更少见所以更古老', correct: false, errorType: 'E07', feedback: '少见不等于更接近原意。' },
-          { text: '转盘流传广所以更真', correct: false, errorType: 'E07', feedback: '流传广也不等于更真。' },
+          { text: '飞盘更少见所以更古老', correct: false, errorType: 'E10', feedback: '把「少见」当成「古老」再当成「更接近原意」，是一连串概念混用。' },
+          { text: '转盘流传广所以更真', correct: false, errorType: 'E02', feedback: '把「流传广」当成「更真」，是把流传情况当成了事实依据。' },
         ],
         explain: '流派差异是历史事实，应描述差异而非判定正宗。',
       },
@@ -143,19 +143,19 @@ export const QIMEN_ADVANCED_CHAPTER = {
         reveal: '先确认时间与盘种（哪一派排法），盘面本身的来源不清，后面都不可比。',
       },
       apply: {
-        prompt: '路径第六步「说明依据与留白」的价值在于？',
+        prompt: '师父授课：路径第六步「说明依据与留白」的价值在于？',
         options: [
           { text: '让解读可复盘、可修正、有边界', correct: true, feedback: '对，这是实验室式读盘的关键。' },
-          { text: '让结论听起来更谨慎', correct: false, errorType: 'E06', feedback: '留白不是话术，是具体指出信息缺口。' },
-          { text: '掩盖不确定', correct: false, errorType: 'E06', feedback: '留白是承认缺口，不是掩饰。' },
+          { text: '让结论听起来更谨慎', correct: false, errorType: 'E09', feedback: '只记「结论要谨慎」的结论，却不知道留白要具体指出信息缺口。' },
+          { text: '掩盖不确定', correct: false, errorType: 'E03', feedback: '留白是承认缺口，不是掩饰，把留白当话术就丢了结构。' },
         ],
         explain: '「依据+留白」让每次读盘都成为可迭代的练习记录。',
       },
       counter: {
-        prompt: '「练习盘读得越多，自然就越会读」——哪个反例最说明问题？',
+        prompt: '师兄弟争论：「练习盘读得越多，是不是自然就越会读？」按本章，正确的是？',
         options: [
           { text: '没有固定路径与记录的重复练习，容易固化成套路', correct: true, feedback: '对，练习要配合路径与复盘。' },
-          { text: '量变一定质变', correct: false, errorType: 'E01', feedback: '无记录的重复不等于有效练习。' },
+          { text: '量变一定质变', correct: false, errorType: 'E09', feedback: '只背「多练就会」的结论，不去推练习需要路径与记录，就会固化。' },
           { text: '读盘不需要方法', correct: false, errorType: 'E03', feedback: '结构化的路径才能暴露盲点。' },
         ],
         explain: '有效练习 = 固定路径 + 记录 + 复盘，缺一不可。',
@@ -194,9 +194,9 @@ export const QIMEN_ADVANCED_CHAPTER = {
         reveal: '本课程定位：奇门是一套有边界的传统解释系统，不是结论机器。',
       },
       apply: {
-        prompt: '「把传统说法当成事实」为什么会出问题？',
+        prompt: '师父授课：「把传统说法当成事实」为什么会出问题？',
         options: [
-          { text: '传统说法是解释方式，未经现代检验，当成事实会失真', correct: true, feedback: '对，区分「说法」与「事实」是元能力。' },
+          { text: '传统说法是解释方式，当成事实会失真', correct: true, feedback: '对，区分「说法」与「事实」是元能力。' },
           { text: '传统流传久就是事实', correct: false, errorType: 'E02', feedback: '流传久不等于事实。' },
           { text: '说法与事实没区别', correct: false, errorType: 'E02', feedback: '这正是本课要建立的分界。' },
         ],
@@ -205,7 +205,7 @@ export const QIMEN_ADVANCED_CHAPTER = {
       applyB: {
         prompt: '有人用一张奇门盘直接替朋友决定「该不该去」。按本课定位，问题出在哪？',
         options: [
-          { text: '奇门盘是结构化观察框架，不能替代现实判断，结论要结合现实信息、说明依据与留白', correct: true, feedback: '对，把参考框架当结论机器，就跨过了边界。', errorType: '' },
+          { text: '奇门盘是结构化观察框架，不能替代现实判断，结论要结合现实信息、说明依据与留白', correct: true, feedback: '对，把参考框架当结论机器，就跨过了边界。' },
           { text: '盘面就是结论，照读即可', correct: false, errorType: 'E02', feedback: '把传统解释系统当确定性结论来源。' },
           { text: '奇门盘没有文化价值', correct: false, errorType: 'E06', feedback: '框架与文化意义本身就是价值。' },
           { text: '传统说法就是事实', correct: false, errorType: 'E02', feedback: '「某传统认为」与「事实如此」要区分。' },
@@ -213,20 +213,20 @@ export const QIMEN_ADVANCED_CHAPTER = {
         explain: '奇门的边界：可作结构化观察框架，不能替代现实判断。',
       },
       counter: {
-        prompt: '「既然不能当结论，那学它就没用」——哪个反例最说明问题？',
+        prompt: '师兄弟争论：「既然不能当结论，那学它是不是就没用了？」按本章，正确的是？',
         options: [
           { text: '结构化观察框架与文化理解本身就有学习价值', correct: true, feedback: '对，价值不只在「给结论」。' },
-          { text: '不能预测就没价值', correct: false, errorType: 'E01', feedback: '用单一标准否定全部价值。' },
-          { text: '玄学都是没用的', correct: false, errorType: 'E02', feedback: '把传统知识整体抹掉，同样是过度断言。' },
+          { text: '不能预测就没价值', correct: false, errorType: 'E06', feedback: '用单一标准否定全部价值，是过度简化。' },
+          { text: '传统说法不可靠，所以整套都该放下', correct: false, errorType: 'E02', feedback: '从「说法不等于事实」跳到「整套无价值」，是过度断言。' },
         ],
         explain: '奇门的价值在框架、文化与思维训练，而非确定性结论。',
       },
       counterB: {
-        prompt: '「既然奇门只是传统说法、给不了确定结论，那深研它的排盘规则毫无意义」——哪个反例最说明问题？',
+        prompt: '师兄弟争论：「奇门只是传统说法、给不了确定结论，那深研它的排盘规则是不是就毫无意义？」按本章，正确的是？',
         options: [
-          { text: '学习路径（规则→练习→流派比较→独立案例）本身就是理解文化与思维结构的过程，「给不了结论」推不出「没有意义」', correct: true, feedback: '对，「不是结论来源」不等于「没有学习价值」。', errorType: '' },
+          { text: '学习路径（规则→练习→流派比较→独立案例）本身就是理解文化与思维结构的过程，「给不了结论」推不出「没有意义」', correct: true, feedback: '对，「不是结论来源」不等于「没有学习价值」。' },
           { text: '传统说法就毫无价值', correct: false, errorType: 'E06', feedback: '从「非事实」跳到「无价值」。' },
-          { text: '研究排盘规则就是迷信', correct: false, errorType: 'E02', feedback: '把研究传统知识等同于迷信。' },
+          { text: '研究排盘规则就是白费功夫', correct: false, errorType: 'E02', feedback: '把「非事实」当成「无用」，同样是把说法层级当成了价值判断。' },
           { text: '只有能产出结论的知识才有意义', correct: false, errorType: 'E06', feedback: '用单一标准否定框架与文化的价值。' },
         ],
         explain: '奇门的价值在框架、文化与思维训练，不在给确定性结论——否定前者是跳步。',

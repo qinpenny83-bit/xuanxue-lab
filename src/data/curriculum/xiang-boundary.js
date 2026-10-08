@@ -40,45 +40,45 @@ export const XIANG_BOUNDARY_CHAPTER = {
         reveal: '根本问题是：相术断语从未通过可验证的检验——这是效力层面的边界。',
       },
       apply: {
-        prompt: '朋友迷上手相，说「大师说我今年该改运了」。你希望他先想清楚哪件事？',
+        prompt: '师父结课授「用与不用」：「学相术，先学规矩——话能说几分，断语能不能落。」按本章，相术作为预测工具的根本问题是什么？',
         options: [
-          { text: '断语有没有被验证过——「大师说了」不是证据', correct: true, feedback: '对，把效力问题放在第一位。' },
-          { text: '大师收费贵不贵', correct: false, errorType: 'E01', feedback: '把效力问题替换成价格问题。' },
-          { text: '大师名气大不大', correct: false, errorType: 'E07', feedback: '以名气代替证据。' },
+          { text: '相术断语从未通过可重复验证的检验——这是效力层面的根本边界', correct: true, feedback: '对，把效力问题放在第一位。' },
+          { text: '相书太少、资料不够，所以断不准', correct: false, errorType: 'E01', feedback: '把资料数量问题当成效力问题，避开了根本边界。' },
+          { text: '相术流传两千年，早已验证过，可以放心用', correct: false, errorType: 'E02', feedback: '流传久不等于被验证，把传统说法当成确定事实。' },
         ],
         explain: '面对预测式断语，第一问永远是：它有没有经过验证？',
       },
       applyB: {
-        prompt: '有人说：「相术不能预测，但拿来当传统文化学没问题。」这个说法你同意吗？',
+        prompt: '朋友说：「大师断言我明年有难，要我先化解。」按本章的行规，你最该先提醒他什么？',
         options: [
-          { text: '同意——作为文化传统与语言可学，作为预测工具不可用，这正是边界所在', correct: true, feedback: '对，边界意识就长这样。' },
-          { text: '不能预测的东西就不值得学', correct: false, errorType: 'E01', feedback: '用预测价值否定文化价值，是另一个极端。' },
-          { text: '边学边用，学得多了自然能预测', correct: false, errorType: 'E02', feedback: '「多学」不能跨越验证边界。' },
-          { text: '只要能预测准，用传统文化包装也没关系', correct: false, errorType: 'E02', feedback: '以「准」为名越过边界，效力问题依然没有答案。' },
+          { text: '先问断语有没有被验证——「大师说了」不是证据，效力问题放第一位', correct: true, feedback: '对，把效力问题放在第一位。' },
+          { text: '先问大师收费贵不贵，贵的就是好的', correct: false, errorType: 'E01', feedback: '把效力问题替换成价格问题。' },
+          { text: '先看大师名气，名气大就准', correct: false, errorType: 'E01', feedback: '以名气代替证据。' },
+          { text: '大师敢断言，说明相术确实能预测，不用怀疑', correct: false, errorType: 'E02', feedback: '把「敢断言」当成「能预测」，效力问题依旧悬空。' },
         ],
         explain: '「可学而不可用」是相学的正确姿态：学语言，不拿它下结论。',
       },
       counter: {
-        prompt: '「相术两千年传承，不可能一点道理没有」——最有力的反驳是？',
+        prompt: '师兄弟说：「相术两千年传承，不可能没有道理。」按本章，最有力的说法是？',
         options: [
-          { text: '传承时间与效力验证无关——两千年里它从未通过可验证检验，这一点不受传承时间影响', correct: true, feedback: '对，用传承时间论证效力是无效论证。' },
-          { text: '两千年还不够长，五千年才有道理', correct: false, errorType: 'E06', feedback: '延长时长不能修复论证缺陷。' },
-          { text: '荀子批评过它，所以它没道理', correct: false, errorType: 'E01', feedback: '批评存在也不等于效力为零。' },
+          { text: '传承时间与效力验证无关——两千年里它从未通过可重复验证的检验', correct: true, feedback: '对，用传承时间论证效力是无效论证。' },
+          { text: '两千年不够长，五千年才有道理', correct: false, errorType: 'E01', feedback: '延长时长不能修复论证缺口。' },
+          { text: '古人传下来的就是验证过的，传承即证明', correct: false, errorType: 'E02', feedback: '把「传承」当成「验证」，是说法当事实。' },
         ],
         explain: '「传承久」无法承担「有效」的重任——这是两个独立命题。',
       },
       counterB: {
-        prompt: '「既然传统内部有批评，说明相术早该被淘汰」——最有力的反驳是？',
+        prompt: '「既然传统内部也有批评，说明相术早该被淘汰。」最恰当的说法是？',
         options: [
-          { text: '有批评不等于无价值：作为文化传统与语言体系，它仍值得被理解与学习', correct: true, feedback: '对，批评针对的是效力，不是文化意义。' },
-          { text: '被批评过的东西一定不好', correct: false, errorType: 'E01', feedback: '把「有批评」推成「应淘汰」，是过度概括。' },
+          { text: '有批评不等于无价值——作为文化传统与语言体系，它仍值得被理解与学习', correct: true, feedback: '对，批评针对的是效力，不是文化意义。' },
+          { text: '被批评过的东西一定都不好', correct: false, errorType: 'E01', feedback: '从「有批评」推成「应淘汰」，是过度概括。' },
           { text: '所有被批评的传统都不该学', correct: false, errorType: 'E01', feedback: '同一条过度概括的翻版。' },
-          { text: '传统内部有批评，说明它的说法全是错的', correct: false, errorType: 'E02', feedback: '「有批评」只能说明说法未验证，推不出「全部是错的」。' },
+          { text: '传统内部有批评，说明它的说法全是错的', correct: false, errorType: 'E02', feedback: '「有批评」说明说法未验证，推不出「全是错的」。' },
         ],
         explain: '内部批评说明传统自身有反思，不构成全盘否定的理由。',
       },
       masteryCheck: {
-        prompt: '读完本章，用一句话检验：你学相学的立场应该是什么？',
+        prompt: '毕业一问：学完相学，你对自己「看人」的习惯有什么要求？',
         options: [
           { text: '读懂相术这套传统语言与文化符号，而不拿它给人下结论', correct: true, feedback: '对，这就是「可学而不可用」的落点。' },
           { text: '学会之后帮亲友看看相，图个准', correct: false, errorType: 'E02', feedback: '预测式使用正是边界所在。' },
@@ -120,16 +120,16 @@ export const XIANG_BOUNDARY_CHAPTER = {
         reveal: '「对照」是把你的观察记录与传统相书说法放一起，识别哪些是说法、哪些是事实。',
       },
       apply: {
-        prompt: '你在实验记录里写：「他眉浓、说话快、脾气大」。哪一部分是观察，哪一部分已经越界？',
+        prompt: '师父授「观人实验法」：「只记所见，不落断语。」你的记录写：「他眉浓、说话快、脾气大。」哪部分越界了？',
         options: [
-          { text: '「眉浓」「说话快」是观察，「脾气大」是从相书说法滑向的判断——越界了', correct: true, feedback: '对，记录与判断的分界线抓得很准。' },
+          { text: '「眉浓」「说话快」是观察，「脾气大」是从说法滑向的判断——越界了', correct: true, feedback: '对，记录与判断的分界线抓得很准。' },
           { text: '都是观察，都是事实', correct: false, errorType: 'E02', feedback: '「脾气大」是推断，不是直接观察。' },
           { text: '「脾气大」是相书验证过的结论', correct: false, errorType: 'E02', feedback: '相书说法不等于验证结论。' },
         ],
         explain: '观察语言与判断语言的分界，正是本节要训练的核心手感。',
       },
       applyB: {
-        prompt: '你在观察记录里写：「他皱眉、声音低、最近肯定遇到麻烦了。」哪一部分越界了？',
+        prompt: '观人实验记录写：「他皱眉、声音低，最近肯定遇到麻烦了。」哪部分越界了？',
         options: [
           { text: '「皱眉、声音低」是观察，「最近肯定遇到麻烦」是判断——越界了', correct: true, feedback: '对，观察与判断的分界抓得准。' },
           { text: '都是观察，表情声音就是线索', correct: false, errorType: 'E02', feedback: '「遇到麻烦」是推断，不是直接观察。' },
@@ -139,18 +139,18 @@ export const XIANG_BOUNDARY_CHAPTER = {
         explain: '五步法的红线：记录可以丰富，判断一律不落。',
       },
       counter: {
-        prompt: '「我观察得很全面，可以给他下结论了」——最恰当的反驳是？',
+        prompt: '师兄弟说：「我观察得很全面，可以落断语了。」按五步法，最恰当的说法是？',
         options: [
           { text: '观察全面只能确保描述完整，不能确保结论成立——结论需要验证，观察再多也替代不了', correct: true, feedback: '对，把描述质量与结论效力分开。' },
-          { text: '观察够多就可以下结论', correct: false, errorType: 'E06', feedback: '数量多≠效力成立。' },
-          { text: '只要不下「命运」结论，其他结论随便下', correct: false, errorType: 'E01', feedback: '边界不是按话题分，而是按验证标准分。' },
+          { text: '观察够全面、够久，就能下结论', correct: false, errorType: 'E07', feedback: '全面与久是描述维度，不能替代结论验证。' },
+          { text: '只要不下「命运」结论，其他结论随便下', correct: false, errorType: 'E02', feedback: '边界不是按话题分，而是按验证标准分。' },
         ],
         explain: '无论观察多么全面，结论的成立靠的是验证，不是观察的完整度。',
       },
       counterB: {
-        prompt: '「我把所有相书说法都对照了一遍，现在可以下结论了」——问题出在哪？',
+        prompt: '「我把所有相书说法都对照了一遍，现在可以下结论了。」问题出在哪？',
         options: [
-          { text: '「验证」需要可重复、有对照、标准统一——把说法和个案对照过，不等于完成了验证', correct: true, feedback: '对，验证是有门槛的，不是对照一遍就算。' },
+          { text: '「验证」需要可重复、有对照、标准统一——对照过说法，不等于完成了验证', correct: true, feedback: '对，验证是有门槛的，不是对照一遍就算。' },
           { text: '只要找到更多符合说法的案例，结论就成立了', correct: false, errorType: 'E07', feedback: '只收集支持说法的案例，忽略反例，是选择性取证。' },
           { text: '相书说法都是前人验证过的，不用再验', correct: false, errorType: 'E02', feedback: '「前人验证过」本身没有证据。' },
           { text: '个案对照结果符合说法，就说明说法被验证了', correct: false, errorType: 'E02', feedback: '个案对照不等于系统验证，标准是可重复+有对照+标准统一。' },

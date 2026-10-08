@@ -41,20 +41,20 @@ export const QIMEN_APPLY_CHAPTER = {
         reveal: '事业多取开门（另可兼看日干宫与值符宫），这是通行参考而非唯一标准。',
       },
       apply: {
-        prompt: '开门落宫生你的日干宫，传统读法倾向表述为？',
+        prompt: '师父授课：开门落宫生你的日干宫，传统读法倾向表述为？',
         options: [
           { text: '事体层面对你有利，可作积极参考', correct: true, feedback: '对，门生身是通行读法中的积极信号。' },
           { text: '开门生你=一定升职', correct: false, errorType: 'E01', feedback: '把单一关系读成确定结论。' },
-          { text: '开门生你=与你无关', correct: false, errorType: 'E03', feedback: '开门与日干宫的关系正是重点。' },
+          { text: '开门生你=升迁板上钉钉，现实机会不用看', correct: false, errorType: 'E05', feedback: '忽略了现实中的机会与岗位条件，只读盘面。' },
         ],
         explain: '门与身宫的关系是事业读盘的核心线索，但结论要留余地。',
       },
       counter: {
-        prompt: '「开门吉，所以这个决定一定好」——哪个反例最说明问题？',
+        prompt: '师兄弟争论：「开门吉，这个决定是不是就一定好？」按本章，正确的是？',
         options: [
           { text: '还要看旺衰、组合与现实条件，单门不构成决策依据', correct: true, feedback: '对，决策要综合盘面与现实。' },
           { text: '开门是事业门，吉就够', correct: false, errorType: 'E01', feedback: '单符号下结论。' },
-          { text: '门吉能盖过一切', correct: false, errorType: 'E03', feedback: '忽略整体结构与现实信息。' },
+          { text: '盘面吉就照做，现实情况不用管', correct: false, errorType: 'E05', feedback: '决策要结合现实信息校准，忽略现实是常见偏差。' },
         ],
         explain: '开门只是切入点，决策参考要由整套读法加现实信息共同完成。',
       },
@@ -92,16 +92,16 @@ export const QIMEN_APPLY_CHAPTER = {
         reveal: '通行参考：求财看生门或戊；合作求财另看六合。',
       },
       apply: {
-        prompt: '生门旺相落宫，但财宫临空亡，综合表述应偏向？',
+        prompt: '师父授课：生门旺相落宫，但财宫临空亡，综合表述应偏向？',
         options: [
           { text: '根基不错但时机未到，需看出空后的变化', correct: true, feedback: '对，旺衰与空亡合读，才能组织完整表述。' },
           { text: '空亡=白旺，直接否定', correct: false, errorType: 'E01', feedback: '把空亡读成永久否定。' },
-          { text: '旺相盖过空亡，不用提', correct: false, errorType: 'E03', feedback: '漏掉时间维度的信息。' },
+          { text: '旺相盖过空亡，不用提', correct: false, errorType: 'E04', feedback: '漏掉时间维度的信息，空亡正是时机问题。' },
         ],
         explain: '旺衰给基调，空亡给时机，两者合读才有层次。',
       },
       counter: {
-        prompt: '「生门落吉宫=财源滚滚」——哪个反例最说明问题？',
+        prompt: '师兄弟争论：「生门落吉宫，是不是就财源滚滚了？」按本章，正确的是？',
         options: [
           { text: '生门吉只说明财事的象意层面，旺衰空亡组合都影响读法', correct: true, feedback: '对，单一吉宫不构成财运结论。' },
           { text: '生门主生，生就是来财', correct: false, errorType: 'E01', feedback: '从门名单变量推断。' },
@@ -143,20 +143,20 @@ export const QIMEN_APPLY_CHAPTER = {
         reveal: '通行参考：感情常取六合，并配合日干宫与对方宫（或乙庚两宫的一种流派说法）。',
       },
       apply: {
-        prompt: '双方宫相生相合，传统读法倾向表述为？',
+        prompt: '师父授课：双方宫相生相合，传统读法倾向表述为？',
         options: [
           { text: '关系层面较顺，可作积极参考', correct: true, feedback: '对，生合是关系读法的积极信号。' },
           { text: '一定白头偕老', correct: false, errorType: 'E01', feedback: '把关系信号读成确定结局。' },
-          { text: '生合与感情无关', correct: false, errorType: 'E03', feedback: '双方宫关系正是感情读盘核心。' },
+          { text: '关系顺就万事大吉，现实相处不用看', correct: false, errorType: 'E05', feedback: '关系读法还要结合现实沟通与相处信息。' },
         ],
         explain: '双方宫关系是感情读盘的主线，结论要结合整体与现实。',
       },
       counter: {
-        prompt: '「双方宫相冲=注定分手」——哪个反例最说明问题？',
+        prompt: '师兄弟争论：「双方宫相冲，这感情是不是就没戏了？」按本章，正确的是？',
         options: [
           { text: '冲克要结合旺衰、组合与现实关系读，不构成判决', correct: true, feedback: '对，冲克是关系特征，不是结局。' },
           { text: '冲就是散，散就是分', correct: false, errorType: 'E01', feedback: '字面单变量推断。' },
-          { text: '见冲必凶', correct: false, errorType: 'E01', feedback: '冲克读法依赖语境。' },
+          { text: '盘面冲克就判结局，现实相处不用问', correct: false, errorType: 'E05', feedback: '忽略现实关系信息，直接用盘面定结局。' },
         ],
         explain: '冲克读「关系张力」，张力可能意味着磨合，也可能是分歧，看组合与语境。',
       },
@@ -194,20 +194,20 @@ export const QIMEN_APPLY_CHAPTER = {
         reveal: '通行参考：开门（出行开创）与驿马（动象）是出行读盘的两个主参考。',
       },
       apply: {
-        prompt: '驿马临空亡宫，出行读法应偏向？',
+        prompt: '师父授课：驿马临空亡宫，出行读法应偏向？',
         options: [
           { text: '行程有变数，建议留余地或改时再看', correct: true, feedback: '对，空亡读变数，不是读禁令。' },
           { text: '干脆别出门', correct: false, errorType: 'E01', feedback: '把倾向读成禁令。' },
-          { text: '空亡与出行无关', correct: false, errorType: 'E03', feedback: '驿马空亡正是出行读盘要点。' },
+          { text: '盘面只看出行吉凶，现实交通不用考虑', correct: false, errorType: 'E05', feedback: '出行读法要与现实交通安排合看，忽略现实是常见偏差。' },
         ],
         explain: '驿马空亡提示「动而不实」，参考意义在于留余地和选时机。',
       },
       counter: {
-        prompt: '「开门吉=出行一定顺利」——哪个反例最说明问题？',
+        prompt: '师兄弟争论：「开门吉，出行是不是就一定顺利？」按本章，正确的是？',
         options: [
           { text: '路上宫位与时间变化还要细读，开门只是其一', correct: true, feedback: '对，出行读盘是组合读法。' },
           { text: '开门是出行门，吉就够', correct: false, errorType: 'E01', feedback: '单符号下结论。' },
-          { text: '出行只看出发那一刻', correct: false, errorType: 'E04', feedback: '忽略时间维度的变化。' },
+          { text: '盘上开门吉，现实路况车次都不用查', correct: false, errorType: 'E05', feedback: '出行参考要结合现实交通信息，忽略现实就只剩盘面空谈。' },
         ],
         explain: '出行读盘要合看开门、驿马、相关宫位与时间变化。',
       },
@@ -245,16 +245,16 @@ export const QIMEN_APPLY_CHAPTER = {
         reveal: '寻物常看失物取象宫、日干宫（自己）与时干宫（失物状态）。',
       },
       apply: {
-        prompt: '失物宫临伏吟，寻物读法应偏向？',
+        prompt: '师父授课：失物宫临伏吟，寻物读法应偏向？',
         options: [
           { text: '东西大概率在原处没动，就近再找', correct: true, feedback: '对，伏吟读「未动」，是寻物的有效线索。' },
           { text: '伏吟=找不到', correct: false, errorType: 'E01', feedback: '把状态读成判决。' },
-          { text: '伏吟与寻物无关', correct: false, errorType: 'E03', feedback: '伏吟正是寻物读盘的状态线索。' },
+          { text: '伏吟就是丢定了，连哪天丢都能推出来', correct: false, errorType: 'E06', feedback: '从伏吟一个状态过度推演细节，是过度解释。' },
         ],
         explain: '伏吟提示「未动」，配合宫位方位，是寻物的实用线索。',
       },
       counter: {
-        prompt: '「宫位指向东南=东西就在东南那个抽屉」——哪个反例最说明问题？',
+        prompt: '师兄弟争论：「宫位指向东南，东西是不是就在东南那个抽屉？」按本章，正确的是？',
         options: [
           { text: '宫位是方位参考，不是精确坐标，应结合现实搜索', correct: true, feedback: '对，参考与坐标要分清。' },
           { text: '盘指哪里就在哪里', correct: false, errorType: 'E06', feedback: '把参考当成精确定位。' },
@@ -296,20 +296,20 @@ export const QIMEN_APPLY_CHAPTER = {
         reveal: '第一步是确定问题与用神：问题不清，后面全歪。',
       },
       apply: {
-        prompt: '流程的最后一步「综合判断」应包含什么？',
+        prompt: '师父授课：流程的最后一步「综合判断」应包含什么？',
         options: [
           { text: '结论、依据、留白（不确定处）', correct: true, feedback: '对，完整的输出三件套。' },
-          { text: '只给结论', correct: false, errorType: 'E09', feedback: '没有依据与留白，无法复盘与修正。' },
-          { text: '给越多的吉凶词越好', correct: false, errorType: 'E06', feedback: '过度解释反而失真。' },
+          { text: '只给结论', correct: false, errorType: 'E03', feedback: '没有依据与留白，无法复盘与修正，缺了整体结构。' },
+          { text: '盘面结论说完就完，现实信息不用再校准', correct: false, errorType: 'E05', feedback: '综合判断要结合现实信息校准，忽略现实就只剩空谈。' },
         ],
         explain: '「结论+依据+留白」让读盘可复盘、可修正、有边界。',
       },
       counter: {
-        prompt: '「流程跑完=答案确定」——哪个反例最说明问题？',
+        prompt: '师兄弟争论：「流程跑完，答案是不是就确定了？」按本章，正确的是？',
         options: [
           { text: '流程产出的是结构化参考，现实信息始终参与校准', correct: true, feedback: '对，参考不是定论。' },
-          { text: '流程完整就代表准确', correct: false, errorType: 'E02', feedback: '把传统框架当成确定性来源。' },
-          { text: '步骤越多越精确', correct: false, errorType: 'E01', feedback: '流程完整不等于结论确定。' },
+          { text: '只给结论不给依据，流程就算跑完', correct: false, errorType: 'E03', feedback: '结论与依据脱节，正是综合读盘要避免的结构缺失。' },
+          { text: '流程跑完就不用看现实了', correct: false, errorType: 'E05', feedback: '现实信息始终参与校准，忽略现实是综合读盘的常见偏差。' },
         ],
         explain: '综合流程的价值在「结构化」，不在「确定性」。',
       },
