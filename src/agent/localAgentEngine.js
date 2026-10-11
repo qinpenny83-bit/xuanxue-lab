@@ -59,6 +59,12 @@ export function runAgent(state) {
   const nextActionSource = resolved.source
   const evidenceWhy = resolved.evidenceWhy
 
+  // 课程类推荐补上真实时长（首页「约 X 分钟」与实际课程分钟数一致，避免写死区间）
+  if (nextAction && nextAction.type === 'lesson' && nextAction.id && !nextAction.minutes) {
+    const l = getLesson(nextAction.id)
+    if (l && l.minutes) nextAction.minutes = l.minutes
+  }
+
   const masteryList = Object.entries(state.mastery || {})
     .map(([id, v]) => ({ node: getNode(id), level: v }))
     .filter((x) => x.node)

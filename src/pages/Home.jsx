@@ -440,6 +440,7 @@ function authoredIntro(ls, masteredTitles) {
 }
 
 function estimateMinutes(action) {
+  if (action.minutes) return String(action.minutes)
   if (action.type === 'case') return '6–8'
   if (action.type === 'experiment') return '3'
   if (action.type === 'exp') return '5–8'
