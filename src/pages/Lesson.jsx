@@ -11,7 +11,7 @@ import { getNode } from '../data/knowledge'
 import { getCurriculumNode } from '../data/curriculum'
 import { composeStepFeedback } from '../agent/feedback'
 import { composingTeacherMemory } from '../agent/teacherMemory'
-import { getPersona } from '../agent/teacherPersona'
+import { getPersona, personaLine } from '../agent/teacherPersona'
 import { navigate } from '../lib/router'
 import { PageHead, Bar, EmptyState, Remind } from '../components/ui'
 import {
@@ -640,9 +640,9 @@ function NextBtn({ disabled, isLast, onNext }) {
 }
 
 function FeedbackBlock({ feedback, persona }) {
-  const wrongTitle = persona?.wrong || '⚠️ 这里值得注意'
-  const rightTitle = persona?.correct || '✓ 你做对了'
-  const title = feedback.tone === 'good' ? rightTitle : wrongTitle
+  // 关键：persona.correct 是文案数组，不能直接渲染（会把 12 句全拼出来），
+  // 必须用 personaLine 随机取一句短反馈；下方 detail 才是知识点的大白话解析。
+  const title = feedback.tone === 'good' ? personaLine(persona, 'correct') : personaLine(persona, 'wrong')
   return (
     <div className={`feedback ${feedback.tone}`}>
       <h4>{title}</h4>
@@ -710,7 +710,7 @@ function DragSort({ step, persona, onAnswer, onNext, isLast }) {
         <button className="btn btn-primary mt-12" onClick={check}>检查顺序</button>
       ) : (
         <div className={`feedback ${correct ? 'good' : 'warn'} mt-12`}>
-          <h4>{correct ? (persona?.correct || '✓ 排对了') : (persona?.wrong || '⚠️ 再想一想')}</h4>
+          <h4>{correct ? personaLine(persona, 'correct') : personaLine(persona, 'wrong')}</h4>
           <p className="tiny mt-8">{step.discoverText || step.explain}</p>
           <div className="remember mt-12">🧠 记住：{step.remember}</div>
           <div className="mt-16" style={{ display: 'flex', justifyContent: 'flex-end' }}>
@@ -771,7 +771,7 @@ function Connect({ step, persona, onAnswer, onNext, isLast }) {
         <button className="btn btn-primary mt-12" onClick={check}>检查连线</button>
       ) : (
         <div className={`feedback ${correct ? 'good' : 'warn'} mt-12`}>
-          <h4>{correct ? (persona?.correct || '✓ 连对了') : (persona?.wrong || '⚠️ 有连错的地方')}</h4>
+          <h4>{correct ? personaLine(persona, 'correct') : personaLine(persona, 'wrong')}</h4>
           <p className="tiny mt-8">{step.explain}</p>
           <div className="remember mt-12">🧠 记住：{step.remember}</div>
           <div className="mt-16" style={{ display: 'flex', justifyContent: 'flex-end' }}>
