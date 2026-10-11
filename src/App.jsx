@@ -21,9 +21,11 @@ const ChartPage = lazy(() => import('./pages/Chart').then((m) => ({ default: m.C
 const GrowthPage = lazy(() => import('./pages/Growth').then((m) => ({ default: m.GrowthPage })))
 const DictionaryPage = lazy(() => import('./pages/Dictionary').then((m) => ({ default: m.DictionaryPage })))
 const DoubtLabPage = lazy(() => import('./pages/DoubtLab').then((m) => ({ default: m.DoubtLabPage })))
-const WorkshopPage = lazy(() => import('./pages/Workshop').then((m) => ({ default: m.WorkshopPage })))
-const HexArchivePage = lazy(() => import('./pages/HexArchive').then((m) => ({ default: m.HexArchivePage })))
-const TermsPage = lazy(() => import('./pages/Terms').then((m) => ({ default: m.TermsPage })))
+// 注意：Workshop/HexArchive/Terms 三个页面是「默认导出」，lazy 需取 m.default，
+// 若写成 m.xxx 会解析成 undefined 导致「Element type is invalid」白屏错误
+const WorkshopPage = lazy(() => import('./pages/Workshop').then((m) => ({ default: m.default })))
+const HexArchivePage = lazy(() => import('./pages/HexArchive').then((m) => ({ default: m.default })))
+const TermsPage = lazy(() => import('./pages/Terms').then((m) => ({ default: m.default })))
 const ExperimentPage = lazy(() => import('./pages/ExperimentRunner').then((m) => ({ default: m.ExperimentPage })))
 const ExperimentRunner = lazy(() => import('./pages/ExperimentRunner').then((m) => ({ default: m.ExperimentRunner })))
 const ExperimentArchivePage = lazy(() => import('./pages/ExperimentArchive').then((m) => ({ default: m.ExperimentArchivePage })))
