@@ -188,7 +188,7 @@ export const ICHING_LINEPOSITION_CHAPTER = {
         options: [
           { text: '得位之爻若孤立无应、被上爻所乘、处凶时（如高亢之位），同样有忧', correct: true, feedback: '对，得上还需关系与时位配合。' },
           { text: '得位没有反例', correct: false, errorType: 'E07', feedback: '时位与关系都会改变含义。' },
-          { text: '有忧是因为看错了位', correct: false, errorType: 'E03', feedback: '事后修正不可检验。' },
+          { text: '有忧是因为看错了位', correct: false, errorType: 'E03', feedback: '事后圆场，没法对账。' },
         ],
         explain: '得位只是自位端正，不是吉凶保票。',
       },
@@ -259,7 +259,7 @@ export const ICHING_LINEPOSITION_CHAPTER = {
         options: [
           { text: '居中若被乘、无应、处险时（如某些卦的「柔中而危」），中位也难独善', correct: true, feedback: '对，中还须得时得应。' },
           { text: '居中没有反例', correct: false, errorType: 'E07', feedback: '时与关系都会让「中」失效。' },
-          { text: '反例都是不会读', correct: false, errorType: 'E03', feedback: '事后修正不可检验。' },
+          { text: '反例都是不会读', correct: false, errorType: 'E03', feedback: '事后圆场，没法对账。' },
         ],
         explain: '中是结构优势，不是免死金牌。',
       },

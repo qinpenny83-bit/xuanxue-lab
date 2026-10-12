@@ -175,7 +175,7 @@ export const CASES_ICHING_7 = [
         prompt: '关于「当位」这个结构特征，最准确的说法是？',
         options: [
           { text: '它是「语法线索」：提供信息，但解释仍需文本与语境整合', points: 3, feedback: '对，结构是语法，文本与语境是语义。' },
-          { text: '它是吉凶开关', points: 0, errorType: 'E01', feedback: '单变量决定论。' },
+          { text: '它是吉凶开关', points: 0, errorType: 'E01', feedback: '一根筋决定论。' },
           { text: '目前无法判断：当位含义复杂', points: 1, feedback: '当位含义明确，复杂的是整合。' },
         ],
       },
@@ -441,7 +441,7 @@ export const CASES_ICHING_7 = [
         dimension: 'counter',
         prompt: '「承认反例=解释不自信」最有力的反例是？',
         options: [
-          { text: '主动标注边界的解释比宣称普适的解释更可检验、更专业', points: 3, feedback: '对，边界是质量的标志。' },
+          { text: '主动标注边界的解释比宣称普适的解释更能对账、更专业', points: 3, feedback: '对，边界是质量的标志。' },
           { text: '自信的人不设边界', points: 0, errorType: 'E06', feedback: '虚假的自信不是自信。' },
           { text: '设边界说明心虚', points: 0, errorType: 'E07', feedback: '把诚实当弱点。' },
         ],
@@ -511,7 +511,7 @@ export const CASES_ICHING_7 = [
         options: [
           { text: '「目前无法判断」+ 说明原因类型（缺关键背景）', points: 3, feedback: '对，无法判断+原因才是规范动作。' },
           { text: '硬选一个最像的', points: 0, errorType: 'E01', feedback: '信息不足时强给答案，是把可能当确定。' },
-          { text: '重新起一卦直到满意', points: 0, errorType: 'E06', feedback: '重起到满意是确认偏误。' },
+          { text: '重新起一卦直到满意', points: 0, errorType: 'E06', feedback: '重起到满意，正是先入为主。' },
         ],
       },
       {
@@ -529,7 +529,7 @@ export const CASES_ICHING_7 = [
         dimension: 'counter',
         prompt: '「高手从不说不确定」最有力的反例是？',
         options: [
-          { text: '专业领域（医学/法律/气象）越资深越会给出概率与边界；不确定标注是专业性的标志', points: 3, feedback: '对，专业=会标注未知。' },
+          { text: '专业领域（医学/法律/气象）越资深越会给出分寸与边界；不确定标注是专业性的标志', points: 3, feedback: '对，专业=会标注未知。' },
           { text: '高手都拍胸脯', points: 0, errorType: 'E07', feedback: '影视形象不是专业标准。' },
           { text: '不确定显得弱', points: 0, errorType: 'E06', feedback: '把诚实当弱势。' },
         ],

@@ -426,7 +426,7 @@ export const EXPERIMENTS_V3_CORE = [
     reflectionQuestions: ['如果这卦不叫这个名字，你还会这样解读吗？'],
   }),
   E({
-    id: 'exp-cog-ji', category: 'cognitive', title: '看到「吉」字会不会自动找吉证据？', subtitle: '确认偏误在文本层的表现。', emoji: '🔎',
+    id: 'exp-cog-ji', category: 'cognitive', title: '看到「吉」字会不会自动找吉证据？', subtitle: '先入为主在文本层的表现。', emoji: '🔎',
     question: '看到卦爻辞里的「吉」，你会不会自动去收集「为什么吉」的证据？',
     hypothesis: '吉凶是文本写明的，不存在偏误。',
     prerequisites: ['卦辞', '爻辞'],

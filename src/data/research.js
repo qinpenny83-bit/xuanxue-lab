@@ -80,7 +80,7 @@ export const SYNTHESIS_DIMENSIONS = [
       { text: '看谁说得更肯定，谁就更可信', correct: false },
       { text: '两种说法都听过，说明这体系没标准', correct: false },
     ],
-    keyPoint: '多解释并存时，比较标准是自洽性、解释力、可检验性与规则一致性——不是站队。',
+    keyPoint: '多解释并存时，比较标准是自洽性、解释力、能不能对账与规则一致性——不是站队。',
   },
   {
     id: 'dim-conclusion',

@@ -141,7 +141,7 @@ export const CASES_V3 = [
         prompt: '仅凭「正官旺」三个字，你能对一个人做出什么程度的人生判断？',
         options: [
           { text: '只能作为一条需要放在结构里检验的线索，不足以单独下结论', points: 3, feedback: '对，单点线索必须放进整体结构。' },
-          { text: '能判断他适合体制内工作', points: 0, errorType: 'E01', feedback: '从十神直接推职业选择，是典型的单变量解释。' },
+          { text: '能判断他适合体制内工作', points: 0, errorType: 'E01', feedback: '从十神直接推职业选择，是典型的一根筋。' },
           { text: '能判断他自律、靠谱', points: 0, errorType: 'E06', feedback: '把传统象征解释当成了人格测试。' },
         ],
       },
@@ -432,7 +432,7 @@ export const CASES_V3 = [
         prompt: '这个盘里，哪些信息能帮助你在两种结论间取舍？',
         options: [
           { text: '申酉是否有月令支持、是否被冲、天干是否透金、火局是否成势', points: 3, feedback: '对，具体结构细节决定权重。' },
-          { text: '没有任何信息能帮忙，只能猜', points: 0, errorType: 'E09', feedback: '忽略可检验的结构信息。' },
+          { text: '没有任何信息能帮忙，只能猜', points: 0, errorType: 'E09', feedback: '把摸得着的结构信息丢在一边。' },
           { text: '看师傅的年龄', points: 0, errorType: 'E06', feedback: '用身份代替证据。' },
         ],
       },
@@ -900,7 +900,7 @@ export const CASES_V3 = [
     ],
     reveal: {
       realBackground: '未月土旺、己丁双透的盘，是「透干取谁」流派差异的典型：土重金埋（印重埋身）与杀印相生（化杀）两套解读各自自洽，且用神诉求有部分交汇（减轻土压）。',
-      expectedReasoning: '正确路径：承认取格细则差异 → 用「自洽/解释力/可检验/一致性」四维比较 → 识别两套逻辑的交汇与分歧 → 在结论里声明规则。',
+      expectedReasoning: '正确路径：承认取格细则差异 → 用「自洽/解释力/能不能对账/一致性」四维比较 → 识别两套逻辑的交汇与分歧 → 在结论里声明规则。',
       otherMayHold: '这种盘正是传统里「官杀混杂/印重埋身」讨论的对象；不同流派给出的格局与用神都可能是自洽的，多解释是常态而非错误。',
       takeaway: '多解释时，比较规则；不比较时，才会选边。',
     },

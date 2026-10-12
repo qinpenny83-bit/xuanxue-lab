@@ -4,7 +4,7 @@
 // 目标：让用户「学会质疑自己的解释」，而不是做选择题刷分。
 // 六类：发现推理漏洞 / 证据审查 / 反例猎人 / 解释拆解 / 传统冲突 / 自我怀疑。
 // 所有引用（术语/卦/爻/案例/经典/传统/错误类型/能力维度）必须真实可解析。
-// 禁止：把「现代心理学类比」伪装成古典易学——凡类比都显式标注。
+// 表述一律用传统研习话语（先入为主 / 两头堵套话 / 记中忘错 / 事后圆场 / 自然之数），不引入现代心理学名词。
 // ============================================================
 
 import { DOUBT_TASKS_EXTRA } from './doubtTasks-extra'
@@ -91,9 +91,9 @@ export const DOUBT_TASKS_CORE = [
   D({ id: 'flaw-04', category: 'flaw', title: '「算得准」只有事后才知道', emoji: '🔮',
     prompt: '有人说：',
     statement: '这位大师说我下个月有贵人，结果真的有朋友帮我，太准了。',
-    ...op(['确实准', '存在选择性记忆与基准概率两大漏洞', '大师从不失手'], 1),
-    correctReasoning: '说中的被记住、没说的被遗忘；「有贵人」本身也是很模糊、高概率的事件。',
-    explanation: '把模糊预言与高概率事件归功于玄学，缺少可证伪的记录。',
+    ...op(['确实准', '记中忘错 + 忘了自然之数，两头都空', '大师从不失手'], 1),
+    correctReasoning: '说中的被记住、没说的被遗忘；「有贵人」本身也是句很含糊、人人可能撞上的话。',
+    explanation: '把含糊断语与人人可能遇到的事归功于玄学，且没有应验记录可查。',
     relatedTerms: [], errorTypes: ['E06', 'E08'], masteryKeys: ['uncertainty', 'evidence'] }),
 
   D({ id: 'flaw-05', category: 'flaw', title: '同时发生等于因果', emoji: '🔗',
@@ -101,7 +101,7 @@ export const DOUBT_TASKS_CORE = [
     statement: '我戴了红色手链之后升职了，所以红色手链带来好运。',
     ...op(['逻辑成立', '把先后/同时发生当成因果，忽略其它变量', '红色确实旺运'], 1),
     correctReasoning: '「之后发生」不等于「因为发生」；升职可能有努力、时机、他人等多种原因。',
-    explanation: 'E08：把相关性/时序当因果。要判断因果需要更严格的控制与证伪。',
+    explanation: 'E08：把沾边/先后当因果。要断因果，先过三查：沾边、先后、排开别因。',
     relatedTerms: [], errorTypes: ['E08'], masteryKeys: ['evidence', 'reasoning'] }),
 
   D({ id: 'flaw-06', category: 'flaw', title: '用一个标签解释一切', emoji: '🏷️',
@@ -115,7 +115,7 @@ export const DOUBT_TASKS_CORE = [
   D({ id: 'flaw-07', category: 'flaw', title: '只找支持自己的证据', emoji: '🔍',
     prompt: '有人理解「应」关系：',
     statement: '我查了几个「相应」的爻，都是吉的，所以相应=吉。',
-    ...op(['统计充分', '只挑了支持结论的样本，忽略敌应/反例', '相应就是吉'], 1),
+    ...op(['数量多就算数', '只挑了「相应且吉」的爻，把敌应、反例晾在一边', '相应就是吉'], 1),
     correctReasoning: '如果只在「相应且吉」的爻里找，当然全都支持你；应该同时去找「相应却不吉」的反例。',
     explanation: 'E07：先有结论再找证据。真正检验要主动找反例。',
     relatedTerms: ['ying'], errorTypes: ['E07'], masteryKeys: ['counterexample', 'evidence'] }),
@@ -140,7 +140,7 @@ export const DOUBT_TASKS_CORE = [
     prompt: '有人说：',
     statement: '我至今没见过「得位却凶」的爻，所以得位=吉是对的。',
     ...op(['站得住', '「没找到」不等于「不存在」，是证据缺失而非证明', '经验可靠'], 1),
-    correctReasoning: '没有反例，可能是没找全，也可能是样本偏差；不能当作已经证明。',
+    correctReasoning: '没有反例，可能是没找全，也可能是看漏了；不能当作已经证明。',
     explanation: '把「未证伪」偷换为「已证实」。',
     relatedTerms: ['dewei'], errorTypes: ['E07', 'E03'], masteryKeys: ['counterexample', 'evidence'] }),
 
@@ -156,8 +156,8 @@ export const DOUBT_TASKS_CORE = [
     prompt: '有人这样说：',
     statement: '古书上写「阳动阴静」，所以男人就是主动的、女人就是被动的，这是规律。',
     ...op(['这是古人智慧', '把一套传统解释框架当成自然事实，且做了性别引申', '阳就是男'], 1),
-    correctReasoning: '「阳动阴静」是传统取象的一种说法，是一种解释方式，不是可验证的自然规律。',
-    explanation: 'E02：把传统观点当作科学事实；并警惕把象数类比现实化。',
+    correctReasoning: '「阳动阴静」是传统取象的一种说法，是解释世界的框架，不是铁板一块的规矩。',
+    explanation: 'E02：把传统说法当成铁律，又顺着象数把男女角色坐实。',
     relatedTerms: ['yinyang'], errorTypes: ['E02', 'E06'], masteryKeys: ['uncertainty', 'reasoning'] }),
 
   D({ id: 'flaw-13', category: 'flaw', title: '循环论证', emoji: '🔄',
@@ -171,9 +171,9 @@ export const DOUBT_TASKS_CORE = [
   D({ id: 'flaw-14', category: 'flaw', title: '含糊预言两头堵', emoji: '🎭',
     prompt: '有人说：',
     statement: '你今年要么有大变动，要么保持稳定——这种说法总有一样会中。',
-    ...op(['很准', '把「互斥的两面都说一遍」，命中率被虚高', '说得全面'], 1),
+    ...op(['很准', '把「互斥的两面都说一遍」，两头总有一头中', '说得全面'], 1),
     correctReasoning: '同时说「变/不变」覆盖了所有可能，等于没说，命中是必然。',
-    explanation: '巴纳姆式的两头堵描述，越模糊越容易「对」。',
+    explanation: '两头堵的套话：越含糊越容易「对」。',
     relatedTerms: [], errorTypes: ['E06'], masteryKeys: ['uncertainty', 'counterexample'] }),
 
   D({ id: 'flaw-15', category: 'flaw', title: '把「中正」当万能理由', emoji: '👑',
@@ -187,9 +187,9 @@ export const DOUBT_TASKS_CORE = [
   D({ id: 'flaw-16', category: 'flaw', title: '忽略事物的反面证据', emoji: '⚖️',
     prompt: '有人评价一位「预测大师」：',
     statement: '他预测准过那么多案例，所以他的方法一定可靠。',
-    ...op(['有说服力', '只看了「支持的个案」，没有统计失败次数与随机命中率', '个案够多'], 1),
-    correctReasoning: '成功案例多，不代表命中率高于猜；需要失败样本与基准概率对照。',
-    explanation: '特异性与命中率的混淆；高调的成功案例不等于高命中。',
+    ...op(['有说服力', '只看了「说中的个案」，没跟没说中的对过账', '个案够多'], 1),
+    correctReasoning: '说中的案例再多，也得先跟没说中的对账，才知道应验几分。',
+    explanation: '把「案例多」当成「应验多」；高调的个案不等于真本事。',
     relatedTerms: [], errorTypes: ['E07', 'E05'], masteryKeys: ['evidence', 'counterexample'] }),
 
   D({ id: 'flaw-17', category: 'flaw', title: '把「承/乘」当成吉凶标签', emoji: '📏',
@@ -203,9 +203,9 @@ export const DOUBT_TASKS_CORE = [
   D({ id: 'flaw-18', category: 'flaw', title: '事后诸葛亮', emoji: '🐎',
     prompt: '有人回顾一件旧事：',
     statement: '你看他八字有冲，现在离婚了，说明当年那个冲早就注定了。',
-    ...op(['高深', '事后解释：发生前无法写明，发生后任何结果都能倒推出对应', '注定如此'], 1),
-    correctReasoning: '「事后才能说清」= 事前不可证伪；任何结果都能在符号里找到对应。',
-    explanation: '事后解释（hindsight）不可检验。',
+    ...op(['高深', '事后圆场：事前写不出，事后怎么都能圆上', '注定如此'], 1),
+    correctReasoning: '「事后才说清」= 事前立不下字据；任何结果都能在符号里圆出个说法。',
+    explanation: '事后圆场：结果一出，怎么都能圆。',
     relatedTerms: [], errorTypes: ['E04', 'E06'], masteryKeys: ['uncertainty', 'counterexample'] }),
 
   D({ id: 'flaw-19', category: 'flaw', title: '把爻辞孤立出原文', emoji: '📜',
@@ -219,16 +219,16 @@ export const DOUBT_TASKS_CORE = [
   D({ id: 'flaw-20', category: 'flaw', title: '「知道的少」却「下得重」', emoji: '🎲',
     prompt: '有人只看了一卦就总结：',
     statement: '我看过三个卦，凡是「五爻」都是最重要的，所以五爻永远最重要。',
-    ...op(['归纳合理', '样本太小，把「三个卦的观察」当成普遍规律', '经验之谈'], 1),
-    correctReasoning: '从极少数样本跳到全称命题，是过度推广，需要更大且含反例的检验。',
-    explanation: '样本量不足 + 只见支持项。',
+    ...op(['归纳合理', '才看了三个卦就敢下全称断语，太急', '经验之谈'], 1),
+    correctReasoning: '从极少数卦例跳到全称断语，是过度推广，需要更多、含反例的记录。',
+    explanation: '看得太少 + 只见支持项。',
     relatedTerms: ['yaowei'], errorTypes: ['E07', 'E01'], masteryKeys: ['counterexample', 'evidence'] }),
 
   // ============ 二、证据审查（20） ============
   D({ id: 'evr-01', category: 'evidence-review', title: '给「得位则顺」找证据', emoji: '🔍',
     prompt: '一个结论配了几条「证据」，请指出最弱的一条。',
     statement: '结论：得位的爻通常处境较好。',
-    evidence: ['A. 《彖传》提到阴阳当位', 'B. 某命理博主说「得位就是好」', 'C. 逐爻统计中，得位爻里有不少爻辞中性或偏凶'],
+    evidence: ['A. 《彖传》提到阴阳当位', 'B. 某命理博主说「得位就是好」', 'C. 逐爻核对下来，得位爻里有不少爻辞中性或偏凶'],
     ...op(['A 最弱', 'B 最弱：博客是二手意见，不是原典/结构证据', 'C 最弱'], 1),
     correctReasoning: 'B 是转述意见，无法直接支持一个结构性判断；C 反而是最值得重视的反例。',
     explanation: '分清「原典证据 / 结构证据 / 转述意见」的强弱差。',
@@ -240,7 +240,7 @@ export const DOUBT_TASKS_CORE = [
     evidence: ['A. 能找到许多「应是阳、下爻是阴」的例子', 'B. 一个「相应却爻辞为凶」的反例', 'C. 传统书里说过「应则通」'],
     ...op(['A', 'B：反例才是检验通例最有力的证据', 'C'], 1),
     correctReasoning: '要检验「通常」，最有信息量的是反例，而不是更多正面例子或转述。',
-    explanation: '证伪比证实更有力。',
+    explanation: '找反例比凑证据更有力。',
     relatedTerms: ['ying'], errorTypes: ['E07', 'E05'], masteryKeys: ['counterexample', 'evidence'] }),
 
   D({ id: 'evr-03', category: 'evidence-review', title: '「九五=帝王」的证据成色', emoji: '👑',
@@ -337,9 +337,9 @@ export const DOUBT_TASKS_CORE = [
     prompt: '关于「这个方法有效」，最弱证据是？',
     statement: '结论：此占法很灵。',
     evidence: ['A. 三个说中的个案', 'B. 一次「没说中」的完整记录', 'C. 长期、含成功与失败的完整清单'],
-    ...op(['A：个别成功个案不构成有效性的统计依据', 'B：反而更诚实', 'C：最可信'], 0),
-    correctReasoning: '孤立的成功个案无法排除偶然；系统记录（含失败）才是有力的证据。',
-    explanation: '样本的完整性与代表性，比「几个漂亮案例」更重要。',
+    ...op(['A：孤零零几次说中，不能当铁证', 'B：反而更诚实', 'C：最可信'], 0),
+    correctReasoning: '孤零零几次说中，排除不了偶然；含成功与失败的完整记录才是硬账。',
+    explanation: '账要记全，比「几个漂亮案例」更能说明问题。',
     relatedTerms: [], errorTypes: ['E05', 'E07'], masteryKeys: ['evidence', 'counterexample'] }),
 
   D({ id: 'evr-14', category: 'evidence-review', title: '术语注释也要看语境', emoji: '🧾',
@@ -360,13 +360,13 @@ export const DOUBT_TASKS_CORE = [
     explanation: 'E08：把象征关联当因果。',
     relatedTerms: ['guaxiang'], errorTypes: ['E08', 'E05'], masteryKeys: ['evidence', 'reasoning'] }),
 
-  D({ id: 'evr-16', category: 'evidence-review', title: '「热搜案例」样品偏差', emoji: '📰',
+  D({ id: 'evr-16', category: 'evidence-review', title: '「热搜案例」只看见台面上的', emoji: '📰',
     prompt: '关于「这类命局容易成功」，最值得注意的是？',
     statement: '很多名人都是这个命局，所以这个命局容易成功。',
-    evidence: ['A. 名人是「被选中」的样本，普通同命局者未被纳入', 'B. 名人命局都看得到', 'C. 命局决定成就'],
-    ...op(['A：幸存者偏差，样本只挑了成功者', 'B：不代表完整样本', 'C：因果倒置风险'], 0),
-    correctReasoning: '只看「成功的同命局者」是幸存者偏差，无法推断命局与成功的因果。',
-    explanation: '样本选择偏差会严重影响结论。',
+    evidence: ['A. 名人是「被挑出来」的，同命局的普通人没人看', 'B. 名人命局都看得到', 'C. 命局决定成就'],
+    ...op(['A：只看得到台面上的，台面下的没人记', 'B：没记全的不能算数', 'C：因果倒置风险'], 0),
+    correctReasoning: '只看「出了名的同命局者」，是只盯着台面上的；命局与成就的因果，不能由名人单方面推出。',
+    explanation: '看漏了多数，结论就靠不住。',
     relatedTerms: [], errorTypes: ['E05', 'E08'], masteryKeys: ['evidence', 'counterexample'] }),
 
   D({ id: 'evr-17', category: 'evidence-review', title: '一个「典故」够不够', emoji: '📖',
@@ -381,10 +381,10 @@ export const DOUBT_TASKS_CORE = [
   D({ id: 'evr-18', category: 'evidence-review', title: '「觉得准」和「真准」是两回事', emoji: '🎭',
     prompt: '关于「这段批注很准」，哪条判断最严谨？',
     statement: '这段话完全说中了我。',
-    evidence: ['A. 它是否对谁都能说中（模糊度）', 'B. 我个人感觉它准', 'C. 它用词有多具体、可证伪'],
-    ...op(['A：模糊的通用描述，命中率高是必然', 'B：主观感受不是可靠证据', 'C：具体可证伪才是关键'], 0),
-    correctReasoning: '「感觉准」会被巴纳姆效应放大；要问「它是否具体、且对别人不一定成立」。',
-    explanation: '主观确认 vs 客观可证伪。',
+    evidence: ['A. 它是否对谁都能说中（模糊度）', 'B. 我个人感觉它准', 'C. 它用词有多具体、只有这条才说得中'],
+    ...op(['A：模糊的通用描述，说中谁都不稀奇', 'B：主观感受不是可靠证据', 'C：具体到只有这条才说得中，才是关键'], 0),
+    correctReasoning: '「感觉准」会被两头堵的套话放大；要问「它是否具体、且对别人不一定成立」。',
+    explanation: '主观感觉 vs 事前能立下字据。',
     relatedTerms: [], errorTypes: ['E07', 'E05'], masteryKeys: ['uncertainty', 'evidence'] }),
 
   D({ id: 'evr-19', category: 'evidence-review', title: '「吉」字要看主语与条件', emoji: '📜',
@@ -781,7 +781,7 @@ export const DOUBT_TASKS_CORE = [
     prompt: '你收集了三条「支持结论」的证据。反思：最可能忽略什么？',
     statement: '我找到三条证据证明了结论。',
     ...op(['我可能只找了支持项，没主动找反例', '证据够多就不需要反例', '越多越好'], 0),
-    correctReasoning: '只集赞、不找茬，是确认偏误；最该补的是反例。',
+    correctReasoning: '只集赞、不找茬，是偏听偏信；最该补的是反例。',
     explanation: 'E07 的自我觉察。',
     relatedTerms: [], errorTypes: ['E07'], masteryKeys: ['uncertainty', 'counterexample'] }),
 

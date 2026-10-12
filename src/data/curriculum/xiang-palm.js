@@ -186,7 +186,7 @@ export const XIANG_PALM_CHAPTER = {
         prompt: '师父问：「看手相，先伸哪只手？」你记得有「男左女右」「左手先天、右手后天」几种说法。按本章，正确的态度是？',
         options: [
           { text: '说法并存正说明左右手含义是说法层面的约定，不是验证过的标准——知道它是说法，就够了', correct: true, feedback: '对，识别说法性质比选边更重要。' },
-          { text: '男左女右流传最广，肯定是对的，就按它来', correct: false, errorType: 'E01', feedback: '流传广不等于标准，单取一说就下结论是单变量思维。' },
+          { text: '男左女右流传最广，肯定是对的，就按它来', correct: false, errorType: 'E01', feedback: '流传广不等于标准，单取一说就下结论是一根筋思维。' },
           { text: '看一次就定终身，哪只手都行，反正纹不变', correct: false, errorType: 'E04', feedback: '纹随年龄变化，传统主张看变化看趋势，不是一次定终身。' },
         ],
         explain: '面对说法分歧，正确动作是识别分歧的性质，而不是选边站。',
@@ -195,7 +195,7 @@ export const XIANG_PALM_CHAPTER = {
         prompt: '师兄弟讨论：「男左女右是老规矩，左手先天、右手后天是新说法——到底听谁的？」按本章，恰当的说法是？',
         options: [
           { text: '两说并存本身就是线索——左右手含义是说法约定，不是事实标准，不必非要二选一', correct: true, feedback: '对，把分歧当线索，不当答案。' },
-          { text: '听流传最久的，男左女右最可靠', correct: false, errorType: 'E01', feedback: '以流传时长代替证据，是单变量判断。' },
+          { text: '听流传最久的，男左女右最可靠', correct: false, errorType: 'E01', feedback: '以流传时长代替证据，是一根筋判断。' },
           { text: '左右手各断一次，纹路不变，结论终身有效', correct: false, errorType: 'E04', feedback: '忽略纹随年龄变化的经验事实，也忽略了传统的时间观。' },
           { text: '选一个「最准」的师傅，他怎么说就怎么算', correct: false, errorType: 'E01', feedback: '以单一来源代替对说法性质的判断。' },
         ],

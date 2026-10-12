@@ -213,7 +213,7 @@ export const TAIYI_JUDGE_CHAPTER = {
       counterB: {
         prompt: '师兄断言：「我用某本推演了一遍，结果和我预想的一致，这说明这套方法是可靠的。」按本章，最恰当的说法是？',
         options: [
-          { text: '一次练习与主观预期的吻合不能构成检验，缺少对照与可证伪的设计，也未与文献研究结论区分', correct: true, feedback: '对，体验不是验证。' },
+          { text: '一次练习与主观预期的吻合不能构成检验，缺少对照与对账的设计，也未与文献研究结论区分', correct: true, feedback: '对，体验不是验证。' },
           { text: '只凭「结果一致」就下可靠结论，说不出检验设计是什么', correct: false, errorType: 'E09', feedback: '缺推理过程。' },
           { text: '把个人体验当成传统可靠性的证据', correct: false, errorType: 'E02', feedback: '把体验当事实。' },
           { text: '记住了步骤与结果，却说不出为什么这不能算作验证', correct: false, errorType: 'E09', feedback: '知其然不知其所以然。' },
@@ -266,7 +266,7 @@ export const TAIYI_JUDGE_CHAPTER = {
         prompt: '有人提议：把本学院课程缩短为「只学起局与判断两章，两周速成」。师兄弟问你怎么看。按本课立场，问题在于？',
         options: [
           { text: '跳过多环节容易丢失语境，太乙学习需按历史、结构、起局、判断循序渐进，产出尺度是理解传统而非速成断事', correct: true, feedback: '对，路径是链式的，语境不能跳过。' },
-          { text: '听到「两周速成」就想报，单看一个卖点就下决定', correct: false, errorType: 'E01', feedback: '单变量下结论。' },
+          { text: '听到「两周速成」就想报，单看一个卖点就下决定', correct: false, errorType: 'E01', feedback: '一根筋下结论。' },
           { text: '用「两周速成」的标签概括整个学习过程，忽略路径依赖', correct: false, errorType: 'E06', feedback: '标签化代替判断。' },
           { text: '把「学会起局」当成「学完太乙」', correct: false, errorType: 'E06', feedback: '局部不能代表整体。' },
         ],

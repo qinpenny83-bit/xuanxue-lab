@@ -147,7 +147,7 @@ export const CASES_ICHING_5 = [
         prompt: '「互卦=藏在卦里的真相」最有力的反例是？',
         options: [
           { text: '互卦只是结构视角之一，与其他关系（错综变）并列，不是唯一真相', points: 3, feedback: '对，视角≠真相。' },
-          { text: '互卦最灵验', points: 0, errorType: 'E01', feedback: '灵验不可检验。' },
+          { text: '互卦最灵验', points: 0, errorType: 'E01', feedback: '灵验没法查验。' },
           { text: '目前无法判断：也许互卦真有秘密', points: 1, feedback: '「也许有秘密」是把宣称当未知，不是基于文本的判断。' },
         ],
       },
@@ -411,7 +411,7 @@ export const CASES_ICHING_5 = [
         options: [
           { text: '实验演示结构机制（确定可复现），断事需结合问题、证据与传统，二者不同层', points: 3, feedback: '对，机制与判断要分清。' },
           { text: '结构就是命运', points: 0, errorType: 'E01', feedback: '结构提供视角，不提供命运。' },
-          { text: '点出来的卦都准', points: 0, errorType: 'E01', feedback: '「准」不可检验。' },
+          { text: '点出来的卦都准', points: 0, errorType: 'E01', feedback: '「准」没法对账。' },
         ],
       },
       {

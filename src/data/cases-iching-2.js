@@ -795,7 +795,7 @@ export const CASES_ICHING_2 = [
         options: [
           { text: '位置告诉你「在哪个阶段、面对什么压力」，吉凶要看整体结构', points: 3, feedback: '对，位置是变量之一。' },
           { text: '位置越靠上越尊贵', points: 0, errorType: 'E01', feedback: '把位置等级化。' },
-          { text: '位置决定一切', points: 0, errorType: 'E01', feedback: '单变量决定论。' },
+          { text: '位置决定一切', points: 0, errorType: 'E01', feedback: '一根筋决定论。' },
         ],
       },
       {

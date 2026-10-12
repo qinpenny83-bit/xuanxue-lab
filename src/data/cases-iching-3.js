@@ -235,7 +235,7 @@ export const CASES_ICHING_3 = [
         options: [
           { text: '八宫是汉易的一种组织工具（爻变家族树），吉凶判断需要整体语境，不是卦序本身给的', points: 3, feedback: '对，工具≠判决。' },
           { text: '八宫确实藏着吉凶密码', points: 0, errorType: 'E06', feedback: '把结构分类当命运密码。' },
-          { text: '目前无法判断：也许有秘密', points: 1, feedback: '「也许有秘密」是把不可检验的宣称当成未知可能性。' },
+          { text: '目前无法判断：也许有秘密', points: 1, feedback: '「也许有秘密」是把没法对账的说法当成未知可能性。' },
         ],
       },
       {

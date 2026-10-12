@@ -208,7 +208,7 @@ export const ICHING_DIVINATION_CHAPTER = {
         prompt: '「起卦能预测我的运势」——哪个反例最有力？',
         options: [
           { text: '同一问题反复起卦可得不同卦象，若卦象是「预测」，则预测结果互相矛盾且无验证标准', correct: true, feedback: '对，可复现性与可检验性都缺失。' },
-          { text: '不同的卦代表不同的运势阶段', correct: false, errorType: 'E07', feedback: '事后圆场，不可检验。' },
+          { text: '不同的卦代表不同的运势阶段', correct: false, errorType: 'E07', feedback: '事后圆场，没立下字据。' },
           { text: '起卦会看穿你的心', correct: false, errorType: 'E06', feedback: '这是神秘化宣称。' },
         ],
         explain: '随机流程无法承担预测功能；它承担的是「结构化思考」的功能。',

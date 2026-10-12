@@ -1517,7 +1517,7 @@ export const CASES = [
         options: [
           { text: '单一症状不能指向唯一原因', points: 0, errorType: 'E08', feedback: '你把「并存」当成了「因果」。' },
           { text: '有现实变化叠加，可以构成较合理的解释', points: 3, feedback: '对，多线索指向同一方向时解释更稳。' },
-          { text: '命理已经说明一切', points: 0, errorType: 'E02', feedback: '不可检验的解释不能当证据。' },
+          { text: '命理已经说明一切', points: 0, errorType: 'E02', feedback: '说不清应验的解释，不能当证据。' },
         ],
       },
       {
@@ -1657,7 +1657,7 @@ export const CASES = [
     reveal: {
       realBackground: '小周升职是因为连续两个季度超额完成目标，且部门正好有晋升名额。',
       expectedReasoning: '相关（时间先后、同时发生）不等于因果。要验证因果，需要对照和排除其他解释。',
-      otherMayHold: '红绳可能通过「心理暗示提升自信」间接影响表现——这可以检验；但「带来好运」本身不可检验。',
+      otherMayHold: '传统说法里，红绳是本命年避冲、系住平安的讲究，求的是心安与彩头；但升职这事，论因果还得看业绩与时机，不能全记在绳上。',
       takeaway: '先问「还有别的解释吗」，再谈因果。',
     },
     commonMistakes: ['把先后当因果（E08）。', '用个案验证因果（E08）。'],

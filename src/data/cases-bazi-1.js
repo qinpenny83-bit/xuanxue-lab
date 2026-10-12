@@ -122,7 +122,7 @@ export const CASES_BAZI_1 = [
         options: [
           { text: '十神描述的是日主与世界的关系类型，不等于现实财富的定量', points: 3, feedback: '对，关系语言不是定量语言。' },
           { text: '正财和钱没关系，可以忽略', points: 0, errorType: 'E01', feedback: '从「不等于」跳到「没关系」。' },
-          { text: '正财是心理测试标签', points: 0, errorType: 'E06', feedback: '把十神当心理标签。' },
+          { text: '正财是心理测试标签', points: 0, errorType: 'E06', feedback: '把十神当性格标签。' },
         ],
       },
       {

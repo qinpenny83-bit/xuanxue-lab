@@ -299,7 +299,7 @@ export const ICHING_CHANGE_CHAPTER = {
         options: [
           { text: '实验演示结构机制（确定可复现），断事需要结合问题、证据与传统，二者不同层', correct: true, feedback: '对，机制与判断要分清。' },
           { text: '结构就是命运', correct: false, errorType: 'E01', feedback: '结构提供视角，不提供命运。' },
-          { text: '点出来的卦都准', correct: false, errorType: 'E01', feedback: '「准」不可检验。' },
+          { text: '点出来的卦都准', correct: false, errorType: 'E01', feedback: '「准」没法对账。' },
         ],
         explain: '变化实验室的价值在结构直觉，不在预测功能。',
       },

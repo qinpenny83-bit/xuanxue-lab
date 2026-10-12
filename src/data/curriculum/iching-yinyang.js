@@ -305,7 +305,7 @@ export const ICHING_YINYANG_CHAPTER = {
         options: [
           { text: '当位之爻若处凶时（如高亢之位）或孤立无应，同样会有问题', correct: true, feedback: '对，结构端正只是要素之一。' },
           { text: '当位没有反例', correct: false, errorType: 'E07', feedback: '时位与关系都会改变含义。' },
-          { text: '反例都是看错了位', correct: false, errorType: 'E03', feedback: '事后修正，不可检验。' },
+          { text: '反例都是看错了位', correct: false, errorType: 'E03', feedback: '事后圆场，没法对账。' },
         ],
         explain: '爻义由极性+位置+关系+整体共同决定。',
       },

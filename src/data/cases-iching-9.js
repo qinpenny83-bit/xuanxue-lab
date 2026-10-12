@@ -60,7 +60,7 @@ export const CASES_ICHING_9 = [
         options: [
           { text: '得位之爻若被乘、无应、处凶时，照样有忧；得位只是要素之一', points: 3, feedback: '对，得位需配合关系与时位。' },
           { text: '得位没有反例', points: 0, errorType: 'E07', feedback: '时位与关系都会改变含义。' },
-          { text: '反例是看错了位', points: 0, errorType: 'E03', feedback: '事后修正不可检验。' },
+          { text: '反例是看错了位', points: 0, errorType: 'E03', feedback: '事后圆场，没法对账。' },
         ],
       },
       {
@@ -147,7 +147,7 @@ export const CASES_ICHING_9 = [
         options: [
           { text: '居中若被乘、无应、处险时，中位也难独善；中还须得时得应', points: 3, feedback: '对，中是优势不是保险。' },
           { text: '居中没有反例', points: 0, errorType: 'E07', feedback: '时与关系都会让「中」失效。' },
-          { text: '反例都是不会读', points: 0, errorType: 'E03', feedback: '事后修正不可检验。' },
+          { text: '反例都是不会读', points: 0, errorType: 'E03', feedback: '事后圆场，没法对账。' },
         ],
       },
       {

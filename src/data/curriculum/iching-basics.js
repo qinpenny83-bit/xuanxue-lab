@@ -295,7 +295,7 @@ export const ICHING_BASICS_CHAPTER = {
         options: [
           { text: '六十四卦里「六」既出现在好的爻（六二贞吉）也出现在不好的爻，同一数字无固定吉凶', correct: true, feedback: '对，数字只是结构语法，吉凶来自整体。' },
           { text: '数字吉凶是祖传的，不会错', correct: false, errorType: 'E06', feedback: '「祖传」不是验证。' },
-          { text: '凶的数字都被验证过', correct: false, errorType: 'E07', feedback: '选择性记忆在起作用。' },
+          { text: '凶的数字都被验证过', correct: false, errorType: 'E07', feedback: '记中忘错在作怪。' },
         ],
         explain: '数字描述结构；吉凶判断必须回到卦的整体。',
       },

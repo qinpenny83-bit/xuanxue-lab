@@ -314,7 +314,7 @@ export const CASES_ICHING_6 = [
         options: [
           { text: '解释与反思：比较多种解释，标注不确定性', points: 3, feedback: '对，起卦只是第一步，不是结论。' },
           { text: '宣布最终答案', points: 0, errorType: 'E01', feedback: '把卦象当判决。' },
-          { text: '再起一卦确认', points: 0, errorType: 'E06', feedback: '重起确认是确认偏误。' },
+          { text: '再起一卦确认', points: 0, errorType: 'E06', feedback: '重起确认，正是先入为主。' },
         ],
       },
       {
@@ -356,7 +356,7 @@ export const CASES_ICHING_6 = [
       otherMayHold: '历史上起卦确实被用于占断，这是文化事实；但本产品学习的是流程与解释，不宣称预测效力。',
       takeaway: '起卦只是开始，不是答案；学习价值在流程、边界与自我判断。',
     },
-    commonMistakes: ['把起卦当科学预测（E01）。', '把卦象当人生判决（E01）。', '重起到满意为止（E06，确认偏误）。'],
+    commonMistakes: ['把起卦当科学预测（E01）。', '把卦象当人生判决（E01）。', '重起到满意为止（E06，先入为主）。'],
   },
   {
     id: 'case-109',
@@ -427,7 +427,7 @@ export const CASES_ICHING_6 = [
         prompt: '模拟起卦实验的学习目标最准确的说法是？',
         options: [
           { text: '观察流程如何把输入变成卦象，以及解释如何依赖语境', points: 3, feedback: '对，实验对象是流程与解释。' },
-          { text: '找出最灵验的起卦方法', points: 0, errorType: 'E01', feedback: '灵验不可检验，也不在实验目标内。' },
+          { text: '找出最灵验的起卦方法', points: 0, errorType: 'E01', feedback: '灵不灵没法对账，也不在实验目标内。' },
           { text: '目前无法判断：实验没有结论', points: 1, feedback: '实验结论是「视角多样+解释依赖语境」，不是「哪个准」。' },
         ],
       },
@@ -703,7 +703,7 @@ export const CASES_ICHING_6 = [
         prompt: '如果「起卦解释」没有标准答案，这场考试考什么？',
         options: [
           { text: '走流程的完整度、每一步的依据，以及敢不敢写「我不知道」', points: 3, feedback: '对，这就是 Boss 的全部。' },
-          { text: '考吉凶判断的准确率', points: 0, errorType: 'E01', feedback: '没有可检验的准确率。' },
+          { text: '考吉凶判断的准确率', points: 0, errorType: 'E01', feedback: '没有可查验的准确率。' },
           { text: '目前无法判断：考试标准不清', points: 1, feedback: '标准清晰：闭环完整+依据+不确定性标注。' },
         ],
       },

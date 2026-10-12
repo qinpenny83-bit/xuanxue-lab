@@ -205,7 +205,7 @@ export const CASES_ICHING_4 = [
     chart: [
       { key: '三爻', value: '下卦之顶：进退过渡处，处境压力大（多凶）' },
       { key: '五爻', value: '中位尊位：居中而贵（多功），但仍要看当位与应' },
-      { key: '关键', value: '「多」是统计特征，「必」是绝对化' },
+      { key: '关键', value: '「多」是常见之象，「必」是绝对化' },
     ],
     challenges: [
       {
@@ -214,7 +214,7 @@ export const CASES_ICHING_4 = [
         prompt: '「三爻一定凶」错在哪里？',
         options: [
           { text: '「多凶」是处境特征：压力大，但爻辞常教人通过戒惧转安', points: 3, feedback: '对，「多」不等于「必」。' },
-          { text: '没错，三爻就是凶', points: 0, errorType: 'E01', feedback: '把统计特征当硬性判决。' },
+          { text: '没错，三爻就是凶', points: 0, errorType: 'E01', feedback: '把常见之象当硬性判决。' },
           { text: '三爻位置最低所以凶', points: 0, errorType: 'E03', feedback: '三爻是下卦之顶，不是最低位。' },
         ],
       },

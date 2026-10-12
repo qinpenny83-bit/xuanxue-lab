@@ -213,7 +213,7 @@ export const CASES_QIMEN_1 = [
         dimension: 'boundary',
         prompt: '关于出差日期，最负责任的结论是？',
         options: [
-          { text: '以现实约束为主，流派说法作为参考；两派冲突且无法互相证伪时，承认无法判断哪一天「更优」，按合作需要决定', points: 3, feedback: '对，现实约束是决策主轴。' },
+          { text: '以现实约束为主，流派说法作为参考；两派冲突且互相圆不了时，承认无法判断哪一天「更优」，按合作需要决定', points: 3, feedback: '对，现实约束是决策主轴。' },
           { text: '听甲师傅的，转盘更流行', points: 0, errorType: 'E03', feedback: '流行不是证据。' },
           { text: '听乙师傅的，伏吟要避开', points: 0, errorType: 'E03', feedback: '单派术语直接定决策。' },
         ],

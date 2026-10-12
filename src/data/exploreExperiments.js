@@ -986,7 +986,7 @@ export const EXPLORE_EXPERIMENTS = [
   X({
     id: 'xpl-c-07',
     category: 'cognitive',
-    title: '确认偏误：只找支持自己的爻',
+    title: '先入为主：只找支持自己的爻',
     subtitle: '在需卦里做一次「双向搜索」。',
     emoji: '🪞',
     level: 3,
@@ -1313,7 +1313,7 @@ export const EXPLORE_EXPERIMENTS = [
     focus: [
       '把履卦（10）六爻的判词列出来：无咎、贞吉、凶、终吉、贞厉、元吉——数一下吉凶字分布。',
       '六三「眇能视，跛能履，履虎尾，咥人，凶」：它同时是失位 + 凶的例子，观察结构与判词的关系。',
-      '顺手统计另外两卦的吉凶字频率，检验你「多数卦吉多于凶」的直觉。',
+      '顺手数数另外两卦的吉凶字，看看你「多数卦吉多于凶」的直觉靠不靠谱。',
     ],
     reflection: '频率直觉可以当证据用吗？它的边界在哪里。',
     expectedSkills: ['evidence', 'structure'],

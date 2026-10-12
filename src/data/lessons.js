@@ -590,7 +590,7 @@ export const LESSONS = [
         options: [
           { text: '一段人生的整体背景' },
           { text: '某年必然发生某事的预言' },
-          { text: '一种心理暗示' },
+          { text: '一种让人安心的说法' },
         ],
         reveal: '先猜。这里很容易想当然。', remember: '背景 ≠ 预言。',
       },

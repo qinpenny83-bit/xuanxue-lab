@@ -178,7 +178,7 @@ export const ICHING_YIXUESHI_CHAPTER = {
         options: [
           { text: '配数过繁时也会穿凿附会、为圆其说而牵强，说明它也有边界', correct: true, feedback: '对，任何方法都有边界。' },
           { text: '象数无所不能', correct: false, errorType: 'E07', feedback: '这是方法万能论。' },
-          { text: '象数当然有边界，只是没人到', correct: false, errorType: 'E03', feedback: '不可检验的事后说法。' },
+          { text: '象数当然有边界，只是没人到', correct: false, errorType: 'E03', feedback: '事后圆场，没立下字据。' },
         ],
         explain: '象数有力，但「配得密」不等于「说得真」。',
       },
