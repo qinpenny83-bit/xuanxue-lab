@@ -6,14 +6,14 @@
 // ============================================================
 import React, { useEffect, useMemo, useRef, useState } from 'react'
 import { useApp } from '../store/AppContext'
-import { LESSONS, getLesson } from '../data/lessons'
+import { getLesson } from '../data/lessons'
 import { getNode } from '../data/knowledge'
 import { getCurriculumNode } from '../data/curriculum'
 import { composeStepFeedback } from '../agent/feedback'
 import { composingTeacherMemory } from '../agent/teacherMemory'
 import { getPersona, personaLine } from '../agent/teacherPersona'
 import { navigate } from '../lib/router'
-import { PageHead, Bar, EmptyState, Remind } from '../components/ui'
+import { Bar, EmptyState, Remind } from '../components/ui'
 import {
   questionIdFor,
   getNextLessonNode,
@@ -36,43 +36,6 @@ function masteryKeyForStep(stepType) {
     case 'why': return 'reasoning'
     default: return 'structure'
   }
-}
-
-// ---------------- 课程列表 ----------------
-export function LessonList() {
-  const { state } = useApp()
-  return (
-    <div>
-      <PageHead title="🧑‍🏫 互动课堂" sub="每节课 5–10 分钟，从「一个让人好奇的问题」开始，先猜再学。" />
-      <div className="grid-2">
-        {LESSONS.map((l) => {
-          const done = state.completedLessons[l.id]
-          const value = state.mastery[l.nodeId] || 0
-          const perfect = done?.perfect
-          return (
-            <button key={l.id} className="card card-hover" style={{ textAlign: 'left' }} onClick={() => navigate(`/lesson/${l.id}`)}>
-              <div className="spread">
-                <div style={{ fontSize: 26 }}>{l.emoji}</div>
-                <div className="row">
-                  {perfect ? <span className="pill pill-teal">✓ 满分</span> : value >= 4 ? <span className="pill pill-teal">已掌握</span> : value > 0 ? <span className="pill pill-amber">学习中</span> : <span className="pill pill-gray">未开始</span>}
-                </div>
-              </div>
-              <h3 className="mt-12" style={{ fontSize: 18 }}>{l.title}</h3>
-              <p className="muted tiny mt-8">{l.subtitle}</p>
-              {l.hook && <p className="tiny mt-8" style={{ color: 'var(--amber-deep)' }}>❓ {l.hook.question}</p>}
-              <div className="row mt-12 tiny muted">
-                <span>⏱ {l.minutes} 分钟</span>
-                <span>·</span>
-                <span>{l.steps.length} 个互动</span>
-              </div>
-              <div className="mt-12"><Bar value={value} max={4} tone={value >= 4 ? 'teal' : 'amber'} /></div>
-            </button>
-          )
-        })}
-      </div>
-      <Remind icon="🧠">课堂不是「看视频」，而是「先作答、再反馈、再应用」。真正的掌握，是你能在案例里用出来。</Remind>
-    </div>
-  )
 }
 
 // ---------------- 单课运行 ----------------
@@ -130,7 +93,7 @@ export function LessonRunner({ lessonId }) {
   }, [])
 
   if (!lesson) {
-    return <EmptyState title="找不到这节课" desc="它可能已被移除。" action={<button className="btn" onClick={() => navigate('/lesson')}>返回课堂</button>} />
+    return <EmptyState title="找不到这节课" desc="它可能已被移除。" action={<button className="btn" onClick={() => navigate('/map')}>返回地图</button>} />
   }
 
   function startNewAttempt() {
@@ -268,7 +231,7 @@ export function LessonRunner({ lessonId }) {
   return (
     <div className="lesson-body">
       <div className="spread">
-        <button className="btn btn-ghost btn-sm" onClick={() => navigate('/lesson')}>← 课堂</button>
+        <button className="btn btn-ghost btn-sm" onClick={() => navigate('/map')}>← 地图</button>
         <div className="tiny muted">⏱ {lesson.minutes} 分钟 · 第 {idx + 1}/{lesson.steps.length} 题</div>
       </div>
 

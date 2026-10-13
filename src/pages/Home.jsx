@@ -165,7 +165,7 @@ export function Home() {
   function actionTarget() {
     switch (action.type) {
       case 'lesson':
-        return action.id ? `/lesson/${action.id}` : '/lesson'
+        return action.id ? `/lesson/${action.id}` : '/map'
       case 'case':
         return `/case/${action.id}`
       case 'experiment':
@@ -586,7 +586,7 @@ function QuestionCard() {
           )}
 
           <div className="mt-16 grid-2">
-            <button className="btn btn-soft btn-block" onClick={() => navigate('/lesson')}>进课堂系统学</button>
+            <button className="btn btn-soft btn-block" onClick={() => navigate('/map')}>去地图系统学</button>
             <button className="btn btn-soft btn-block" onClick={() => navigate('/cases')}>用案例练一练</button>
           </div>
         </Modal>

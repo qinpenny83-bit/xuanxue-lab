@@ -415,7 +415,7 @@ export function GrowthPage() {
               className="btn btn-teal mt-16"
               onClick={() => {
                 const a = agent.nextAction
-                if (a.type === 'lesson') navigate(a.id ? `/lesson/${a.id}` : '/lesson')
+                if (a.type === 'lesson') navigate(a.id ? `/lesson/${a.id}` : '/map')
                 else if (a.type === 'case') navigate(`/case/${a.id}`)
                 else if (a.type === 'experiment') navigate(`/lab/${a.id}`)
                 else if (a.type === 'exp') navigate(a.id ? `/exp/${a.id}` : '/exp')

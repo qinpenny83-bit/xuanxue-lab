@@ -11,7 +11,6 @@ import { Home } from './pages/Home'
 
 // 按需加载：进入对应路由时才下载该页面及其数据（含课程/卦档/术语等大模块）
 const MapPage = lazy(() => import('./pages/Map').then((m) => ({ default: m.MapPage })))
-const LessonList = lazy(() => import('./pages/Lesson').then((m) => ({ default: m.LessonList })))
 const LessonRunner = lazy(() => import('./pages/Lesson').then((m) => ({ default: m.LessonRunner })))
 const CasesPage = lazy(() => import('./pages/Cases').then((m) => ({ default: m.CasesPage })))
 const CaseRunner = lazy(() => import('./pages/CaseRunner').then((m) => ({ default: m.CaseRunner })))
@@ -71,9 +70,9 @@ function Router({ children, route }) {
       return <Home />
     case 'map':
       return <MapPage />
-    case 'lesson': // 别名，兼容「课堂」入口
+    case 'lesson': // 兼容旧链接：无课程 id 时回到学习地图
     case 'vertex':
-      return id ? <LessonRunner key={id} lessonId={id} /> : <LessonList />
+      return id ? <LessonRunner key={id} lessonId={id} /> : <MapPage />
     case 'cases':
       return <CasesPage />
     case 'case':

@@ -11,9 +11,7 @@ import { PERSONAS } from '../agent/teacherPersona'
 const NAV = [
   { path: '/', label: '首页' },
   { path: '/map', label: '地图' },
-  { path: '/path', label: '求学' },
   { path: '/memorize', label: '必背' },
-  { path: '/lesson', label: '课堂' },
   { path: '/hex', label: '卦档' },
   { path: '/terms', label: '术语' },
   { path: '/cases', label: '案例' },

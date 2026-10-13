@@ -252,14 +252,14 @@ export function MapPage() {
       <div className="spread" style={{ alignItems: 'flex-end', marginBottom: 8 }}>
         <div>
           <h1 className="page-title">🗺️ 玄学大学学习地图</h1>
-          <p className="page-sub" style={{ marginBottom: 0 }}>三个学院 + 研究院。每个节点都告诉你：学过什么、会了什么、忘了什么。</p>
+          <p className="page-sub" style={{ marginBottom: 0 }}>全部学院 + 研究院。每个节点都告诉你：学过什么、会了什么、忘了什么。</p>
         </div>
         <div className="tiny muted">
           {summary.mastered} 掌握 · {summary.review} 待复习 · {summary.learning} 学习中
         </div>
       </div>
 
-      {(() => {
+      {mode === 'all' && (() => {
         const ps = pathSummary(state)
         const cur = ps.current
         return (
