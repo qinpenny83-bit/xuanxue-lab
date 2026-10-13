@@ -20,7 +20,7 @@ export const biasChapterA = {
       emoji: '🎯',
       concept: '先入为主：心里先信了，眼光就跟着偏——专找合心意的看，反着来的自动略过。你信「最近有贵人」，于是把每个善意帮助都记成贵人，把普通互动忽略掉。破解法：主动设「反向任务」，专门收集反着来的记录。',
       source: '断事的老师傅都讲究「先断后验、落笔为凭」：断语先写下来，应验了对账——这正是防「先入为主」的老规矩。',
-      structure: '本章八节分别对应八种断事的毛病；先入为主是首位的「总开关」——它带着记中忘错、事后圆场与忘了自然之数一起犯。破解手段已在推理章（反证思维）给出。',
+      structure: '本章八节分别对应八种断事的毛病；先入为主是首位的「总开关」——它带着记中忘错、事后圆场与忘了自然之数一起犯。破解手段已在推理章（反例试金）给出。',
       examples: [
         '只保存「说中」的聊天记录，删除「没说中」的。',
         '「我觉得他克我」之后，每次争执都记到「克」上。',
@@ -31,17 +31,17 @@ export const biasChapterA = {
         '记录保持中立：成功与失败同表保存。',
       ],
       commonMistakes: [
-        '把「我愿意相信」当作「证据充分」。',
-        '收集证据前先宣布结论。',
+        '把「我愿意相信」当作「凭据充分」。',
+        '收集凭据前先宣布结论。',
         '反例出现时先质疑反例而不是修改观点。',
       ],
       exercises: [
         '认识：先入为主是什么。',
         '理解：为什么它会让「准」的感觉自我强化？',
         '应用：为自己最近的一个观点设置反向任务。',
-        '综合：检查自己的记录里，反面证据占多少。',
+        '综合：检查自己的记录里，反面凭据占多少。',
         '迁移：在评论区找先入为主的影子。',
-        '陌生：一个几乎只被支持证据包围的观点，该如何处理？',
+        '陌生：一个几乎只被支持凭据包围的观点，该如何处理？',
       ],
       caseIds: ['case-014'],
       related: ['rea-counter', 'bias-selective', 'bias-hindsight'],
@@ -62,23 +62,23 @@ export const biasChapterA = {
         reveal: '记性挑了「说中」的存，抹掉了「没说中」的。',
       },
       apply: {
-        prompt: '你想公平检验「这位师傅准不准」，最该做的动作是？',
+        prompt: '你想公平地验一验「这位师傅准不准」，最该做的动作是？',
         options: [
           { text: '提前写下断语清单，事后逐条核对含未中的', correct: true, feedback: '对：用全量记录对抗挑着记。', errorType: '' },
           { text: '多回想几次他准的例子，坚定信心', feedback: '这正是先入为主的动作。', errorType: 'E07' },
           { text: '问身边人「你觉得他准吗」', feedback: '身边人也可能同犯这毛病。', errorType: 'E07' },
         ],
-        explain: '破先入为主 = 强制记录全量结果，尤其失败的。',
+        explain: '破先入为主 = 强制记录全量结果，尤其未中的。',
       },
       applyB: {
-        prompt: '你觉得新同事总在针对你，想验证这个想法——接下来一周最该怎么做？',
+        prompt: '你觉得新同事总在针对你，想验一验这个想法——接下来一周最该怎么做？',
         options: [
-          { text: '把友好、中性、敌意的行为三类都记录，月底一起比较再下结论', correct: true, feedback: '对：主动收集中立与相反证据。', errorType: '' },
-          { text: '只记录他针对你的言行，攒够例子再说', feedback: '只收集支持自己的证据，正是先入为主。', errorType: 'E07' },
+          { text: '把友好、中性、敌意的言行三类都记录，月底一起比完再下断', correct: true, feedback: '对：主动收集中立与反着来的凭据。', errorType: '' },
+          { text: '只记录他针对你的言行，攒够例子再说', feedback: '只收集支持自己的凭据，正是先入为主。', errorType: 'E07' },
           { text: '问问同事「他是不是在针对我」', feedback: '身边人可能同样带着预期去观察。', errorType: 'E07' },
-          { text: '感觉这么明显，直接少跟他来往', feedback: '把感觉当结论，跳过了记录。', errorType: 'E06' },
+          { text: '感觉这么明显，直接少跟他来往', feedback: '把感觉当断语，跳过了记录。', errorType: 'E06' },
         ],
-        explain: '破先入为主的办法是给反面与中立证据同等记账的位置。',
+        explain: '破先入为主的办法是给反面与中立的凭据同等记账的位置。',
       },
       counter: {
         prompt: '「我查了很多资料都支持这个说法」——你会怎么回应？',
@@ -95,18 +95,18 @@ export const biasChapterA = {
           { text: '「记录」如果是事后只保留说中的部分，数量再多也只是挑着存的', correct: true, feedback: '对：先问记录是否完整，再谈数量。', errorType: '' },
           { text: '翻到的都是白纸黑字，说明真的准', feedback: '白纸黑字也可能是只存了说中的。', errorType: 'E07' },
           { text: '没说中的那些没存，说明本来就少', feedback: '没存不代表没有，可能是被删掉了。', errorType: 'E07' },
-          { text: '能留这么多记录，说明师傅有底气', feedback: '留存行为本身也可能带有选择性。', errorType: 'E06' },
+          { text: '能留这么多记录，说明师傅有底气', feedback: '留存这事本身也可能挑着存。', errorType: 'E06' },
         ],
         explain: '先确认记录是否完整、有没有把没说中的也记下，再谈「很多」。',
       },
       summaryPoints: [
-        '先入为主：只收集支持自己的证据。',
-        '破解：强制记录全量结果，含失败。',
+        '先入为主：只收集支持自己的凭据。',
+        '破解：强制记录全量结果，含未中的。',
         '「资料都支持」要先问「你查了反对的吗」。',
       ],
       microExperiment: {
         title: '反向任务',
-        text: '为你最近信的一条说法，专门找 3 条反对证据，存进实验记录。',
+        text: '为你最近信的一条说法，专门找 3 条反着来的凭据，存进实验记录。',
       },
     },
     {
@@ -126,7 +126,7 @@ export const biasChapterA = {
         '「你有贵人运，只是还没遇到」——怎么说都圆得上。',
       ],
       counterexamples: [
-        '检验法：把断语里的「你」换成「所有人」，看是否依然成立。',
+        '查验法：把断语里的「你」换成「所有人」，看是否依然成立。',
         '把描述贴到别人身上，若也像他，就不是针对你的。',
       ],
       commonMistakes: [
@@ -136,7 +136,7 @@ export const biasChapterA = {
       ],
       exercises: [
         '认识：两头堵的套话是什么。',
-        '理解：为什么套话命中率高？',
+        '理解：为什么套话应验比例高？',
         '应用：给一句断语做「通用性测试」。',
         '综合：把一条「很准」的描述翻译成通用句。',
         '迁移：在性格测试报告里找套话。',
@@ -144,7 +144,7 @@ export const biasChapterA = {
       ],
       caseIds: ['case-015'],
       related: ['bias-confirm', 'rea-alternative', 'unc-unknown'],
-      masteryStandard: '能识别圆滑普适的断语，并用「换主语测试」检验是否针对自己。',
+      masteryStandard: '能识别圆滑普适的断语，并用「换主语查验」验是否针对自己。',
       errorTypes: ['E06', 'E02'],
       transferTag: 'bias',
       hook: {
@@ -152,7 +152,7 @@ export const biasChapterA = {
         tease: '它其实什么都没说——这就是套话的把戏。',
       },
       predict: {
-        prompt: '检验一句话是不是两头堵的套话，最有效的方法是？',
+        prompt: '查验一句话是不是两头堵的套话，最有效的方法是？',
         options: [
           { text: '把「你」换成「所有人」，看是否依然成立' },
           { text: '看说话人名气大不大' },
@@ -163,9 +163,9 @@ export const biasChapterA = {
       apply: {
         prompt: '师傅说「你最近表面平静，心里其实在纠结一个重要决定」——你的反应？',
         options: [
-          { text: '先做换主语测试：这话对任何成年人几乎都成立', correct: true, feedback: '对：典型套话。', errorType: '' },
+          { text: '先做换主语查验：这话对任何成年人几乎都成立', correct: true, feedback: '对：典型套话。', errorType: '' },
           { text: '太准了，他一定懂我', feedback: '「准」的感觉恰恰来自模糊。', errorType: 'E06' },
-          { text: '他连我纠结都知道，肯定有本事', feedback: '纠结是常态，不构成针对性证据。', errorType: 'E02' },
+          { text: '他连我纠结都知道，肯定有本事', feedback: '纠结是常态，不构成针对你的凭据。', errorType: 'E02' },
         ],
         explain: '先测通用性，再决定要不要惊讶。',
       },
@@ -182,7 +182,7 @@ export const biasChapterA = {
       counter: {
         prompt: '「可是他说中了我最近确实在纠结」——如何回应？',
         options: [
-          { text: '「大多数人最近都有纠结的事，这句话的命中来自普适，不是读心」', correct: true, feedback: '对：解释门道，而不是否定感受。', errorType: '' },
+          { text: '「大多数人最近都有纠结的事，这句话的应验来自普适，不是读心」', correct: true, feedback: '对：解释门道，而不是否定感受。', errorType: '' },
           { text: '「那他就是真的准」', feedback: '又滑回套话的坑里。', errorType: 'E06' },
           { text: '「纠结的事那么多，他怎么没说中具体是哪件」', feedback: '这个质疑方向对，但要补上「普遍适用」的解释。', errorType: 'E03' },
         ],
@@ -191,21 +191,21 @@ export const biasChapterA = {
       counterB: {
         prompt: '有人说：「测试报告里连我最近睡不好都写出来了，这总该是专门针对我的吧。」——哪个说法最能指出这句话的问题？',
         options: [
-          { text: '「睡不好」在人群里很常见，放进换主语测试一样成立，仍是普适句', correct: true, feedback: '对：具体话题也可以是很常见的普适句。', errorType: '' },
-          { text: '能写中具体状态，说明数据收集很细', feedback: '细节也可能是模板里的高频项。', errorType: 'E06' },
-          { text: '报告算法专业，写的就是我的情况', feedback: '算法专业不改变句子本身普适。', errorType: 'E02' },
-          { text: '一次说中这么多，总不可能是凑巧', feedback: '高频状态被说中，不需要「凑巧」来解释。', errorType: 'E06' },
+          { text: '「睡不好」在人群里很常见，放进换主语查验一样成立，仍是普适句', correct: true, feedback: '对：具体话题也可以是很常见的普适句。', errorType: '' },
+          { text: '能写中具体状态，说明记录收集很细', feedback: '细节也可能是套话模板里的常客。', errorType: 'E06' },
+          { text: '报告做得再细，写的就是我的情况', feedback: '报告再细，也改不了句子本身普适。', errorType: 'E02' },
+          { text: '一次说中这么多，总不可能是凑巧', feedback: '常有的状态被说中，不需要「凑巧」来解释。', errorType: 'E06' },
         ],
         explain: '话题是否常见，比细节是否具体更能决定它是不是套话。',
       },
       summaryPoints: [
         '两头堵套话：模糊、普遍、人人都像。',
-        '检验：换主语测试。',
+        '查验：换主语。',
         '「很像我」不等于「针对我」。',
       ],
       microExperiment: {
-        title: '换主语实验',
-        text: '收集 3 条「特别准」的断语，做换主语测试，把结果存进实验记录。',
+        title: '换主语查验',
+        text: '收集 3 条「特别准」的断语，做换主语查验，把结果存进实验记录。',
       },
     },
     {
@@ -226,7 +226,7 @@ export const biasChapterA = {
       ],
       counterexamples: [
         '对抗法：当下立即全量记录，不靠回忆。',
-        '定期翻旧记录，看真实命中比例。',
+        '定期翻旧记录，看真实应验比例。',
       ],
       commonMistakes: [
         '用「我记得他准」代替「记录显示他准」。',
@@ -264,7 +264,7 @@ export const biasChapterA = {
         options: [
           { text: '「有没有当时的记录？回忆很容易只留下说中的部分」', correct: true, feedback: '对：温和地把评估拉回记录。', errorType: '' },
           { text: '「你都记得很清楚，那肯定准」', feedback: '记得清楚恰恰可能因为说中才记得。', errorType: 'E07' },
-          { text: '「那下次让他再算一次验证」', feedback: '单次验证仍不够，且同样靠记性。', errorType: 'E07' },
+          { text: '「那下次让他再断一次，验一验」', feedback: '单次验断仍不够，且同样靠记性。', errorType: 'E07' },
         ],
         explain: '用记录取代回忆，正是治记中忘错的老方子。',
       },
@@ -273,15 +273,15 @@ export const biasChapterA = {
         options: [
           { text: '翻找当时有没有白纸黑字的记录；找不到就标注「这是记忆评估」', correct: true, feedback: '对：记忆评估要主动降级。', errorType: '' },
           { text: '既然记得这么清楚，那就是准的', feedback: '记得清楚可能正因为说中才被记住。', errorType: 'E07' },
-          { text: '把回忆里说中的几次写下来当证据', feedback: '回忆补写，正是记中忘错在自我强化。', errorType: 'E07' },
-          { text: '他当时讲得那么具体，肯定留有底稿', feedback: '「肯定有」需要证据，不能靠期望。', errorType: 'E05' },
+          { text: '把回忆里说中的几次写下来当凭据', feedback: '回忆补写，正是记中忘错在自我强化。', errorType: 'E07' },
+          { text: '他当时讲得那么具体，肯定留有底稿', feedback: '「肯定有」需要凭据，不能靠期望。', errorType: 'E05' },
         ],
         explain: '评估「准不准」要用当下记录，回忆只能作为线索，不能作为账本。',
       },
       counter: {
         prompt: '「我从来没记错过」——这句话的问题在于？',
         options: [
-          { text: '它本身就是在用记忆证明记忆可靠，属于循环依赖', correct: true, feedback: '对：需要外部记录来校准。', errorType: '' },
+          { text: '它本身就是在用记性证明记性可靠——转了一圈，还是自己信自己', correct: true, feedback: '对：需要外部记录来对账。', errorType: '' },
           { text: '没问题，记性好人很多', feedback: '记性好不等于没有选择性。', errorType: 'E09' },
           { text: '可以相信，毕竟他打包票了', feedback: '打包票不是记录。', errorType: 'E05' },
         ],
@@ -325,7 +325,7 @@ export const biasChapterA = {
       ],
       counterexamples: [
         '事前把断语写死：具体到事件、时间、条件。',
-        '结果出来后对照事前记录，不临时润色。',
+        '结果出来后，照事前记录对账，不临时润色。',
       ],
       commonMistakes: [
         '用「当时的直觉」代替「当时的文字记录」。',
@@ -338,11 +338,11 @@ export const biasChapterA = {
         '应用：把一条「事后很准」的断语还原成事前文字。',
         '综合：判断一条应验是「事前写死」还是「事后圆场」。',
         '迁移：在股评、球评里找事后圆场。',
-        '陌生：如何设计「无法事后修改」的验证？',
+        '陌生：怎么设计「事后改不了」的验法？',
       ],
       caseIds: ['case-017'],
       related: ['bias-selective', 'rea-hypo', 'unc-calibration'],
-      masteryStandard: '能区分事前断语与事后解读，并坚持只用事前文字评估命中。',
+      masteryStandard: '能区分事前断语与事后解读，并坚持只用事前文字评估应验。',
       errorTypes: ['E07', 'E06'],
       transferTag: 'bias',
       hook: {
@@ -359,13 +359,13 @@ export const biasChapterA = {
         reveal: '事前写得含糊，事后怎么都能圆；圆出来的话，不算应验。',
       },
       apply: {
-        prompt: '验证断语是否命中，最严格的流程是？',
+        prompt: '查验断语是否应验，最严的流程是？',
         options: [
-          { text: '事前写清事件与时间，事后只对照事前文字', correct: true, feedback: '对：事前文字是唯一裁判。', errorType: '' },
+          { text: '事前写清事件与时间，事后只照事前文字对账', correct: true, feedback: '对：事前文字是唯一裁判。', errorType: '' },
           { text: '事后请师傅解释「当时就是这个意思」', feedback: '事后解释正是要排除的环节。', errorType: 'E06' },
           { text: '凭感觉判断是否算应验', feedback: '感觉会配合结果自动圆场。', errorType: 'E07' },
         ],
-        explain: '事前写死、事后对照，再没有旁的路子。',
+        explain: '事前写死、事后对账，再没有旁的路子。',
       },
       applyB: {
         prompt: '分手后你脱口而出「我早就觉得会分手」——按验断的规矩，正确的做法是？',
@@ -375,21 +375,21 @@ export const biasChapterA = {
           { text: '让当时算过的师傅解释「他那时就是这个意思」', feedback: '事后解释正是要排除的环节。', errorType: 'E06' },
           { text: '现在这么笃定，说明当初就有这个直觉', feedback: '「现在笃定」恰恰是事后圆场的产物。', errorType: 'E07' },
         ],
-        explain: '事前没有白纸黑字，就没有「早就知道」的证据。',
+        explain: '事前没有白纸黑字，就没有「早就知道」的凭据。',
       },
       counter: {
         prompt: '「可我当时心里就是这么想的」——为什么不能算？',
         options: [
-          { text: '「心里想」没有独立记录，可能被结果污染改写', correct: true, feedback: '对：未落笔的念头无法验证是否被事后修改。', errorType: '' },
+          { text: '「心里想」没有独立记录，可能被结果带偏改写', correct: true, feedback: '对：未落笔的念头，没法核是否被事后改过。', errorType: '' },
           { text: '心里想的也算，毕竟是自己亲历', feedback: '亲历不代表未受污染。', errorType: 'E05' },
           { text: '师傅说他当时听懂了就行', feedback: '第三方转述更不可靠。', errorType: 'E05' },
         ],
-        explain: '验证只认可复核的落笔记录，「心里想」不可复核。',
+        explain: '对账只认可复核的落笔记录，「心里想」不可复核。',
       },
       counterB: {
         prompt: '有人说：「师傅当时断『近期有变动』，我最近确实换了工作，这就算说中了。」——哪个说法最能指出这句话的问题？',
         options: [
-          { text: '「有变动」事前没写清是什么变动、何时发生，事后拿任何变化对号入座都不算说中', correct: true, feedback: '对：模糊断语的事后解读不算事前预测。', errorType: '' },
+          { text: '「有变动」事前没写清是什么变动、何时发生，事后拿任何变化对号入座都不算说中', correct: true, feedback: '对：模糊断语的事后解读不算事前断语。', errorType: '' },
           { text: '确实发生了变动，所以断语应验', feedback: '「变动」本身就允许各种结果，缺乏预判信息。', errorType: 'E07' },
           { text: '师傅当时就是这个意思，只是没点破', feedback: '「没点破」正是事后补充解释。', errorType: 'E06' },
           { text: '换工作是事实，事实就能证明断语', feedback: '事实只说明结果发生了，不能证明断语有预判力。', errorType: 'E07' },
@@ -399,7 +399,7 @@ export const biasChapterA = {
       summaryPoints: [
         '事后圆场：让模糊断语在结果后显得「早就点破」。',
         '只认事前白纸黑字，不认事后圆场。',
-        '「心里想」不可复核，不算证据。',
+        '「心里想」不可复核，不算凭据。',
       ],
       microExperiment: {
         title: '事前落笔',
