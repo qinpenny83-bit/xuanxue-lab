@@ -154,7 +154,7 @@ export const QIMEN_LAYOUT_CHAPTER = {
       counter: {
         prompt: '师兄弟争论：「置闰派比拆补派更准。」按本章，正确的是？',
         options: [
-          { text: '两派是历史形成的不同约定，没有高下之分', correct: true, feedback: '对，流派差异不是精度差异。' },
+          { text: '两派是历史形成的不同约定，没有高下之分', correct: true, feedback: '对，流派差异不是准头差异。' },
           { text: '置闰更古老，所以更接近古人原意', correct: false, errorType: 'E09', feedback: '只背「古老=正源」的结论，不去推两派都是节气干支的衔接约定，就会想当然。' },
           { text: '换局时机早晚无所谓，差几天不影响', correct: false, errorType: 'E04', feedback: '置闰与拆补的分歧恰恰在换局时机的处理，忽略时间衔接就丢了两派的分歧点。' },
         ],
@@ -311,7 +311,7 @@ export const QIMEN_LAYOUT_CHAPTER = {
           { text: '马在宫上，不动不行', correct: false, errorType: 'E01', feedback: '用单符号直接下结论。' },
           { text: '驿马出现必有远行', correct: false, errorType: 'E01', feedback: '动象不等于远行，更不是强制。' },
         ],
-        explain: '驿马是「变量提示」，读法仍以组合与问题为中心。',
+        explain: '驿马是「因由提示」，读法仍以组合与问题为中心。',
       },
       summaryPoints: ['驿马按年支/日支查（申子辰马在寅等）。', '驿马是动象参考符号，不参与四盘排布。', '驿马结合组合读，单符号不下结论。'],
       microExperiment: { title: '驿马查表练习', text: '写十组地支，逐一查驿马位置并核对口诀，直到查速接近直觉。' },

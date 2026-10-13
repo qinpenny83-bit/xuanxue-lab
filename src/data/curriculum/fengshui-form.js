@@ -147,7 +147,7 @@ export const FENGSHUI_FORM_CHAPTER = {
         options: [
           { text: '逼压过近，谈不上环抱有情——砂的价值由与穴的相对位置决定', correct: true, feedback: '对，砂的评价依赖与穴的相对关系。' },
           { text: '有楼就是有靠山，靠得近更是好事', correct: false, errorType: 'E01', feedback: '只看「有」不看「远近高低」。' },
-          { text: '只要楼在，不管多远多高都算好砂', correct: false, errorType: 'E03', feedback: '忽略了距离与高低这些关键变量。' },
+          { text: '只要楼在，不管多远多高都算好砂', correct: false, errorType: 'E03', feedback: '忽略了距离与高低这些关键因由。' },
         ],
         explain: '砂的价值在「环抱有情」，而「情」由相对位置决定。',
       },
@@ -257,13 +257,13 @@ export const FENGSHUI_FORM_CHAPTER = {
         prompt: '师兄弟争论：「坐向定了，格局就全定了。」按形势派传统，正确的是？',
         options: [
           { text: '立向要配合既有的山水形局，形局不同，合理朝向也不同——立向是格局收尾而非独断', correct: true, feedback: '对，立向是配合，不是单方面决定。' },
-          { text: '坐向定了就全定了，不用再看形局', correct: false, errorType: 'E01', feedback: '单变量下结论。' },
+          { text: '坐向定了就全定了，不用再看形局', correct: false, errorType: 'E01', feedback: '一根筋下结论。' },
           { text: '「坐」就是「门开的方向」', correct: false, errorType: 'E10', feedback: '术语混淆：坐是背后方位，与门向不同。' },
         ],
         explain: '立向是格局的收尾，前提是龙穴砂水的形局已经成立。',
       },
       summaryPoints: ['坐与向是一对：背后为坐，前方为向。', '立向要配合山水形局与采光避风等经验。', '立向是连接形势与理气的枢纽。'],
-      microExperiment: { title: '测量你家坐向', text: '用指南针站在客厅中央，读出门与窗的主朝向，判断你家大致坐什么、向什么，再想想这个朝向与采光、风向的实际关系。' },
+      microExperiment: { title: '量度你家坐向', text: '用指南针站在客厅中央，读出门与窗的主朝向，判断你家大致坐什么、向什么，再想想这个朝向与采光、风向的实际关系。' },
     },
     {
       id: 'fs-mingtang',

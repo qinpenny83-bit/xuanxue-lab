@@ -66,7 +66,7 @@ const reasonChapter = {
         options: [
           { text: '提前写下断语与判断标准，事后逐条核对，并记录未中的', correct: true, feedback: '对：先立断、后对账、没中的也记。', errorType: '' },
           { text: '回忆过去他说中的几次', feedback: '事后回忆天然偏向记住说中的。', errorType: 'E07' },
-          { text: '看他粉丝多不多', feedback: '粉丝量是传播指标，不是应验凭据。', errorType: 'E07' },
+          { text: '看他粉丝多不多', feedback: '粉丝量是传播标尺，不是应验凭据。', errorType: 'E07' },
         ],
         explain: '对账要提前写、全量记、没中的也算——这是验断的基本盘。',
       },

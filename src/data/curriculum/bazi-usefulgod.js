@@ -56,7 +56,7 @@ export const USEFUL_GOD_CHAPTER = {
           { text: '用神是结构调节点，不是改名依据——先确认这个用神是怎么从结构里取出来的', correct: true, feedback: '对，用神是分析概念。', errorType: '' },
           { text: '用神是木就改名补木，很合理', correct: false, errorType: 'E01', feedback: '把用神当吉祥物。' },
           { text: '用神就是幸运色，穿绿色戴绿玉就行', correct: false, errorType: 'E03', feedback: '用神被消费化。' },
-          { text: '大师说的肯定对，照做即可', correct: false, errorType: 'E07', feedback: '用权威代替结构验证。' },
+          { text: '大师说的肯定对，照做即可', correct: false, errorType: 'E07', feedback: '用权威代替结构对账。' },
         ],
         explain: '用神是「结构需要的调节点」，不是吉祥物、幸运色或改名依据。',
       },
@@ -218,7 +218,7 @@ export const USEFUL_GOD_CHAPTER = {
           { text: '见不到水的盘就是不好的盘', correct: false, errorType: 'E03', feedback: '忽略整体结构，单看有没有水。' },
           { text: '调候可以覆盖强弱，不用看日主', correct: false, errorType: 'E03', feedback: '调候与强弱是两套独立视角，不能互相覆盖。' },
         ],
-        explain: '调候是独立视角，但方向要经受整体结构检验——「夏必见水」是把起点当终点。',
+        explain: '调候是独立视角，但方向要经受整体结构查验——「夏必见水」是把起点当终点。',
       },
       summaryPoints: ['调候处理气候寒暖燥湿，独立于强弱。', '冬喜火、夏喜水是典型方向，不是铁律。', '调候与扶抑冲突时，回到结构权衡。'],
     },
@@ -265,9 +265,9 @@ export const USEFUL_GOD_CHAPTER = {
         prompt: '日主强旺，盘里食伤已经不少，有人还主张「强者宜泄，再补食伤，泄得越彻底越好」。这个主张的问题在？',
         options: [
           { text: '泄要有度：食伤已重重、再泄可能日主转弱，还会泄向失衡——「强者宜泄」讲的是平衡，不是泄得越狠越好', correct: true, feedback: '对，扶抑的目标是平衡不是消灭。', errorType: '' },
-          { text: '强者就该狠泄，泄得越多越好', correct: false, errorType: 'E01', feedback: '把「宜泄」当单变量公式。' },
-          { text: '先定下「要泄」的结论，再找食伤来支持', correct: false, errorType: 'E07', feedback: '先有结论再找证据。' },
-          { text: '日主强旺就说明整个结构没问题', correct: false, errorType: 'E01', feedback: '用一个变量覆盖所有结构问题。' },
+          { text: '强者就该狠泄，泄得越多越好', correct: false, errorType: 'E01', feedback: '把「宜泄」当一根筋公式。' },
+          { text: '先定下「要泄」的结论，再找食伤来支持', correct: false, errorType: 'E07', feedback: '先有结论再找凭据。' },
+          { text: '日主强旺就说明整个结构没问题', correct: false, errorType: 'E01', feedback: '用一个因由覆盖所有结构问题。' },
         ],
         explain: '扶抑讲「度」：泄过头同样制造失衡，还要检查泄的方向是否伤及用神。',
       },
@@ -285,7 +285,7 @@ export const USEFUL_GOD_CHAPTER = {
         options: [
           { text: '扶抑要先看「太」到什么程度、被扶/被泄者立不立得住、会不会制造新问题——弱极可能走从，强极可能用克耗，强弱只是起点', correct: true, feedback: '对，扶抑是三问之后才成立的判断。', errorType: '' },
           { text: '没漏洞，强弱定补泄就完事', correct: false, errorType: 'E07', feedback: '拒绝审视自己的结论。' },
-          { text: '补泄只看方向不看程度', correct: false, errorType: 'E01', feedback: '忽略「度」这个核心变量。' },
+          { text: '补泄只看方向不看程度', correct: false, errorType: 'E01', feedback: '忽略「度」这个核心因由。' },
           { text: '弱就多补几次，强就多泄几回', correct: false, errorType: 'E01', feedback: '把扶抑当算术，不看副作用。' },
         ],
         explain: '扶抑的关键在「度」与副作用评估，方向只是第一步。',
@@ -334,7 +334,7 @@ export const USEFUL_GOD_CHAPTER = {
       applyB: {
         prompt: '某盘水火交战，有人建议用木通关，但盘里的木被金重重克制、自身无根；另有人主张「加金把水制住」。两种说法？',
         options: [
-          { text: '先用通关三条件检验：木作化神若被金克死、自身无根，通关就立不住；「加金制水」是加码对抗，方向与通关相反——都要回到结构检验', correct: true, feedback: '对，化神要立得住，加码对抗不是通关。', errorType: '' },
+          { text: '先用通关三条件查验：木作化神若被金克死、自身无根，通关就立不住；「加金制水」是加码对抗，方向与通关相反——都要回到结构查验', correct: true, feedback: '对，化神要立得住，加码对抗不是通关。', errorType: '' },
           { text: '只要有木就能通关', correct: false, errorType: 'E01', feedback: '只看化神存在，不看化神力量。' },
           { text: '加金制水最干脆，直接解决对抗', correct: false, errorType: 'E03', feedback: '用对抗替代流通，忽略通关的结构逻辑。' },
           { text: '通关的化神随便选，哪个近用哪个', correct: false, errorType: 'E03', feedback: '忽略化神与两方的生克关系。' },
@@ -407,7 +407,7 @@ export const USEFUL_GOD_CHAPTER = {
           { text: '日主偏弱时制不动杀：食神制杀会先耗自身，选化（印化杀生身）更稳——手段要跟日主状态匹配', correct: true, feedback: '对，身弱宜化，强制则伤。', errorType: '' },
           { text: '见杀就制，不用管日主强弱', correct: false, errorType: 'E01', feedback: '手段选择不看日主状态。' },
           { text: '食神制杀是标准答案，人人都该用', correct: false, errorType: 'E06', feedback: '把一个条件性方案变成万能标签。' },
-          { text: '七杀被制住就等于事业成功', correct: false, errorType: 'E01', feedback: '单变量：制住杀不等于成功，还要看整体。' },
+          { text: '七杀被制住就等于事业成功', correct: false, errorType: 'E01', feedback: '一根筋：制住杀不等于成功，还要看整体。' },
         ],
         explain: '制化选择看日主状态：身强可制、身弱宜化；选错手段是经典失误，制过头也会制造新问题。',
       },
@@ -425,7 +425,7 @@ export const USEFUL_GOD_CHAPTER = {
         options: [
           { text: '制与化是并列工具，选择取决于结构：身强能对抗用制、身弱用化；化也需要印星有根有力，硬凑印反而添乱', correct: true, feedback: '对，工具没有高低，匹配结构才是标准。', errorType: '' },
           { text: '没问题，印化杀是正统做法', correct: false, errorType: 'E06', feedback: '把一种手段标签化成正统。' },
-          { text: '只要日主弱就该化，不用看印星有没有力', correct: false, errorType: 'E01', feedback: '单变量下结论，忽略化神条件。' },
+          { text: '只要日主弱就该化，不用看印星有没有力', correct: false, errorType: 'E01', feedback: '一根筋下结论，忽略化神条件。' },
           { text: '制杀伤身，永远不要用制', correct: false, errorType: 'E01', feedback: '把「身强制杀」的适用条件一刀切掉。' },
         ],
         explain: '制与化无高下之分，匹配日主状态与化神条件才是关键；「化比制高级」是标签化。',
@@ -485,8 +485,8 @@ export const USEFUL_GOD_CHAPTER = {
         prompt: '「用神冲突说明命理不靠谱」——这个结论的问题在？',
         options: [
           { text: '冲突来自规则与信息差异，不等于体系无效；正如两种法律体系对同一事实判决不同，不代表法律无用', correct: true, feedback: '对，从「有分歧」跳到「无价值」是过度概括。' },
-          { text: '没错，说不准就是骗人', correct: false, errorType: 'E01', feedback: '把差异当成欺诈证据。' },
-          { text: '冲突时听多数派', correct: false, errorType: 'E06', feedback: '人数不是证据。' },
+          { text: '没错，说不准就是骗人', correct: false, errorType: 'E01', feedback: '把差异当成欺诈凭据。' },
+          { text: '冲突时听多数派', correct: false, errorType: 'E06', feedback: '人数不是凭据。' },
         ],
         explain: '分歧是「多套规则并存」的必然结果，处理分歧本身就是分析能力。',
       },
@@ -544,7 +544,7 @@ export const USEFUL_GOD_CHAPTER = {
       applyB: {
         prompt: '一位分析者说：「你的用神是水（按旺衰派取的），所以要补木（换成格局派的想法），金来了不好（又换到调候派）。」这段分析最大的问题在？',
         options: [
-          { text: '同一段分析里混用多个流派的用神定义，且未声明切换', correct: true, feedback: '对，规则不声明、不坚持，结论无法检验。', errorType: '' },
+          { text: '同一段分析里混用多个流派的用神定义，且未声明切换', correct: true, feedback: '对，规则不声明、不坚持，结论无法查验。', errorType: '' },
           { text: '没问题，多派结合更全面', correct: false, errorType: 'E03', feedback: '把混用当全面。' },
           { text: '用神本来就该这么灵活', correct: false, errorType: 'E06', feedback: '把混乱当灵活。' },
           { text: '只要结论听起来专业就行', correct: false, errorType: 'E06', feedback: '用话语风格代替规则。' },
@@ -554,8 +554,8 @@ export const USEFUL_GOD_CHAPTER = {
       counter: {
         prompt: '「传统派用神最准，新派都是乱来」——这个判断的问题在？',
         options: [
-          { text: '「准」没有统一判定标准；评价应该是体系内自洽性与解释力，而不是新旧立场', correct: true, feedback: '对，立场先行是认知偏差。' },
-          { text: '没问题，老的就是好的', correct: false, errorType: 'E07', feedback: '年代即权威，是确认偏误。' },
+          { text: '「准」没有统一判定标准；评价应该是体系内自洽性与解释力，而不是新旧立场', correct: true, feedback: '对，立场先行是断事的毛病。' },
+          { text: '没问题，老的就是好的', correct: false, errorType: 'E07', feedback: '年代即权威，是先入为主。' },
           { text: '新派都为了赚钱', correct: false, errorType: 'E03', feedback: '用动机指控代替规则讨论。' },
         ],
         explain: '评价体系看自洽与解释力，不看新旧。',
@@ -616,7 +616,7 @@ export const USEFUL_GOD_CHAPTER = {
         options: [
           { text: '用神是「结构需要的调节点」，不是方位或摆件的依据——先问这个用神是怎么从结构里取出来的，再谈其他（此类说法属商业话术，未经证实）', correct: true, feedback: '对，用神消费化是常见误区。', errorType: '' },
           { text: '搬家摆绿植，确实能转运', correct: false, errorType: 'E06', feedback: '把用神当消费建议。' },
-          { text: '用神是木就该住东边，其他方位都不用考虑', correct: false, errorType: 'E01', feedback: '单变量直接下结论。' },
+          { text: '用神是木就该住东边，其他方位都不用考虑', correct: false, errorType: 'E01', feedback: '一根筋直接下结论。' },
           { text: '反正用神不会变，摆什么都行', correct: false, errorType: 'E03', feedback: '把用神当成静态标签，忽略它随结构动态变化。' },
         ],
         explain: '用神消费化（方位/摆件/幸运色）是把分析工具降级成商品；此类说法属商业话术，未经证实。',

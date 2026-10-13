@@ -53,9 +53,9 @@ export const HISTORY_MING_QING_CHAPTER = {
         options: [
           { text: '学界多认为该书成书于明代中后期——托名成分大', correct: true, feedback: '对，托名是明清命理出版的常见现象。' },
           { text: '刘基名望既高，自能著此奇书', correct: false, errorType: 'E02', feedback: '能力与名望不能证明署名，是时代错置。' },
-          { text: '书中明署作者，即为其人所撰', correct: false, errorType: 'E10', feedback: '题名需要版本学检验，把题名当成作者证据。' },
+          { text: '书中明署作者，即为其人所撰', correct: false, errorType: 'E10', feedback: '题名需要版本学查验，把题名当成作者凭据。' },
         ],
-        explain: '「题某人撰」与「某人所作」之间，隔着版本与内容两重检验。',
+        explain: '「题某人撰」与「某人所作」之间，隔着版本与内容两重查验。',
       },
       summaryPoints: ['三书取向不同：博采、格局、气象。', '八字流派多元，无唯一标准。', '《滴天髓》等书的托名问题需注意。'],
       microExperiment: { title: '三种读法看一命', text: '取一个真实八字，分别用「格局」「强弱」「调候」三种角度各写一句判断，对比结论差异，写下你的观察。' },
@@ -153,7 +153,7 @@ export const HISTORY_MING_QING_CHAPTER = {
       counter: {
         prompt: '有同门断言「清代六壬规则与唐代完全一致」。先生让按思想史脉络评议，正确的是？',
         options: [
-          { text: '月将过宫、贵人顺逆等起例在历史上明显变迁', correct: true, feedback: '对，规则史证据确凿。' },
+          { text: '月将过宫、贵人顺逆等起例在历史上明显变迁', correct: true, feedback: '对，规则史凭据确凿。' },
           { text: '古人传承严格，其法自当不变', correct: false, errorType: 'E02', feedback: '「传承严格」是想象而非史实，把设想当成了传统。' },
           { text: '名称既同，规则必同', correct: false, errorType: 'E10', feedback: '名称稳定不等于规则稳定，混淆了名与实。' },
         ],
@@ -196,7 +196,7 @@ export const HISTORY_MING_QING_CHAPTER = {
         prompt: '研习课上，同门转述一位风水师的话：「玄空才是正宗，三合都是外道」。先生让按思想史脉络评议，正确的是？',
         options: [
           { text: '门派对立是历史现象，各有文本依据——不宜以正宗自居', correct: true, feedback: '对，门派叙事要放在历史中看。' },
-          { text: '玄空既更流行，其说自当为正', correct: false, errorType: 'E02', feedback: '流行度不是正宗性的证据，把现象当成了标准。' },
+          { text: '玄空既更流行，其说自当为正', correct: false, errorType: 'E02', feedback: '流行度不是正宗性的凭据，把现象当成了标准。' },
           { text: '风水即一门一派，何须分争', correct: false, errorType: 'E10', feedback: '忽略了风水内部的结构多元，混淆了概念。' },
         ],
         explain: '「正宗」话语是门派竞争的一部分，不是史学结论。',
@@ -206,7 +206,7 @@ export const HISTORY_MING_QING_CHAPTER = {
         options: [
           { text: '九宫飞星系统的明确文本化很晚（明清至民国）——并非古代通行', correct: true, feedback: '对，系统化年代有明确文献边界。' },
           { text: '九宫数理既古，飞星之法自当同古', correct: false, errorType: 'E02', feedback: '九宫数理古老不等于飞星法古老，把来源当成了年代。' },
-          { text: '其名古雅，其法必古', correct: false, errorType: 'E10', feedback: '名称气质不构成年代证据，混淆了名与实。' },
+          { text: '其名古雅，其法必古', correct: false, errorType: 'E10', feedback: '名称气质不构成年代凭据，混淆了名与实。' },
         ],
         explain: '把「数理来源古老」与「方法系统晚出」分开，是门派史的基本功。',
       },
@@ -259,7 +259,7 @@ export const HISTORY_MING_QING_CHAPTER = {
           { text: '士大夫皆崇理性，不与乩坛为伍', correct: false, errorType: 'E05', feedback: '以刻板印象代替史料，是凭想象断言。' },
           { text: '笔记所载多夸诞，可置不论', correct: false, errorType: 'E02', feedback: '笔记是研究明清社会的重要史料，以文类一言蔽之是时代错置。' },
         ],
-        explain: '用士人参与的证据打破「底层信仰」的单一标签。',
+        explain: '用士人参与的凭据打破「底层信仰」的单一标签。',
       },
       summaryPoints: ['明清民间术数含择日、相术、扶乩、杂占四类。', '通书宜忌是术数叠加，非历法本义。', '托名是明清术数出版的重要现象。'],
       microExperiment: { title: '翻开老黄历', text: '找一本现代历书或通书，抄录某一天的「宜忌」与「神煞」，把其中属于「历法」与属于「术数」的内容分开列成两栏。' },

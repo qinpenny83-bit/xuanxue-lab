@@ -126,7 +126,7 @@ export const PATTERN_CHAPTER = {
         prompt: '一位学习者的盘：月令透出食神，但食神泄身太重、日主偏弱。他按「食神是善格，要顺用」的思路继续生扶食神。这个做法的问题在？',
         options: [
           { text: '「善格顺用」是处理原则不是公式——食神泄身太重时，先要回到日主承重来权衡，不能无脑生扶', correct: true, feedback: '对，顺用/逆用都要回到整体结构。', errorType: '' },
-          { text: '没问题，善格就该一路顺用生扶', correct: false, errorType: 'E01', feedback: '把「顺用」当成单变量公式，忽略泄身过度的结构。' },
+          { text: '没问题，善格就该一路顺用生扶', correct: false, errorType: 'E01', feedback: '把「顺用」当成一根筋公式，忽略泄身过度的结构。' },
           { text: '说明食神格比正官格低一等，处理起来才这么麻烦', correct: false, errorType: 'E03', feedback: '格与格之间没有固定排名，又回到忽略结构、只看名字。' },
           { text: '一个八字可以同时取正官格和食神格，哪个顺用方便取哪个', correct: false, errorType: 'E03', feedback: '取格以月令透干为中心定重心，不是把十种格局全贴上去。' },
         ],
@@ -145,8 +145,8 @@ export const PATTERN_CHAPTER = {
         prompt: '「正官格是善格，所以正官格的人品行端正、适合从政」——哪个说法最能指出这个判断的问题？',
         options: [
           { text: '「善格」是对十神性质的分类：正官为重心、宜生护，不代表此人品行端正或适合从政——同名格局的现实差异可以很大', correct: true, feedback: '对，命名与现实的鸿沟是反例核心。', errorType: '' },
-          { text: '没有反例，正官格就是品行端正的官命', correct: false, errorType: 'E01', feedback: '把格局名直接兑换成品行与职业，单变量下结论。' },
-          { text: '有人正官格却经商成功，说明他当初取错了格', correct: false, errorType: 'E01', feedback: '用一个现实事件反推取格对错，仍是单变量思维。' },
+          { text: '没有反例，正官格就是品行端正的官命', correct: false, errorType: 'E01', feedback: '把格局名直接兑换成品行与职业，一根筋下结论。' },
+          { text: '有人正官格却经商成功，说明他当初取错了格', correct: false, errorType: 'E01', feedback: '用一个现实事件反推取格对错，仍是一根筋思维。' },
           { text: '「善格」等于现实顺遂，「逆用格」等于现实坎坷', correct: false, errorType: 'E03', feedback: '把性质分类直接翻译成现实结果，忽略了结构如何被处理。' },
         ],
         explain: '「善/不善」是十神性质的分类，不是品行、职业或现实顺遂的判决；反例的核心是分类与现实的鸿沟。',
@@ -188,7 +188,7 @@ export const PATTERN_CHAPTER = {
         options: [
           { text: '取格细则存在流派差异，两种取法都可能是流派内自洽的，关键看后续分析是否一致', correct: true, feedback: '对，取格有权衡空间，差异不必然等于错误。' },
           { text: '一定有一个师傅算错了', correct: false, errorType: 'E07', feedback: '强行唯一答案。' },
-          { text: '谁名气大听谁的', correct: false, errorType: 'E06', feedback: '用身份代替结构证据。' },
+          { text: '谁名气大听谁的', correct: false, errorType: 'E06', feedback: '用身份代替结构凭据。' },
         ],
         explain: '透干多者取谁，本来就是传统里存在分歧的环节。',
       },
@@ -266,11 +266,11 @@ export const PATTERN_CHAPTER = {
         prompt: '一位分析者先用子平规则取正官格，又用盲派口诀断「你今年要搬家」，最后补一句「百神论也这么说」。这段分析最可能的问题在？',
         options: [
           { text: '同一段分析里混用多套规则且未声明切换，破坏了每套规则的自洽性', correct: true, feedback: '对，混用规则是初学者的危险动作。', errorType: '' },
-          { text: '没问题，多流派交叉验证更全面', correct: false, errorType: 'E07', feedback: '把混用当成全面。' },
+          { text: '没问题，多流派交叉对账更全面', correct: false, errorType: 'E07', feedback: '把混用当成全面。' },
           { text: '能同时用多套规则，说明水平高', correct: false, errorType: 'E06', feedback: '用「全面」光环代替规则一致。' },
-          { text: '结论正确就行，用哪套规则无所谓', correct: false, errorType: 'E03', feedback: '规则都不声明，结论无从检验。' },
+          { text: '结论正确就行，用哪套规则无所谓', correct: false, errorType: 'E03', feedback: '规则都不声明，结论无从查验。' },
         ],
-        explain: '用哪套规则要先声明并保持一致，混用会破坏可检验性。',
+        explain: '用哪套规则要先声明并保持一致，混用会破坏可查验性。',
       },
       counter: {
         prompt: '「流派差异=谁都可能对，所以不用学了」——这个想法的问题在哪？',
@@ -338,7 +338,7 @@ export const PATTERN_CHAPTER = {
           { text: '身强只解决「承重」：官星作为格局中心若被伤官克得厉害，中心本身立不住——强弱与格局要分开检查', correct: true, feedback: '对，两个正交问题要各自过一遍。', errorType: '' },
           { text: '身强格正，就是好命', correct: false, errorType: 'E01', feedback: '把强弱与格局两个问题合并成一个吉凶结论。' },
           { text: '身强就代表能力强、能扛事', correct: false, errorType: 'E06', feedback: '把「身强」过度解释成现实能力。' },
-          { text: '官星被伤不用管，身强就能压住', correct: false, errorType: 'E01', feedback: '只盯身强一个变量，忽略中心被伤的问题。' },
+          { text: '官星被伤不用管，身强就能压住', correct: false, errorType: 'E01', feedback: '只盯身强一个因由，忽略中心被伤的问题。' },
         ],
         explain: '格局是中心、强弱是承重，两套问题要分别检查；中心被伤与承重不足都会破坏结构。',
       },
@@ -355,7 +355,7 @@ export const PATTERN_CHAPTER = {
         prompt: '「身强旺的人，什么格局都担得住」——哪个反例最有力？',
         options: [
           { text: '身旺无依：日主强旺但盘里无可用之星（官杀财星全无），有劲没处使——强不等于有东西可担', correct: true, feedback: '对，承重之外还要有可担之物。', errorType: '' },
-          { text: '没有反例，身强就是万能', correct: false, errorType: 'E01', feedback: '用「身强」一个变量覆盖所有结构问题。' },
+          { text: '没有反例，身强就是万能', correct: false, errorType: 'E01', feedback: '用「身强」一个因由覆盖所有结构问题。' },
           { text: '身强的人从不生病', correct: false, errorType: 'E06', feedback: '把「身」当肉身，过度解释。' },
           { text: '身强的人遇到什么格局都能驾驭', correct: false, errorType: 'E01', feedback: '又用强弱替代格局检查。' },
         ],
@@ -425,7 +425,7 @@ export const PATTERN_CHAPTER = {
         prompt: '「日主弱极就能算从格」——哪个说法最能指出这个说法的漏洞？',
         options: [
           { text: '真从的判定很严：日主见一点根或透印比帮扶就可能不算真从，且同一个盘在不同流派间可能判从、可能判假从——弱极只是前提，不是判据', correct: true, feedback: '对，弱极不等于从，边界有流派弹性。', errorType: '' },
-          { text: '弱极就是从格，没什么好纠结的', correct: false, errorType: 'E01', feedback: '用「弱极」一个变量定从格。' },
+          { text: '弱极就是从格，没什么好纠结的', correct: false, errorType: 'E01', feedback: '用「弱极」一个因由定从格。' },
           { text: '从格根本不看日主状态', correct: false, errorType: 'E03', feedback: '忽略从格成立的整体条件。' },
           { text: '判成从格的人都会有大成就', correct: false, errorType: 'E07', feedback: '先有期待再找支持，拒绝反例。' },
         ],
@@ -445,7 +445,7 @@ export const PATTERN_CHAPTER = {
       source: '传统分析流程（如《子平真诠》的格局-用神体系）把格局当作「论命的第一层组织」，后续的喜忌、岁运都围绕格局中心展开；这是方法论设计，不是玄学特效。',
       structure: '应用路径：取格（定中心）→ 查护（中心有没有被生护）→ 查伤（中心有没有被克泄）→ 定用（怎么调节）→ 看岁运（时间如何作用于中心）。每一步都回到结构，不回到吉凶标签。',
       examples: ['正官格分析：官星是否得财生、是否被伤官克、日主是否担得起——按这个顺序走。', '食神格分析：食神是否被偏印夺（枭神夺食）、是否泄身太过——关注这两类结构风险。'],
-      counterexamples: ['格局提示风险不等于风险发生：正官被伤官克是「结构上存在这种张力」，现实中可能因大运、其他合冲而化解，不能直接断「事业失败」。', '两个不同格局可以用同一句话总结现实，反之亦然——格局与应用之间隔着大量中间变量。'],
+      counterexamples: ['格局提示风险不等于风险发生：正官被伤官克是「结构上存在这种张力」，现实中可能因大运、其他合冲而化解，不能直接断「事业失败」。', '两个不同格局可以用同一句话总结现实，反之亦然——格局与应用之间隔着大量中间因由。'],
       commonMistakes: ['把格局当结论直接使用（「正官格=适合体制内」）。', '分析时只报格局名，不展示结构检查过程。'],
       exercises: ['认识：格局在综合分析中承担哪三个作用？', '理解：为什么格局只能当入口、不能当出口？', '应用：给你一个正官格，写出你的检查清单。', '迁移：路线图思维还能用到哪些复杂任务里？'],
       caseIds: ['case-049', 'case-050', 'case-054'],
@@ -468,7 +468,7 @@ export const PATTERN_CHAPTER = {
         options: [
           { text: '结构有张力（官被伤）也有化解（印制伤护官），需要继续看力量与岁运，不能直接断好坏', correct: true, feedback: '对，风险和化解并存，读法要保留弹性。' },
           { text: '有伤官克官，事业必败', correct: false, errorType: 'E01', feedback: '把结构张力直接译成必然事件。' },
-          { text: '有印星化解，一切无忧', correct: false, errorType: 'E07', feedback: '只看有利证据，忽略力量对比。' },
+          { text: '有印星化解，一切无忧', correct: false, errorType: 'E07', feedback: '只看有利凭据，忽略力量对比。' },
         ],
         explain: '结构检查得出「张力+化解并存」的中间结论，而不是直接跳到事件。',
       },
@@ -495,7 +495,7 @@ export const PATTERN_CHAPTER = {
         prompt: '「同一个格局，用同一条断语，适合所有同格局的人」——哪个说法最能指出问题？',
         options: [
           { text: '格局只提供分析框架：同样正官格，官星有无印护、日主强弱、岁运走向不同，检查结论就不同——断语要按结构走，不能批量复制', correct: true, feedback: '对，框架相同不等于结论相同。', errorType: '' },
-          { text: '同格局的人命运应该一样', correct: false, errorType: 'E01', feedback: '忽略中间变量，单变量下结论。' },
+          { text: '同格局的人命运应该一样', correct: false, errorType: 'E01', feedback: '忽略中间因由，一根筋下结论。' },
           { text: '把断语背下来直接套用，效率更高', correct: false, errorType: 'E09', feedback: '背结论套用而不展示推理，正是分析能力缺失。' },
           { text: '食神格的人都会遇到「夺食」这件事', correct: false, errorType: 'E06', feedback: '把结构张力过度解释成人人都会遭遇的必然事件。' },
         ],
@@ -546,7 +546,7 @@ export const PATTERN_CHAPTER = {
         prompt: '一个博主发帖「格局排名前十的命格，你占几个？」，评论里很多人对照自己的格局。作为学习者你怎么看？',
         options: [
           { text: '经典里不存在「格局排行榜」：格局是分析起点不是评分体系，这类排名把结构工具变成消费标签（属网络说法，未经证实）', correct: true, feedback: '对，排行榜是网络产物，不是体系内结论。', errorType: '' },
-          { text: '赶紧对照看看自己排第几', correct: false, errorType: 'E01', feedback: '跟着排行榜思路走，单变量下结论。' },
+          { text: '赶紧对照看看自己排第几', correct: false, errorType: 'E01', feedback: '跟着排行榜思路走，一根筋下结论。' },
           { text: '排名靠前的格局确实命更好', correct: false, errorType: 'E03', feedback: '把命名当吉凶判决，忽略整体结构。' },
           { text: '格局排名越高的人越适合当领导', correct: false, errorType: 'E06', feedback: '把排行榜过度解释成领导力。' },
         ],
@@ -565,8 +565,8 @@ export const PATTERN_CHAPTER = {
         prompt: '「这个人是正官格，所以适合做公务员」——哪个说法最能指出这句话的问题？',
         options: [
           { text: '格局名是结构命名，不是职业判决：同为正官格的人职业千差万别，职业由结构、时代与个人选择共同构成', correct: true, feedback: '对，象征不能直接兑换职业。', errorType: '' },
-          { text: '没有问题，正官格就是官命', correct: false, errorType: 'E01', feedback: '单变量直接下结论。' },
-          { text: '他确实是公务员，说明格局决定职业', correct: false, errorType: 'E03', feedback: '把单个案例当证明，忽略结构、时代与选择等变量。' },
+          { text: '没有问题，正官格就是官命', correct: false, errorType: 'E01', feedback: '一根筋直接下结论。' },
+          { text: '他确实是公务员，说明格局决定职业', correct: false, errorType: 'E03', feedback: '把单个案例当证明，忽略结构、时代与选择等因由。' },
           { text: '正官格的人都该去考公，考不上就是没走对路', correct: false, errorType: 'E06', feedback: '过度解释，还把职业路径变成指令。' },
         ],
         explain: '「某格=某职业」是象征当职业的标签化误区；职业结论要回到结构+时间+选择的完整分析。',

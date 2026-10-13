@@ -44,7 +44,7 @@ export function curriculumLesson(nodeId) {
   if (n.apply) {
     steps.push({ type: 'choice', prompt: n.apply.prompt, options: n.apply.options, explain: n.apply.explain })
   }
-  // R7 变式题：同一知识点的应用变式（更精准检验掌握），紧随原题之后
+  // R7 变式题：同一知识点的应用变式（更精准查验掌握），紧随原题之后
   if (n.applyB) {
     steps.push({ type: 'choice', prompt: n.applyB.prompt, options: n.applyB.options, explain: n.applyB.explain, variant: true })
   }

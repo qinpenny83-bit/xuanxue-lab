@@ -73,7 +73,7 @@ export const QIMEN_APPLY_CHAPTER = {
       source: '求财取用各派差异较大，本课列出通行参考并强调流派差异。',
       structure: '财运读盘复用奇门之断的全套方法，区别只在用神选择与解读重点：不同流派取生门、戊或六合各有侧重；看落宫旺衰、生克关系与空亡状态时，要明确标注依据的是哪一派的取用习惯，不做「唯一正确」的断言。',
       examples: ['传统参考：求财看生门或戊所在宫，旺相且不受克，倾向有利。', '合作求财另看六合宫与双方宫的关系。'],
-      counterexamples: ['「生门落吉宫=必发财」——单变量结论，忽略旺衰与组合。', '「财运只看一个宫」——求财常需看财宫、用神宫、时干宫三处。'],
+      counterexamples: ['「生门落吉宫=必发财」——一根筋结论，忽略旺衰与组合。', '「财运只看一个宫」——求财常需看财宫、用神宫、时干宫三处。'],
       commonMistakes: ['把生门吉凶当财运结论。', '忽略时间维度（何时得财、何时空亡）。', '忽略现实背景（投入、市场等）。'],
       exercises: ['认识：求财问题的常用参考符号有哪些？', '理解：为什么各派取用不同？', '应用：生门旺相落宫，但财宫空亡，怎么综合表述？'],
       caseIds: [],
@@ -104,7 +104,7 @@ export const QIMEN_APPLY_CHAPTER = {
         prompt: '师兄弟争论：「生门落吉宫，是不是就财源滚滚了？」按本章，正确的是？',
         options: [
           { text: '生门吉只说明财事的象意层面，旺衰空亡组合都影响读法', correct: true, feedback: '对，单一吉宫不构成财运结论。' },
-          { text: '生门主生，生就是来财', correct: false, errorType: 'E01', feedback: '从门名单变量推断。' },
+          { text: '生门主生，生就是来财', correct: false, errorType: 'E01', feedback: '从门名一根筋推断。' },
           { text: '吉宫加吉门一定好', correct: false, errorType: 'E01', feedback: '吉符号叠加不等于结论。' },
         ],
         explain: '财运读盘要「多宫合读+现实校准」，单宫不立论。',
@@ -155,7 +155,7 @@ export const QIMEN_APPLY_CHAPTER = {
         prompt: '师兄弟争论：「双方宫相冲，这感情是不是就没戏了？」按本章，正确的是？',
         options: [
           { text: '冲克要结合旺衰、组合与现实关系读，不构成判决', correct: true, feedback: '对，冲克是关系特征，不是结局。' },
-          { text: '冲就是散，散就是分', correct: false, errorType: 'E01', feedback: '字面单变量推断。' },
+          { text: '冲就是散，散就是分', correct: false, errorType: 'E01', feedback: '字面一根筋推断。' },
           { text: '盘面冲克就判结局，现实相处不用问', correct: false, errorType: 'E05', feedback: '忽略现实关系信息，直接用盘面定结局。' },
         ],
         explain: '冲克读「关系张力」，张力可能意味着磨合，也可能是分歧，看组合与语境。',
@@ -247,7 +247,7 @@ export const QIMEN_APPLY_CHAPTER = {
       apply: {
         prompt: '师父授课：失物宫临伏吟，寻物读法应偏向？',
         options: [
-          { text: '东西大概率在原处没动，就近再找', correct: true, feedback: '对，伏吟读「未动」，是寻物的有效线索。' },
+          { text: '东西多半在原处没动，就近再找', correct: true, feedback: '对，伏吟读「未动」，是寻物的有效线索。' },
           { text: '伏吟=找不到', correct: false, errorType: 'E01', feedback: '把状态读成判决。' },
           { text: '伏吟就是丢定了，连哪天丢都能推出来', correct: false, errorType: 'E06', feedback: '从伏吟一个状态过度推演细节，是过度解释。' },
         ],

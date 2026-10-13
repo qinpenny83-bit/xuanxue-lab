@@ -274,7 +274,7 @@ export const ICHING_BAGUA_CHAPTER = {
         options: [
           { text: '巽卦九三「频巽，吝」正是批评反复无主见——说明巽的本义不是无主见', correct: true, feedback: '对，卦爻自己就在反对无主见。' },
           { text: '巽就是顺从', correct: false, errorType: 'E01', feedback: '忽略爻辞。' },
-          { text: '主见和巽无关', correct: false, errorType: 'E03', feedback: '回避文本证据。' },
+          { text: '主见和巽无关', correct: false, errorType: 'E03', feedback: '回避文本凭据。' },
         ],
         explain: '巽=顺势而达，主见与方向在入之前就要定好。',
       },
@@ -524,7 +524,7 @@ export const ICHING_BAGUA_CHAPTER = {
         options: [
           { text: '方位只是应用层的排列框架，吉凶必须结合具体情境，没有「某方位必凶」', correct: true, feedback: '对，应用框架不等于判决。' },
           { text: '方位就是凶', correct: false, errorType: 'E06', feedback: '把框架当判决。' },
-          { text: '方位看多了就灵', correct: false, errorType: 'E07', feedback: '确认偏误。' },
+          { text: '方位看多了就灵', correct: false, errorType: 'E07', feedback: '先入为主。' },
         ],
         explain: '方位是工具，结论必须回到具体结构。',
       },

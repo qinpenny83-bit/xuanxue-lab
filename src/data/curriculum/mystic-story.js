@@ -44,19 +44,19 @@ export const MYSTIC_STORY_CHAPTER = {
       apply: {
         prompt: '研习课整理灵异故事材料：有人递来一则「朋友亲戚的真实经历」。按本章所学，这则材料该归到哪一层？',
         options: [
-          { text: '「真实经历」的说法本身是叙事包装，转述链条长、套路明显，归入民间传说层（未证实），不作证据', correct: true, feedback: '对，转述与叙事包装都要纳入考量。' },
+          { text: '「真实经历」的说法本身是叙事包装，转述链条长、套路明显，归入民间传说层（未证实），不作凭据', correct: true, feedback: '对，转述与叙事包装都要纳入考量。' },
           { text: '亲戚不会骗人，当事实记入笔记', correct: false, errorType: 'E02', feedback: '把「不骗人」当成了事实依据。' },
           { text: '细节那么具体，就是真的', correct: false, errorType: 'E06', feedback: '用「细节丰富」一个标签代替考察。' },
         ],
-        explain: '灵异叙事的「亲历」外壳是叙事套路，不能作为真实性证据。',
+        explain: '灵异叙事的「亲历」外壳是叙事套路，不能作为真实性凭据。',
       },
       applyB: {
         prompt: '同门转来一条深夜「探灵」直播，主播声称「今晚真的有东西跟着我」。按本章所学，研习时该怎么处理这条材料？',
         options: [
           { text: '把它当作网络灵异叙事（未证实），先分析拍摄手法与流量动机，再谈真假', correct: true, feedback: '对，先当叙事读，再谈真实性。' },
-          { text: '直播里拍到了，就是真的', correct: false, errorType: 'E06', feedback: '把镜头呈现过度解释为实存证据。' },
-          { text: '主播没必要骗人', correct: false, errorType: 'E02', feedback: '把主播身份当成了可信度依据。' },
-          { text: '弹幕都在刷「有东西」，就是真的', correct: false, errorType: 'E06', feedback: '把观众反应过度解释为事实证据。' },
+          { text: '直播里拍到了，就是真的', correct: false, errorType: 'E06', feedback: '把镜头呈现过度解释为实存凭据。' },
+          { text: '主播没必要骗人', correct: false, errorType: 'E02', feedback: '把主播身份当成了可信的分量依据。' },
+          { text: '弹幕都在刷「有东西」，就是真的', correct: false, errorType: 'E06', feedback: '把观众反应过度解释为事实凭据。' },
         ],
         explain: '探灵直播是商业化叙事，先标「未证实」，再分析其运作逻辑。',
       },
@@ -72,14 +72,14 @@ export const MYSTIC_STORY_CHAPTER = {
       counterB: {
         prompt: '同门在研习笔记里写道：「鬼故事传了上千年，里面肯定有真实的成分。」按本章所学，这句话该归到哪一层？',
         options: [
-          { text: '故事长期流传反映的是观念、禁忌与娱乐需求，不构成「内含真实」的证据——流传与真实分属两层', correct: true, feedback: '对，把「流传久」与「有真事」分开。' },
-          { text: '传了上千年必有真事', correct: false, errorType: 'E02', feedback: '把流传时长直接当成了真实性证据。' },
+          { text: '故事长期流传反映的是观念、禁忌与娱乐需求，不构成「内含真实」的凭据——流传与真实分属两层', correct: true, feedback: '对，把「流传久」与「有真事」分开。' },
+          { text: '传了上千年必有真事', correct: false, errorType: 'E02', feedback: '把流传时长直接当成了真实性凭据。' },
           { text: '故事越老越可信', correct: false, errorType: 'E02', feedback: '用「古老」代替对内容的考察。' },
           { text: '各地都有类似故事，说明真有此事', correct: false, errorType: 'E06', feedback: '把母题的普遍性过度解释为事件实存。' },
         ],
         explain: '流传与真实是两回事，母题普遍反映的是人类共同的叙事心理。',
       },
-      summaryPoints: ['灵异故事先作为叙事研究：功能、流传与观念。', '志怪文献是文学与观念史材料，不是实证记录。', '「亲历」「真实」是常见叙事包装，不能直接当作证据。'],
+      summaryPoints: ['灵异故事先作为叙事研究：功能、流传与观念。', '志怪文献是文学与观念史材料，不是实证记录。', '「亲历」「真实」是常见叙事包装，不能直接当作凭据。'],
       microExperiment: { title: '拆解一个鬼故事的结构', text: '选一个你听过的鬼故事，拆出：场景、人物、转折、结局，再分析它传递了什么观念或禁忌。' },
     },
     {

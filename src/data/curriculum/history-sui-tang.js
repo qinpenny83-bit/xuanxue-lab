@@ -46,7 +46,7 @@ export const HISTORY_SUI_TANG_CHAPTER = {
           { text: '李鼎祚反对《周易正义》的一切内容', correct: false, errorType: 'E02', feedback: '辑录材料不等于全面对立，把文献工作当成立场宣言。' },
           { text: '汉代象数易才是唐代的主流', correct: false, errorType: 'E03', feedback: '主流仍是义理路线，《集解》是保存性文献，不能以偏概全。' },
         ],
-        explain: '文献的「保存」与「主流」是两回事，两者都要看证据。',
+        explain: '文献的「保存」与「主流」是两回事，两者都要看凭据。',
       },
       counter: {
         prompt: '有同门称「《正义》之后，天下只有一种易学」。先生让按思想史脉络评议，正确的是？',
@@ -103,7 +103,7 @@ export const HISTORY_SUI_TANG_CHAPTER = {
         prompt: '同门争辩「纳音是《五行大义》发明的」。先生让按思想史脉络评议，正确的是？',
         options: [
           { text: '书中是整理既有传统——纳音配属渊源更早，汇编不等于发明', correct: true, feedback: '对，汇编不等于发明。' },
-          { text: '书名既称「大义」，当为集大成之作', correct: false, errorType: 'E10', feedback: '把书名气势当成首创证据，混淆了概念。' },
+          { text: '书名既称「大义」，当为集大成之作', correct: false, errorType: 'E10', feedback: '把书名气势当成首创凭据，混淆了概念。' },
           { text: '后人皆引此书，其为源头无疑', correct: false, errorType: 'E02', feedback: '被引用多不等于源头，把流传当成了创制。' },
         ],
         explain: '区分「系统整理」与「首创」，是思想史研究的基本功。',
@@ -146,7 +146,7 @@ export const HISTORY_SUI_TANG_CHAPTER = {
         options: [
           { text: '注明是后世文本的概述，不当作郭璞原话', correct: true, feedback: '对，标注文本时代是引用的底线。' },
           { text: '直接引作郭璞的话，更有权威', correct: false, errorType: 'E02', feedback: '把晚出文本归给古人，是常见的托名误读。' },
-          { text: '此句流传极广，其言必实', correct: false, errorType: 'E05', feedback: '「有名」不是文本年代的证据，以流传代替考证。' },
+          { text: '此句流传极广，其言必实', correct: false, errorType: 'E05', feedback: '「有名」不是文本年代的凭据，以流传代替考证。' },
         ],
         explain: '引用古籍先问「此句出自哪个版本、哪个时代」，再决定如何表述。',
       },
@@ -248,7 +248,7 @@ export const HISTORY_SUI_TANG_CHAPTER = {
         options: [
           { text: '说法过于简单——李虚中所用为年月日三柱，四柱子平术定型于宋初', correct: true, feedback: '对，把「禄命之祖」误当成「四柱创始人」是常见简化。' },
           { text: '韩愈既为李虚中作志，其法当为四柱', correct: false, errorType: 'E02', feedback: '韩文只及年月日三柱，不证四柱，把记载扩读是时代错置。' },
-          { text: '教材所载即是定论，不必再考', correct: false, errorType: 'E05', feedback: '教材也需史料检验，以流传代替考证。' },
+          { text: '教材所载即是定论，不必再考', correct: false, errorType: 'E05', feedback: '教材也需史料查验，以流传代替考证。' },
         ],
         explain: '用一手史料（韩愈墓志铭）核对二手叙述（后世教材），是读命理史的方法。',
       },
@@ -256,10 +256,10 @@ export const HISTORY_SUI_TANG_CHAPTER = {
         prompt: '有同门断言「《李虚中命书》为李虚中亲著」。先生让按思想史脉络评议，正确的是？',
         options: [
           { text: '今本内容杂有后世元素——学界多认为系托名与增益', correct: true, feedback: '对，文本内容会暴露时代。' },
-          { text: '书名明写「李虚中」，当为亲著', correct: false, errorType: 'E02', feedback: '古籍托名是常态，书名不能充当作者证据。' },
+          { text: '书名明写「李虚中」，当为亲著', correct: false, errorType: 'E02', feedback: '古籍托名是常态，书名不能充当作者凭据。' },
           { text: '古人著述不造假，此本必真', correct: false, errorType: 'E05', feedback: '以「古人诚实」的预设代替文本分析，是凭想象定真伪。' },
         ],
-        explain: '古籍托名是常态，「题某人撰」要经过目录学与内容学的双重检验。',
+        explain: '古籍托名是常态，「题某人撰」要经过目录学与内容学的双重查验。',
       },
       summaryPoints: ['唐代禄命以年柱干支与纳音为主。', '韩愈墓志铭是李虚中史料的核心来源。', '四柱子平定型于宋初，与唐代禄命有别。'],
       microExperiment: { title: '对比三柱与四柱', text: '取一个真实生日，分别按「三柱（年月日）」与「四柱（年月日时）」列出干支，写下两种方案在信息量上的差异。' },

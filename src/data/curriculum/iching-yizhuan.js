@@ -22,7 +22,7 @@ export const ICHING_YIZHUAN_CHAPTER = {
       prerequisite: ['ic-classics'],
       emoji: '🪶',
       concept: '「十翼」是《易传》的合称：七种文献、共十篇——彖传（上下）、象传（上下）、系辞传（上下）、文言传、说卦传、序卦传、杂卦传。它们是最早、最系统的一批「解释」文字：对《周易》的卦辞、爻辞、卦象作出说明，并发展出一套关于变化、时位、阴阳的哲学。十翼传统上归之孔子，今人更倾向认为成于战国至汉初的易学学者之手。',
-      source: '「十翼」之名传统归于孔子及其后学（《史记》《汉书·艺文志》所载孔子晚年喜易、作「十翼」之说）；出土与文献学证据表明其成书跨战国至汉初，非一人一时之作。',
+      source: '「十翼」之名传统归于孔子及其后学（《史记》《汉书·艺文志》所载孔子晚年喜易、作「十翼」之说）；出土与文献学凭据表明其成书跨战国至汉初，非一人一时之作。',
       structure: '七种文献各司其职：彖传断卦义、象传释卦象与爻辞、系辞传论哲学总纲、文言传专释乾坤、说卦传立八卦象征、序卦传讲卦序逻辑、杂卦传作卦义对比。十翼是「传」，不是「经」——它们解释经，本身也是可讨论、可比较的解释传统。',
       examples: ['「天行健，君子以自强不息」出自《象传·大象》，是对乾卦的解释，不是乾卦卦辞。', '《系辞上》「一阴一阳之谓道」是十翼中最重要的哲学命题之一。'],
       counterexamples: ['「十翼=孔子亲笔」存疑：成书跨数个世纪、用语与观点有差异，更可能是托名后学。', '「十翼=经的一部分，权威不可疑」不成立：十翼是解释层，解释层内部就有分歧。'],
@@ -65,8 +65,8 @@ export const ICHING_YIZHUAN_CHAPTER = {
       counter: {
         prompt: '「十翼是孔子亲笔，所以字字是真理」——哪个反例最有力？',
         options: [
-          { text: '十翼内部用语、观点跨战国到汉初、且有相互差异，更可能是后学托名编纂，无单一作者', correct: true, feedback: '对，文献证据不支持单一、亲笔的结论。' },
-          { text: '孔子地位高，所以他写得对', correct: false, errorType: 'E07', feedback: '用权威替代证据，是循环论证。' },
+          { text: '十翼内部用语、观点跨战国到汉初、且有相互差异，更可能是后学托名编纂，无单一作者', correct: true, feedback: '对，文献凭据不支持单一、亲笔的结论。' },
+          { text: '孔子地位高，所以他写得对', correct: false, errorType: 'E07', feedback: '用权威替代凭据，是循环论证。' },
           { text: '托名说明更古老', correct: false, errorType: 'E06', feedback: '托名不改变内容性质。' },
         ],
         explain: '十翼的价值在于它「解释了经」，不在于它「被谁署名」。',
@@ -75,8 +75,8 @@ export const ICHING_YIZHUAN_CHAPTER = {
         prompt: '「十翼流传两千年、人人引用，所以必然正确」——哪个反例最有力？',
         options: [
           { text: '十翼内部用语与观点跨战国到汉初、存在差异与分歧，是「一种解释传统」而非不容讨论的定论', correct: true, feedback: '对，流传广与内容正确是两回事。', errorType: '' },
-          { text: '人人引用就说明它对', correct: false, errorType: 'E06', feedback: '引用频率不是正确性的证据。' },
-          { text: '传统归孔子，所以权威', correct: false, errorType: 'E03', feedback: '归属是传统说法，不是证据。' },
+          { text: '人人引用就说明它对', correct: false, errorType: 'E06', feedback: '引用频率不是正确性的凭据。' },
+          { text: '传统归孔子，所以权威', correct: false, errorType: 'E03', feedback: '归属是传统说法，不是凭据。' },
           { text: '解释层不会出错', correct: false, errorType: 'E06', feedback: '解释层内部恰恰存在分歧。' },
         ],
         explain: '十翼的价值在「系统解释了经」，不在「免于被讨论」。',
@@ -127,7 +127,7 @@ export const ICHING_YIZHUAN_CHAPTER = {
         prompt: '「彖传的解释就是唯一正确答案」——哪个反例最有力？',
         options: [
           { text: '后世义理、象数诸派常对同一彖辞作不同发挥，彖传本身也是「一种解释」而非唯一答案', correct: true, feedback: '对，彖传是解释层的一部分。' },
-          { text: '彖传是孔子写的所以唯一', correct: false, errorType: 'E07', feedback: '以署名取代证据。' },
+          { text: '彖传是孔子写的所以唯一', correct: false, errorType: 'E07', feedback: '以署名取代凭据。' },
           { text: '其他解释都是错的', correct: false, errorType: 'E06', feedback: '多元传统不以对错一言蔽之。' },
         ],
         explain: '彖传是「最早成体系」的解释，不是「唯一正确」的解释。',
@@ -198,7 +198,7 @@ export const ICHING_YIZHUAN_CHAPTER = {
       source: '《系辞传》上下两篇，是《易传》的哲学总纲。名句均出公版：如「一阴一阳之谓道」「生生之谓易」「形而上者谓之道，形而下者谓之器」「易有太极，是生两仪，两仪生四象」「大衍之数五十，其用四十有九」。',
       structure: '系辞传的骨架：①论易的本质（变易/不易/简易）②论卦爻与象数的来源（圣人观象设卦）③论占筮（大衍之数）④论易的认识方式（象、辞、变、占）。它不是「逐卦注释」，而是「给整个体系立法」。',
       examples: ['「一阴一阳之谓道」——道不是静止的事物，而是阴阳相推的「运行规律」。', '「易有太极，是生两仪，两仪生四象」——宇宙的展开被描述为「由一而二而四」的层次化生成。', '「生生之谓易」——易的本质是「不断生成」。'],
-      counterexamples: ['「系辞=宇宙生成科学」不成立：这是哲学与象征语言，不是可检验的自然科学机制。', '「系辞的每一句都指一个具体卦」不成立：它讲的是通理，不完全对应单卦。'],
+      counterexamples: ['「系辞=宇宙生成科学」不成立：这是哲学与象征语言，不是可查验的自然科学机制。', '「系辞的每一句都指一个具体卦」不成立：它讲的是通理，不完全对应单卦。'],
       commonMistakes: ['把「太极生两仪」当宇宙大爆炸式的科学陈述。', '背名句却不理解「阴阳相推」的动态含义。', '把系辞的「象数」讲法直接等同于后世算命的数字体系。'],
       exercises: ['认识：系辞传与彖传、象传的分工区别是什么？', '理解：「一阴一阳之谓道」里「道」指什么？为什么不是「一个东西」？', '应用：用自己的话，向一个没读过易经的人解释「易」这个字为什么有「变易」的意思。'],
       caseIds: ['case-121'],
@@ -219,7 +219,7 @@ export const ICHING_YIZHUAN_CHAPTER = {
       apply: {
         prompt: '有人引用「易有太极，是生两仪」来论证「宇宙大爆炸已经被古书记载」。哪里不对？',
         options: [
-          { text: '这是哲学与象征语言，讲的是层次化生成，不是可检验的科学机制', correct: true, feedback: '对，哲学命题≠科学陈述。' },
+          { text: '这是哲学与象征语言，讲的是层次化生成，不是可查验的科学机制', correct: true, feedback: '对，哲学命题≠科学陈述。' },
           { text: '古人确实早就发现了大爆炸', correct: false, errorType: 'E01', feedback: '把象征语言当科学结论。' },
           { text: '大爆炸也是从一到多', correct: false, errorType: 'E06', feedback: '表面相似不能证明同源。' },
         ],
@@ -228,8 +228,8 @@ export const ICHING_YIZHUAN_CHAPTER = {
       counter: {
         prompt: '「系辞就是古人写的宇宙科学」——哪个反例最有力？',
         options: [
-          { text: '系辞的语言是象征性的（太极/两仪/四象），无测量、无可检验，属于哲学与象征传统而非科学', correct: true, feedback: '对，性质不同，不能混判。' },
-          { text: '古人的科学比现代更发达', correct: false, errorType: 'E07', feedback: '厚古薄今且不可检验。' },
+          { text: '系辞的语言是象征性的（太极/两仪/四象），无量度、无可查验，属于哲学与象征传统而非科学', correct: true, feedback: '对，性质不同，不能混判。' },
+          { text: '古人的科学比现代更发达', correct: false, errorType: 'E07', feedback: '厚古薄今且不可查验。' },
           { text: '科学也讲阴阳', correct: false, errorType: 'E06', feedback: '借用词汇不构成同义。' },
         ],
         explain: '尊重系辞的哲学价值，不把它往「科学」上硬靠——这才是真懂它。',
@@ -382,7 +382,7 @@ export const ICHING_YIZHUAN_CHAPTER = {
         prompt: '「六十四卦只有这一种排法」——哪个反例最有力？',
         options: [
           { text: '出土的帛书本《周易》卦序与通行本不同，说明今本卦序是「一种」传统，而非唯一', correct: true, feedback: '对，卦序是传统产物，不是绝对唯一。' },
-          { text: '古人不会排错', correct: false, errorType: 'E07', feedback: '以古今之别替代证据。' },
+          { text: '古人不会排错', correct: false, errorType: 'E07', feedback: '以古今之别替代凭据。' },
           { text: '通行本最权威所以唯一', correct: false, errorType: 'E01', feedback: '通行本通行≠唯一。' },
         ],
         explain: '通行本卦序是主流传统，但「主流」不等于「唯一可能」。',
@@ -485,7 +485,7 @@ export const ICHING_YIZHUAN_CHAPTER = {
         options: [
           { text: '脱离出处与语境的「金句」会被无限挪用（如把「自强不息」用成鸡汤），只有走精读流程才还原本义', correct: true, feedback: '对，金句脱离语境必被误用。' },
           { text: '金句记得多就是有学问', correct: false, errorType: 'E06', feedback: '记诵≠理解。' },
-          { text: '名言天然正确', correct: false, errorType: 'E07', feedback: '以名人的话为真理，回避证据。' },
+          { text: '名言天然正确', correct: false, errorType: 'E07', feedback: '以名人的话为真理，回避凭据。' },
         ],
         explain: '读经典是「重建语境」，不是「摘录警句」。',
       },
@@ -501,7 +501,7 @@ export const ICHING_YIZHUAN_CHAPTER = {
       prerequisite: ['yz-read'],
       emoji: '👑',
       concept: '十翼 BOSS 是「真正学会读易传」的终检：给你一段「经文 + 传文 + 后世解释 + 现代附会」混合的文本，要求独立完成——定位每句出处（经？彖？象？系辞？后世？）、还原结构、比较不同解释、指出不确定之处。没有标准答案，但有质量标尺：出处定位是否准、层次是否分得清、理解有没有边界。',
-      source: '综合终检：整合十翼七篇分工 + 四层解释 + 不确定性与证据比较（复用推理章独立挑战引擎的思路）。',
+      source: '综合终检：整合十翼七篇分工 + 四层解释 + 不确定性与凭据比较（复用推理章独立挑战引擎的思路）。',
       structure: 'BOSS 四关：①分层定位（把混合文本逐句标：经/传/后世/现代）②结构还原（这句对应哪卦哪爻、基于什么卦象）③解释比较（至少列两种解释并给依据）④不确定性（哪些地方我目前无法判断、为什么）。关关看过程，不看「标准答案」。',
       examples: ['混合文本示例：「乾：元亨利贞（经）。彖曰：大哉乾元，万物资始（传·彖）。天行健（传·象）。乾卦代表大吉大利、事业腾飞（现代附会）。」——需逐句分层。', '比较示例：「贞」训「正」还是「占问」：两说皆有据，需比较语境与训诂，而非二选一。'],
       counterexamples: ['「找到唯一正确解读=通关」不成立：BOSS 考分层与比较能力，不考「标准答案」。', '「附会的内容不能出现」不成立：现实里附会最常见，识别它恰恰是考点。'],
@@ -536,7 +536,7 @@ export const ICHING_YIZHUAN_CHAPTER = {
         options: [
           { text: '久读不练分层的人，照样把「自强不息」当卦辞原文；区分能力来自刻意的分层训练，不是阅读量', correct: true, feedback: '对，刻意练习分层，而非堆阅读量。' },
           { text: '读得多自然就懂了', correct: false, errorType: 'E06', feedback: '输入量不自动转化为分层能力。' },
-          { text: '读得多的人不会错', correct: false, errorType: 'E07', feedback: '以资历替代证据。' },
+          { text: '读得多的人不会错', correct: false, errorType: 'E07', feedback: '以资历替代凭据。' },
         ],
         explain: '经传区分是「训练出来的眼力」，不是「翻出来的资历」。',
       },

@@ -1,6 +1,6 @@
 // ============================================================
 // ☯️ 易经学院（Phase 4）· 第五章 六十四卦图鉴
-// 64/64 全覆盖数据见 src/data/iching/hexagrams-data.js。
+// 64/64 全覆盖读数见 src/data/iching/hexagrams-data.js。
 // 本章教「怎么读图鉴」：卦序逻辑、八宫编排、图鉴四层读法，
 // 避免把 64 卦学成 64 张孤立卡片。
 // 新案例：case-087 ~ case-090（见 src/data/cases-iching.js）
@@ -53,7 +53,7 @@ export const ICHING_SIXTYFOUR_CHAPTER = {
       counter: {
         prompt: '「把 64 卦全背下来就能断事」——哪个反例最有力？',
         options: [
-          { text: '同一卦在不同时位、不同问题下读法完全不同，背卦名不能替代判断', correct: true, feedback: '对，断卦需要上下文与证据，不是查表。' },
+          { text: '同一卦在不同时位、不同问题下读法完全不同，背卦名不能替代判断', correct: true, feedback: '对，断卦需要上下文与凭据，不是查表。' },
           { text: '背得越多就越准', correct: false, errorType: 'E01', feedback: '记忆量≠判断力。' },
           { text: '古人背卦就能断', correct: false, errorType: 'E07', feedback: '古人也要结合时位、问题与解释传统。' },
         ],
@@ -106,7 +106,7 @@ export const ICHING_SIXTYFOUR_CHAPTER = {
         options: [
           { text: '马王堆帛书《周易》用八宫排列，卦序与通行本完全不同', correct: true, feedback: '对，同一套卦存在不同编排，说明卦序是解释框架。' },
           { text: '通行本流传最广所以最真', correct: false, errorType: 'E07', feedback: '流传广是历史结果，不是真理性证明。' },
-          { text: '排序一定有神意', correct: false, errorType: 'E01', feedback: '「一定有神意」无法检验。' },
+          { text: '排序一定有神意', correct: false, errorType: 'E01', feedback: '「一定有神意」无法查验。' },
         ],
         explain: '卦序是古人组织解释的一种方式，理解它、但不神化它。',
       },
@@ -150,7 +150,7 @@ export const ICHING_SIXTYFOUR_CHAPTER = {
           { text: '从最上一爻开始变', correct: false, errorType: 'E06', feedback: '八宫世爻自下而上数，上爻不变。' },
           { text: '随机变换', correct: false, errorType: 'E01', feedback: '八宫是完全确定的爻变序列。' },
         ],
-        explain: '八宫=确定性爻变家族树：这正是「64 卦可生成」的另一面证据。',
+        explain: '八宫=确定性爻变家族树：这正是「64 卦可生成」的另一面凭据。',
       },
       counter: {
         prompt: '「八宫才是真传，通行本卦序没用」——哪个反例最有力？',
@@ -162,7 +162,7 @@ export const ICHING_SIXTYFOUR_CHAPTER = {
         explain: '多套框架并存正是易学的常态：学习的目标是比较它们，而不是选边站。',
       },
       summaryPoints: ['八宫＝8 纯卦 × 每宫 8 卦，按爻变生成。', '一世到五世、游魂、归魂是确定规则。', '八宫与通行本卦序是两种编排，非对错关系。'],
-      microExperiment: { title: '推演一宫', text: '用卦象工具或纸笔，把乾宫 8 卦按「初爻变→五爻变→游魂→归魂」推一遍，亲手验证 8 棵家族树。' },
+      microExperiment: { title: '推演一宫', text: '用卦象工具或纸笔，把乾宫 8 卦按「初爻变→五爻变→游魂→归魂」推一遍，亲手对账 8 棵家族树。' },
     },
     {
       id: 'hg-read-card',

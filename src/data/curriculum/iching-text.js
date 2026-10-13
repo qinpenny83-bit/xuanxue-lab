@@ -48,7 +48,7 @@ export const ICHING_TEXT_CHAPTER = {
           { text: '占卜的大人吉', correct: false, errorType: 'E06', feedback: '贞指守正，不是占卜。' },
           { text: '人人都吉', correct: false, errorType: 'E01', feedback: '卦辞明确给了条件，不是人人吉。' },
         ],
-        explain: '「吉」前常带条件词：这是卦辞最容易被忽略的精度。',
+        explain: '「吉」前常带条件词：这是卦辞最容易被忽略的准头。',
       },
       applyB: {
         prompt: '读「需：有孚，光亨，贞吉，利涉大川」，按「情境/价值/条件」三层拆解，哪项正确？',
@@ -117,7 +117,7 @@ export const ICHING_TEXT_CHAPTER = {
         options: [
           { text: '上九是顶点，过盛则亢，亢则易悔', correct: true, feedback: '对，位置最高反而最危险：物极必反。' },
           { text: '上九是终点，所以一定不好', correct: false, errorType: 'E01', feedback: '上爻易过，但「一定不好」是过度绝对化。' },
-          { text: '随机放置', correct: false, errorType: 'E06', feedback: '爻辞位置与时位逻辑严格对应。' },
+          { text: '随意放置', correct: false, errorType: 'E06', feedback: '爻辞位置与时位逻辑严格对应。' },
         ],
         explain: '位置决定处境，处境决定意象——这就是爻辞的「时位语言」。',
       },
@@ -195,13 +195,13 @@ export const ICHING_TEXT_CHAPTER = {
       counter: {
         prompt: '「五爻多功=五爻最好」——哪个反例最有力？',
         options: [
-          { text: '五爻是否当位、是否有应才是关键，不当位的五爻一样有咎', correct: true, feedback: '对，位置只是变量之一。' },
+          { text: '五爻是否当位、是否有应才是关键，不当位的五爻一样有咎', correct: true, feedback: '对，位置只是因由之一。' },
           { text: '五爻是尊位，必然吉', correct: false, errorType: 'E01', feedback: '尊位提供舞台，不保证演出成功。' },
           { text: '没有反例', correct: false, errorType: 'E01', feedback: '位置规律处处有例外，这正是要防的简化。' },
         ],
         explain: '「多」是统计特征，「必」是绝对化——本章训练的就是分清这两者。',
       },
-      summaryPoints: ['六位处境特征：初难知、二多誉、三多凶、四多惧、五多功、上易知。', '这些是处境压强，不是吉凶判决。', '位置只是变量之一，要配合当位与应。'],
+      summaryPoints: ['六位处境特征：初难知、二多誉、三多凶、四多惧、五多功、上易知。', '这些是处境压强，不是吉凶判决。', '位置只是因由之一，要配合当位与应。'],
       microExperiment: { title: '位置日记', text: '连续 3 天，把当天的一件事对应到一个爻位（起点/居中/过渡/逼近/居尊/顶点），记录：这个位置如何影响你的处境与选择？' },
     },
     {

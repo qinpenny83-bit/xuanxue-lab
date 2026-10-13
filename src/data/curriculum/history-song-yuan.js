@@ -103,7 +103,7 @@ export const HISTORY_SONG_YUAN_CHAPTER = {
         prompt: '同门争辩「徐子平一人创立了完整的八字体系」。先生让按思想史脉络评议，正确的是？',
         options: [
           { text: '体系含宋元明数代累积的口诀与规则——非一人可成', correct: true, feedback: '对，文本层累是明证。' },
-          { text: '传说既如此流传，其说当实', correct: false, errorType: 'E02', feedback: '传说需要史料检验，把传说当成了史实。' },
+          { text: '传说既如此流传，其说当实', correct: false, errorType: 'E02', feedback: '传说需要史料查验，把传说当成了史实。' },
           { text: '体系今已完整，足证初创者功成', correct: false, errorType: 'E03', feedback: '「今之完整」不推出「一人所创」，以现状揣度起源。' },
         ],
         explain: '用文本的层累结构（口诀时代不一）反驳单一作者的想象。',
@@ -155,12 +155,12 @@ export const HISTORY_SONG_YUAN_CHAPTER = {
         options: [
           { text: '梅花用体用生克，六爻用世应六亲——两套体系核心语言不同', correct: true, feedback: '对，两套体系核心语言不同。' },
           { text: '皆以卦断事，其法自同', correct: false, errorType: 'E10', feedback: '「都用卦」是表面相似，混淆了体系层次。' },
-          { text: '梅花既名易数，即属六爻之流', correct: false, errorType: 'E02', feedback: '由名类推体系，把命名当成了谱系证据。' },
+          { text: '梅花既名易数，即属六爻之流', correct: false, errorType: 'E02', feedback: '由名类推体系，把命名当成了谱系凭据。' },
         ],
         explain: '术数内部体系差异很大，先认体系再谈比较。',
       },
       summaryPoints: ['梅花易数以时间、数字起卦为特色。', '「邵雍创梅花」是传说，成书在明清。', '梅花体用与六爻世应是两套体系。'],
-      microExperiment: { title: '读一则传说', text: '找「观梅占」全文，标出其中的「传说要素」（情节性、神奇性、无法核实处），写一句「如果要当作史料，需要什么证据」。' },
+      microExperiment: { title: '读一则传说', text: '找「观梅占」全文，标出其中的「传说要素」（情节性、神奇性、无法核实处），写一句「如果要当作史料，需要什么凭据」。' },
     },
     {
       id: 'hs-sy-xiantian',
@@ -196,7 +196,7 @@ export const HISTORY_SONG_YUAN_CHAPTER = {
         prompt: '研习课上，先生拿出一张标注「伏羲先天六十四卦方位图」的图，问：按思想史脉络，该怎么看？',
         options: [
           { text: '「先天」图式的体系化在宋代邵雍一系——不宜径称伏羲之作', correct: true, feedback: '对，图式年代与传说来源要区分。' },
-          { text: '图题既标伏羲，当为伏羲所画', correct: false, errorType: 'E02', feedback: '题名托古是常见现象，把题名当成了作者证据。' },
+          { text: '图题既标伏羲，当为伏羲所画', correct: false, errorType: 'E02', feedback: '题名托古是常见现象，把题名当成了作者凭据。' },
           { text: '此图出自邵雍，便是宋代创制', correct: false, errorType: 'E10', feedback: '邵雍一系体系化不等于邵雍凭空创图，且起源有争论。' },
         ],
         explain: '「先天」概念的体系化在宋代，其源头传说（伏羲、陈抟）需分别标注。',
@@ -247,8 +247,8 @@ export const HISTORY_SONG_YUAN_CHAPTER = {
         prompt: '研习课上，同门取出一本题「宋·赖文俊撰」的风水书，问第一步该如何着手。正确的是？',
         options: [
           { text: '查目录学著录与版本源流，判断是否托名', correct: true, feedback: '对，目录与版本是判断年代的第一步。' },
-          { text: '既题宋代名家，可径引其说', correct: false, errorType: 'E02', feedback: '题名需要检验，把托名题记当成了作者证据。' },
-          { text: '宋人所著皆可采信，无需再辨', correct: false, errorType: 'E05', feedback: '以时代标签代替文本检验，是凭印象定真伪。' },
+          { text: '既题宋代名家，可径引其说', correct: false, errorType: 'E02', feedback: '题名需要查验，把托名题记当成了作者凭据。' },
+          { text: '宋人所著皆可采信，无需再辨', correct: false, errorType: 'E05', feedback: '以时代标签代替文本查验，是凭印象定真伪。' },
         ],
         explain: '托名在术数古籍中是常态，先查「著录」再看「内容」。',
       },
@@ -257,7 +257,7 @@ export const HISTORY_SONG_YUAN_CHAPTER = {
         options: [
           { text: '三合、玄空的明确门派叙事只见于明清文献——门派晚出', correct: true, feedback: '对，门派是晚出整理。' },
           { text: '宋代术士众多，其派自当林立', correct: false, errorType: 'E05', feedback: '从业者多不等于门派成型，是凭现象臆测。' },
-          { text: '古法皆称祖传，其传当远', correct: false, errorType: 'E02', feedback: '「祖传」叙事不能代替文献证据，把传说当成了年代。' },
+          { text: '古法皆称祖传，其传当远', correct: false, errorType: 'E02', feedback: '「祖传」叙事不能代替文献凭据，把传说当成了年代。' },
         ],
         explain: '门派的成型要以文献为据，行业传说与史实要分开。',
       },

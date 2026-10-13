@@ -58,7 +58,7 @@ export const LIUREN_SPECIAL_CHAPTER = {
         explain: '空亡的处理各派有别，须合看旺衰冲合。',
       },
       summaryPoints: ['空亡＝某旬未配到的两个地支。', '空亡是减号，削弱所指，不直接定吉凶。', '空亡处理存在流派差异。'],
-      microExperiment: { title: '算十个旬空', text: '随机写十个干支，给每个定旬、算出旬空二支，再选两个课例验证空支是否出现在课中，标记其位置。' },
+      microExperiment: { title: '算十个旬空', text: '随机写十个干支，给每个定旬、算出旬空二支，再选两个课例对账空支是否出现在课中，标记其位置。' },
     },
     {
       id: 'lr-p2',

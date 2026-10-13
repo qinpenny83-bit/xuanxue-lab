@@ -103,7 +103,7 @@ export const QIMEN_ADVANCED_CHAPTER = {
       counter: {
         prompt: '师兄弟争论：「飞盘派比转盘派更接近古人原意。」按本章，正确的是？',
         options: [
-          { text: '两派各有传承与文献，原意之争无法检验', correct: true, feedback: '对，流派之争是传统差异，不是考古定论。' },
+          { text: '两派各有传承与文献，原意之争无法查验', correct: true, feedback: '对，流派之争是传统差异，不是考古定论。' },
           { text: '飞盘更少见所以更古老', correct: false, errorType: 'E10', feedback: '把「少见」当成「古老」再当成「更接近原意」，是一连串概念混用。' },
           { text: '转盘流传广所以更真', correct: false, errorType: 'E02', feedback: '把「流传广」当成「更真」，是把流传情况当成了事实依据。' },
         ],
@@ -145,7 +145,7 @@ export const QIMEN_ADVANCED_CHAPTER = {
       apply: {
         prompt: '师父授课：路径第六步「说明依据与留白」的价值在于？',
         options: [
-          { text: '让解读可复盘、可修正、有边界', correct: true, feedback: '对，这是实验室式读盘的关键。' },
+          { text: '让解读可复盘、可修正、有边界', correct: true, feedback: '对，这是留白查验式读盘的关键。' },
           { text: '让结论听起来更谨慎', correct: false, errorType: 'E09', feedback: '只记「结论要谨慎」的结论，却不知道留白要具体指出信息缺口。' },
           { text: '掩盖不确定', correct: false, errorType: 'E03', feedback: '留白是承认缺口，不是掩饰，把留白当话术就丢了结构。' },
         ],
@@ -175,7 +175,7 @@ export const QIMEN_ADVANCED_CHAPTER = {
       source: '边界与学习路径是本课程的综合立场，参考各派文献与实际传承的通行认识。',
       structure: '边界是「元层面」：知道它不是什么，才知道它能被怎样使用；学习路径则把「读懂一个盘」扩展到「可持续精进」。',
       examples: ['奇门盘是「决策参考的结构化框架」，不是替代现实判断的结论机器。', '学习路径示例：排盘规则→读盘练习→流派比较→独立案例。'],
-      counterexamples: ['「学完本课=奇门大成」——本课目标是读懂基础盘，入门之后的路径更长。', '「传统数术=现代科学」——两者不是同一套检验体系。'],
+      counterexamples: ['「学完本课=奇门大成」——本课目标是读懂基础盘，入门之后的路径更长。', '「传统数术=现代科学」——两者不是同一套查验体系。'],
       commonMistakes: ['把奇门当结论来源，忽略现实信息。', '用一套流派规则硬套所有问题。', '把「传统说法」直接当成「事实」。'],
       exercises: ['认识：奇门作为解释系统的边界在哪里？', '理解：为什么学习路径强调「练习」与「流派比较」？', '应用：给自己定一个下一步学习计划。'],
       caseIds: [],

@@ -45,7 +45,7 @@ export const QIMEN_JUDGE_CHAPTER = {
         options: [
           { text: '用神取法是各派实践经验的差异，不是唯一标准', correct: true, feedback: '对，取用有流派性，要讲明出处。' },
           { text: '用神固定就是开门，各派只是叫法不同', correct: false, errorType: 'E10', feedback: '用神因问题而取（事业开门、求财生门等），钉死成一个符号是术语混淆。' },
-          { text: '用神一个定生死，取错了就全盘皆错', correct: false, errorType: 'E01', feedback: '用神只是切入点，取完还要读旺衰生克组合，单押用神就是单变量下结论。' },
+          { text: '用神一个定生死，取错了就全盘皆错', correct: false, errorType: 'E01', feedback: '用神只是切入点，取完还要读旺衰生克组合，单押用神就是一根筋下结论。' },
         ],
         explain: '用神取用是「通行参考」而非「标准答案」，读盘时说明取法更稳妥。',
       },
@@ -103,8 +103,8 @@ export const QIMEN_JUDGE_CHAPTER = {
       counter: {
         prompt: '师兄弟争论：「用神旺相，事情是不是就一定能成？」按本章，正确的是？',
         options: [
-          { text: '旺衰只是倾向之一，还需组合与现实信息合看', correct: true, feedback: '对，旺衰不是唯一变量。' },
-          { text: '旺就是强，强就能成', correct: false, errorType: 'E01', feedback: '单变量直接下结论。' },
+          { text: '旺衰只是倾向之一，还需组合与现实信息合看', correct: true, feedback: '对，旺衰不是唯一因由。' },
+          { text: '旺就是强，强就能成', correct: false, errorType: 'E01', feedback: '一根筋直接下结论。' },
           { text: '衰败的用神从不成事', correct: false, errorType: 'E01', feedback: '衰旺只调语气，不写死结局。' },
         ],
         explain: '旺衰给读法定「语气」，组合与现实信息共同完成判断。',
@@ -124,7 +124,7 @@ export const QIMEN_JUDGE_CHAPTER = {
       source: '生克关系沿用五行框架，是各派共通基础；先看哪两个对象的关系，因问题而异。',
       structure: '宫位生克把「点状信息」连成「关系网络」：用神宫与相关宫（如时干宫、值符宫、驿马宫）的生克，构成判断依据。',
       examples: ['用神宫克时干宫，传统读法：事情进展中有阻力。', '时干宫生用神宫，传统读法：外部环境对事有助力。'],
-      counterexamples: ['「生=吉、克=凶」是单变量简化：生克要结合对象与旺衰。', '「所有宫之间都要论生克」——读盘按用神关系取重点，不是全盘乱论。'],
+      counterexamples: ['「生=吉、克=凶」是一根筋简化：生克要结合对象与旺衰。', '「所有宫之间都要论生克」——读盘按用神关系取重点，不是全盘乱论。'],
       commonMistakes: ['把五行生克背熟却用错对象。', '忽略旺衰直接论生克（衰金克不动旺木）。', '同时看太多宫位导致信息过载。'],
       exercises: ['认识：宫位生克论什么之间的关系？', '理解：为什么生克要结合旺衰？', '应用：用神宫属水，时干宫属火，谁克谁？'],
       caseIds: [],
@@ -156,7 +156,7 @@ export const QIMEN_JUDGE_CHAPTER = {
         options: [
           { text: '若用神旺而时干衰，克可能正是主动推进之象', correct: true, feedback: '对，旺衰改写了「克」的含义。' },
           { text: '克就是克，没有例外', correct: false, errorType: 'E01', feedback: '忽略旺衰与语境。' },
-          { text: '见克一律按凶断', correct: false, errorType: 'E01', feedback: '单变量标签化。' },
+          { text: '见克一律按凶断', correct: false, errorType: 'E01', feedback: '一根筋标签化。' },
         ],
         explain: '生克读法依赖旺衰与问题语境，不能见克即凶。',
       },
@@ -226,7 +226,7 @@ export const QIMEN_JUDGE_CHAPTER = {
       source: '伏吟反吟是奇门传统读法概念，各派对「何种组合算伏吟、何种算反吟」的界定略有不同，本课只讲通行入门认识。',
       structure: '伏吟反吟是「全局状态层」的信息，先于具体用神判断；见到伏吟反吟，读法基调会不同：伏吟偏停滞、反吟偏反复，但基调不等于吉凶，仍需结合用神宫与门星神组合综合判断。',
       examples: ['传统说法：天盘干与地盘干同字，如「戊+戊」，视为伏吟之象。', '传统说法：天盘干与地盘干相冲，如「戊+壬」，可能作反吟之象（随流派界定）。'],
-      counterexamples: ['「伏吟=凶、反吟=吉」是单变量标签，两者都只是「状态特征」。', '「反吟=反转=好事变坏事」——反转可能正合问题需要，要看上下文。'],
+      counterexamples: ['「伏吟=凶、反吟=吉」是一根筋标签，两者都只是「状态特征」。', '「反吟=反转=好事变坏事」——反转可能正合问题需要，要看上下文。'],
       commonMistakes: ['分不清伏吟反吟的判定标准。', '见伏吟反吟就下负面结论。', '忽略伏吟反吟随时间变化（遇冲可解）。'],
       exercises: ['认识：伏吟、反吟各自的传统特征是什么？', '理解：为什么不能直接给伏吟反吟贴吉凶标签？', '应用：「戊+戊」这种组合，传统上倾向于怎么读？'],
       caseIds: [],
@@ -257,13 +257,13 @@ export const QIMEN_JUDGE_CHAPTER = {
         prompt: '师兄弟争论：「反吟=反转=坏事，是不是？」按本章，正确的是？',
         options: [
           { text: '对困局而言，反转可能正是转机', correct: true, feedback: '对，反吟的含义要放进问题语境。' },
-          { text: '反就是反，反就是凶', correct: false, errorType: 'E01', feedback: '单变量标签化。' },
+          { text: '反就是反，反就是凶', correct: false, errorType: 'E01', feedback: '一根筋标签化。' },
           { text: '反吟就是伏吟的另一种叫法', correct: false, errorType: 'E10', feedback: '伏吟反吟是两个不同概念，把术语记串了。' },
         ],
         explain: '反吟主反复变动，变动是转机还是波折，取决于问题与组合。',
       },
       summaryPoints: ['伏吟主停滞（干同字等），反吟主反复（干相冲等）。', '伏吟反吟是状态层信息，不是吉凶结论。', '状态随时间与组合变化，读法留余地。'],
-      microExperiment: { title: '组合扫描', text: '在一张练习盘上扫描全部宫位的上下干组合，标出同字与相冲，统计伏吟反吟倾向。' },
+      microExperiment: { title: '组合扫描', text: '在一张练习盘上扫描全部宫位的上下干组合，标出同字与相冲，清点伏吟反吟倾向。' },
     },
   ],
 }

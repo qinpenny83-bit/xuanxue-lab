@@ -133,11 +133,11 @@ export const HISTORY_PRE_QIN_CHAPTER = {
       counter: {
         prompt: '有同门说「先秦典籍里已有完整的五行相克循环」，先生让按思想史脉络评议。正确的是？',
         options: [
-          { text: '《洪范》《左传》等先秦文本只列五材与性质，未见系统的生克循环——循环体系的成文证据多在汉代', correct: true, feedback: '对，证据不支持生克循环提前到先秦。' },
+          { text: '《洪范》《左传》等先秦文本只列五材与性质，未见系统的生克循环——循环体系的成文凭据多在汉代', correct: true, feedback: '对，凭据不支持生克循环提前到先秦。' },
           { text: '五行恰好有五个，五数相配必有循环', correct: false, errorType: 'E10', feedback: '从「有五个」推出「有循环」，混淆了数量与结构。' },
           { text: '后世之书皆如此说，先秦当亦如此', correct: false, errorType: 'E02', feedback: '用后世材料填充先秦，是典型的时代错置。' },
         ],
-        explain: '思想史讲求证据次序：生克循环的成文证据主要出现在汉代文献（如《淮南子》《白虎通义》的整理）。',
+        explain: '思想史讲求凭据次序：生克循环的成文凭据主要出现在汉代文献（如《淮南子》《白虎通义》的整理）。',
       },
       counterB: {
         prompt: '书院研讨会上有人断言「邹衍五德终始之说一出，各家争相奉行」。按思想史脉络，正确的是？',
@@ -147,7 +147,7 @@ export const HISTORY_PRE_QIN_CHAPTER = {
           { text: '秦代后来采用了它，可见战国时已是标准', correct: false, errorType: 'E02', feedback: '后世的采用不能倒推出战国时的通行。' },
           { text: '五材和五德是同一个概念', correct: false, errorType: 'E10', feedback: '五材是实用材料义，五德是属性德行义，两层不可混。' },
         ],
-        explain: '一家之说与普遍公认之间隔着证据，不能由「存在」直接跳到「通行」。',
+        explain: '一家之说与普遍公认之间隔着凭据，不能由「存在」直接跳到「通行」。',
       },
       summaryPoints: ['先秦五行起于「五材」的实用观。', '《洪范》与邹衍把五行导向属性与历史叙事。', '相生相克的完整体系化是秦汉之事。'],
       microExperiment: { title: '整理五行词卡', text: '把《洪范》五行各配的性质做成五张卡片，再查汉代文献给五行新增的配属（五脏、五方），对比两批卡片，直观看到「系统化」的过程。' },
@@ -186,7 +186,7 @@ export const HISTORY_PRE_QIN_CHAPTER = {
         prompt: '研习课上，先生把《易传·系辞》「伏羲始作八卦」一段放在案上，问同门：按思想史脉络，这个说法该怎么定位？',
         options: [
           { text: '这是《系辞》记载的传统说法，史料上属上古传说；学界多认为八卦是长期演化的产物', correct: true, feedback: '对，把「传统说法」与「信史」分开标注，是读易学史的基本功。' },
-          { text: '这是信史，伏羲确有其人，八卦即其一手所画', correct: false, errorType: 'E02', feedback: '伏羲始作八卦是《系辞》传统说法，并无直接信史证据。' },
+          { text: '这是信史，伏羲确有其人，八卦即其一手所画', correct: false, errorType: 'E02', feedback: '伏羲始作八卦是《系辞》传统说法，并无直接信史凭据。' },
           { text: '「作八卦」三字是实录，与演化之说无关', correct: false, errorType: 'E10', feedback: '把传说层当成实录层，混淆了文本性质。' },
         ],
         explain: '对「圣人造卦」类叙事，先标注「传统说法」，再看学界对其演化过程的讨论。',
@@ -246,10 +246,10 @@ export const HISTORY_PRE_QIN_CHAPTER = {
         prompt: '同门争辩「十翼为孔子亲作」一说，先生按思想史脉络请同门评议。正确的是？',
         options: [
           { text: '十翼内容含战国以后的思想要素，学界多认为其成书在战国至汉初——文本内容提示晚出', correct: true, feedback: '对，文本内容会提示其年代。' },
-          { text: '古籍皆题孔子，不必再问成书早晚', correct: false, errorType: 'E03', feedback: '把题名当成成书证据，省掉了文献学检验。' },
+          { text: '古籍皆题孔子，不必再问成书早晚', correct: false, errorType: 'E03', feedback: '把题名当成成书凭据，省掉了文献学查验。' },
           { text: '十翼既称「翼」即附经，成书必与经同时', correct: false, errorType: 'E10', feedback: '把「附经」与「同时成书」混为一谈。' },
         ],
-        explain: '成书问题的证据包括：语言年代、思想要素、引用关系——内容本身会说话。',
+        explain: '成书问题的凭据包括：语言年代、思想要素、引用关系——内容本身会说话。',
       },
       summaryPoints: ['经与传的成书时间不同，十翼晚出。', '「人更三圣」是传统叙述，成书实为累积过程。', '出土文献（帛书）提示《周易》流传形态多样。'],
       microExperiment: { title: '对照两种卦序', text: '把马王堆帛书《周易》卦序与通行本《序卦》卦序并排，数一数差异，思考：卦序不同会怎样影响「卦与卦关系」的理解？' },
@@ -303,7 +303,7 @@ export const HISTORY_PRE_QIN_CHAPTER = {
         explain: '先秦思想史是宗教、道德、理性多元并存的，单一声音无法概括。',
       },
       summaryPoints: ['先秦「天」有宗教、道德、自然、操作四种面向。', '子产、荀子代表先秦的人道理性传统。', '巫史分化深刻影响后世术数的知识化走向。'],
-      microExperiment: { title: '给「天」分类', text: '从《左传》《国语》《荀子》各摘三条提到「天」的句子，标出它属于宗教、道德、自然还是操作义，统计分布，体会概念的多义性。' },
+      microExperiment: { title: '给「天」分类', text: '从《左传》《国语》《荀子》各摘三条提到「天」的句子，标出它属于宗教、道德、自然还是操作义，清点分布，体会概念的多义性。' },
     },
     {
       id: 'hs-pq-hetuluo',
@@ -349,9 +349,9 @@ export const HISTORY_PRE_QIN_CHAPTER = {
         options: [
           { text: '先秦至汉唐文献只载名称，无任何图像描述——黑白点阵图式是宋代图书学的产物', correct: true, feedback: '对，文字记载与图像传统之间隔着数百年。' },
           { text: '后世之图必有所本，其源可溯至先秦', correct: false, errorType: 'E02', feedback: '把晚出图式倒推回先秦，是时代错置。' },
-          { text: '图愈神秘愈古老，点阵图即古图', correct: false, errorType: 'E10', feedback: '用神秘感代替年代证据，混淆了气质与年代。' },
+          { text: '图愈神秘愈古老，点阵图即古图', correct: false, errorType: 'E10', feedback: '用神秘感代替年代凭据，混淆了气质与年代。' },
         ],
-        explain: '考证年代看证据链：图像系统的成文证据集中在宋代文献。',
+        explain: '考证年代看凭据链：图像系统的成文凭据集中在宋代文献。',
       },
       summaryPoints: ['先秦两汉的河图洛书只有文字记载。', '黑白点阵图式确立于宋代图书之学。', '区分「记载传统」与「图像传统」是学习的关键。'],
       microExperiment: { title: '年代排排看', text: '把河图洛书相关的四条材料（《尚书·顾命》《论语》《系辞》、朱熹《本义》卷首）按年代排列，写出每条能证明「图形」还是只证明「名称」。' },

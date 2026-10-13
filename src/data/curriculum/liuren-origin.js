@@ -74,7 +74,7 @@ export const LIUREN_ORIGIN_CHAPTER = {
           { text: '典籍是古典汇编与断课经验的整理，起课断课要先掌握天地盘、四课、三传的基本功，不能直接当说明书', correct: true, feedback: '对，先把结构基本功走通，再读汇编才有意义。' },
           { text: '古书里写的就是现成操作步骤，照做即可', correct: false, errorType: 'E02', feedback: '把汇编文献当成现代操作手册。' },
           { text: '典籍就是「三式」', correct: false, errorType: 'E10', feedback: '典籍是文献载体，「三式」是体系名称，概念混淆。' },
-          { text: '汇编里的断语都是现成结论，直接引用即可', correct: false, errorType: 'E02', feedback: '汇编是经验整理，不是验证过的统一结论。' },
+          { text: '汇编里的断语都是现成结论，直接引用即可', correct: false, errorType: 'E02', feedback: '汇编是经验整理，不是对账过的统一结论。' },
         ],
         explain: '典籍是经验汇编不是说明书：先有结构基本功，才能读懂并用好它。',
       },
@@ -130,7 +130,7 @@ export const LIUREN_ORIGIN_CHAPTER = {
         explain: '传统通用做法：地盘固定为坐标，天盘随月将加时转动。',
       },
       summaryPoints: ['地盘十二支固定排列，是坐标系统。', '天盘以月将加时生成，是可转动的外圈。', '读盘先校验「月将加时」是否符合规则。'],
-      microExperiment: { title: '自己转一圈天盘', text: '假设月将为寅、占时为申，按顺序把天盘十一个支依次写到对应的地盘支上，然后对照标准盘式图核对自己写对几个。' },
+      microExperiment: { title: '自己转一圈天盘', text: '断语月将为寅、占时为申，按顺序把天盘十一个支依次写到对应的地盘支上，然后对照标准盘式图核对自己写对几个。' },
     },
     {
       id: 'lr-o3',
@@ -283,7 +283,7 @@ export const LIUREN_ORIGIN_CHAPTER = {
         explain: '生克是运算层，吉凶是判断层，中间隔着旺衰与课体。',
       },
       summaryPoints: ['日干是六壬断课的总基准。', '五行生克是四课关系与六亲的底层运算。', '生克只描述关系类型，不直接等于吉凶。'],
-      microExperiment: { title: '五分钟生克测验', text: '随机写十个日干，再各配一个课中支，用生克环快速标出「生我/我生/克我/我克/同我」五类关系，统计哪类错得最多，针对性重背。' },
+      microExperiment: { title: '五分钟生克测验', text: '随机写十个日干，再各配一个课中支，用生克环快速标出「生我/我生/克我/我克/同我」五类关系，清点哪类错得最多，针对性重背。' },
     },
   ],
 }

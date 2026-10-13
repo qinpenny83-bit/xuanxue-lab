@@ -44,7 +44,7 @@ export const RELATIONS_CHAPTER = {
       apply: {
         prompt: '一个人的八字里出现「子午冲」，但他现实中刚经历一次顺利的搬家与升职。最合理的解释是？',
         options: [
-          { text: '冲=凶，说明他升职背后有灾', correct: false, errorType: 'E07', feedback: '为了保住「冲必凶」强行找灾，是确认偏误。' },
+          { text: '冲=凶，说明他升职背后有灾', correct: false, errorType: 'E07', feedback: '为了保住「冲必凶」强行找灾，是先入为主。' },
           { text: '冲在这里可能表现为「变动、激发」，而不一定是坏事；要结合现实与整体结构读', correct: true, feedback: '对，关系的含义取决于结构与语境。' },
           { text: '子午冲在升职的人身上不存在', correct: false, errorType: 'E01', feedback: '结构是客观摆在那里的，不能因结果不合预期就否认结构。' },
         ],
@@ -55,7 +55,7 @@ export const RELATIONS_CHAPTER = {
         options: [
           { text: '冲在这里可能体现为「主动变动」，奔波只是其中一种读法，要结合现实与整体结构判断', correct: true, feedback: '对，同一关系在不同结构里读法不同。', errorType: '' },
           { text: '冲=劳碌，你转型后迟早会后悔', correct: false, errorType: 'E01', feedback: '把单一关系直接断成必然结果。' },
-          { text: '寅申冲说明你该留在原单位', correct: false, errorType: 'E01', feedback: '从关系跳到具体决策建议，是另一种单变量结论。' },
+          { text: '寅申冲说明你该留在原单位', correct: false, errorType: 'E01', feedback: '从关系跳到具体决策建议，是另一种一根筋结论。' },
           { text: '寅申冲代表你前世的业力', correct: false, errorType: 'E06', feedback: '把结构关系过度解释成神秘因果，未证实。' },
         ],
         explain: '关系是结构描述，同一关系在不同现实里可读作变动、突破或波折，不能预先贴标签。',
@@ -186,7 +186,7 @@ export const RELATIONS_CHAPTER = {
         prompt: '一个被压抑多年、不敢变动的人，大运逢「冲」后突然果断离职创业。这个冲最合理的读法是？',
         options: [
           { text: '冲动、冲开——冲破了原来的压抑', correct: true, feedback: '对，冲可以是突破与释放。' },
-          { text: '冲=凶，他离职一定失败', correct: false, errorType: 'E01', feedback: '预设冲必凶，然后等结果验证，是本末倒置。' },
+          { text: '冲=凶，他离职一定失败', correct: false, errorType: 'E01', feedback: '预设冲必凶，然后等结果对账，是本末倒置。' },
           { text: '冲与他无关，纯属巧合', correct: false, errorType: 'E09', feedback: '用「巧合」回避分析，不是推理。' },
         ],
         explain: '冲是变动，变动是中性词——对压抑者可能是解放，对安稳者可能是动荡。',
@@ -197,7 +197,7 @@ export const RELATIONS_CHAPTER = {
           { text: '冲表现为「变动频繁」，在动荡型职业里可能只是常态配置，不能直接断凶', correct: true, feedback: '对，冲是变动标记，环境决定它像不像灾。', errorType: '' },
           { text: '卯酉冲=他婚姻会出问题', correct: false, errorType: 'E01', feedback: '把冲直接翻译成固定事件。' },
           { text: '卯酉冲说明他命里带刀，注定见血', correct: false, errorType: 'E06', feedback: '过度解释成惊吓式结论，未证实。' },
-          { text: '冲=凶，他频繁出差迟早出事', correct: false, errorType: 'E01', feedback: '预设冲必凶，再等结果验证。' },
+          { text: '冲=凶，他频繁出差迟早出事', correct: false, errorType: 'E01', feedback: '预设冲必凶，再等结果对账。' },
         ],
         explain: '冲是「剧烈变动」标记，变动在适合变动的环境里是职业常态，而非灾祸。',
       },
@@ -376,7 +376,7 @@ export const RELATIONS_CHAPTER = {
       examples: ['「子卯相刑」：子与卯之间的一种纠缠关系，传统读法涉及情绪反复。', '「寅巳申三刑」：三字齐全时的复杂纠葛，常被读作折腾。'],
       counterexamples: ['有刑的人同样可以做成大事——刑是「过程曲折」的标记，不是「结果失败」的判决。', '刑缺字时（如只有寅巳，无申）与三刑齐全的读法不同，不能混谈。'],
       commonMistakes: ['把「刑」直接等同于犯法、牢狱、伤病。', '三刑缺一也算三刑。'],
-      exercises: ['认识：列出常见的刑（三刑、子卯刑、自刑）。', '理解：刑与冲的读法差异在哪？', '应用：刑的「纠缠」该如何在现实事件中验证？'],
+      exercises: ['认识：列出常见的刑（三刑、子卯刑、自刑）。', '理解：刑与冲的读法差异在哪？', '应用：刑的「纠缠」该如何在现实事件中对账？'],
       caseIds: ['case-045', 'case-044'],
       related: ['rel-hai-po', 'rel-six-chong'],
       masteryStandard: '能区分三刑与单刑，并说明刑是「过程曲折」标记而非「结果失败」判决。',
@@ -409,7 +409,7 @@ export const RELATIONS_CHAPTER = {
           { text: '有刑就不用看别的了，直接断纠结', correct: false, errorType: 'E03', feedback: '忽略整体结构，只盯一个关系。' },
           { text: '刑和冲是同一回事，换个名字而已', correct: false, errorType: 'E03', feedback: '混淆刑与冲的读法。' },
         ],
-        explain: '刑标记「反复、纠缠」的过程特征，具体应象要放回整体验证。',
+        explain: '刑标记「反复、纠缠」的过程特征，具体应象要放回整体对账。',
       },
       counter: {
         prompt: '「有刑=命不好」——什么反例最有说服力？',
@@ -469,7 +469,7 @@ export const RELATIONS_CHAPTER = {
           { text: '子未害=他一定破产', correct: false, errorType: 'E01', feedback: '把害直接等于经济损失。' },
           { text: '害只影响健康', correct: false, errorType: 'E03', feedback: '单一对应是网络简化说法。' },
         ],
-        explain: '害的意象是暗中损伤，可作为线索，但要放回整体验证。',
+        explain: '害的意象是暗中损伤，可作为线索，但要放回整体对账。',
       },
       applyB: {
         prompt: '一个人盘里有「子酉破」，现实中常遇到小物破损、合作细节反复出小纰漏，但都是小事。这个破最合理的读法是？',
@@ -605,21 +605,21 @@ export const RELATIONS_CHAPTER = {
       apply: {
         prompt: '你在网上看到「卯酉冲=夫妻不和」。正确对待这条信息的方式是？',
         options: [
-          { text: '把它当作一条流派说法，放回具体盘的结构与现实中检验', correct: true, feedback: '对，先检验再使用。' },
+          { text: '把它当作一条流派说法，放回具体盘的结构与现实中查验', correct: true, feedback: '对，先查验再使用。' },
           { text: '记住它，以后见冲就说夫妻不和', correct: false, errorType: 'E03', feedback: '把网络说法当铁律。' },
           { text: '证明它是错的，删掉', correct: false, errorType: 'E06', feedback: '未经查证就断言对错。' },
         ],
-        explain: '网络说法要放回结构检验，而不是直接当规则背诵。',
+        explain: '网络说法要放回结构查验，而不是直接当规则背诵。',
       },
       applyB: {
         prompt: '有人拿着网上的说法问你：「寅巳申三刑，牢狱之灾，我该信吗？」最合理的回应是？',
         options: [
-          { text: '把它当作一条说法，放回具体盘的结构、月令与现实里检验，刑更多是纠缠反复而非刑罚', correct: true, feedback: '对，先检验再使用。', errorType: '' },
+          { text: '把它当作一条说法，放回具体盘的结构、月令与现实里查验，刑更多是纠缠反复而非刑罚', correct: true, feedback: '对，先查验再使用。', errorType: '' },
           { text: '三刑就是牢狱之灾，赶紧想办法化解', correct: false, errorType: 'E01', feedback: '把网络说法直接当判决。' },
-          { text: '网上写的人多，应该可信', correct: false, errorType: 'E03', feedback: '用流传度代替结构检验。' },
+          { text: '网上写的人多，应该可信', correct: false, errorType: 'E03', feedback: '用流传度代替结构查验。' },
           { text: '刑代表这个人天生带罪', correct: false, errorType: 'E06', feedback: '过度解释成罪责标签。' },
         ],
-        explain: '网络简化公式要放回结构检验，刑不等于刑罚。',
+        explain: '网络简化公式要放回结构查验，刑不等于刑罚。',
       },
       counter: {
         prompt: '「关系=事件」最经典的反例是？',
@@ -628,19 +628,19 @@ export const RELATIONS_CHAPTER = {
           { text: '古书里的案例都对', correct: false, errorType: 'E03', feedback: '古书是记录，不是保证。' },
           { text: '没有反例', correct: false, errorType: 'E07', feedback: '想一想：你认识的人里，有没有同结构不同命的？' },
         ],
-        explain: '同盘不同命是「关系≠事件」的最直观证据。',
+        explain: '同盘不同命是「关系≠事件」的最直观凭据。',
       },
       counterB: {
         prompt: '「网上流传的干支关系口诀最灵验」——哪个说法最能指出这个说法的漏洞？',
         options: [
           { text: '口诀大多省略了前提条件，脱离结构直接套用就是背公式，是否成立取决于前提是否满足', correct: true, feedback: '对，流传度不等于正确性。', errorType: '' },
-          { text: '口诀流传广，所以是准的', correct: false, errorType: 'E01', feedback: '用流传度代替验证。' },
+          { text: '口诀流传广，所以是准的', correct: false, errorType: 'E01', feedback: '用流传度代替对账。' },
           { text: '口诀可以替代整体分析', correct: false, errorType: 'E03', feedback: '忽略结构前提。' },
           { text: '口诀是古代传下来的天机', correct: false, errorType: 'E06', feedback: '把口诀神秘化，未证实。' },
         ],
         explain: '口诀要结合结构前提使用，流传广不等于可以无条件套用。',
       },
-      summaryPoints: ['关系存在 ≠ 结果必然发生。', '正确的顺序：识别→描述→回结构→对现实→标不确定性。', '网络简化公式要放回结构检验。'],
+      summaryPoints: ['关系存在 ≠ 结果必然发生。', '正确的顺序：识别→描述→回结构→对现实→标不确定性。', '网络简化公式要放回结构查验。'],
       microExperiment: { title: '现实观察：同因不同果', text: '记录生活中两个「起因相似但结果不同」的事件，练习看到结构之外的因素。' },
     },
   ],

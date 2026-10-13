@@ -407,7 +407,7 @@ const wuXing = {
         options: [
           { text: '如果水本来就被土克、被火耗，盲目补水可能加剧失衡', correct: true, feedback: '对，先看结构再谈补。' },
           { text: '补水总没错', correct: false, errorType: 'E01', feedback: '这恰是要被质疑的直觉。' },
-          { text: '缺水的人运气都不好', correct: false, errorType: 'E08', feedback: '无证据的相关性。' },
+          { text: '缺水的人运气都不好', correct: false, errorType: 'E08', feedback: '无凭据的相关性。' },
         ],
         explain: '「缺什么补什么」是把复杂结构压成单选题，恰好是五行分析要避免的。',
       },
@@ -455,7 +455,7 @@ const wuXing = {
         options: [
           { text: '直接说他是金命、注定有钱', correct: false, errorType: 'E06', feedback: '把状态标签直接变成命运结论。' },
           { text: '他偏「收敛肃降」的状态，但要看整体结构', correct: true, feedback: '对，先描述状态，再谈结构。' },
-          { text: '他五行属金所以性格如此', correct: false, errorType: 'E01', feedback: '单变量决定论。' },
+          { text: '他五行属金所以性格如此', correct: false, errorType: 'E01', feedback: '一根筋决定论。' },
         ],
         explain: '五行描述的是状态倾向，不是人格判决。',
       },
@@ -476,7 +476,7 @@ const wuXing = {
           { text: '土永远是好词', correct: false, errorType: 'E06', feedback: '没有只吉不凶的状态。' },
           { text: '土和性格无关', correct: false, errorType: 'E03', feedback: '有关，但不是一对一标签。' },
         ],
-        explain: '每种五行状态都有正反两面，这正是它作为「状态」而非「标签」的证据。',
+        explain: '每种五行状态都有正反两面，这正是它作为「状态」而非「标签」的凭据。',
       },
       counterB: {
         prompt: '有人说「土就是老实稳重的意思，所以「土气」这个词就是在说一个人土」。哪个例子最能拆穿这种「贴现代标签」的做法？',
@@ -661,7 +661,7 @@ const wuXing = {
         prompt: '一个能力很强的人，天天帮同事救火、带新人（我生=泄），自己的项目却总完不成。用泄耗制的视角，最合理的解释是？',
         options: [
           { text: '他的力量大量流向「生/泄」方向，留给自己的可用力量变少——数量足不等于能自用', correct: true, feedback: '对，力量流向决定「多而不强」。', errorType: '' },
-          { text: '他就是懒，能力再强也没用', correct: false, errorType: 'E01', feedback: '把复杂的力量流向归成一个「懒」字，是单变量下结论。' },
+          { text: '他就是懒，能力再强也没用', correct: false, errorType: 'E01', feedback: '把复杂的力量流向归成一个「懒」字，是一根筋下结论。' },
           { text: '帮别人就是吃亏，以后谁都不帮', correct: false, errorType: 'E03', feedback: '只看「泄」的一面，忽略整体结构里的回报与循环。' },
           { text: '只要他资源数量够多，就一定有精力', correct: false, errorType: 'E01', feedback: '只数数量，忽略力量流向。' },
         ],
@@ -680,7 +680,7 @@ const wuXing = {
         prompt: '有人说「泄就是耗损，被泄的一方一定越来越弱」。哪个反例最能说明这个说法不成立？',
         options: [
           { text: '食伤泄秀式的「泄」可以换来输出与创造：能量流出去，才华也由此被看见——流向本身无吉凶', correct: true, feedback: '对，泄要看流向与回报。', errorType: '' },
-          { text: '没有反例，泄就是亏空', correct: false, errorType: 'E01', feedback: '把「泄」单独当成减分项，是单变量下结论。' },
+          { text: '没有反例，泄就是亏空', correct: false, errorType: 'E01', feedback: '把「泄」单独当成减分项，是一根筋下结论。' },
           { text: '被泄的人肯定是能力不足', correct: false, errorType: 'E01', feedback: '把「被泄」直接等于「弱」，又一次单点归因。' },
           { text: '泄和耗制都无所谓，不用管', correct: false, errorType: 'E03', feedback: '忽略力量流向这一层结构。' },
         ],
@@ -728,7 +728,7 @@ const wuXing = {
         options: [
           { text: '人数只是线索，B 组的位置与时机占优，旺衰未必输给 A', correct: true, feedback: '对，得令得地比数量更关键。', errorType: '' },
           { text: 'A 组人更多，肯定更强', correct: false, errorType: 'E01', feedback: '单看数量下结论。' },
-          { text: '人数是唯一标准，其他都是虚的', correct: false, errorType: 'E01', feedback: '又是单变量决定论。' },
+          { text: '人数是唯一标准，其他都是虚的', correct: false, errorType: 'E01', feedback: '又是一根筋决定论。' },
           { text: '两组没法比较，因为人数不同', correct: false, errorType: 'E03', feedback: '比较要落到结构要素（得令得地得势），不是落到人数。' },
         ],
         explain: '旺衰=得令+得地+得势的综合判断，数量只是最粗浅的线索。',
@@ -748,7 +748,7 @@ const wuXing = {
           { text: '同样是木，在春月当令与在秋月失令，旺衰完全不同——数量相同，位置与时机不同，结论就可能相反', correct: true, feedback: '对，月令与根气改变力量。', errorType: '' },
           { text: '数数量确实最靠谱', correct: false, errorType: 'E01', feedback: '这正是要破除的直觉。' },
           { text: '季节影响不大，主要还是看个数', correct: false, errorType: 'E03', feedback: '月令（得令）恰是旺衰第一要素，不能忽略。' },
-          { text: '数量一样就一样旺，不需要看其他', correct: false, errorType: 'E01', feedback: '单变量直接定论。' },
+          { text: '数量一样就一样旺，不需要看其他', correct: false, errorType: 'E01', feedback: '一根筋直接定论。' },
         ],
         explain: '数量相同不等于旺衰相同：得令、得地、得势才是综合判断的依据。',
       },
@@ -1141,7 +1141,7 @@ const stemsBranches = {
         explain: '六十甲子=天干10×地支12 再按阳配阳、阴配阴配对，形成 60 组的编码循环。',
       },
       counter: {
-        prompt: '哪个证据能说明「干支编码≠命运密码」？',
+        prompt: '哪个凭据能说明「干支编码≠命运密码」？',
         options: [
           { text: '同一干支年份里，千万人命运各不相同', correct: true, feedback: '对，编码不能决定个体。' },
           { text: '年份决定命运', correct: false, errorType: 'E08', feedback: '相关性都没有建立。' },
@@ -1153,7 +1153,7 @@ const stemsBranches = {
         prompt: '有人说「今年犯太岁的人都会倒霉，因为网上都这么说」。哪个说法最能指出这句话的问题？',
         options: [
           { text: '「犯太岁」属民间说法，未证实：干支纪年只是时间编码，同一干支年里各人情况千差万别，不能推出人人都倒霉', correct: true, feedback: '对，区分时间编码与民间引申。', errorType: '' },
-          { text: '网上说的人多，可信度就高', correct: false, errorType: 'E03', feedback: '把传播热度当成依据，忽略编码与引申的区分。' },
+          { text: '网上说的人多，可信的分量就高', correct: false, errorType: 'E03', feedback: '把传播热度当成依据，忽略编码与引申的区分。' },
           { text: '犯太岁就是干支本身在起作用', correct: false, errorType: 'E02', feedback: '把民间说法当成干支本身的判断。' },
           { text: '干支纪年决定个体运势', correct: false, errorType: 'E02', feedback: '把时间编码当成命运密码。' },
         ],
@@ -1195,7 +1195,7 @@ const tenGods = {
       hook: { question: '为什么有人把「七杀」说得像反派？', tease: '「七杀」听起来很凶。但它只是一个关系的名字——克我且阴阳相同。关系本身不分善恶。' },
       predict: {
         prompt: '十神是依据什么算出来的？',
-        options: [{ text: '依据出生年份' }, { text: '以日主为参照，按生克+阴阳' }, { text: '随机分配' }],
+        options: [{ text: '依据出生年份' }, { text: '以日主为参照，按生克+阴阳' }, { text: '随手乱配' }],
         reveal: '十神=以日主为原点的关系命名。',
       },
       apply: {
@@ -1409,9 +1409,9 @@ const tenGods = {
         prompt: '日主是庚金（阳金），八字里出现乙木（阴木）。按照十神规则，乙对庚是什么？',
         options: [
           { text: '庚克乙、阴阳相异，是正财', correct: true, feedback: '对，我克+阴阳异=正财。', errorType: '' },
-          { text: '庚克乙，所以是偏财', correct: false, errorType: 'E01', feedback: '只看「我克」一个变量，漏算了阴阳同异。' },
+          { text: '庚克乙，所以是偏财', correct: false, errorType: 'E01', feedback: '只看「我克」一个因由，漏算了阴阳同异。' },
           { text: '乙克庚，是七杀', correct: false, errorType: '', feedback: '方向反了：是庚克乙，不是乙克庚。' },
-          { text: '乙和庚阴阳相异，是偏财', correct: false, errorType: 'E01', feedback: '只看阴阳不看生克，同样是单变量下结论。' },
+          { text: '乙和庚阴阳相异，是偏财', correct: false, errorType: 'E01', feedback: '只看阴阳不看生克，同样是一根筋下结论。' },
         ],
         explain: '正财/偏财=「我克」再按阴阳同异二分：同=偏财，异=正财。',
       },
@@ -1428,7 +1428,7 @@ const tenGods = {
         prompt: '有人说「八字财星多，这个人的钱一定多」。哪个反例最能说明这个说法不成立？',
         options: [
           { text: '财多还要看日主能否「担」：传统上有「财多身弱」的说法，资源过多而自身承担不住，反而成为负担', correct: true, feedback: '对，结构决定表达。', errorType: '' },
-          { text: '没有反例，财多就是钱多', correct: false, errorType: 'E01', feedback: '只抓「财多」一个变量就定结论。' },
+          { text: '没有反例，财多就是钱多', correct: false, errorType: 'E01', feedback: '只抓「财多」一个因由就定结论。' },
           { text: '财星就是存款数字，可以直接换算', correct: false, errorType: 'E06', feedback: '把「财」的象征关系当成现实定量。' },
           { text: '只要财星多，不管日主强弱都是好事', correct: false, errorType: 'E01', feedback: '忽略「能否担财」这一关键维度。' },
         ],
@@ -1617,7 +1617,7 @@ const tenGods = {
         prompt: '为什么不能单凭位置下结论？',
         options: [
           { text: '因为位置侧重还要与强弱、组合、时间叠加，才是完整分析', correct: true, feedback: '对。' },
-          { text: '位置就是一切', correct: false, errorType: 'E01', feedback: '单变量决定论。' },
+          { text: '位置就是一切', correct: false, errorType: 'E01', feedback: '一根筋决定论。' },
           { text: '位置无所谓', correct: false, errorType: 'E03', feedback: '位置是重要信息。' },
         ],
         explain: '位置是信息之一，不是答案本身。',
@@ -1903,7 +1903,7 @@ const hiddenStems = {
           { text: '透出只是让力量「显性化」，显出来的是强项还是弱点、结果如何，还要看整体结构配合', correct: true, feedback: '对，显性化≠吉凶结论。', errorType: '' },
           { text: '透出就是激活，效果一定正面', correct: false, errorType: 'E01', feedback: '单因素直接定吉凶。' },
           { text: '不透出的藏干都是无效信息', correct: false, errorType: 'E03', feedback: '藏而不透=内在有、外在不显，同样参与结构。' },
-          { text: '透出的越多，命越好', correct: false, errorType: 'E01', feedback: '把「透出个数」当成结果指标。' },
+          { text: '透出的越多，命越好', correct: false, errorType: 'E01', feedback: '把「透出个数」当成结果标尺。' },
         ],
         explain: '透与藏是「显/隐」两种形态；结果由整体结构决定，不由是否透出单独决定。',
       },
@@ -1917,7 +1917,7 @@ const hiddenStems = {
       level: 3,
       prerequisite: ['hs-tou'],
       emoji: '🧊',
-      concept: '藏干训练的核心能力：看到表面（地支）时，主动追问内部（藏干）与显隐（透干）——这是「证据意识」在知识层面的体现。',
+      concept: '藏干训练的核心能力：看到表面（地支）时，主动追问内部（藏干）与显隐（透干）——这是「凭据意识」在知识层面的体现。',
       source: '本产品教学框架：把藏干作为「表面≠全部」的结构训练，连接推理能力与知识。',
       structure: '分析顺序：表面地支 → 藏干分层 → 是否透出 → 参与十神/强弱。每一步都在加信息。',
       examples: ['「午」表面是火，藏丁己；对甲木日主，丁=伤官、己=正财。', '表面判断与藏干判断可能完全不同。'],
@@ -1940,7 +1940,7 @@ const hiddenStems = {
         options: [
           { text: '午藏丁己，还要看透干与参与的结构', correct: true, feedback: '对。' },
           { text: '他说的对，够了', correct: false, errorType: 'E01', feedback: '停在表面。' },
-          { text: '补充更多随机信息', correct: false, errorType: 'E09', feedback: '信息要结构化，不是堆量。' },
+          { text: '补充更多零碎信息', correct: false, errorType: 'E09', feedback: '信息要结构化，不是堆量。' },
         ],
         explain: '分析是加层过程：表面→藏干→透干→结构。',
       },
@@ -1949,7 +1949,7 @@ const hiddenStems = {
         options: [
           { text: '表面五行 → 藏干分层 → 是否透出 → 参与十神/强弱', correct: true, feedback: '对，每一步都在加信息。', errorType: '' },
           { text: '只看表面五行就够', correct: false, errorType: 'E01', feedback: '停在表面字面。' },
-          { text: '藏干越多的地支，结论一定越准', correct: false, errorType: 'E01', feedback: '堆量不等于精度。' },
+          { text: '藏干越多的地支，结论一定越准', correct: false, errorType: 'E01', feedback: '堆量不等于准头。' },
           { text: '把三个藏干等权加总就行', correct: false, errorType: 'E03', feedback: '忽略了本中余分层。' },
         ],
         explain: '分析是加层过程：表面→藏干→透干→结构；信息分层参与，不是堆量。',
@@ -1958,7 +1958,7 @@ const hiddenStems = {
         prompt: '为什么「藏干多」不等于「结论更准」？',
         options: [
           { text: '因为要看哪些信息真正参与结构，而不是堆数量', correct: true, feedback: '对。' },
-          { text: '信息越多越准', correct: false, errorType: 'E01', feedback: '堆量≠精度。' },
+          { text: '信息越多越准', correct: false, errorType: 'E01', feedback: '堆量≠准头。' },
           { text: '藏干无关紧要', correct: false, errorType: 'E03', feedback: '藏干是必要信息。' },
         ],
         explain: '信息要分层参与结构；无差别堆量反而制造噪音。',
@@ -1967,7 +1967,7 @@ const hiddenStems = {
         prompt: '有人说「一个地支藏三个干，肯定比藏一个干的字更复杂、更准」。哪个说法最能指出这个说法的偏差？',
         options: [
           { text: '藏干多只说明信息条目多，结论准不准要看哪些信息真正参与结构——信息要分层使用，不是堆数量', correct: true, feedback: '对，信息多≠答案准。', errorType: '' },
-          { text: '藏干越多越准，这是常理', correct: false, errorType: 'E01', feedback: '单看数量指标。' },
+          { text: '藏干越多越准，这是常理', correct: false, errorType: 'E01', feedback: '单看数量标尺。' },
           { text: '藏干少的字不需要分析', correct: false, errorType: 'E03', feedback: '藏干少也是结构信息，同样要按层分析。' },
           { text: '所有藏干作用一样大', correct: false, errorType: 'E03', feedback: '本中余权重不同。' },
         ],
@@ -2025,7 +2025,7 @@ const twelveStages = {
         prompt: '甲木「长生在亥、帝旺在卯、墓在未」。要理解十二长生的结构，正确的读法是？',
         options: [
           { text: '这些位置描述木的力量在十二地支上的「生→旺→衰→藏」节奏，是循环的一部分', correct: true, feedback: '对，它是状态节奏不是事件。', errorType: '' },
-          { text: '帝旺在卯=卯年一定最顺', correct: false, errorType: 'E01', feedback: '把力量状态当成单变量事件预测。' },
+          { text: '帝旺在卯=卯年一定最顺', correct: false, errorType: 'E01', feedback: '把力量状态当成一根筋事件预测。' },
           { text: '墓在未=未年一定倒霉', correct: false, errorType: 'E06', feedback: '把阶段名直接解读成吉凶事件。' },
           { text: '长生就是开始，所以一定好', correct: false, errorType: 'E06', feedback: '把「状态名」当成吉凶标签。' },
         ],
@@ -2128,8 +2128,8 @@ const twelveStages = {
       emoji: '🚫',
       concept: '不要告诉用户「某阶段一定发生某事」。正确表述是「传统体系通常如何解释这一结构」。',
       source: '本产品教学原则：一切阶段/关系描述都是「传统解释」，不是事件预言。',
-      structure: '判断时区分三层：结构状态（是什么力量状态）→ 传统解释（通常如何解读）→ 现实推测（需结合整体+时间+证据，且永远不确定）。',
-      examples: ['「帝旺」的传统解释=力量强盛；现实是否如此，要看整体结构与证据。', '「墓」的传统解释=收藏；现实可能是沉淀期，也可能是停滞，需要更多信息。'],
+      structure: '判断时区分三层：结构状态（是什么力量状态）→ 传统解释（通常如何解读）→ 现实推测（需结合整体+时间+凭据，且永远不确定）。',
+      examples: ['「帝旺」的传统解释=力量强盛；现实是否如此，要看整体结构与凭据。', '「墓」的传统解释=收藏；现实可能是沉淀期，也可能是停滞，需要更多信息。'],
       counterexamples: ['「你今年走帝旺所以一定升职」——把传统解释直接变成个人预言，是典型的伪科学包装。'],
       commonMistakes: ['把「传统解释」说成「必然事件」。', ['阶段=命运'].flat()],
       exercises: ['认识：区分「结构状态/传统解释/现实推测」三层。', '理解：为什么不能从状态推出事件？', '应用：改写一句「某阶段一定发生某事」为「传统解释」句式。'],
@@ -2138,7 +2138,7 @@ const twelveStages = {
       masteryStandard: '能把阶段描述改写为「传统解释」句式，并拒绝「一定发生某事」的断言。',
       errorTypes: ['E02', 'E06'],
       transferTag: 'interpretation',
-      hook: { question: '「帝旺之年必升职」这句话错在哪？', tease: '错在把「传统解释」直接当成了「个人预言」。状态是结构，事件需要更多证据。' },
+      hook: { question: '「帝旺之年必升职」这句话错在哪？', tease: '错在把「传统解释」直接当成了「个人预言」。状态是结构，事件需要更多凭据。' },
       predict: {
         prompt: '「甲木帝旺在卯」与「卯年甲木日主必升职」的区别是？',
         options: [{ text: '没区别' }, { text: '前者是结构状态，后者是事件预言' }, { text: '后者更专业' }],
@@ -2156,12 +2156,12 @@ const twelveStages = {
       applyB: {
         prompt: '把「明年走墓运，肯定要倒霉」改写成负责任的说法，正确的是？',
         options: [
-          { text: '按传统解释，「墓」常被解读为收敛储藏的状态；是否应验、如何表现，要结合整体结构与现实证据', correct: true, feedback: '对，给出传统解释，不替现实断言。', errorType: '' },
+          { text: '按传统解释，「墓」常被解读为收敛储藏的状态；是否应验、如何表现，要结合整体结构与现实凭据', correct: true, feedback: '对，给出传统解释，不替现实断言。', errorType: '' },
           { text: '改成「肯定没事」，让听的人安心', correct: false, errorType: 'E06', feedback: '从「必倒霉」翻到「必没事」，仍是标签化思维。' },
           { text: '保持原话，说得更坚定', correct: false, errorType: 'E02', feedback: '把传统解释当成事件预言。' },
           { text: '「墓」就是结束，明年一定走衰运', correct: false, errorType: 'E02', feedback: '把阶段名直接当成确定的事件结论。' },
         ],
-        explain: '负责任表述：给出传统解释，说明需结合整体与证据，且不作确定性断言。',
+        explain: '负责任表述：给出传统解释，说明需结合整体与凭据，且不作确定性断言。',
       },
       counter: {
         prompt: '为什么不能从「状态」直接推出「事件」？',
@@ -2170,12 +2170,12 @@ const twelveStages = {
           { text: '因为状态是假的', correct: false, errorType: 'E09', feedback: '状态是结构信息，但不是全部。' },
           { text: '因为解释总出错', correct: false, errorType: 'E09', feedback: '不是对错，是层级。' },
         ],
-        explain: '从状态到事件，中间隔着大量未知信息——没有证据就不该断言。',
+        explain: '从状态到事件，中间隔着大量未知信息——没有凭据就不该断言。',
       },
       counterB: {
         prompt: '有人说「你们学八字不就是预测吗：帝旺之年必升职，墓年必倒霉，这就是命」。哪个说法最能指出这句话的问题？',
         options: [
-          { text: '传统解释描述的是「结构状态」，现实事件需要结合整体、时间与证据才能讨论——直接从状态跳到事件，中间缺了太多信息', correct: true, feedback: '对，传统解释≠事件预言。', errorType: '' },
+          { text: '传统解释描述的是「结构状态」，现实事件需要结合整体、时间与凭据才能讨论——直接从状态跳到事件，中间缺了太多信息', correct: true, feedback: '对，传统解释≠事件预言。', errorType: '' },
           { text: '八字就是用来精准预测的', correct: false, errorType: 'E02', feedback: '把传统框架包装成确定性预测工具。' },
           { text: '帝旺之年就是必升职，没有例外', correct: false, errorType: 'E06', feedback: '用一个标签解释一切。' },
           { text: '墓年必倒霉，这是常识', correct: false, errorType: 'E02', feedback: '把阶段名当成人人适用的结论。' },

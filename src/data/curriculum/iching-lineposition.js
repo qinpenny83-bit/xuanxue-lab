@@ -54,11 +54,11 @@ export const ICHING_LINEPOSITION_CHAPTER = {
       counter: {
         prompt: '「位置一样，含义就一样」——哪个反例最有力？',
         options: [
-          { text: '同为第五爻，六五与九五因阴阳不同而「居中」的读法有别；同为阳爻，初九与上九境遇相反', correct: true, feedback: '对，位置只是变量之一。' },
+          { text: '同为第五爻，六五与九五因阴阳不同而「居中」的读法有别；同为阳爻，初九与上九境遇相反', correct: true, feedback: '对，位置只是因由之一。' },
           { text: '位置一样都一样', correct: false, errorType: 'E06', feedback: '忽略了极性与关系。' },
           { text: '没有反例', correct: false, errorType: 'E07', feedback: '初九与上九就是反例。' },
         ],
-        explain: '爻义是位置、极性、关系三者的乘积，不是单一变量。',
+        explain: '爻义是位置、极性、关系三者的乘积，不是单一因由。',
       },
       summaryPoints: ['爻的身份证＝位置＋自位＋关系。', '同一爻换位置，境遇全变。', '爻位是描述工具，不是吉凶公式。'],
       microExperiment: { title: '给一根爻做身份证', text: '翻开乾卦，给初九、九二、九五、上九各做一张「身份证」卡：位置、阴阳、得位、中、相邻关系。对比它们境遇的差异。' },
@@ -126,7 +126,7 @@ export const ICHING_LINEPOSITION_CHAPTER = {
         options: [
           { text: '初爻是根基：根基不正，全卦皆摇，起点往往决定走向', correct: true, feedback: '对，初爻是起点与根基，不是无足轻重。' },
           { text: '初爻确实最不重要', correct: false, errorType: 'E06', feedback: '位置低不等于分量轻，时位与根基才是关键。' },
-          { text: '越往下越该忽略', correct: false, errorType: 'E01', feedback: '用「上下排序」单变量判断价值，正好踩中误区。' },
+          { text: '越往下越该忽略', correct: false, errorType: 'E01', feedback: '用「上下排序」一根筋判断价值，正好踩中误区。' },
           { text: '只看上爻就能懂整卦', correct: false, errorType: 'E01', feedback: '丢掉初爻与中间过程，卦就只剩一个端点。' },
         ],
         explain: '初爻是起点与根基，「初难知」正说明它分量重而难以判定。',
@@ -142,7 +142,7 @@ export const ICHING_LINEPOSITION_CHAPTER = {
       level: 3,
       prerequisite: ['yp-six', 'yg-position'],
       emoji: '🎯',
-      concept: '六位有阴阳之分：初、三、五为阳位，二、四、上为阴位。阳爻居阳位、阴爻居阴位叫「得位」（得正），反之叫「失位」（不当位）。得位表示「结构上的匹配端正」，是传统读法里一个常被强调、但绝非决定性的指标。',
+      concept: '六位有阴阳之分：初、三、五为阳位，二、四、上为阴位。阳爻居阳位、阴爻居阴位叫「得位」（得正），反之叫「失位」（不当位）。得位表示「结构上的匹配端正」，是传统读法里一个常被强调、但绝非决定性的标尺。',
       source: '「得位」「当位」的说法见于《易传》与历代注疏。象数派极重视爻位当否，义理派则更强调「时」与「德」——不同传统的权重不同（见多重解释库）。',
       structure: '判断得位两步：①数位次，定阴阳位（初三五阳、二四上阴）；②看该位是阳爻还是阴爻，配对即得位。得位是「自位」层面的描述，还要结合承乘比应才有完整结论。',
       examples: ['九五：阳爻居阳位，得位（且居中），是「中正」。', '六四：阴爻居阴位，得位；九四则阳居阴位，失位但可能「刚而能柔」。'],
@@ -267,7 +267,7 @@ export const ICHING_LINEPOSITION_CHAPTER = {
         prompt: '「只要住在二爻或五爻，这爻就稳了」——哪个反例最有力？',
         options: [
           { text: '居中若被乘、无应、处险时，中位也难独善——中只是结构优势之一', correct: true, feedback: '对，中位还要看承乘比应与时位配合。' },
-          { text: '居中就是稳定，没有例外', correct: false, errorType: 'E01', feedback: '把「中」当免死金牌，正是单变量判断。' },
+          { text: '居中就是稳定，没有例外', correct: false, errorType: 'E01', feedback: '把「中」当免死金牌，正是一根筋判断。' },
           { text: '中位必然得位', correct: false, errorType: 'E06', feedback: '中与正是两个维度：六五居中却失位。' },
           { text: '中位就是最高位置', correct: false, errorType: 'E06', feedback: '五是中位之一但非最高，上才是顶端。' },
         ],

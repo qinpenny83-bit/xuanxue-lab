@@ -63,7 +63,7 @@ export const RESEARCH_INSTITUTE = {
   topics: [
     { id: 'synthesis', title: '跨知识综合分析', desc: '天干地支 + 十神 + 藏干 + 关系 + 强弱 + 时间变化，不给提示，自己决定从哪里开始。' },
     { id: 'transfer', title: '迁移挑战', desc: '把在一个学院学到的结构，迁移到另一个学院的陌生案例里。' },
-    { id: 'research', title: '研究模式', desc: '给一个问题（如流派差异），阅读资料 → 提取观点 → 比较 → 证据 → 自己的解释 → 指出局限。' },
+    { id: 'research', title: '研究模式', desc: '给一个问题（如流派差异），阅读资料 → 提取观点 → 比较 → 凭据 → 自己的解释 → 指出局限。' },
     { id: 'master', title: '出师挑战', desc: '完全陌生复杂案例，全程不主动提示，完成后生成出师能力报告。' },
   ],
 }
