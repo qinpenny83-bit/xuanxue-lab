@@ -248,7 +248,7 @@ export const PATTERN_CHAPTER = {
         prompt: '「流派差异」最恰当的理解是？',
         options: [
           { text: '不同流派规则不同，结论不同是正常的，关键看体系内是否自洽' },
-          { text: '说明命理不科学，全是骗人' },
+          { text: '说明命理没有实据，全是骗人' },
           { text: '一定有一个流派掌握了真相' },
         ],
         reveal: '差异来自规则不同。我们要学的，是先声明规则、再讨论结论。',
@@ -545,12 +545,12 @@ export const PATTERN_CHAPTER = {
       applyB: {
         prompt: '一个博主发帖「格局排名前十的命格，你占几个？」，评论里很多人对照自己的格局。作为学习者你怎么看？',
         options: [
-          { text: '经典里不存在「格局排行榜」：格局是分析起点不是评分体系，这类排名把结构工具变成消费标签（属网络说法，未经证实）', correct: true, feedback: '对，排行榜是网络产物，不是体系内结论。', errorType: '' },
+          { text: '经典里不存在「格局排行榜」：格局是分析起点不是评分体系，这类排名把结构工具变成消费标签（属网络说法，凭据未足）', correct: true, feedback: '对，排行榜是网络产物，不是体系内结论。', errorType: '' },
           { text: '赶紧对照看看自己排第几', correct: false, errorType: 'E01', feedback: '跟着排行榜思路走，一根筋下结论。' },
           { text: '排名靠前的格局确实命更好', correct: false, errorType: 'E03', feedback: '把命名当吉凶判决，忽略整体结构。' },
           { text: '格局排名越高的人越适合当领导', correct: false, errorType: 'E06', feedback: '把排行榜过度解释成领导力。' },
         ],
-        explain: '「格局排行榜」属网络说法（未证实）；格局是结构命名而非评分体系。',
+        explain: '「格局排行榜」属网络说法（凭据未足）；格局是结构命名而非评分体系。',
       },
       counter: {
         prompt: '「格局高的人不会遇到坏事」——最有力的反例是？',

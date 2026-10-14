@@ -354,7 +354,7 @@ export const STRENGTH_CHAPTER = {
         prompt: '「把令、地、势三项打分加权，算出精确强弱」——这个做法的漏洞在？',
         options: [
           { text: '强弱是倾向性权衡，不是精确数值；权重分配流派之间就有差异，机械加权会伪造准头', correct: true, feedback: '对，权衡不是算术。', errorType: '' },
-          { text: '没漏洞，打分最科学', correct: false, errorType: 'E07', feedback: '把权衡公式化。' },
+          { text: '没漏洞，打分最实据', correct: false, errorType: 'E07', feedback: '把权衡公式化。' },
           { text: '哪项分高就听哪项', correct: false, errorType: 'E01', feedback: '只取自己顺眼的维度。' },
           { text: '加权分高就是命好', correct: false, errorType: 'E07', feedback: '把强弱当命运判决。' },
         ],

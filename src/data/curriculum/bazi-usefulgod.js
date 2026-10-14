@@ -614,12 +614,12 @@ export const USEFUL_GOD_CHAPTER = {
       applyB: {
         prompt: '朋友说：「大师说我的用神是木，让我搬去东边住、家里多摆绿植。」你的回应是？',
         options: [
-          { text: '用神是「结构需要的调节点」，不是方位或摆件的依据——先问这个用神是怎么从结构里取出来的，再谈其他（此类说法属商业话术，未经证实）', correct: true, feedback: '对，用神消费化是常见误区。', errorType: '' },
+          { text: '用神是「结构需要的调节点」，不是方位或摆件的依据——先问这个用神是怎么从结构里取出来的，再谈其他（此类说法属商业话术，凭据未足）', correct: true, feedback: '对，用神消费化是常见误区。', errorType: '' },
           { text: '搬家摆绿植，确实能转运', correct: false, errorType: 'E06', feedback: '把用神当消费建议。' },
           { text: '用神是木就该住东边，其他方位都不用考虑', correct: false, errorType: 'E01', feedback: '一根筋直接下结论。' },
           { text: '反正用神不会变，摆什么都行', correct: false, errorType: 'E03', feedback: '把用神当成静态标签，忽略它随结构动态变化。' },
         ],
-        explain: '用神消费化（方位/摆件/幸运色）是把分析工具降级成商品；此类说法属商业话术，未经证实。',
+        explain: '用神消费化（方位/摆件/幸运色）是把分析工具降级成商品；此类说法属商业话术，凭据未足。',
       },
       counter: {
         prompt: '「用神终身不变，所以可以放心补一辈子」——最有力的反例是？',

@@ -340,7 +340,7 @@ const yinYang = {
           { text: '阴阳在八字里是给天干、卦爻分类的结构工具（甲阳木、乙阴木），「阳=好、阴=差」是把结构属性偷换成价值判断', correct: true, feedback: '对，阴阳是分类与分工，不是好坏标签。', errorType: '' },
           { text: '阳确实比阴高一等，这是传统共识', correct: false, errorType: 'E02', feedback: '把某类说法当成放之四海的共识。' },
           { text: '阴气重的人确实更容易遇到坏事', correct: false, errorType: 'E06', feedback: '用一个标签解释一切，正是过度解释。' },
-          { text: '阳=好阴=差，这个等式是科学结论', correct: false, errorType: 'E02', feedback: '把传统框架的说法当成科学事实。' },
+          { text: '阳=好阴=差，这个等式是实据结论', correct: false, errorType: 'E02', feedback: '把传统框架的说法当成实据事实。' },
         ],
         explain: '阴阳是结构分类工具；「阳好阴差」属于把结构属性当成价值判断的简化说法。',
       },
@@ -1152,12 +1152,12 @@ const stemsBranches = {
       counterB: {
         prompt: '有人说「今年犯太岁的人都会倒霉，因为网上都这么说」。哪个说法最能指出这句话的问题？',
         options: [
-          { text: '「犯太岁」属民间说法，未证实：干支纪年只是时间编码，同一干支年里各人情况千差万别，不能推出人人都倒霉', correct: true, feedback: '对，区分时间编码与民间引申。', errorType: '' },
+          { text: '「犯太岁」属民间说法，凭据未足：干支纪年只是时间编码，同一干支年里各人情况千差万别，不能推出人人都倒霉', correct: true, feedback: '对，区分时间编码与民间引申。', errorType: '' },
           { text: '网上说的人多，可信的分量就高', correct: false, errorType: 'E03', feedback: '把传播热度当成依据，忽略编码与引申的区分。' },
           { text: '犯太岁就是干支本身在起作用', correct: false, errorType: 'E02', feedback: '把民间说法当成干支本身的判断。' },
           { text: '干支纪年决定个体运势', correct: false, errorType: 'E02', feedback: '把时间编码当成命运密码。' },
         ],
-        explain: '干支纪年是时间编码；「犯太岁必倒霉」属民间说法、未证实，不能当结论。',
+        explain: '干支纪年是时间编码；「犯太岁必倒霉」属民间说法、凭据未足，不能当结论。',
       },
       summaryPoints: ['60 甲子=天干10×地支12 的编码循环。', '干支纪年是时间坐标。', '区分编码规则与民间引申。'],
     },
@@ -1531,7 +1531,7 @@ const tenGods = {
       apply: {
         prompt: '「他印星很旺，肯定读书很好。」你怎么拆解？',
         options: [
-          { text: '对，印=学业', correct: false, errorType: 'E06', feedback: '关系标签=现实证明。' },
+          { text: '对，印=学业', correct: false, errorType: 'E06', feedback: '关系标签≠实况，只是命名。' },
           { text: '印描述滋养与学习倾向，现实表现要看整体结构', correct: true, feedback: '对。' },
           { text: '印和滋养无关', correct: false, errorType: 'E03', feedback: '印正是生我。' },
         ],
@@ -1642,7 +1642,7 @@ const tenGods = {
       level: 3,
       prerequisite: ['tg-position'],
       emoji: '⚠️',
-      concept: '现代网络说法常把十神简化成「比肩=朋友、正财=钱、正官=工作」——这些只是某些传统解释中的象征关系，不是现代科学意义的人格或因果定律。',
+      concept: '现代网络说法常把十神简化成「比肩=朋友、正财=钱、正官=工作」——这些只是某些传统解释中的象征关系，不是实打实的人格或因果定律。',
       source: '本产品教学框架：区分 传统观点 / 流派解释 / 现代网络说法 / 本产品教学解释，四层不混。',
       structure: '同一十神，不同流派侧重不同：有的重「六亲」，有的重「性情」，有的重「事象」。没有统一答案。',
       examples: ['比肩：六亲指兄弟，性情指自我坚持，事象指竞争——三个层次不能互相替代。', '正财：可关联收入，也可关联「我所管理的事物」。'],
@@ -1657,7 +1657,7 @@ const tenGods = {
       hook: { question: '「正官=工作」这个等式成立吗？', tease: '它是某些传统解释里的象征关系。但「官星旺所以事业好」把象征变成了因果——这中间跳过了多少步？' },
       predict: {
         prompt: '「正财=钱」这种说法属于？',
-        options: [{ text: '经典原文' }, { text: '某种解释里的象征关系' }, { text: '科学定律' }],
+        options: [{ text: '经典原文' }, { text: '某种解释里的象征关系' }, { text: '实据定律' }],
         reveal: '它是解释层的象征关系，不是定律。',
       },
       apply: {

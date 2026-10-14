@@ -247,8 +247,8 @@ export const HISTORY_QIN_HAN_CHAPTER = {
         prompt: '研习课上，先生引《汉书·天文志》日食与朝政并记一段，问同门：按思想史脉络，这段材料该怎么读？',
         options: [
           { text: '这是占候传统的写法——以天象解释人事，属于史官记录的重要动机', correct: true, feedback: '对，占候是史官记录天象的重要动机。' },
-          { text: '汉代观测证实日食与朝政确有对应', correct: false, errorType: 'E03', feedback: '把「并记」当成「因果」，是过度简化。' },
-          { text: '史书所载日食多是史官编造，不足为据', correct: false, errorType: 'E04', feedback: '日食有历法可证，此说与史实不符。' },
+          { text: '汉代观测坐实日食与朝政确有对应', correct: false, errorType: 'E03', feedback: '把「并记」当成「因果」，是过度简化。' },
+          { text: '史书所载日食多是史官编造，不足为据', correct: false, errorType: 'E04', feedback: '日食有历法可查，此说与史实不符。' },
         ],
         explain: '把「同时出现」与「导致」分开，是读占候记录的基本功。',
       },

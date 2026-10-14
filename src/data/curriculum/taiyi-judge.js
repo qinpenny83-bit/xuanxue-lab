@@ -55,7 +55,7 @@ export const TAIYI_JUDGE_CHAPTER = {
           { text: '单凭「主算某数」就下断语，忽略判断链条中宫位、神将、格局等环节与传本语境', correct: true, feedback: '对，判断是一个链条，不能单环节定论。' },
           { text: '只抓算数一个环节，忽略宫位、神将、格局的关联', correct: false, errorType: 'E03', feedback: '环节之间是关联的。' },
           { text: '把「算」与「和」当成同一个概念，术语记串', correct: false, errorType: 'E10', feedback: '算与和是不同名目。' },
-          { text: '把断语当成事实陈述，忽略它只是按某传统的解读', correct: false, errorType: 'E03', feedback: '断语是传统解读，不是事实陈述。' },
+          { text: '把断语当成事实陈述，忽略它只是按某传统的解读', correct: false, errorType: 'E03', feedback: '断语是传统解读，不是实况陈述。' },
         ],
         explain: '判断是链条式语言，单环节不能成断语；断语须带传本语境，不能当事实陈述。',
       },
@@ -78,7 +78,7 @@ export const TAIYI_JUDGE_CHAPTER = {
         ],
         explain: '判断术语在传本与流派间分歧大，无统一结论；正确态度是「标注、对勘、并存」，而非人为统一。',
       },
-      summaryPoints: ['判断体系是「起局之后的格局语言」：主客、算、和、基、迫等。', '术语在传本与流派间分歧大，只可概说。', '断语是传统解读，不是事实陈述。'],
+      summaryPoints: ['判断体系是「起局之后的格局语言」：主客、算、和、基、迫等。', '术语在传本与流派间分歧大，只可概说。', '断语是传统解读，不是实况陈述。'],
       microExperiment: { title: '术语收集卡', text: '收集「主算」「客算」「定算」三个术语在不同资料中的解释，各抄一句，标出来源，比较出入。' },
     },
     {
@@ -275,7 +275,7 @@ export const TAIYI_JUDGE_CHAPTER = {
       counter: {
         prompt: '师兄弟问：「学了这么多却不能用来断事，那学了有什么用？」按本章，最有分量的回答是？',
         options: [
-          { text: '理解一个古老传统的结构与流传过程，本身就是文化研究的价值', correct: true, feedback: '对，价值在理解本身。' },
+          { text: '理解一个古老传统的结构与流传过程，本身就是民俗考证的价值', correct: true, feedback: '对，价值在理解本身。' },
           { text: '确实没用，别学了', correct: false, errorType: 'E06', feedback: '以功利标准否定一切。' },
           { text: '单看「不能断事」一个点就否定全部学习价值', correct: false, errorType: 'E01', feedback: '一根筋下结论。' },
         ],

@@ -63,7 +63,7 @@ export const ICHING_YINYANG_CHAPTER = {
         prompt: '「阴=不好」——哪个反例最有力？',
         options: [
           { text: '坤卦六二「直方大，不习无不利」：阴爻柔中带正，是吉', correct: true, feedback: '对，阴柔之正本身就是好结构。' },
-          { text: '阴都不好，只是没表现出来', correct: false, errorType: 'E07', feedback: '这是不可证伪的说法。' },
+          { text: '阴都不好，只是没表现出来', correct: false, errorType: 'E07', feedback: '这是两头堵的套话。' },
           { text: '阴是女，女不如男', correct: false, errorType: 'E06', feedback: '这是把阴阳标签化、性别化。' },
         ],
         explain: '阴柔可以中正，阳刚可以过亢——阴阳没有固有吉凶。',
@@ -395,7 +395,7 @@ export const ICHING_YINYANG_CHAPTER = {
       predict: {
         prompt: '「阳气重的人脾气急」最准确的性质是？',
         options: [
-          { text: '古人的科学发现' },
+          { text: '古人的实据发现' },
           { text: '一种把结构语言标签化的现代说法' },
           { text: '易经原文' },
         ],
