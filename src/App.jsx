@@ -19,9 +19,8 @@ const LabRunner = lazy(() => import('./pages/Lab').then((m) => ({ default: m.Lab
 const ChartPage = lazy(() => import('./pages/Chart').then((m) => ({ default: m.ChartPage })))
 const GrowthPage = lazy(() => import('./pages/Growth').then((m) => ({ default: m.GrowthPage })))
 const DoubtLabPage = lazy(() => import('./pages/DoubtLab').then((m) => ({ default: m.DoubtLabPage })))
-// 注意：Workshop/HexArchive/Terms 三个页面是「默认导出」，lazy 需取 m.default，
+// 注意：HexArchive/Terms 两个页面是「默认导出」，lazy 需取 m.default，
 // 若写成 m.xxx 会解析成 undefined 导致「Element type is invalid」白屏错误
-const WorkshopPage = lazy(() => import('./pages/Workshop').then((m) => ({ default: m.default })))
 const HexArchivePage = lazy(() => import('./pages/HexArchive').then((m) => ({ default: m.default })))
 const TermsPage = lazy(() => import('./pages/Terms').then((m) => ({ default: m.default })))
 const ExperimentPage = lazy(() => import('./pages/ExperimentRunner').then((m) => ({ default: m.ExperimentPage })))
@@ -87,8 +86,8 @@ function Router({ children, route }) {
       return <TermsPage id="dict" params={params} />
     case 'doubt':
       return <DoubtLabPage taskId={params.task} />
-    case 'play':
-      return <WorkshopPage />
+    case 'play': // 易工坊已并入卦档（实战工作台），旧链接兼容
+      return <HexArchivePage id="workshop" />
     case 'hex':
       return <HexArchivePage id={id} params={params} />
     case 'terms':

@@ -15,7 +15,6 @@ const NAV = [
   { path: '/hex', label: '卦档' },
   { path: '/terms', label: '术语' },
   { path: '/cases', label: '案例' },
-  { path: '/play', label: '易工坊' },
   { path: '/lab', label: '实验' },
   { path: '/tools', label: '工具' },
   { path: '/exp', label: '推理实验' },

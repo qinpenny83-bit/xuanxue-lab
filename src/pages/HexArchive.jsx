@@ -31,6 +31,7 @@ import { getClassicPassage, randomClassicPassage, hexName } from '../data/iching
 import { casesForHexagram, casesForYao, CASE_LEVELS } from '../data/iching/caseGraph'
 import { getCurriculumNode } from '../data/curriculum'
 import { V3_LESSONS } from '../data/lessons'
+import WorkshopPage from './Workshop'
 
 // ── 小工具 ──────────────────────────────────────────────
 const HEX_STAGE_ORDER = ['L0', 'L1', 'L2', 'L3', 'L4', 'L5']
@@ -980,6 +981,21 @@ function HexIndex() {
         <input className="search-input" placeholder="搜索卦名 / 全称……" value={filter} onChange={(e) => setFilter(e.target.value)} />
       </div>
 
+      {/* 易工坊 · 实战工作台（已并入卦档） */}
+      <div className="mt-12 discern-hero" onClick={() => navigate('/hex/workshop')} style={{ cursor: 'pointer' }}>
+        <div className="row" style={{ gap: 14 }}>
+          <div style={{ fontSize: 26 }}>🛠️</div>
+          <div style={{ flex: 1 }}>
+            <div className="tiny muted">易工坊 · 实战工作台</div>
+            <div className="discern-hero-title">把「看卦」变成可验证的学习行为</div>
+            <p className="tiny" style={{ color: 'var(--text-2)', marginTop: 4 }}>
+              卦象观察 · 爻研究 · 经典解读 · 案例分析 · 解释构建 · 自由研究——6 个工作台，每步留痕。
+            </p>
+          </div>
+          <span className="discern-go">→</span>
+        </div>
+      </div>
+
       <div className="hex-index-grid">
         {list.map((p) => {
           const stage = hexStage(state, p.number)
@@ -1005,6 +1021,7 @@ function HexIndex() {
 
 // ── 顶层入口 ─────────────────────────────────────────────
 export default function HexArchivePage({ id, params }) {
+  if (id === 'workshop') return <WorkshopPage />
   if (id === 'compare') return <CompareView a={params?.a} b={params?.b} />
   if (params?.classic) return <ClassicPassageView passageId={params.classic} />
   const profile = id ? getHexagramProfile(id) : null

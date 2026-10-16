@@ -14,6 +14,7 @@
 // ============================================================
 import React, { useEffect, useMemo, useState } from 'react'
 import { useApp } from '../store/AppContext'
+import { navigate } from '../lib/router'
 import { PageHead, Remind, Segmented, Pill } from '../components/ui'
 import { getHexagramProfile, HEXAGRAM_PROFILES, TRADITION_REF } from '../data/iching/hexagramProfile'
 import { getTerm } from '../data/iching/termData'
@@ -919,6 +920,9 @@ function WorkshopHome({ onOpen }) {
 
   return (
     <div>
+      <div className="row" style={{ alignItems: 'center', gap: 10 }}>
+        <button className="btn btn-ghost btn-sm" onClick={() => navigate('/hex')}>← 64卦档案</button>
+      </div>
       <PageHead title="🛠️ 易工坊" sub="把「看卦」变成「可验证的学习行为」：每步留痕，系统只记录你做过什么，不替你下判断。" />
 
       {/* ── 3 问（真实数据驱动）── */}
@@ -1014,6 +1018,13 @@ function WorkshopHome({ onOpen }) {
 // ============================================================
 export default function WorkshopPage() {
   const [view, setView] = useState('home')
+
+  // 路由变化（/play ↔ /hex/workshop 复用同一组件实例）时回到工坊首页
+  useEffect(() => {
+    const onHash = () => setView('home')
+    window.addEventListener('hashchange', onHash)
+    return () => window.removeEventListener('hashchange', onHash)
+  }, [])
 
   if (view === 'home') return <WorkshopHome onOpen={setView} />
   if (view === 'hexagram') return <HexagramBench onBack={() => setView('home')} />
