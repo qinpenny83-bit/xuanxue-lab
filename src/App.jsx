@@ -18,7 +18,6 @@ const LabPage = lazy(() => import('./pages/Lab').then((m) => ({ default: m.LabPa
 const LabRunner = lazy(() => import('./pages/Lab').then((m) => ({ default: m.LabRunner })))
 const ChartPage = lazy(() => import('./pages/Chart').then((m) => ({ default: m.ChartPage })))
 const GrowthPage = lazy(() => import('./pages/Growth').then((m) => ({ default: m.GrowthPage })))
-const DictionaryPage = lazy(() => import('./pages/Dictionary').then((m) => ({ default: m.DictionaryPage })))
 const DoubtLabPage = lazy(() => import('./pages/DoubtLab').then((m) => ({ default: m.DoubtLabPage })))
 // 注意：Workshop/HexArchive/Terms 三个页面是「默认导出」，lazy 需取 m.default，
 // 若写成 m.xxx 会解析成 undefined 导致「Element type is invalid」白屏错误
@@ -84,8 +83,8 @@ function Router({ children, route }) {
       return <ChartPage />
     case 'growth':
       return <GrowthPage />
-    case 'dict':
-      return <DictionaryPage selected={params.term} />
+    case 'dict': // 词典已并入术语百科（命理入门），旧链接兼容
+      return <TermsPage id="dict" params={params} />
     case 'doubt':
       return <DoubtLabPage taskId={params.task} />
     case 'play':

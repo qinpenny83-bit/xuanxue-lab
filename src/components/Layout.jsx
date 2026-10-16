@@ -22,7 +22,6 @@ const NAV = [
   { path: '/doubt', label: '怀疑' },
   { path: '/chart', label: '命盘' },
   { path: '/growth', label: '成长' },
-  { path: '/dict', label: '词典' },
 ]
 
 function activePath(route) {

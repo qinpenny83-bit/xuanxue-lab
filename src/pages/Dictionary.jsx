@@ -15,12 +15,12 @@ export function DictionaryPage({ selected }) {
   const current = active ? getTerm(active) : null
 
   if (current) {
-    return <TermDetail term={current} onBack={() => { setActive(null); navigate('/dict') }} />
+    return <TermDetail term={current} onBack={() => { setActive(null); navigate('/terms/dict') }} />
   }
 
   return (
     <div>
-      <PageHead title="📖 玄学词典" sub="不是百科，而是你「顺藤摸瓜」的学习入口。" />
+      <PageHead title="🔮 命理入门" sub="八字常用词——不是百科，而是你「顺藤摸瓜」的学习入口。" />
       <div className="dict-grid">
         {DICTIONARY.map((d) => (
           <button key={d.term} className="dict-card" style={{ textAlign: 'left' }} onClick={() => setActive(d.term)}>
@@ -30,6 +30,7 @@ export function DictionaryPage({ selected }) {
           </button>
         ))}
       </div>
+      <div className="tiny muted mt-12">已并入「术语百科」：与《易经》术语重复的概念（阴阳、八卦、爻、变卦等）请直接查术语页。</div>
     </div>
   )
 }
@@ -43,7 +44,7 @@ function TermDetail({ term, onBack }) {
 
   return (
     <div className="lesson-body">
-      <button className="btn btn-ghost btn-sm" onClick={onBack}>← 词典</button>
+      <button className="btn btn-ghost btn-sm" onClick={onBack}>← 命理入门</button>
 
       <div className="card mt-12">
         <div style={{ fontSize: 40 }}>{term.emoji}</div>
@@ -90,7 +91,7 @@ function TermDetail({ term, onBack }) {
             {relatedLessons.map(({ node, lesson }) => (
               <div key={node.id} className="row spread" style={{ padding: '10px 12px', background: 'var(--bg-warm)', borderRadius: 12, marginBottom: 8 }}>
                 <span>{node.emoji} {node.title}</span>
-                <button className="btn btn-ghost btn-sm" onClick={() => navigate(lesson ? `/lesson/${lesson.id}` : `/dict?term=${encodeURIComponent(node.title)}`)}>
+                <button className="btn btn-ghost btn-sm" onClick={() => navigate(lesson ? `/lesson/${lesson.id}` : `/terms/dict?term=${encodeURIComponent(node.title)}`)}>
                   {lesson ? '去上课' : '查看'}
                 </button>
               </div>

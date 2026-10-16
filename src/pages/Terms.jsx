@@ -50,6 +50,8 @@ import {
 import { TRADITION_REF, getHexagramProfile } from '../data/iching/hexagramProfile'
 import { getClassicPassage } from '../data/iching/classic-passages'
 import { V3_LESSONS } from '../data/lessons'
+import { DictionaryPage } from './Dictionary'
+import { DICTIONARY } from '../data/dictionary'
 
 // ── 工具 ──────────────────────────────────────────────
 const lessonByNode = {}
@@ -98,6 +100,7 @@ function BackRow({ to, label }) {
 export default function TermsPage({ id, params }) {
   if (id === 'map') return <TermMap />
   if (id === 'discern') return <DiscernRoom groupId={params?.group} />
+  if (id === 'dict') return <DictionaryPage selected={params?.term} />
   if (id) {
     const term = getTerm(id)
     if (!term) return <TermsHome notFound={id} />
@@ -166,6 +169,19 @@ function TermsHome({ notFound }) {
         </div>
       ) : (
         <>
+          {/* 命理入门 · 词典（已并入术语体系） */}
+          <div className="mt-16 discern-hero" onClick={() => navigate('/terms/dict')}>
+            <div className="row" style={{ gap: 14 }}>
+              <div style={{ fontSize: 26 }}>🔮</div>
+              <div style={{ flex: 1 }}>
+                <div className="tiny muted">命理入门</div>
+                <div className="discern-hero-title">八字常用词，从一句话开始</div>
+                <p className="tiny" style={{ color: 'var(--text-2)', marginTop: 4 }}>天干地支 · 十神 · 旺衰 · 大运流年——{DICTIONARY.length} 个概念，每个都连着课程与案例。</p>
+              </div>
+              <span className="discern-go">→</span>
+            </div>
+          </div>
+
           {/* 易学辨析室入口 */}
           {rec ? (
             <div className="mt-16 discern-hero" onClick={() => navigate(`/terms/discern?group=${rec.groupId}`)}>
