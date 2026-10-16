@@ -49,8 +49,8 @@ body {
 
 a { color: inherit; text-decoration: none; }
 button { font-family: inherit; cursor: pointer; }
-h1, h2, h3, h4 { margin: 0; font-weight: 700; line-height: 1.25; }
-p { margin: 0; }
+h1, h2, h3, h4 { margin: 0; font-weight: 700; line-height: 1.25; text-wrap: balance; }
+p { margin: 0; text-wrap: pretty; }
 ::selection { background: rgba(217, 164, 65, 0.3); }
 
 .display { font-family: var(--font-display); }
@@ -148,7 +148,7 @@ border-radius: 999px; padding: 5px 8px; cursor: pointer; outline: none;
 .pill { display: inline-flex; align-items: center; gap: 5px; padding: 3px 10px; border-radius: 999px; font-size: 13px; font-weight: 600; }
 .pill-amber { background: rgba(217,164,65,0.16); color: #9a701f; }
 .pill-teal { background: rgba(50,143,126,0.14); color: var(--teal-deep); }
-.pill-indigo { background: rgba(69,84,155,0.12); color: var(--indigo-deep); }
+.pill-indigo { background: rgba(69,84,155,0.12); color: #2b3470; }
 .pill-gray { background: rgba(28,26,23,0.07); color: var(--text-2); }
 .pill-red { background: rgba(194,91,72,0.12); color: var(--danger); }
 
@@ -168,6 +168,36 @@ border-radius: 999px; padding: 5px 8px; cursor: pointer; outline: none;
 .ring-wrap { position: relative; display: inline-grid; place-items: center; }
 .ring-wrap svg { transform: rotate(-90deg); }
 .ring-center { position: absolute; inset: 0; display: grid; place-items: center; }
+
+/* ---------- 深度进度（卦档 · 水平步骤条） ---------- */
+.depth-bar { display: flex; gap: 6px; flex-wrap: wrap; width: 100%; }
+.depth-step {
+  flex: 1 1 0; min-width: 68px;
+  display: flex; align-items: center; justify-content: center; gap: 5px;
+  padding: 6px 8px; border-radius: 999px;
+  border: 1px solid var(--line);
+  background: rgba(28,26,23,0.05);
+  color: var(--text-3); font-size: 13px; font-weight: 600;
+}
+.depth-step.dp-done { background: rgba(50,143,126,0.14); border-color: rgba(50,143,126,0.3); color: var(--teal-deep); }
+.depth-step.dp-partial { background: rgba(217,164,65,0.16); border-color: rgba(217,164,65,0.3); color: var(--amber-deep); }
+.depth-ico { font-weight: 800; flex-shrink: 0; }
+.depth-label { white-space: nowrap; }
+
+/* ---------- 必背 · 记住勾选 ---------- */
+.memo-check { position: relative; display: inline-flex; align-items: center; gap: 6px; flex-shrink: 0; cursor: pointer; user-select: none; }
+.memo-check input { position: absolute; opacity: 0; width: 0; height: 0; }
+.memo-check-box {
+  width: 17px; height: 17px; border-radius: 6px;
+  border: 1.5px solid var(--text-3); background: var(--surface);
+  display: inline-flex; align-items: center; justify-content: center;
+  transition: 0.15s; color: #fff; font-size: 11px; font-weight: 800;
+}
+.memo-check:hover .memo-check-box { border-color: var(--teal); }
+.memo-check.on .memo-check-box { background: var(--teal-deep); border-color: var(--teal-deep); }
+.memo-check.on .memo-check-box::after { content: '✓'; }
+.memo-check > span:last-child { font-size: 13px; font-weight: 600; color: var(--text-2); }
+.memo-check.on > span:last-child { color: var(--teal-deep); }
 
 /* ---------- 首页 ---------- */
 .hero { position: relative; overflow: hidden; padding: 26px 24px; border-radius: 24px; margin-bottom: 18px; }

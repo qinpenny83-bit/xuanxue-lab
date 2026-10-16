@@ -91,8 +91,8 @@ export function Modal({ onClose, children, title }) {
 
 export function PageHead({ title, sub, right }) {
   return (
-    <div className="spread" style={{ alignItems: 'flex-end', marginBottom: 18 }}>
-      <div>
+    <div className="spread" style={{ alignItems: 'flex-end', marginBottom: 18, gap: 12, flexWrap: 'wrap' }}>
+      <div style={{ minWidth: 0 }}>
         <h1 className="page-title">{title}</h1>
         {sub ? <p className="page-sub" style={{ marginBottom: 0 }}>{sub}</p> : null}
       </div>

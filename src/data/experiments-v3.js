@@ -250,7 +250,7 @@ export const EXPERIMENTS_V3_CORE = [
     reflectionQuestions: ['你判断「好」时，用的是位置规则还是结果联想？'],
   }),
   E({
-    id: 'exp-s-pos5', category: 'structure', title: '五爻位是不是天然特殊？', subtitle: '「九五」的地位是不是结构决定的。', emoji: '🪜',
+    id: 'exp-s-pos5', category: 'structure', title: '五爻位是不是天然特殊？', subtitle: '「九五」的地位是不是结构决定的。', emoji: '📍',
     question: '五爻位（上的居中）是否在任何卦里都天然特殊、天然重要？',
     hypothesis: '五爻位是卦的核心，总是关键的。',
     prerequisites: ['爻位', '得位'],

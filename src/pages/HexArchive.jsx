@@ -386,7 +386,7 @@ function HexDetail({ profile, params }) {
           <Glyph lines={profile.binaryPattern} size="lg" />
         </div>
         <div style={{ flex: 1 }}>
-          <div className="tiny muted">第 {profile.number} 卦 · {profile.pinyin ? `pinyin：${profile.pinyin}` : ''}</div>
+          <div className="tiny muted">第 {profile.number} 卦 · {profile.pinyin ? `拼音 ${profile.pinyin}` : ''}</div>
           <h1 className="page-title" style={{ margin: '2px 0' }}>{profile.name}<span className="archive-fullname">{profile.traditionalName}</span></h1>
           <div className="tiny muted" style={{ marginTop: 4 }}>
             上卦 {profile.upperTrigram}（{profile.upperInfo?.nature}）· 下卦 {profile.lowerTrigram}（{profile.lowerInfo?.nature}）
@@ -455,10 +455,6 @@ function BeginnerView({ profile }) {
   return (
     <div className="mt-16">
       <div className="card">
-        <div className="archive-sub">这是什么？</div>
-        <p style={{ fontSize: 15 }}>{profile.traditionalName}卦（第{profile.number}卦）。{profile.plain}</p>
-      </div>
-      <div className="card mt-12">
         <div className="archive-sub">为什么重要？</div>
         <p style={{ fontSize: 15 }}>六十四卦是一套「结构语言」，每一卦都是一块拼图。学它的重点不是背「吉凶」，而是练「时位 / 内外 / 阴阳」这种通用读法。</p>
       </div>

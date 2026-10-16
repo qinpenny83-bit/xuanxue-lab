@@ -38,40 +38,37 @@ function MemoCard({ item, memorized, card, onToggle, compact }) {
   const [flipped, setFlipped] = useState(false)
   const done = memorized
   return (
-    <div className={`card ${done ? 'memorized-card' : ''}`} style={{ marginBottom: 0, padding: '10px 12px' }}>
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: 8 }}>
-        <div style={{ flex: 1, minWidth: 0 }}>
-          <div style={{ fontWeight: 700, fontSize: 14 }}>{item.front}</div>
-          {flipped && (
-            <div className="mt-8" style={{ fontSize: 13, lineHeight: 1.6 }}>
-              <div style={{ color: 'var(--teal-deep, #0f7b6c)', fontWeight: 600 }}>{item.back}</div>
-              {item.tip && <div className="tiny mt-8" style={{ color: '#666' }}>💡 {item.tip}</div>}
-              {item.lessonId && (
-                <button
-                  className="btn btn-ghost btn-sm mt-8"
-                  style={{ marginRight: 6 }}
-                  onClick={(e) => { e.stopPropagation(); navigate(`/lesson/${item.lessonId}`) }}
-                >
-                  📚 去课程复习
-                </button>
-              )}
-            </div>
+    <div className={`card ${done ? 'memorized-card' : ''}`} style={{ padding: '10px 12px' }}>
+      <div className="spread" style={{ alignItems: 'center', gap: 8 }}>
+        <div style={{ flex: 1, minWidth: 0, fontWeight: 700, fontSize: 14, lineHeight: 1.4 }}>{item.front}</div>
+        {done && <DueBadge card={card} />}
+        <label className={`memo-check ${done ? 'on' : ''}`} title={done ? '取消已记住' : '标记为已记住'}>
+          <input type="checkbox" checked={done} onChange={() => onToggle(item.id)} />
+          <span className="memo-check-box" />
+          <span>{done ? '已记住' : '记住了'}</span>
+        </label>
+      </div>
+      {flipped && (
+        <div className="mt-8" style={{ fontSize: 13, lineHeight: 1.6 }}>
+          <div style={{ color: 'var(--teal-deep, #0f7b6c)', fontWeight: 600 }}>{item.back}</div>
+          {item.tip && <div className="tiny mt-8" style={{ color: '#666' }}>💡 {item.tip}</div>}
+          {item.lessonId && (
+            <button
+              className="btn btn-ghost btn-sm mt-8"
+              style={{ marginRight: 6 }}
+              onClick={() => navigate(`/lesson/${item.lessonId}`)}
+            >
+              📚 去课程复习
+            </button>
           )}
         </div>
-        {done && <DueBadge card={card} />}
-        <button
-          className={`btn btn-sm ${done ? 'btn-primary' : 'btn-ghost'}`}
-          style={{ flexShrink: 0, padding: '2px 8px', fontSize: 12 }}
-          onClick={(e) => { e.stopPropagation(); onToggle(item.id) }}
-          title={done ? '取消已记住' : '标记为已记住'}
-        >
-          {done ? '✓ 已记住' : '记住了'}
-        </button>
-      </div>
+      )}
       {!compact && (
-        <button className="btn btn-ghost btn-sm mt-8" style={{ fontSize: 12 }} onClick={() => setFlipped(!flipped)}>
-          {flipped ? '收起答案 ▲' : '看答案 ▼'}
-        </button>
+        <div className="row mt-8">
+          <button className="btn btn-ghost btn-sm" style={{ fontSize: 12 }} onClick={() => setFlipped(!flipped)}>
+            {flipped ? '收起答案 ▲' : '看答案 ▼'}
+          </button>
+        </div>
       )}
     </div>
   )
@@ -298,7 +295,7 @@ export function MemorizePage() {
         <PageHead
           title="🎲 必背抽查"
           sub={`${group.emoji} ${group.label} · 随机翻牌，检验记忆`}
-          right={<Pill tone="gray">{totalDone}/{total}</Pill>}
+          right={<Pill tone="gray">已记住 {totalDone}/{total}</Pill>}
         />
         <DrillView group={group} memorized={memorized} onToggle={toggle} onExit={() => setDrill(false)} />
         <div className="row mt-12">
@@ -313,7 +310,7 @@ export function MemorizePage() {
       <PageHead
         title="📖 必背速记"
         sub="字母表 → 规则口诀 → 64 卦 → 神煞。点卡片看答案，勾「已记住」存档，到期自动提醒温习。"
-        right={<Pill tone={totalDone === total ? 'teal' : 'gray'}>{totalDone}/{total} 已背</Pill>}
+        right={<Pill tone={totalDone === total ? 'teal' : 'gray'}>已记住 {totalDone}/{total}</Pill>}
       />
 
       <TodayQueue dueCount={dueQueue.length} totalMem={totalDone} onStart={() => setReviewing(true)} />
@@ -336,7 +333,7 @@ export function MemorizePage() {
           <button className="btn btn-primary btn-sm" onClick={() => setDrill(true)}>🎲 乱序抽查</button>
         </div>
         <GroupProgress items={group.items} memorized={memorized} />
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(230px, 1fr))', gap: 10 }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(230px, 1fr))', gap: 10, alignItems: 'start' }}>
           {group.items.map((it) => (
             <MemoCard
               key={it.id}

@@ -15,7 +15,7 @@ import { errorMuseumTrend } from '../agent/errorMuseum'
 import { MASTERY_DIMENSIONS } from '../agent/masteryEngine'
 import { masterChallengeEligibility } from '../agent/masterChallenge'
 import { navigate } from '../lib/router'
-import { PageHead, LevelChip, Bar, Remind, Modal } from '../components/ui'
+import { PageHead, Bar, Remind, Modal } from '../components/ui'
 
 function m(state, id) {
   return state.mastery[id] || 0
@@ -114,7 +114,7 @@ export function GrowthPage() {
 
   return (
     <div>
-      <PageHead title="🧠 我的成长" sub="你会在这里看到：学会了什么、哪里容易错、下一步该学什么。" right={<LevelChip level={lvl.level} name={lvl.name} />} />
+      <PageHead title="🧠 我的成长" sub="你会在这里看到：学会了什么、哪里容易错、下一步该学什么。" />
 
       {/* 等级与 XP */}
       <div className="card">

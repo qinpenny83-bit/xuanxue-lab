@@ -280,7 +280,12 @@ export function MapPage() {
         <span>🔒 未解锁</span>
       </div>
 
-      <div className="map-tabs mt-16" style={{ display: 'flex', gap: 8, flexWrap: 'wrap', marginBottom: 12, alignItems: 'center' }}>
+      <div className="row mt-16" style={{ gap: 8, flexWrap: 'wrap' }}>
+        <button className={`btn btn-sm ${mode === 'all' ? 'btn-primary' : 'btn-ghost'}`} onClick={() => setMode('all')}>🗺️ 全学院</button>
+        <button className={`btn btn-sm ${mode === 'path' ? 'btn-primary' : 'btn-ghost'}`} onClick={() => setMode('path')}>🛤️ 当前主线</button>
+      </div>
+
+      <div className="map-tabs mt-8" style={{ display: 'flex', gap: 8, flexWrap: 'wrap', marginBottom: 12, alignItems: 'center' }}>
         {mode === 'all' && tabs.map((t) => (
           <button
             key={t.key}
@@ -290,10 +295,6 @@ export function MapPage() {
             {t.label}
           </button>
         ))}
-        <div style={{ marginLeft: mode === 'all' ? 'auto' : 0, display: 'flex', gap: 6 }}>
-          <button className={`btn btn-sm ${mode === 'all' ? 'btn-primary' : 'btn-ghost'}`} onClick={() => setMode('all')}>🗺️ 全学院</button>
-          <button className={`btn btn-sm ${mode === 'path' ? 'btn-primary' : 'btn-ghost'}`} onClick={() => setMode('path')}>🛤️ 当前主线</button>
-        </div>
       </div>
 
       <div className="map">

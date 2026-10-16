@@ -1,12 +1,13 @@
 // ============================================================
-// 🧰 玄学工具实验室（R6-5）· 六个确定性工具
+// 🧰 玄学工具实验室（R6-5）· 七个确定性工具
 //
 //   1. 干支历    —— 公历 → 年/月/日/时四柱干支 + 节气定位
 //   2. 五行实验器 —— 生克关系环 + 季节旺相休囚死
 //   3. 六十四卦实验器 —— 卦象 / 错综互 / 任意爻变卦
 //   4. 罗盘模拟器 —— 二十四山方位盘
 //   5. 节气工具  —— 全年二十四节气时刻表
-//   6. 排盘学习工具 —— 出生信息 → 四柱 + 十神 + 藏干 + 五行
+//   6. 命盘     —— 出生信息 → 四柱 + 十神 + 藏干 + 五行
+//   7. 易经起卦  —— 起卦方法与卦象解读练习
 //
 // 全部为确定性本地计算：结果可复现、可解释、可核对。
 // 定位是「传统文化学习与观察」，不把结果包装成预测或判决。
@@ -46,6 +47,7 @@ const TOOLS = [
   { id: 'compass', label: '罗盘模拟器', emoji: '🧭' },
   { id: 'solar', label: '节气工具', emoji: '🌾' },
   { id: 'chart', label: '命盘', emoji: '🔮' },
+  { id: 'iching', label: '易经起卦', emoji: '🌿' },
 ]
 
 const HOUR_OF_SHICHEN = { 子: 23, 丑: 1, 寅: 3, 卯: 5, 辰: 7, 巳: 9, 午: 11, 未: 13, 申: 15, 酉: 17, 戌: 19, 亥: 21 }
@@ -86,7 +88,7 @@ function GanzhiCal() {
     <div className="card">
       <h3 style={{ marginBottom: 4 }}>📅 公历 → 干支历</h3>
       <p className="muted" style={{ fontSize: 13, marginBottom: 14 }}>输入公历日期与时辰，换算四柱干支与节气定位。年柱以立春为界、月柱以十二「节」为界，这是传统干支历的通用规则。</p>
-      <div className="grid-2" style={{ marginBottom: 14 }}>
+      <div className="grid-2" style={{ marginBottom: 14, maxWidth: 460 }}>
         {[
           ['年', y, setY], ['月', m, setM], ['日', day, setDay],
         ].map(([label, val, set]) => (
@@ -102,7 +104,10 @@ function GanzhiCal() {
           </select>
         </div>
       </div>
-      <button className="btn" onClick={() => setRun(true)}>换算四柱</button>
+      <div className="row" style={{ gap: 8, flexWrap: 'wrap' }}>
+        <button className="btn" onClick={() => setRun(true)}>换算四柱</button>
+        <button className="btn btn-ghost btn-sm" onClick={() => { setY(t.y); setM(t.m); setDay(t.day) }}>📅 使用当前日期</button>
+      </div>
 
       {chart && (
         <div style={{ marginTop: 18 }}>
@@ -495,6 +500,7 @@ export function ToolsPage({ initialTab }) {
         {tab === 'compass' && <CompassSim />}
         {tab === 'solar' && <SolarTermTool />}
         {tab === 'chart' && <ChartTool />}
+        {tab === 'iching' && <IChingPanel />}
       </div>
     </div>
   )
