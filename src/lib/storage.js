@@ -73,6 +73,9 @@ export const initialState = {
   chapterQuizzes: {},
   // R10：必背速记已背条目：string[]（条目 id 集合，如 'stem-甲' / 'hx-1'）
   memorized: [],
+  // R10.1：间隔复习档案：{ [itemId]: { rep, ease, interval, due, lastReview, reviews } }
+  // 只服务「已记住」条目；due 为下次应复习日期（YYYY-MM-DD），轻量提示不强迫。
+  memorizeCards: {},
 }
 
 export function loadState() {

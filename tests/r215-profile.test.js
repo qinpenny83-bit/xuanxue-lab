@@ -1,7 +1,7 @@
 // ============================================================
 // R2-1.5 · 卦/爻 新字段 + Agent 确定性推荐 测试
 // 验证：sourceInfo / classicPassageIds / caseIds / daXiang 接线；
-//       彖传/小象/系辞原文保持 null（不编造）；
+//       彖传/小象原文已接入（通行本公版），系辞保持 null（不编造）；
 //       解释传统不产生重复数据；
 //       Agent 推荐基于真实学习状态、deterministic、无模板空话。
 // ============================================================
@@ -14,13 +14,13 @@ import {
 import { hexRecommendation, hexDepthProgress, yaoEvidence } from '../src/data/iching/hexMastery'
 
 describe('卦/爻 · R2-1.5 新字段接线', () => {
-  it('每卦 sourceInfo：卦辞/爻辞/大象 verified，彖传/小象 needs_review（不冒充已核对）', () => {
+  it('每卦 sourceInfo：卦辞/爻辞/大象/彖传/小象 全部 verified（通行本已核对）', () => {
     for (const p of HEXAGRAM_PROFILES) {
       expect(p.sourceInfo.guaci.confidence).toBe('verified')
       expect(p.sourceInfo.yaoci.confidence).toBe('verified')
       expect(p.sourceInfo.daxiang.confidence).toBe('verified')
-      expect(p.sourceInfo.tuan.confidence).toBe('needs_review')
-      expect(p.sourceInfo.xiaoxiang.confidence).toBe('needs_review')
+      expect(p.sourceInfo.tuan.confidence).toBe('verified')
+      expect(p.sourceInfo.xiaoxiang.confidence).toBe('verified')
     }
   })
 
@@ -35,22 +35,22 @@ describe('卦/爻 · R2-1.5 新字段接线', () => {
     }
   })
 
-  it('每爻 sourceInfo（爻辞/小象）与经典关联非空', () => {
+  it('每爻 sourceInfo（爻辞/小象）已核对；经典关联非空', () => {
     for (const y of ALL_YAO) {
       expect(y.sourceInfo.yaoci.confidence).toBe('verified')
-      expect(y.sourceInfo.xiaoxiang.confidence).toBe('needs_review')
+      expect(y.sourceInfo.xiaoxiang.confidence).toBe('verified')
       expect(Array.isArray(y.classicPassageIds)).toBe(true)
       expect(y.classicPassageIds.length, `${y.id} 缺经典关联`).toBeGreaterThan(0)
     }
   })
 
-  it('彖传 / 小象（六条）/ 系辞 原文保持 null：未逐卦核对时绝不编造', () => {
+  it('彖传 / 小象（六条与逐爻）原文已接入；系辞仍为 null（不编造）', () => {
     for (const p of HEXAGRAM_PROFILES) {
-      expect(p.tenWings.tuan.text).toBeNull()
-      expect(p.tenWings.xiaoxiang.text).toBeNull()
+      expect(p.tenWings.tuan.text, `${p.name} 缺彖传`).toBeTruthy()
+      expect(p.tenWings.xiaoxiang.text, `${p.name} 缺小象六条`).toBeTruthy()
       expect(p.tenWings.xici.text).toBeNull()
       for (const y of p.yao) {
-        expect(y.tenWings.xiaoxiang.text).toBeNull()
+        expect(y.tenWings.xiaoxiang.text, `${y.id} 缺小象`).toBeTruthy()
       }
     }
   })

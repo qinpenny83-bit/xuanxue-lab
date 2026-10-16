@@ -217,8 +217,12 @@ function YaoItem({ profile, index, autoOpen }) {
           <p className="tiny muted mt-8">注：以上为传统易学「爻位」规则推导，是一种解释框架，不是唯一或“科学”结论。</p>
 
           <div className="archive-sub">⑤ 《象》怎么说</div>
-          <p className="tiny muted">本爻小象「暂无可靠整理」，可到〈象传〉课程查看小象的通例。{' '}
-            <a href={`#${lessonLink('yz-xiang')}`} style={{ color: 'var(--indigo)' }}>去象传 →</a></p>
+          {y.tenWings.xiaoxiang.text ? (
+            <p className="display guaci-quote">「{y.tenWings.xiaoxiang.text}」</p>
+          ) : (
+            <p className="tiny muted">本爻小象「暂无可靠整理」，可到〈象传〉课程查看小象的通例。{' '}
+              <a href={`#${lessonLink('yz-xiang')}`} style={{ color: 'var(--indigo)' }}>去象传 →</a></p>
+          )}
 
           <div className="archive-sub">⑥ 不同传统怎么解释</div>
           <div className="trad-list">
@@ -482,6 +486,103 @@ function BeginnerView({ profile }) {
   )
 }
 
+// ── 爻位关系图（得位 / 中 / 应 + 承乘比一览）──────────────
+// 六爻自上而下排列；全部由卦符确定性推导，属传统爻位规则。
+function YaoRelationGraph({ profile }) {
+  const yao = profile.yao // 0..5 自下而上
+  const rows = [...yao].reverse() // 显示顺序：上 → 初
+  const rowIndex = (i) => 5 - i
+  const yc = (r) => 22 + r * 36
+  const yingCols = { 0: 208, 1: 230, 2: 252 } // 应连接列：初↔四、二↔五、三↔上
+  const pairs = [0, 1, 2, 3, 4].map((i) => ({
+    i,
+    lo: yao[i],
+    hi: yao[i + 1],
+    bi: yao[i].bi.find((b) => b.partner === i + 1),
+    cheng: yao[i].cheng,
+    ling: yao[i + 1].ling,
+  }))
+
+  return (
+    <div className="yrg mt-8">
+      <svg viewBox="0 0 300 232" className="yrg-svg" role="img" aria-label={`${profile.name}卦爻位关系图`}>
+        {/* 应连线（先画，位于爻条之下） */}
+        {[0, 1, 2].map((a) => {
+          const b = a + 3
+          const y0 = yc(rowIndex(a))
+          const y1 = yc(rowIndex(b))
+          const mid = (y0 + y1) / 2
+          const y = yao[a].ying
+          const ok = y?.favorable
+          const color = ok ? '#277568' : '#c25b48'
+          return (
+            <g key={`ying-${a}`}>
+              <line x1={yingCols[a]} y1={y0} x2={yingCols[a]} y2={y1} stroke={color} strokeWidth={1.6} strokeDasharray="4 4" opacity={0.7} />
+              <circle cx={yingCols[a]} cy={mid} r={3.4} fill={color} />
+              <text x={yingCols[a] + 7} y={mid + 3} fontSize={9} fontWeight={700} fill={color}>
+                {ok ? '相应' : '敌应'}
+              </text>
+            </g>
+          )
+        })}
+        {rows.map((y, r) => (
+          <g
+            key={y.id}
+            className="yrg-row-click"
+            onClick={() => navigate(`/hex/${profile.number}?yao=${y.position}`)}
+            role="button"
+            tabIndex={0}
+            aria-label={`跳转${y.name}`}
+          >
+            <text x={56} y={yc(r) + 4} textAnchor="end" fontSize={12} fontWeight={700} fill="#1c1a17">{y.name}</text>
+            {y.yang ? (
+              <rect x={64} y={yc(r) - 7} width={112} height={14} rx={3} fill="#1c1a17" />
+            ) : (
+              <>
+                <rect x={64} y={yc(r) - 7} width={50} height={14} rx={3} fill="#1c1a17" />
+                <rect x={126} y={yc(r) - 7} width={50} height={14} rx={3} fill="#1c1a17" />
+              </>
+            )}
+            {/* 得位圆点：青绿=当位 / 砖红=失位 */}
+            <circle cx={182} cy={yc(r)} r={3.6} fill={y.dewei ? '#277568' : '#c25b48'} />
+            {/* 中位标记（二·五） */}
+            {y.zhong && (
+              <g>
+                <rect x={109} y={yc(r) - 16} width={22} height={12} rx={6} fill="rgba(217,164,65,0.18)" stroke="#b9862f" strokeWidth={1} />
+                <text x={120} y={yc(r) - 7} textAnchor="middle" fontSize={9} fontWeight={800} fill="#9a701f">中</text>
+              </g>
+            )}
+          </g>
+        ))}
+      </svg>
+
+      <div className="yrg-legend">
+        <span className="yrg-leg"><i className="dot ok" />当位</span>
+        <span className="yrg-leg"><i className="dot bad" />失位</span>
+        <span className="yrg-leg"><i className="dot mid" />中位（二·五）</span>
+        <span className="yrg-leg"><i className="line ok" />相应</span>
+        <span className="yrg-leg"><i className="line bad" />敌应</span>
+      </div>
+
+      <div className="yrg-pairs">
+        {pairs.map((p) => {
+          const same = p.lo.yang === p.hi.yang // 同气相邻：承/乘皆中性（无所谓顺逆）
+          const cls = (f) => (same ? 'neu' : f ? 'ok' : 'bad')
+          return (
+            <span key={p.i} className="yrg-pair">
+              <b>{p.lo.name}↔{p.hi.name}</b>
+              <span className={p.bi?.favorable ? 'ok' : 'neu'}>{p.bi?.type}</span>
+              <span className={cls(p.cheng?.favorable)}>{p.cheng?.type}</span>
+              <span className={cls(p.ling?.favorable)}>{p.ling?.type}</span>
+            </span>
+          )
+        })}
+      </div>
+      <p className="tiny muted mt-8">点开任意一条爻（③六爻），可见该爻自身的承 / 乘 / 比明细与练习。</p>
+    </div>
+  )
+}
+
 // ── 深入模式 ─────────────────────────────────────────────
 function DeepView({ profile, detail, params }) {
   const deweiCount = profile.yao.filter((y) => y.dewei).length
@@ -540,17 +641,7 @@ function DeepView({ profile, detail, params }) {
       {/* ④ 看结构 */}
       <div className="card mt-12">
         <SectionTitle n="④" t="看结构 · 中正承乘比应" />
-        <div className="struct-table mt-8">
-          {[...profile.yao].map((y) => (
-            <div key={y.id} className="struct-row">
-              <div className="struct-name">{y.name}</div>
-              <div className="struct-cell">{y.gangrou}</div>
-              <div className="struct-cell">{y.dewei ? '当位' : '失位'}</div>
-              <div className="struct-cell">{y.zhong ? '中' : ''}</div>
-              <div className="struct-cell">{y.ying ? `应${y.ying.partnerLabel}（${y.ying.favorable ? '正' : '敌'}）` : ''}</div>
-            </div>
-          ))}
-        </div>
+        <YaoRelationGraph profile={profile} />
         <p className="tiny muted mt-8">
           当位（阳居阳位/阴居阴位）、中（二五）、承（下承上）、乘（上乘下）、比（相邻）、应（初↔四、二↔五、三↔上）——全部由卦符确定性推导，属传统爻位规则，不构成唯一结论。
         </p>
@@ -560,9 +651,12 @@ function DeepView({ profile, detail, params }) {
       <div className="card mt-12">
         <SectionTitle n="⑤" t="读《易传》 · 引用十翼课程，不重复存" />
         <div className="tenwings-grid mt-8">
-          <TenWingRow label="彖传" node="yz-tuan" text="暂无可靠整理" />
+          <TenWingRow label="彖传" node="yz-tuan" text={profile.tenWings.tuan.text} real />
           <TenWingRow label="大象" node="yz-xiang" text={profile.imagery} real />
-          <TenWingRow label="小象（六条）" node="yz-xiang" text="暂无可靠整理" />
+          <TenWingRow label="小象（六条）" node="yz-xiang" text={profile.tenWings.xiaoxiang.text} real />
+          {profile.tenWings.xiaoxiang.extra && (
+            <TenWingRow label="用九 / 用六" node="yz-xiang" text={profile.tenWings.xiaoxiang.extra} real />
+          )}
           {profile.tenWings.wenyan && <TenWingRow label="文言" node="yz-wenyan" text="详见文言传课程" />}
           <TenWingRow label="系辞（相关）" node="yz-xici" text="暂无可靠整理" />
           <TenWingRow label="说卦（取象）" node="yz-shuogua" text="暂无可靠整理" />
@@ -656,9 +750,10 @@ function ResearchView({ profile }) {
       <div className="card">
         <SectionTitle n="①" t="文本来源" />
         <ul className="archive-ul mt-8">
-          <li>卦辞：通行本《周易》（公版文本）。</li>
+          <li>卦辞：通行本《周易》（公版文本），已核对。</li>
           <li>大象：通行本《周易·象传》（公版文本），已核对。</li>
-          <li>彖传 / 小象 / 六爻爻辞全文：本轮「暂无可靠整理」，不作伪造出处。</li>
+          <li>彖传 / 小象 / 六爻爻辞全文：通行本《周易》（公版文本），已核对。</li>
+          <li>文言 / 系辞 / 说卦 / 序卦 / 杂卦逐卦对应：本轮「暂无可靠整理」，不作伪造出处。</li>
         </ul>
       </div>
       <div className="card mt-12">

@@ -9,7 +9,7 @@ import { PageHead, Pill, Bar, Remind } from '../components/ui'
 import { PATH_STAGES } from '../data/pathStages'
 import { getCurriculumNode } from '../data/curriculum'
 import {
-  pathSummary, stageQuiz, checkStageQuiz, nextCoreNode,
+  pathSummary, stageQuiz, checkStageQuiz, nextCoreNode, graduationSummary,
 } from '../agent/pathEngine'
 import { runAgent } from '../agent/localAgentEngine'
 import { navigate } from '../lib/router'
@@ -109,6 +109,65 @@ function QuizPanel({ stageKey, onPass }) {
   )
 }
 
+function GraduationPanel({ summary, onStartQuiz }) {
+  const curLabel = summary.current.graduated ? null : `${summary.current.level} ${summary.current.label}`
+  return (
+    <div className="card mt-16">
+      <div className="spread" style={{ alignItems: 'flex-end' }}>
+        <div>
+          <h4 style={{ fontSize: 15 }}>🎓 毕业验收 · L0 → L5</h4>
+          <p className="tiny muted mt-4" style={{ marginBottom: 0 }}>
+            逐级结业：完成本段全部核心节点并通过毕业考即毕业。{curLabel ? `当前进度停在「${curLabel}」。` : '六级全部毕业。'}
+          </p>
+        </div>
+        <div style={{ minWidth: 140 }}>
+          <Bar value={summary.graduatedCount} max={6} tone="teal" />
+          <div className="tiny muted" style={{ marginTop: 4, textAlign: 'center' }}>已毕业 {summary.graduatedCount}/6 级</div>
+        </div>
+      </div>
+      <div className="mt-12" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))', gap: 8 }}>
+        {summary.levels.map((l) => {
+          if (l.graduated) {
+            return (
+              <div key={l.key} className="pill pill-teal" style={{ margin: 0, justifyContent: 'center', lineHeight: 1.5 }}>
+                <span style={{ fontSize: 14 }}>🎓</span> {l.level} {l.label}<br />
+                <span className="tiny">{l.best} 分</span>
+              </div>
+            )
+          }
+          if (l.canTake) {
+            return (
+              <button key={l.key} className="btn btn-primary btn-sm" style={{ margin: 0 }} onClick={() => onStartQuiz(l.key)}>
+                ✍️ 毕业考：{l.level} {l.label}（{l.done}/{l.total} 节点已备）
+              </button>
+            )
+          }
+          if (l.unlocked) {
+            return (
+              <div key={l.key} className="pill pill-amber" style={{ margin: 0, justifyContent: 'center', lineHeight: 1.5 }}>
+                <span style={{ fontSize: 14 }}>📖</span> {l.level} {l.label}<br />
+                <span className="tiny">{l.passed ? '测验已过 · 补完节点即毕业' : `还需 ${l.total - l.done} 个必修节点`}</span>
+              </div>
+            )
+          }
+          return (
+            <div key={l.key} className="pill pill-gray" style={{ margin: 0, justifyContent: 'center', lineHeight: 1.5 }}>
+              <span style={{ fontSize: 14 }}>🔒</span> {l.level} {l.label}<br />
+              <span className="tiny">先毕业上一级</span>
+            </div>
+          )
+        })}
+      </div>
+      {summary.allGraduated && (
+        <Remind icon="🏆">
+          六级全部毕业！下一步是【出师挑战】——用陌生复杂案例证明综合能力，不靠背题。
+          <button className="btn btn-primary btn-sm" style={{ marginLeft: 12 }} onClick={() => navigate('/research/master')}>去出师 →</button>
+        </Remind>
+      )}
+    </div>
+  )
+}
+
 function StageCard({ stage, progress, current, onStartQuiz }) {
   const [open, setOpen] = useState(false)
   const isCurrent = current === stage.key
@@ -165,6 +224,7 @@ function StageCard({ stage, progress, current, onStartQuiz }) {
 export function PathPage() {
   const { state } = useApp()
   const summary = useMemo(() => pathSummary(state), [state])
+  const grad = useMemo(() => graduationSummary(state), [state])
   const agent = useMemo(() => runAgent(state), [state])
   const mp = agent.masteryProfile
   const next = nextCoreNode(state)
@@ -199,6 +259,8 @@ export function PathPage() {
           </Remind>
         )}
       </div>
+
+      <GraduationPanel summary={grad} onStartQuiz={startQuiz} />
 
       {PATH_STAGES.map((s) => (
         <StageCard

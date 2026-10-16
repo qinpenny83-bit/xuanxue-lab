@@ -191,3 +191,43 @@ export function checkChapterQuiz(chapterId, answers = [], targetCount = 10) {
   const passed = total >= targetCount ? correct >= Math.ceil(targetCount * 0.8) : total > 0 && score >= 80
   return { score, total, correct, passed, detail }
 }
+
+// ── 毕业验收（R10.3）：L0→L5 六级毕业考 ──────────────────
+// 毕业等级是求学之路的「结业证明」，逐级解锁：
+//   第 N 级可考：N-1 级已毕业 且 本段全部核心必修节点完成。
+//   毕业 = 完成全部核心节点 且 通过该段毕业考（复用阶段测验抽题/判定）。
+// 全部派生自 state（mastery / lessonProgress / pathQuizzes），确定性、不新增状态。
+export const GRADUATION_LEVELS = [
+  { key: 's1', level: 'L0', label: '初识', tip: '分清事实与解释，认识各术数体系轮廓' },
+  { key: 's2', level: 'L1', label: '理解', tip: '掌握阴阳、五行、干支、八卦这套字母' },
+  { key: 's3', level: 'L2', label: '应用', tip: '读出四柱、六爻、卦的结构信息' },
+  { key: 's4', level: 'L3', label: '比较', tip: '应用规则判断强弱与得位，主动找反例' },
+  { key: 's5', level: 'L4', label: '独立分析', tip: '整合格局、用神、卦爻辞做完整分析' },
+  { key: 's6', level: 'L5', label: '研究', tip: '在流派差异与冲突信息下建立自己的分析路径' },
+]
+
+export function graduationSummary(state) {
+  let prev = true
+  const levels = GRADUATION_LEVELS.map((g) => {
+    const p = stageProgress(state, g.key)
+    const complete = p.total > 0 && p.done >= p.total
+    const passed = !!(p.quiz && p.quiz.passed)
+    const graduated = complete && passed
+    const item = {
+      ...g,
+      total: p.total,
+      done: p.done,
+      complete,
+      passed,
+      graduated,
+      unlocked: prev,
+      canTake: prev && complete && !passed,
+      best: p.quiz ? p.quiz.best : 0,
+    }
+    prev = graduated
+    return item
+  })
+  const allGraduated = levels.every((l) => l.graduated)
+  const current = levels.find((l) => !l.graduated) || levels[levels.length - 1]
+  return { levels, allGraduated, current, graduatedCount: levels.filter((l) => l.graduated).length }
+}

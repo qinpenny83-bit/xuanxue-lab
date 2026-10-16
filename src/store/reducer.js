@@ -8,6 +8,7 @@ import { checkAchievements } from '../game/achievements'
 import { recordError } from '../agent/errors'
 import { bumpMastery } from '../agent/mastery'
 import { todayString, initialState } from '../lib/storage'
+import { initCard, reviewCard } from '../lib/spaced'
 import { computeMasteryProfile } from '../agent/masteryEngine'
 import { recordEvidence } from '../agent/learningEvidence'
 import { makeAttemptId } from '../lib/attemptId'
@@ -489,10 +490,33 @@ export function reducer(state, action) {
       const memId = action.itemId
       if (!memId) break
       const memList = state.memorized || []
+      const adding = !memList.includes(memId)
       s = {
         ...state,
-        memorized: memList.includes(memId) ? memList.filter((x) => x !== memId) : [...memList, memId],
+        memorized: adding ? [...memList, memId] : memList.filter((x) => x !== memId),
       }
+      // R10.1：勾选「已记住」时建立间隔复习档案；取消则保留档案（再勾选接着排期）
+      if (adding) {
+        const archive = { ...(state.memorizeCards || {}) }
+        if (!archive[memId]) {
+          archive[memId] = initCard(todayString())
+          s = { ...s, memorizeCards: archive }
+        }
+      }
+      break
+    }
+
+    case 'RECORD_MEMORIZE_REVIEW': {
+      // R10.1：间隔复习评分。只推进该条目自己的复习间隔，不打断任何学习流程。
+      const memId = action.itemId
+      if (!memId || typeof action.rating !== 'number') break // 非法评分不推进
+      const memList = state.memorized || []
+      if (!memList.includes(memId)) break // 未标记记住的条目不进入复习队列
+      const archive = { ...(state.memorizeCards || {}) }
+      const prev = archive[memId] || initCard(todayString())
+      archive[memId] = reviewCard(prev, action.rating, todayString())
+      s = { ...state, memorizeCards: archive }
+      s = touchStreak(s)
       break
     }
 

@@ -298,7 +298,10 @@ function CompletedLessonView({ lesson, node, progress, state, onReplay, onReplay
         {last ? ` · 答对 ${last.correct}/${last.total}` : ''}
       </p>
       <div className="mt-20 card" style={{ maxWidth: 420, width: '100%' }}>
-        <div className="tiny muted">对「{node?.title}」的掌握</div>
+        <div className="spread">
+          <div className="tiny muted">对「{node?.title}」的掌握</div>
+          <span className="tiny muted">{state.mastery?.[lesson.nodeId] || 0}/6</span>
+        </div>
         <div className="mt-8"><Bar value={state.mastery?.[lesson.nodeId] || 0} max={6} tone="teal" /></div>
       </div>
       <div className="row mt-20" style={{ justifyContent: 'center', gap: 10, flexWrap: 'wrap' }}>
@@ -316,7 +319,6 @@ function LessonCompletePage({ lesson, node, progress, attemptId, result, persona
   const next = getNextLessonNode(state, lesson.nodeId)
   const attempt = (progress?.attempts || []).find((a) => a.attemptId === attemptId) || (progress?.attempts || []).slice(-1)[0]
   const delta = profileDelta(attempt?.startProfile, attempt?.endProfile)
-  const score = result.total ? Math.round((result.correct / result.total) * 100) : 0
   const memo = memory.hasMemory ? `「${memory.title}」这个坑，今天你踩得比上次少了吗？` : '每次都比上一次更接近「会看」。'
   const replay = replayOf(progress)
 
@@ -356,13 +358,17 @@ function LessonCompletePage({ lesson, node, progress, attemptId, result, persona
       <h1 className="page-title">本关完成</h1>
       <p className="muted">你完成了「{lesson.title}」</p>
       <p className="tiny muted mt-8">
-        完成 {result.total} 道训练 · 答对 {result.correct} 道 · 掌握度 {score}%
+        完成 {result.total} 道训练 · 答对 {result.correct} 道{result.correct === result.total ? ' · 🎉 全部答对' : ''}
       </p>
       <p className="tiny muted mt-8">{persona.emoji} {memo}</p>
 
       <div className="mt-20 card" style={{ maxWidth: 420, width: '100%' }}>
-        <div className="tiny muted">对「{node?.title}」的掌握</div>
-        <div className="mt-8"><Bar value={state.mastery?.[lesson.nodeId] || 0} max={6} tone="teal" /></div>
+        <div className="spread">
+          <div className="tiny muted">本关闯关完成度</div>
+          <span className="tiny" style={{ color: 'var(--teal-deep)' }}>答对 {result.correct}/{result.total}</span>
+        </div>
+        <div className="mt-8"><Bar value={100} max={100} tone="teal" /></div>
+        <div className="mt-8 tiny muted">知识档案（0–6）：{state.mastery?.[lesson.nodeId] || 0}/6</div>
         {delta.length > 0 && (
           <div className="mt-12 tiny">
             能力变化：

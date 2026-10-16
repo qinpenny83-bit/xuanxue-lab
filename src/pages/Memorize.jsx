@@ -1,19 +1,40 @@
 // ============================================================
-// 📖 必背速记（R10）
-// 定位：记忆自测工具——术语百科负责「查」，这里负责「记 + 测」。
+// 📖 必背速记（R10 + R10.1 间隔复习）
+// 定位：记忆自测工具——术语百科负责「查」，这里负责「记 + 测 + 温」。
 // 分层：L1 字母表 / L2 规则口诀 / L3 六十四卦 / L4 神煞口诀。
-// 交互：卡片点击翻面；勾选「已记住」写入 localStorage；乱序抽查自测。
+// 交互：卡片点击翻面；勾选「已记住」写入 localStorage；乱序抽查自测；
+//       已记住条目进入间隔复习队列（SM-2 超简化），提示「今日该温哪些」。
 // 数据：全部来自 mustMemorize.js（通行通识 / 课程节点 / hexagrams-data）。
 // ============================================================
 import React, { useMemo, useState } from 'react'
 import { useApp } from '../store/AppContext'
 import { PageHead, Pill, Segmented } from '../components/ui'
 import { MEMORIZE_GROUPS, getMemorizeGroup } from '../data/mustMemorize'
-import { getCurriculumNode } from '../data/curriculum'
 import { navigate } from '../lib/router'
+import { todayString } from '../lib/storage'
+import { RATING, isDue, withCard } from '../lib/spaced'
+
+// —— 复习日期徽标：已记住条目显示下次应温日期 ——
+function DueBadge({ card }) {
+  if (!card) return null
+  const today = todayString()
+  const d = card.due
+  let label
+  if (d === today) label = '今日该温'
+  else if (d < today) label = `已过期 ${Math.abs(parseInt(d.split('-').join(''), 10) - parseInt(today.split('-').join(''), 10))} 天`
+  else {
+    const diff = Math.round((new Date(d) - new Date(today)) / 86400000)
+    label = diff === 1 ? '明日温' : `${diff} 天后温`
+  }
+  return (
+    <span className="pill" style={{ fontSize: 11, background: 'var(--bg-warm, #f0ece4)', color: '#6e675c', flexShrink: 0 }}>
+      🔁 {label}
+    </span>
+  )
+}
 
 // —— 单张卡片：front 常显，点击翻面显示 back + tip ——
-function MemoCard({ item, memorized, onToggle, compact }) {
+function MemoCard({ item, memorized, card, onToggle, compact }) {
   const [flipped, setFlipped] = useState(false)
   const done = memorized
   return (
@@ -37,6 +58,7 @@ function MemoCard({ item, memorized, onToggle, compact }) {
             </div>
           )}
         </div>
+        {done && <DueBadge card={card} />}
         <button
           className={`btn btn-sm ${done ? 'btn-primary' : 'btn-ghost'}`}
           style={{ flexShrink: 0, padding: '2px 8px', fontSize: 12 }}
@@ -137,19 +159,138 @@ function DrillView({ group, memorized, onToggle, onExit }) {
   )
 }
 
+// —— 间隔复习：只翻今日到期的已记住条目，评三档推进 ——
+const RATE_LABEL = [
+  { r: RATING.AGAIN, text: '忘了', emoji: '💤', cls: 'btn-ghost' },
+  { r: RATING.GOOD, text: '记住', emoji: '✓', cls: 'btn-primary' },
+  { r: RATING.EASY, text: '很熟', emoji: '🔥', cls: 'btn-ghost' },
+]
+
+function ReviewView({ queue, cards, onRate, onExit }) {
+  const [idx, setIdx] = useState(0)
+  const [flipped, setFlipped] = useState(false)
+  const item = queue[idx]
+  const total = queue.length
+
+  function rate(r) {
+    onRate(item.id, r)
+    setFlipped(false)
+    setIdx((i) => i + 1)
+  }
+
+  if (!item) {
+    return (
+      <div className="feedback good mt-12">
+        <h4>🧘 今日复习完成</h4>
+        <p className="tiny mt-8">共过目 {total} 条。间隔已按你的评分排好，到日子再来温一遍即可——记忆靠日拱一卒，不靠突击。</p>
+        <div className="row mt-8" style={{ gap: 8 }}>
+          <button className="btn btn-primary btn-sm" onClick={onExit}>✓ 回到必背列表</button>
+        </div>
+      </div>
+    )
+  }
+
+  const card = cards[item.id]
+
+  return (
+    <div className="card mt-12">
+      <div className="spread">
+        <h4 style={{ fontSize: 15 }}>🔁 间隔复习 · 今日该温</h4>
+        <span className="pill pill-gray">第 {idx + 1}/{total} 条</span>
+      </div>
+      <div className="mt-12" style={{ textAlign: 'center' }}>
+        <div style={{ fontSize: 22, fontWeight: 800, padding: '18px 0' }}>{item.front}</div>
+        {flipped ? (
+          <div className="mt-8">
+            <div style={{ fontSize: 16, fontWeight: 700, color: 'var(--teal-deep, #0f7b6c)' }}>{item.back}</div>
+            {item.tip && <div className="tiny mt-8" style={{ color: '#666' }}>💡 {item.tip}</div>}
+            <div className="tiny mt-8" style={{ color: '#a39b8e' }}>
+              这是你第 {card.reviews || 1} 次复习 · 距上次 {card.interval || 1} 天
+            </div>
+          </div>
+        ) : (
+          <button className="btn btn-ghost mt-8" onClick={() => setFlipped(true)}>翻牌回忆 👁️</button>
+        )}
+      </div>
+      <div className="row mt-12" style={{ justifyContent: 'center', gap: 8, flexWrap: 'wrap' }}>
+        {flipped
+          ? RATE_LABEL.map((o) => (
+              <button key={o.r} className={`btn btn-sm ${o.cls}`} onClick={() => rate(o.r)}>
+                {o.emoji} {o.text}
+              </button>
+            ))
+          : (
+            <button className="btn btn-ghost btn-sm" onClick={() => setFlipped(true)}>先回忆，再翻牌评分</button>
+          )}
+      </div>
+      <div className="row mt-8">
+        <button className="btn btn-ghost btn-sm" style={{ fontSize: 12 }} onClick={onExit}>← 退出（下次再温）</button>
+      </div>
+    </div>
+  )
+}
+
+// —— 今日复习横幅：轻量提示，不强迫 ——
+function TodayQueue({ dueCount, totalMem, onStart }) {
+  if (!dueCount) return null
+  return (
+    <div className="card" style={{ marginBottom: 14, padding: '10px 14px', background: 'var(--bg-warm, #f0ece4)' }}>
+      <div className="row" style={{ justifyContent: 'space-between', alignItems: 'center', gap: 8, flexWrap: 'wrap' }}>
+        <div style={{ fontSize: 13 }}>
+          <b>🔁 今日该温 {dueCount} 条</b>
+          <span className="tiny" style={{ color: '#6e675c' }}>（已记住 {totalMem} 条中的遗忘曲线提示，温过即延后）</span>
+        </div>
+        <button className="btn btn-primary btn-sm" onClick={onStart}>开始温习 →</button>
+      </div>
+    </div>
+  )
+}
+
 export function MemorizePage() {
   const { state, dispatch } = useApp()
   const memorized = state.memorized || []
+  const cards = state.memorizeCards || {}
   const [groupId, setGroupId] = useState('alpha')
   const [drill, setDrill] = useState(false)
+  const [reviewing, setReviewing] = useState(false)
   const group = getMemorizeGroup(groupId) || MEMORIZE_GROUPS[0]
+  const today = todayString()
+
+  // 今日到期队列：只取「已记住」且 due <= today 的条目
+  const dueQueue = useMemo(() => {
+    return MEMORIZE_GROUPS.flatMap((g) => g.items).filter((it) => {
+      if (!memorized.includes(it.id)) return false
+      const card = cards[it.id] || withCard(cards, it.id, today)
+      return isDue(card, today)
+    })
+  }, [memorized, cards, today])
 
   function toggle(id) {
     dispatch({ type: 'TOGGLE_MEMORIZE', itemId: id })
   }
 
+  function rate(id, r) {
+    dispatch({ type: 'RECORD_MEMORIZE_REVIEW', itemId: id, rating: r })
+  }
+
   const totalDone = MEMORIZE_GROUPS.flatMap((g) => g.items).filter((it) => memorized.includes(it.id)).length
   const total = MEMORIZE_GROUPS.flatMap((g) => g.items).length
+
+  if (reviewing) {
+    return (
+      <div>
+        <PageHead
+          title="🔁 间隔复习"
+          sub="今日到期的已记住条目 · 翻牌回忆后按三档评分，间隔自动调整"
+          right={<Pill tone="gray">{dueQueue.length} 条</Pill>}
+        />
+        <ReviewView queue={dueQueue} cards={cards} onRate={rate} onExit={() => setReviewing(false)} />
+        <div className="row mt-12">
+          <button className="btn btn-ghost btn-sm" onClick={() => navigate('/map')}>← 回地图</button>
+        </div>
+      </div>
+    )
+  }
 
   if (drill) {
     return (
@@ -171,9 +312,11 @@ export function MemorizePage() {
     <div>
       <PageHead
         title="📖 必背速记"
-        sub="字母表 → 规则口诀 → 64 卦 → 神煞。点卡片看答案，勾「已记住」存档，再用乱序抽查检验。"
+        sub="字母表 → 规则口诀 → 64 卦 → 神煞。点卡片看答案，勾「已记住」存档，到期自动提醒温习。"
         right={<Pill tone={totalDone === total ? 'teal' : 'gray'}>{totalDone}/{total} 已背</Pill>}
       />
+
+      <TodayQueue dueCount={dueQueue.length} totalMem={totalDone} onStart={() => setReviewing(true)} />
 
       <Segmented
         items={MEMORIZE_GROUPS.map((g) => ({
@@ -195,7 +338,13 @@ export function MemorizePage() {
         <GroupProgress items={group.items} memorized={memorized} />
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(230px, 1fr))', gap: 10 }}>
           {group.items.map((it) => (
-            <MemoCard key={it.id} item={it} memorized={memorized.includes(it.id)} onToggle={toggle} />
+            <MemoCard
+              key={it.id}
+              item={it}
+              memorized={memorized.includes(it.id)}
+              card={memorized.includes(it.id) ? (cards[it.id] || withCard(cards, it.id, today)) : null}
+              onToggle={toggle}
+            />
           ))}
         </div>
       </div>

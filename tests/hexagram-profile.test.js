@@ -97,14 +97,31 @@ describe('64卦深度档案 · 原典层（不编造）', () => {
     expect(getYao('屯', 1).originalText).toBe('屯如邅如，乘马班如。匪寇婚媾，女子贞不字，十年乃字')
   })
 
-  it('384 爻爻辞已全部接入；彖传/系辞全文仍待核对为 null（不编造）', () => {
+  it('彖传全文 + 小象逐爻已全部接入（通行本公版）；系辞仍待核对为 null（不编造）', () => {
     for (const p of HEXAGRAM_PROFILES) {
       const filled = p.yao.filter((y) => typeof y.originalText === 'string' && y.originalText.length > 0)
       expect(filled.length, `${p.name} 应六爻全文齐备`).toBe(6)
-      // 彖传、系辞全文仍未逐卦核对：必须为 null，不能出现占位空话
-      expect(p.tenWings.tuan.text).toBeNull()
+      // 彖传、小象（卦级与逐爻）已核对，必须非空
+      expect(p.tenWings.tuan.text, `${p.name} 缺彖传`).toBeTruthy()
+      expect(p.tenWings.xiaoxiang.text, `${p.name} 缺小象六条`).toBeTruthy()
+      for (const y of p.yao) {
+        expect(y.tenWings.xiaoxiang.text, `${y.id} 缺小象`).toBeTruthy()
+      }
+      // 系辞逐卦对应仍未核对：必须为 null，不能出现占位空话
       expect(p.tenWings.xici.text).toBeNull()
     }
+  })
+
+  it('彖传/小象抽样核对通行本原文', () => {
+    expect(getHexagramProfile('乾').tenWings.tuan.text).toBe('大哉乾元，万物资始，乃统天。云行雨施，品物流形，大明终始，六位时成。时乘六龙以御天，乾道变化，各正性命，保合大和，乃利贞。首出庶物，万国咸宁。')
+    expect(getHexagramProfile('乾').tenWings.xiaoxiang.extra).toBe('用九，天德不可为首也。')
+    expect(getHexagramProfile('坤').tenWings.xiaoxiang.extra).toBe('用六永贞，以大终也。')
+    expect(getHexagramProfile('屯').tenWings.tuan.text).toContain('刚柔始交而难生')
+    expect(getYao('乾', 0).tenWings.xiaoxiang.text).toBe('潜龙勿用，阳在下也。')
+    expect(getYao('乾', 4).tenWings.xiaoxiang.text).toBe('飞龙在天，大人造也。')
+    expect(getYao('坤', 1).tenWings.xiaoxiang.text).toBe('六二之动，直以方也。不习无不利，地道光也。')
+    expect(getYao('蒙', 5).tenWings.xiaoxiang.text).toBe('利用御寇，上下顺也。')
+    expect(getYao('革', 1).tenWings.xiaoxiang.text).toBe('巳日革之，行有嘉也。')
   })
 
   it('每一爻都有位置意义（positionMeaning），不空', () => {
@@ -175,6 +192,24 @@ describe('64卦深度档案 · 确定性爻位关系引擎', () => {
     expect(a.lineType).toBe('阳')
     expect(a.innerOuter).toBe('内卦（下卦）')
     expect(a.dewei).toBe(true) // 三为阳位
+  })
+
+  it('爻位关系图数据源：相邻爻对 比/承/乘 结构自洽（可视化用）', () => {
+    for (const p of HEXAGRAM_PROFILES) {
+      for (let i = 0; i < 5; i++) {
+        const lo = p.yao[i]
+        const hi = p.yao[i + 1]
+        const bi = lo.bi.find((b) => b.partner === i + 1)
+        expect(bi, `${p.name} ${lo.name}↔${hi.name} 缺比`).toBeTruthy()
+        expect(lo.cheng.to, `${p.name} ${lo.name} 承指向`).toBe(i + 1)
+        expect(hi.ling.to, `${p.name} ${hi.name} 乘指向`).toBe(i)
+        expect(typeof lo.cheng.type).toBe('string')
+        expect(typeof hi.ling.type).toBe('string')
+        // 同气相邻时，比关系为「同气相邻」；阴阳相异时为「亲比」
+        const same = lo.yang === hi.yang
+        expect(bi.type.includes(same ? '同气' : '亲比')).toBe(true)
+      }
+    }
   })
 })
 

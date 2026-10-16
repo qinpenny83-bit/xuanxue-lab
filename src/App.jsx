@@ -37,6 +37,7 @@ const MasterChallenge = lazy(() => import('./pages/Research').then((m) => ({ def
 const PathPage = lazy(() => import('./pages/Path').then((m) => ({ default: m.PathPage })))
 const ChallengePage = lazy(() => import('./pages/Challenge').then((m) => ({ default: m.ChallengePage })))
 const MemorizePage = lazy(() => import('./pages/Memorize').then((m) => ({ default: m.MemorizePage })))
+const SearchPage = lazy(() => import('./pages/Search').then((m) => ({ default: m.SearchPage })))
 
 function parseHash() {
   const raw = window.location.hash.replace(/^#/, '') || '/'
@@ -103,6 +104,8 @@ function Router({ children, route }) {
       return id ? <ChallengePage key={id} chapterId={id} /> : <Home />
     case 'memorize':
       return <MemorizePage />
+    case 'search':
+      return <SearchPage initialQ={params.q} />
     case 'tools':
       return <ToolsPage />
     case 'research': {

@@ -11,6 +11,7 @@ import { navigate } from '../lib/router'
 import { Remind, Modal } from '../components/ui'
 import { puzzleForDate } from '../data/puzzles'
 import { todayString } from '../lib/storage'
+import { DailyHexagramCard, DailyPracticeCard } from '../components/DailyCards'
 
 // V1.6.1：「目前无法判断」理由的中文标签（洞察证据展示用）
 const UNKNOWN_REASON_LABEL = {
@@ -424,6 +425,12 @@ export function Home() {
 
       {/* 每日谜题 */}
       <DailyPuzzle />
+
+      {/* 每日一卦 / 每日一练（留存钩子：日期种子，每天一个新入口） */}
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 16, marginTop: 16 }}>
+        <DailyHexagramCard />
+        <DailyPracticeCard />
+      </div>
 
       {/* 快速入口 */}
       <HomeQuickLinks />

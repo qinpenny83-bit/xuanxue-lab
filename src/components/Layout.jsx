@@ -1,7 +1,7 @@
 // ============================================================
 // 顶部导航：品牌 + 主菜单 + 等级/连学徽章。
 // ============================================================
-import React from 'react'
+import React, { useState } from 'react'
 import { useApp } from '../store/AppContext'
 import { levelForXp } from '../game/levels'
 import { navigate } from '../lib/router'
@@ -36,9 +36,18 @@ function activePath(route) {
 
 export function Header({ route }) {
   const { state, dispatch } = useApp()
+  const [searchQ, setSearchQ] = useState('')
   const lvl = levelForXp(state.xp)
   const active = activePath(route)
   const personaId = state.settings?.teacherPersona || 'gentle'
+
+  function submitSearch(e) {
+    e.preventDefault()
+    const q = searchQ.trim()
+    if (!q) return
+    navigate(`/search?q=${encodeURIComponent(q)}`)
+    setSearchQ('')
+  }
 
   return (
     <header className="header">
@@ -61,6 +70,15 @@ export function Header({ route }) {
           </a>
         ))}
       </nav>
+
+      <form className="header-search" onSubmit={submitSearch}>
+        <input
+          value={searchQ}
+          onChange={(e) => setSearchQ(e.target.value)}
+          placeholder="🔍 全局搜索"
+          aria-label="全局搜索"
+        />
+      </form>
 
       <div className="header-side">
         {state.streak > 0 && <span className="streak-chip">🔥 {state.streak} 天</span>}

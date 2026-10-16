@@ -10,14 +10,16 @@
 //   2. 爻位关系（得位/中/承/乘/比/应/刚柔/内外）从 lines 计算，
 //      标注为「传统易学规则」，不包装成科学/唯一结论。
 //   3. 原典层只放「已核对」的文本：卦辞 / 大象来自 hexagrams-data.js，
-//      六爻爻辞全文来自 yaoText.js（通行本公版，384 条全覆盖）；
-//      暂缺的（彖传全文、小象逐爻）显式标记 text:null → UI 显示「暂无可靠整理」。
+//      六爻爻辞全文来自 yaoText.js（通行本公版，384 条全覆盖），
+//      彖传全文与小象逐爻来自 tuanXiaoxiang.js（通行本公版，64×6+2 全覆盖）；
+//      仍未核对的（文言、系辞、说卦、序卦、杂卦）显式标记 text:null → UI 显示「暂无可靠整理」。
 //   4. 十翼 / 解释传统用「引用」（nodeId）关联到已建成的课程节点，
 //      一份知识只存一份，避免内容漂移。
 // ============================================================
 
 import { HEXAGRAMS, BAGUA } from './hexagrams-data'
 import { YAO_TEXT } from './yaoText'
+import { TUAN_XIAOXIANG } from './tuanXiaoxiang'
 import {
   getHexagram,
   hexagramRelations,
@@ -218,6 +220,7 @@ function buildProfile(hex) {
     const a = analyzeYao(hex.lines, i)
     const yaoName = lineLabel(i, a.yang)
     const yaoCaseList = casesForYao(hex.seq, i)
+    const xx = TUAN_XIAOXIANG[hex.seq]?.xiaoxiang?.[i] ?? null // 小象逐爻原文（通行本，已核对）
     return {
       id: `hx-${hex.seq}-${i}`,
       hexagramId: hex.seq,
@@ -228,7 +231,7 @@ function buildProfile(hex) {
       modernExplanation: null, // 暂无可靠整理（不编造逐爻白话注）
       positionMeaning: POSITION_MEANING[i],
       tenWings: {
-        xiaoxiang: { label: '小象', node: TEN_WINGS_REF.xiang.node, text: null },
+        xiaoxiang: { label: '小象', node: TEN_WINGS_REF.xiang.node, text: xx },
         wenyan: hex.name === '乾' || hex.name === '坤'
           ? { label: '文言', node: TEN_WINGS_REF.wenyan.node, text: null }
           : null,
@@ -240,7 +243,7 @@ function buildProfile(hex) {
       // ── 来源声明 · 经典片段关联（R2-1.5）──
       sourceInfo: {
         yaoci: { ...SOURCE_RECEIVED },
-        xiaoxiang: { ...SOURCE_NEEDS_REVIEW },
+        xiaoxiang: { ...SOURCE_RECEIVED }, // 小象逐爻原文（通行本，已核对）
       },
       classicPassageIds: [
         ...classicPassagesForYao(hex.seq, i).map((p) => p.id),
@@ -270,9 +273,14 @@ function buildProfile(hex) {
     yao, // 六爻 YaoProfile（自下而上）
     // ── 十翼层 ──
     tenWings: {
-      tuan: { label: '彖传', node: TEN_WINGS_REF.tuan.node, text: null }, // 暂无可靠整理
+      tuan: { label: '彖传', node: TEN_WINGS_REF.tuan.node, text: TUAN_XIAOXIANG[hex.seq].tuan }, // 通行本（已核对）
       daxiang: { label: '大象', node: TEN_WINGS_REF.xiang.node, text: hex.imagery || null }, // 出自 hexagrams-data.imagery（已核对）
-      xiaoxiang: { label: '小象（六条）', node: TEN_WINGS_REF.xiang.node, text: null },
+      xiaoxiang: {
+        label: '小象（六条）',
+        node: TEN_WINGS_REF.xiang.node,
+        text: TUAN_XIAOXIANG[hex.seq].xiaoxiang.join('；'),
+        extra: TUAN_XIAOXIANG[hex.seq].extra, // 乾「用九」/坤「用六」小象，其余为 null
+      },
       xici: { label: '系辞（相关）', node: TEN_WINGS_REF.xici.node, text: null },
       wenyan: hex.name === '乾' || hex.name === '坤'
         ? { label: '文言', node: TEN_WINGS_REF.wenyan.node, text: null }
@@ -293,8 +301,8 @@ function buildProfile(hex) {
       guaci: { ...SOURCE_RECEIVED },
       yaoci: { ...SOURCE_RECEIVED },
       daxiang: { ...SOURCE_RECEIVED },
-      tuan: { ...SOURCE_NEEDS_REVIEW },
-      xiaoxiang: { ...SOURCE_NEEDS_REVIEW },
+      tuan: { ...SOURCE_RECEIVED }, // 彖传全文（通行本，已核对）
+      xiaoxiang: { ...SOURCE_RECEIVED }, // 小象逐爻（通行本，已核对）
     },
     daXiang, // 象传·大象（单一数据源 imagery，见 classic-passages）
     classicPassageIds: hexClassicIds,
