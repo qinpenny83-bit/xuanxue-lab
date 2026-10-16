@@ -211,7 +211,7 @@ export function reasoningFingerprint(state) {
 // V1.6.1：三阶段——先观察、再发现迹象、最后才下判断
 function stageOf(n) {
   if (n <= 0) {
-    return { key: 'seed', emoji: '🌱', title: '我还不了解你的推理习惯', desc: '先让我看看你会怎么判断。今天没有画像，也没有标签——先做一道案件。' }
+    return { key: 'seed', emoji: '🌱', title: '我还不了解你的推理习惯', desc: '先让我看看你会怎么判断。不看你的背景，也不预设你的水平——先来一道案件。' }
   }
   if (n < 3) {
     return { key: 'hint', emoji: '👀', title: '我开始发现一些迹象', desc: '我注意到你在判断时似乎有一些习惯，但现在样本还太少。我先不急着给你贴标签。' }

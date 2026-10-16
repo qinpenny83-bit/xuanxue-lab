@@ -236,11 +236,11 @@ export function Home() {
         <section className="card mt-16" style={{ borderLeft: '4px solid var(--amber)' }}>
           <div className="spread">
             <div style={{ fontWeight: 700, fontSize: 13, letterSpacing: 1 }}>{agent.fingerprint.stage.emoji} {agent.fingerprint.stage.title}</div>
-            <span className="pill pill-amber">样本 {agent.fingerprint.sampleCount}/3</span>
+            <span className="pill pill-amber">案件样本 {agent.fingerprint.sampleCount}/3</span>
           </div>
           <p className="tiny muted mt-8" style={{ lineHeight: 1.8 }}>{agent.fingerprint.stage.desc}</p>
           {agent.fingerprint.stage.key === 'seed' && (
-            <button className="btn btn-primary mt-16" onClick={() => navigate('/cases')}>先做一道案件 →</button>
+            <button className="btn btn-primary mt-16" onClick={() => navigate('/cases')}>先来一道案件 →</button>
           )}
           {agent.fingerprint.stage.key === 'hint' && (
             <button className="btn btn-primary mt-16" onClick={() => navigate('/cases')}>再做一道案件 →</button>

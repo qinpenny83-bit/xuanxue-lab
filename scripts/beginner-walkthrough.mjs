@@ -47,12 +47,16 @@ async function snapshot(title) {
 }
 
 async function go(route) {
-  await page.evaluate((r) => { window.location.hash = r })
+  await page.evaluate((r) => { window.location.hash = r }, route)
   await page.waitForTimeout(900)
 }
 
 try {
   await page.goto(BASE, { timeout: 15000 })
+  await page.waitForTimeout(1000)
+  // 全新小白视角：清空本地进度再走查
+  await page.evaluate(() => localStorage.clear())
+  await page.reload({ timeout: 15000 })
   await page.waitForTimeout(1200)
   await snapshot('① 首屏（引导页）')
 
@@ -64,31 +68,39 @@ try {
   await page.waitForTimeout(1500)
   await snapshot('② 首页（AI 主动工作台）')
 
-  // 首页洞察里如果有「去上课/开始第一课」等按钮，尝试点击
-  await clickByText('开始学习')
-  await clickByText('第一课')
-  await page.waitForTimeout(900)
-  await snapshot('③ 进入课堂后的状态')
+  // 进入第一课：等首页分析完成、「开始今天的学习」按钮出现后再点（否则点击落空）
+  let btnFound = false
+  for (let i = 0; i < 15 && !btnFound; i++) {
+    btnFound = await page.evaluate(() => {
+      const btn = [...document.querySelectorAll('button, a')].find((el) => /开始今天的学习/.test(el.innerText || ''))
+      if (btn) { btn.click(); return true }
+      return false
+    })
+    if (!btnFound) await page.waitForTimeout(1000)
+  }
+  log(`进入第一课：按钮出现并点击=${btnFound}（等待${btnFound ? '' : '超时'}）`)
+  // 等待课程渲染完成（懒加载可能出现「加载中…」）
+  for (let i = 0; i < 8; i++) {
+    const t = await page.evaluate(() => document.body.innerText)
+    if (!t.includes('加载中') && !t.includes('分析中')) break
+    await page.waitForTimeout(1000)
+  }
+  await page.waitForTimeout(1200)
+  await snapshot('③ 第一课开头')
 
   // 地图
   await go('/map')
   await snapshot('④ 学习地图')
 
-  // 课堂列表
-  await go('/lesson')
-  await snapshot('⑤ 课堂列表')
-
-  // 进入第一节课
-  await page.evaluate(() => {
-    const btn = [...document.querySelectorAll('button, a')].find((el) => /第.?1.?课|认识阴阳|阴阳/.test(el.innerText || ''))
-    if (btn) btn.click()
-  })
-  await page.waitForTimeout(1200)
-  await snapshot('⑥ 第一课开头')
-
   // 走步骤：最多 40 步，直到出现「本关完成」或无法前进
   let prevHash = ''
   for (let i = 0; i < 40; i++) {
+    // 若页面在「加载中/分析中」，先等它渲染完再判断，避免误判「无按钮」
+    for (let w = 0; w < 8; w++) {
+      const t = await page.evaluate(() => document.body.innerText)
+      if (!t.includes('加载中') && !t.includes('分析中')) break
+      await page.waitForTimeout(1000)
+    }
     const stepText = await page.evaluate(() => document.body.innerText)
     if (stepText.includes('本关完成')) { snap('⑦ 第一课完成页', stepText); break }
     if (stepText.includes('已完成「')) { snap('⑦ 已完成状态页', stepText); break }
@@ -111,15 +123,16 @@ try {
         if (/^(首页|地图|求学|必背|课堂|卦档|术语|案例|易工坊|实验|工具|推理实验|怀疑|命盘|成长|词典|←\s*课堂)$/.test(t)) return false
         return true
       })
-      // 选择/连线/拖动题的选项（class 含 option/connect/drag 或字母开头），优先作答
-      const opt = candidates.find((b) =>
-        !b.disabled && (b.classList.contains('option') || b.classList.contains('connect-a') || b.classList.contains('connect-opt') || /^[A-D][\s\u3000]/.test(b.innerText.trim()))
-      )
-      // 推进按钮（继续/完成/保存/检查/来吧/先猜猜看/确定/确认）——仅在非禁用时点
+      // 推进按钮（继续/完成/保存/检查/来吧/先猜猜看/确定/确认）——优先点推进，
+      // 因为「预测题/选择题」点选项后不会自动翻页，要靠「继续 →」推进
       const adv = candidates.find((b) =>
         !b.disabled && /继续|完成|保存|检查|来吧|先猜猜看|确定|确认/.test(b.innerText)
       )
-      const target = opt || adv || candidates.find((b) => !b.disabled) || candidates[candidates.length - 1]
+      // 选择/连线/拖动题的选项（class 含 option/connect/drag 或字母开头）
+      const opt = candidates.find((b) =>
+        !b.disabled && (b.classList.contains('option') || b.classList.contains('connect-a') || b.classList.contains('connect-opt') || /^[A-D][\s\u3000]/.test(b.innerText.trim()))
+      )
+      const target = adv || opt || candidates.find((b) => !b.disabled) || candidates[candidates.length - 1]
       if (!target) return null
       target.click()
       return target.innerText.trim().slice(0, 40)

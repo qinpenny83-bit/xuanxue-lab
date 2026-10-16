@@ -531,9 +531,10 @@ function PredictStep({ step, onNext, isLast }) {
       {step.options.map((opt, i) => {
         const active = picked === i
         return (
-          <button key={i} className={`option ${active ? 'correct' : ''}`} onClick={() => setPicked(i)} style={active ? { borderColor: 'var(--amber)' } : {}}>
+          <button key={i} className={`option ${active ? 'correct' : ''}`} onClick={() => setPicked(i)} style={active ? { borderColor: 'var(--amber)', background: 'rgba(217,164,65,0.12)' } : {}}>
             <span className="letter">{LETTERS[i]}</span>
             {opt.text}
+            {active && <span style={{ marginLeft: 8, color: 'var(--amber-deep)', fontWeight: 700 }}>✓ 已选</span>}
           </button>
         )
       })}
