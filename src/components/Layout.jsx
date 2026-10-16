@@ -18,8 +18,6 @@ const NAV = [
   { path: '/lab', label: '实验' },
   { path: '/tools', label: '工具' },
   { path: '/exp', label: '推理实验' },
-  { path: '/doubt', label: '怀疑' },
-  { path: '/chart', label: '命盘' },
   { path: '/growth', label: '成长' },
 ]
 

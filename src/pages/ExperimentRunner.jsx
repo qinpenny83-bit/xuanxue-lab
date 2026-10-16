@@ -6,8 +6,9 @@
 //   每步经 RECORD_EVIDENCE 写入真实 Evidence，最终 buildExperimentResult
 //   产出 ExperimentResult + BeliefRevision 并归档。
 // ============================================================
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useApp } from '../store/AppContext'
+import { DoubtLabPage } from './DoubtLab'
 import {
   EXPERIMENTS_V3,
   EXPERIMENT_CATEGORIES,
@@ -33,13 +34,32 @@ const TYPE_BADGE = {
 }
 
 // ─────────────────────────────────────────────────────────────
-export function ExperimentPage() {
+export function ExperimentPage({ doubtTask }) {
   const { state } = useApp()
+  const [tab, setTab] = useState(doubtTask ? 'doubt' : 'experiment')
+  // 路由变化（/exp ↔ /doubt 复用同一组件实例）时回到对应主视图
+  useEffect(() => {
+    const onHash = () => setTab(doubtTask ? 'doubt' : 'experiment')
+    window.addEventListener('hashchange', onHash)
+    return () => window.removeEventListener('hashchange', onHash)
+  }, [doubtTask])
   const runs = state.experimentRuns || []
   const countByExp = runs.reduce((acc, r) => {
     acc[r.experimentId] = (acc[r.experimentId] || 0) + 1
     return acc
   }, {})
+
+  // 怀疑室已并入：/exp 内分段，旧 /doubt 链接与首页入口均指向这里
+  if (tab === 'doubt') {
+    return (
+      <div>
+        <div className="row" style={{ alignItems: 'center', gap: 10 }}>
+          <button className="btn btn-ghost btn-sm" onClick={() => setTab('experiment')}>← 推理实验</button>
+        </div>
+        <DoubtLabPage taskId={doubtTask} />
+      </div>
+    )
+  }
 
   return (
     <div>
@@ -52,6 +72,21 @@ export function ExperimentPage() {
           </button>
         }
       />
+
+      {/* 怀疑室入口（已并入推理实验） */}
+      <div className="mt-12 discern-hero" onClick={() => setTab('doubt')} style={{ cursor: 'pointer' }}>
+        <div className="row" style={{ gap: 14 }}>
+          <div style={{ fontSize: 26 }}>🧠</div>
+          <div style={{ flex: 1 }}>
+            <div className="tiny muted">怀疑室</div>
+            <div className="discern-hero-title">看一句「玄学判断」，先问凭什么</div>
+            <p className="tiny" style={{ color: 'var(--text-2)', marginTop: 4 }}>
+              材料 → 初始判断 → 证据 → 反例 → 修正 → 反思。和推理实验同一条「证据→反例→修正」主线。
+            </p>
+          </div>
+          <span className="discern-go">→</span>
+        </div>
+      </div>
 
       {EXPERIMENT_CATEGORIES.map((cat) => {
         const list = EXPERIMENTS_V3.filter((e) => e.category === cat.id)

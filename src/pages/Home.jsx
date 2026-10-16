@@ -173,8 +173,8 @@ export function Home() {
         return `/lab/${action.id}`
       case 'exp':
         return action.id ? `/exp/${action.id}` : '/exp'
-      case 'doubt':
-        return action.id ? `/doubt?task=${action.id}` : '/doubt'
+      case 'doubt': // 怀疑室已并入推理实验页
+        return action.id ? `/exp?task=${action.id}` : '/exp'
       default:
         return '/map'
     }
@@ -289,7 +289,7 @@ export function Home() {
                 )}
               </div>
             )}
-            <button className="btn btn-ghost btn-sm mt-8" style={{ color: '#e8ddc8' }} onClick={() => navigate(`/doubt?task=${agent.doubtRecommendation.taskId}`)}>
+            <button className="btn btn-ghost btn-sm mt-8" style={{ color: '#e8ddc8' }} onClick={() => navigate(`/exp?task=${agent.doubtRecommendation.taskId}`)}>
               去怀疑室开始这次怀疑 →
             </button>
           </div>
@@ -474,7 +474,7 @@ function HomeQuickLinks() {
         <EntryCard icon="🧠" title="我想学懂" desc="从零开始，顺着问题学。" to="/lesson" />
         <EntryCard icon="🕵️" title="我想破案" desc="给你一个案例，你来判断。" to="/cases" />
         <EntryCard icon="🧪" title="我想验证" desc="把假设带进现实，记录 7 天。" to="/lab" />
-        <EntryCard icon="🧠" title="我要怀疑" desc="看一句「玄学判断」，先问凭什么。" to="/doubt" />
+        <EntryCard icon="🧠" title="我要怀疑" desc="看一句「玄学判断」，先问凭什么。" to="/exp" />
       </div>
 
       <QuestionCard />

@@ -26,7 +26,7 @@ export function ChartPage() {
 }
 
 // ---------------- 八字排盘 ----------------
-function BaziPanel() {
+export function BaziPanel() {
   const { state, dispatch } = useApp()
   const [form, setForm] = useState(() => ({
     birthYear: state.userProfile.birthYear,
@@ -143,7 +143,7 @@ function BaziPanel() {
 }
 
 // ---------------- 易经起卦 ----------------
-function IChingPanel() {
+export function IChingPanel() {
   const [method, setMethod] = useState('time')
   const [nums, setNums] = useState({ n1: 8, n2: 3, n3: 5 })
   const [result, setResult] = useState(null)

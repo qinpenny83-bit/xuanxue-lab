@@ -11,8 +11,9 @@
 // 全部为确定性本地计算：结果可复现、可解释、可核对。
 // 定位是「传统文化学习与观察」，不把结果包装成预测或判决。
 // ============================================================
-import React, { useState, useMemo } from 'react'
+import React, { useState, useMemo, useEffect } from 'react'
 import { PageHead, Remind, Pill } from '../components/ui'
+import { BaziPanel, IChingPanel } from './Chart'
 import { computeFourPillars } from '../lib/bazi'
 import { STEMS, BRANCHES, WANG_SHUAI, ELEMENT_COLORS } from '../lib/constants'
 import { solarTermJD, jdToUTC, utcToJD } from '../lib/calendar'
@@ -44,7 +45,7 @@ const TOOLS = [
   { id: 'hexagram', label: '六十四卦实验器', emoji: '☯️' },
   { id: 'compass', label: '罗盘模拟器', emoji: '🧭' },
   { id: 'solar', label: '节气工具', emoji: '🌾' },
-  { id: 'paipan', label: '排盘学习', emoji: '📇' },
+  { id: 'chart', label: '命盘', emoji: '🔮' },
 ]
 
 const HOUR_OF_SHICHEN = { 子: 23, 丑: 1, 寅: 3, 卯: 5, 辰: 7, 巳: 9, 午: 11, 未: 13, 申: 15, 酉: 17, 戌: 19, 亥: 21 }
@@ -439,88 +440,23 @@ function SolarTermTool() {
 }
 
 // ============================================================
-// 工具 6 · 排盘学习工具
+// 工具 6 · 命盘（八字排盘 + 易经起卦，已并入工具，取代原「排盘学习」）
 // ============================================================
-function PaiPanTool() {
-  const t = todayInput()
-  const [y, setY] = useState(t.y)
-  const [m, setM] = useState(t.m)
-  const [day, setDay] = useState(t.day)
-  const [hour, setHour] = useState(12)
-  const [minute, setMinute] = useState(0)
-  const [run, setRun] = useState(false)
-
-  const chart = useMemo(() => {
-    if (!run) return null
-    try {
-      return computeFourPillars({ year: y, month: m, day, hour, minute, utcOffsetHours: 8 })
-    } catch {
-      return null
-    }
-  }, [run, y, m, day, hour, minute])
-
-  const pillarKeys = ['year', 'month', 'day', 'hour']
-  const pillarNames = { year: '年柱', month: '月柱', day: '日柱', hour: '时柱' }
-  const maxCount = chart ? Math.max(1, ...Object.values(chart.counts)) : 1
-
+function ChartTool() {
+  const [tab, setTab] = useState('bazi')
+  // 路由变化（/tools ↔ /chart 复用同一组件实例）时回到八字排盘
+  useEffect(() => {
+    const onHash = () => setTab('bazi')
+    window.addEventListener('hashchange', onHash)
+    return () => window.removeEventListener('hashchange', onHash)
+  }, [])
   return (
-    <div className="card">
-      <h3 style={{ marginBottom: 4 }}>📇 排盘学习工具</h3>
-      <p className="muted" style={{ fontSize: 13, marginBottom: 14 }}>输入出生信息，按传统规则排出四柱，并标注十神、藏干与五行统计。默认按东八区（北京时间）计算。</p>
-      <div className="grid-2" style={{ marginBottom: 14 }}>
-        <div className="field"><label>年</label><input type="number" value={y} onChange={(e) => setY(Number(e.target.value) || 0)} /></div>
-        <div className="field"><label>月</label><input type="number" value={m} onChange={(e) => setM(Number(e.target.value) || 0)} /></div>
-        <div className="field"><label>日</label><input type="number" value={day} onChange={(e) => setDay(Number(e.target.value) || 0)} /></div>
-        <div className="field"><label>时（24 小时制）</label><input type="number" value={hour} min={0} max={23} onChange={(e) => setHour(Number(e.target.value) || 0)} /></div>
+    <div>
+      <div className="tool-tabs" style={{ marginBottom: 16 }}>
+        <button className={`tool-tab ${tab === 'bazi' ? 'active' : ''}`} onClick={() => setTab('bazi')}>🔮 八字排盘</button>
+        <button className={`tool-tab ${tab === 'iching' ? 'active' : ''}`} onClick={() => setTab('iching')}>☯️ 易经起卦</button>
       </div>
-      <button className="btn" onClick={() => setRun(true)}>排四柱</button>
-
-      {chart && (
-        <div style={{ marginTop: 18 }}>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 10 }}>
-            {pillarKeys.map((k) => (
-              <div key={k} style={{ border: '1px solid var(--line)', borderRadius: 12, padding: '12px' }}>
-                <div style={{ fontSize: 12, color: 'var(--text-3)' }}>{pillarNames[k]}</div>
-                <div className="display" style={{ fontSize: 26, fontWeight: 700, marginTop: 2 }}>{chart.pillars[k].text}</div>
-                <div style={{ fontSize: 12, color: 'var(--text-2)' }}>十神：{chart.tenGods[k]}</div>
-                <div style={{ fontSize: 12, color: 'var(--text-3)', marginTop: 2 }}>
-                  藏干：{(chart.hiddenStems[k] || []).map((s) => `${s.stem}(${s.god})`).join(' ')}
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 14, marginTop: 14 }}>
-            <div>
-              <div style={{ fontSize: 13, fontWeight: 700, color: 'var(--text-2)', marginBottom: 8 }}>五行统计（八个显性干支）</div>
-              {ELEMENT_ORDER.map((e) => (
-                <div key={e} style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 6 }}>
-                  <span style={{ width: 40, fontSize: 13 }}>{ELEMENT_IMAGERY[e].symbol} {e}</span>
-                  <div className="bar" style={{ flex: 1 }}>
-                    <div className="bar-fill" style={{ width: `${(chart.counts[e] / maxCount) * 100}%`, background: ELEMENT_COLORS[e] }} />
-                  </div>
-                  <span style={{ width: 16, fontSize: 13, textAlign: 'right' }}>{chart.counts[e]}</span>
-                </div>
-              ))}
-            </div>
-            <div>
-              <div style={{ fontSize: 13, fontWeight: 700, color: 'var(--text-2)', marginBottom: 8 }}>旺衰基础参考（月令）</div>
-              <div style={{ border: '1px solid var(--line)', borderRadius: 12, padding: 12, fontSize: 13 }}>
-                <div>月令：{chart.wangshuai.seasonBranch}（{chart.wangshuai.season}）</div>
-                <div style={{ marginTop: 6 }}>日主五行：{chart.dayElement} → <b>{chart.wangshuai.dayStatus || '—'}</b></div>
-                <div style={{ color: 'var(--text-3)', fontSize: 12, marginTop: 6 }}>{chart.wangshuai.note}</div>
-              </div>
-              <div style={{ fontSize: 12, color: 'var(--text-3)', marginTop: 10 }}>
-                月柱以「节」为界：{chart.monthTerm} 后换月柱。{chart.nearBoundary ? '出生时刻临近节气边界，需按分钟核对。' : ''}
-              </div>
-            </div>
-          </div>
-          <div className="remind" style={{ marginTop: 14 }}>
-            <span className="r-ico">🔬</span>
-            <div style={{ fontSize: 13 }}>{chart.disclaimer} 本工具用于理解「四柱是怎么排出来的」，不输出任何吉凶断言。</div>
-          </div>
-        </div>
-      )}
+      {tab === 'bazi' ? <BaziPanel /> : <IChingPanel />}
     </div>
   )
 }
@@ -528,13 +464,19 @@ function PaiPanTool() {
 // ============================================================
 // 页面主体
 // ============================================================
-export function ToolsPage() {
-  const [tab, setTab] = useState('ganzhi')
+export function ToolsPage({ initialTab }) {
+  const [tab, setTab] = useState(initialTab || 'ganzhi')
+  // 路由变化（/tools ↔ /chart 复用同一组件实例）时回到入口工具
+  useEffect(() => {
+    const onHash = () => setTab(initialTab || 'ganzhi')
+    window.addEventListener('hashchange', onHash)
+    return () => window.removeEventListener('hashchange', onHash)
+  }, [initialTab])
   return (
     <div>
       <PageHead
         title="🧰 玄学工具实验室"
-        sub="六个确定性工具：算干支、看五行、玩卦象、认罗盘、查节气、学排盘——全部本地计算、结果可核对。"
+        sub="七个确定性工具：算干支、看五行、玩卦象、认罗盘、查节气、排命盘、起卦象——全部本地计算、结果可核对。"
       />
       <div className="tool-tabs" style={{ marginBottom: 16 }}>
         {TOOLS.map((t) => (
@@ -552,7 +494,7 @@ export function ToolsPage() {
         {tab === 'hexagram' && <HexagramLab />}
         {tab === 'compass' && <CompassSim />}
         {tab === 'solar' && <SolarTermTool />}
-        {tab === 'paipan' && <PaiPanTool />}
+        {tab === 'chart' && <ChartTool />}
       </div>
     </div>
   )
