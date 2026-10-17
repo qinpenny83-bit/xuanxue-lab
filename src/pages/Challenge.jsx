@@ -15,7 +15,7 @@ const ALL_CHAPTERS = COLLEGES.flatMap((c) =>
   c.chapters.map((ch) => ({ id: ch.id, title: ch.title, collegeTitle: c.title, collegeEmoji: c.emoji, nodeCount: ch.nodes.length }))
 )
 
-function ChallengeQuiz({ chapterId, chapter, onPass }) {
+function ChallengeQuiz({ chapterId, chapter }) {
   const { dispatch } = useApp()
   const quiz = useMemo(() => chapterQuiz(chapterId), [chapterId])
   const [idx, setIdx] = useState(0)
@@ -36,7 +36,6 @@ function ChallengeQuiz({ chapterId, chapter, onPass }) {
       setResult(r)
       setDone(true)
       dispatch({ type: 'RECORD_CHAPTER_QUIZ', chapterId, chapterName: chapter?.title, passed: r.passed, score: r.score })
-      if (r.passed && onPass) onPass()
       return
     }
     setIdx(idx + 1)
@@ -130,7 +129,6 @@ export function ChallengePage({ chapterId }) {
   const { state } = useApp()
   const chapter = getChapter(chapterId)
   const rec = (state.chapterQuizzes || {})[chapterId] || null
-  const [round, setRound] = useState(0)
   const idx = ALL_CHAPTERS.findIndex((c) => c.id === chapterId)
   const cur = idx >= 0 ? ALL_CHAPTERS[idx] : null
   const nextCh = idx >= 0 ? ALL_CHAPTERS[idx + 1] : null
@@ -165,7 +163,7 @@ export function ChallengePage({ chapterId }) {
         </div>
       )}
 
-      <ChallengeQuiz key={`${chapterId}-${round}`} chapterId={chapterId} chapter={chapter} onPass={() => setRound((r) => r + 1)} />
+      <ChallengeQuiz chapterId={chapterId} chapter={chapter} />
 
       <div className="row mt-12" style={{ gap: 8, flexWrap: 'wrap' }}>
         <button className="btn btn-ghost btn-sm" onClick={() => navigate('/map')}>← 回地图</button>

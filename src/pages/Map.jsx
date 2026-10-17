@@ -53,7 +53,7 @@ function NodeCard({ node, progress, isAgentRecommended }) {
     <button
       className={`map-node ${locked ? 'locked' : ''} ${pStatus === 'completed' ? 'done' : ''} ${m.status === 'review' ? 'review' : ''} ${isAgentRecommended ? 'agent-pick' : ''}`}
       onClick={open}
-      style={{ textAlign: 'center', width: 172 }}
+      style={{ textAlign: 'center' }}
       disabled={locked}
     >
       <div className="node-emoji">{node.emoji}</div>
@@ -84,7 +84,7 @@ function ChapterBlock({ chapter, lessonProgress, agentNodeId, quizRec }) {
   const passed = quizRec && quizRec.passed
   return (
     <section className="chapter-block" style={{ marginTop: 16 }}>
-      <div className="spread" style={{ alignItems: 'flex-start', marginBottom: 10 }}>
+      <div className="spread" style={{ alignItems: 'flex-start', marginBottom: 10, gap: 10, flexWrap: 'wrap' }}>
         <div>
           <h3 style={{ margin: 0, fontSize: 17 }}>{chapter.title}</h3>
           <p className="tiny muted" style={{ margin: '4px 0 0', maxWidth: 560 }}>{chapter.desc}</p>
@@ -96,7 +96,7 @@ function ChapterBlock({ chapter, lessonProgress, agentNodeId, quizRec }) {
               {passed && <span className="pill pill-teal">🏆 已通关</span>}
               {quizRec && !passed && <span className="pill pill-amber">最佳 {quizRec.best} 分</span>}
               <button className={`btn btn-sm ${passed ? 'btn-ghost' : 'btn-primary'}`} onClick={() => navigate(`/challenge/${chapter.id}`)}>
-                ⚔️ 闯关
+                ⚔️ 开始闯关
               </button>
             </>
           )}
@@ -120,7 +120,7 @@ function ChapterBlock({ chapter, lessonProgress, agentNodeId, quizRec }) {
 function CollegeView({ college, lessonProgress, agentNodeId, chapterQuizzes }) {
   return (
     <div>
-      <div className="spread" style={{ alignItems: 'flex-start', marginBottom: 4 }}>
+      <div className="spread" style={{ alignItems: 'flex-start', marginBottom: 4, gap: 10, flexWrap: 'wrap' }}>
         <div>
           <h2 style={{ margin: 0, fontSize: 20 }}>{college.emoji} {college.title}</h2>
           <p className="tiny muted" style={{ margin: '4px 0 0', maxWidth: 600 }}>{college.tagline}</p>
@@ -249,13 +249,15 @@ export function MapPage() {
 
   return (
     <div>
-      <div className="spread" style={{ alignItems: 'flex-end', marginBottom: 8 }}>
+      <div className="spread" style={{ alignItems: 'flex-end', marginBottom: 8, gap: 10, flexWrap: 'wrap' }}>
         <div>
           <h1 className="page-title">🗺️ 玄学大学学习地图</h1>
-          <p className="page-sub" style={{ marginBottom: 0 }}>全部学院 + 研究院。每个节点都告诉你：学过什么、会了什么、忘了什么。</p>
+          <p className="page-sub map-sub" style={{ marginBottom: 0 }}>全部学院 + 研究院。每个节点都告诉你：学过什么、会了什么、忘了什么。</p>
         </div>
         <div className="tiny muted">
-          {summary.mastered} 掌握 · {summary.review} 待复习 · {summary.learning} 学习中
+          {summary.mastered + summary.review + summary.learning === 0
+            ? '🌱 从第一个节点开始，点亮你的地图'
+            : `${summary.mastered} 掌握 · ${summary.review} 待复习 · ${summary.learning} 学习中`}
         </div>
       </div>
 
@@ -272,7 +274,7 @@ export function MapPage() {
         )
       })()}
 
-      <div className="tiny muted mt-12" style={{ display: 'flex', gap: 16, flexWrap: 'wrap' }}>
+      <div className="map-legend tiny muted mt-12">
         <span>○ 开始</span>
         <span style={{ color: 'var(--amber-deep)', fontWeight: 700 }}>◐ 继续</span>
         <span style={{ color: 'var(--teal-deep)', fontWeight: 700 }}>✓ 已完成</span>
@@ -281,15 +283,15 @@ export function MapPage() {
       </div>
 
       <div className="row mt-16" style={{ gap: 8, flexWrap: 'wrap' }}>
-        <button className={`btn btn-sm ${mode === 'all' ? 'btn-primary' : 'btn-ghost'}`} onClick={() => setMode('all')}>🗺️ 全学院</button>
-        <button className={`btn btn-sm ${mode === 'path' ? 'btn-primary' : 'btn-ghost'}`} onClick={() => setMode('path')}>🛤️ 当前主线</button>
+        <button className={`btn btn-sm ${mode === 'all' ? 'btn-indigo' : 'btn-ghost'}`} onClick={() => setMode('all')}>🗺️ 全学院</button>
+        <button className={`btn btn-sm ${mode === 'path' ? 'btn-indigo' : 'btn-ghost'}`} onClick={() => setMode('path')}>🛤️ 当前主线</button>
       </div>
 
-      <div className="map-tabs mt-8" style={{ display: 'flex', gap: 8, flexWrap: 'wrap', marginBottom: 12, alignItems: 'center' }}>
+      <div className="map-tabs mt-8">
         {mode === 'all' && tabs.map((t) => (
           <button
             key={t.key}
-            className={`btn btn-sm ${tab === t.key ? 'btn-primary' : 'btn-ghost'}`}
+            className={`btn btn-sm ${tab === t.key ? 'map-tab-on' : 'btn-ghost'}`}
             onClick={() => setTab(t.key)}
           >
             {t.label}
